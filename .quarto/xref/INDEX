@@ -1,0 +1,21 @@
+{
+  "1-introduction.qmd": {
+    "1-introduction.tex": "e4592997"
+  },
+  "index.qmd": {
+    "index.tex": "892019c4",
+    "index.html": "add88e85"
+  },
+  "2-reproducibility.qmd": {
+    "2-reproducibility.tex": "55900b8a"
+  },
+  "intro.qmd": {
+    "intro.html": "04740ba6"
+  },
+  "summary.qmd": {
+    "summary.html": "8b45192a"
+  },
+  "references.qmd": {
+    "references.html": "11846332"
+  }
+}

@@ -1,0 +1,20 @@
+project:
+  type: book
+
+book:
+  title: "Cognitive Processing of Magnitude in Data Visualisations"
+  author: "Duncan Bradley"
+  chapters:
+    - index.qmd
+    - introduction.qmd
+    - reproducibility.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  pdf:
+    documentclass: scrreprt
+
+mainfont: Poppins
+sansfont: Poppins

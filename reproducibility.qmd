@@ -1,0 +1,5 @@
+# Reproducibility
+
+Placeholder text for reproducibility chapter.
+
+See @knuth84 for additional discussion of literate programming.
