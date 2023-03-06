@@ -13,8 +13,11 @@ book:
 bibliography: references.bib
 
 format:
-  pdf:
+#  pdf:
+#    documentclass: scrreprt
+  html:
     documentclass: scrreprt
 
-mainfont: Poppins
-sansfont: Poppins
+# use for pdf only
+#mainfont: Poppins
+#sansfont: Poppins
