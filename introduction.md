@@ -12,7 +12,14 @@ What about the presentation of numbers? Reading them takes a long time, writing 
 
 A testament to their ubiquity is the battery icon: a visualisation only a few pixels wide, that we carry everywhere we go. 
 
+So they are a tool for representation, for helping us think. They facilitate cognition through efficient and clear external representations. 
 
+Scaife and Rogers (1996) referred to graphics like data visualisations as ‘external representations’, and established the concept of ‘external cognition’, which concerns the influence of these graphics on cognitive processing. Key features of this concept include facilitating cognition through efficient and clear external representations (computational offloading; re-representation) and encouraging particular inferences through certain formats (graphical constraining). For further reference, who is citing Scaife and Rogers?
+
+Data representations are a broad field, but they all share in common an ability to capture information and convey it in an efficient way. They exploit our sensory capabilities, and cognitive heuristics. 
+Other examples include sonficiation and physicalisation, though visualisation is the most common. 
+
+Yet, there are so many different ways to represent this information, so the question is, how do we design them for maximum effectiveness? There are many ways to define effectiveness, depending on the purpose of the visualisation (analysis, communication, persuasion). But they all require understanding of the interaction between the chart and the viewer. However, this space is also crowded by other concerns, usually aesthetic preferences. Where relevant, we can use scientific research. 
 
 
 
@@ -30,7 +37,7 @@ My role is not to cover all bases and predict precisely what will happen. Instea
 
 # The State of Visualisation and Psychology Research
 
-The stuff that has been really successful isn't really new. It's established psychology effects applied to visualisation (attention for focus and declutter, curse of knowledge). What does this say about where we need to look for new knoweldge?
+The stuff that has been really successful isn't really new. It's established psychology effects applied to visualisation (attention for focus and declutter, curse of knowledge, datasaurus (Boger)). What does this say about where we need to look for new knoweldge?
 
 Correll: Are We Making Progress In Visualization Research?
 and Kosara (2016) - Empire Built on Sand
@@ -62,6 +69,7 @@ Robert Kosara pie chart misconception work
 Zacks and Tversky - if different chart types serve different purposes, are we at risk of being mislead by the chart type
 What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
 Xiong proximity
+Newman Scholl, Pentoney Berger, 
 
 # Visualisation Literacy
 
@@ -99,8 +107,11 @@ What is it about Witt’s study that means it can give such precise recommendati
 
 # Text
 
+See Zotero
+
 # Numerical Framing
 
+General knowledge on cognition about numbers - couple of papers summarising how good/bad we are and interesting findings. 
 Non-visual perspective
 What is framing generally? What does it show about how our brains represent information?
 Lundquist et al. 

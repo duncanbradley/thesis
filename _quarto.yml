@@ -6,8 +6,8 @@ book:
   author: "Duncan Bradley"
   chapters:
     - index.qmd
-    - introduction.qmd
-    - reproducibility.qmd
+    - introduction.md
+    - reproducibility.md
     - references.qmd
 
 bibliography: references.bib
