@@ -14,14 +14,16 @@ A testament to their ubiquity is the battery icon: a visualisation only a few pi
 
 So they are a tool for representation, for helping us think. They facilitate cognition through efficient and clear external representations. 
 
-Scaife and Rogers (1996) referred to graphics like data visualisations as ‘external representations’, and established the concept of ‘external cognition’, which concerns the influence of these graphics on cognitive processing. Key features of this concept include facilitating cognition through efficient and clear external representations (computational offloading; re-representation) and encouraging particular inferences through certain formats (graphical constraining). For further reference, who is citing Scaife and Rogers?
+Scaife and Rogers (1996) referred to graphics like data visualisations as ‘external representations’, and established the concept of ‘external cognition’, which concerns the influence of these graphics on cognitive processing. Key features of this concept include facilitating cognition through efficient and clear external representations (computational offloading; re-representation) and encouraging particular inferences through certain formats (graphical constraining). For further reference, who is citing Scaife and Rogers? See also Card (2002)
 
 Data representations are a broad field, but they all share in common an ability to capture information and convey it in an efficient way. They exploit our sensory capabilities, and cognitive heuristics. 
 Other examples include sonficiation and physicalisation, though visualisation is the most common. 
 
 Yet, there are so many different ways to represent this information, so the question is, how do we design them for maximum effectiveness? There are many ways to define effectiveness, depending on the purpose of the visualisation (analysis, communication, persuasion). But they all require understanding of the interaction between the chart and the viewer. However, this space is also crowded by other concerns, usually aesthetic preferences. Where relevant, we can use scientific research. 
 
+The issue - the very thing that makes visualisations effective (the metaphor) is what can make them misleading.
 
+People like Huff write books about ‘how to mislead’, hoping that people will engage in the opposite, but what’s the opposite? An honest unbiased account, or a persuasive one? A designer who does not feel they are expressing a particular story is still advocating for a realisatic considered view of the data. That is, they are motivated to not mis-represent the data. 
 
 
 # The Thesis
@@ -55,6 +57,9 @@ How much difference does it make really?
 Woodin vs. South China Morning post
 Desbarats - is it all just ‘it depends’?
 
+How good is the evidence we do have?
+Rensink (2021) - how not to study a visualisation
+
 # Precision
 
 Cleveland and McGill
@@ -63,13 +68,23 @@ Correll et al (2012) - Comparing Averages in Time Series Data
 Why shouldn't everything be a scatterplot?
 Zacks and Tversky - different chart types serve different purposes
 Robert Kosara pie chart misconception work
+Borkin (2011) - self-report conflicts with utility of rainbow colourmap
 
-# General Framing in Data Vis - Cogtnitive Bias
+Rensink (2021); Elliott et al. (2020) - role of vision science
+
+Showing less precise data can make things easier to see (aggregation in timeseries) - the opposite of anscombe’s quartet
+Albers/Szafir aggregation/colour
+
+# General Framing in Data Vis - Cognitive Bias
 
 Zacks and Tversky - if different chart types serve different purposes, are we at risk of being mislead by the chart type
 What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
 Xiong proximity
 Newman Scholl, Pentoney Berger, 
+
+Does inclusion of a visualisation actually increase persuasion/trust/belief (Tal & Wansink) + failed replication
+
+Misleading - Rogowitz et al. 1996
 
 # Visualisation Literacy
 
@@ -118,7 +133,11 @@ Lundquist et al.
 Link to Grice - readers/viewers make assumptions about communicative intent. They aren’t just passive receipients. 
 Therefore there is a trust element - when trust is high, more likely to fail to question the delivery of the message. 
 
+Other numerical biases have been studied in a datavis context e.g. Dimara et al. 2017, 2019
 
+# Thesis Statement?
+
+It is my thesis that…
 
 
   
