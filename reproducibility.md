@@ -12,7 +12,8 @@ Need to add all papers below
 2. Read through paper and highlight relevant points
 3. Write summary of paper
 
-Ask Andrew about what the angle is here: is it mainly a justification for what I’ve done?
+This thesis should be a case study in reproducible research. This is part of the thesis in how to conduct data visualisation research. 
+This includes reproducible experiments - PsychoPy
 
 * Introduction to the reproducibility crisis
 * Definitions and clarifications
