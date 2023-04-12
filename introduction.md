@@ -6,6 +6,9 @@
 
 We are often helped by metaphors in language. They allow us to tie a new concept to something we know. They promote comprehension by capturing meaning in a manner that can be quickly and accurately perceived. But metaphors are concerned with concepts: a ‘cold’ war where no weapons are fired (if ‘heat’ = hostility/conflict). A different type of abstract representation is art: translation to a sensory domain. The horrors of war are adeptly expressed in a cubist painting. These are impossible to quantify, but artists seek to capture them. The cubist painting is effective because it is faithful to the underlying concept. But some things are not so abstract, they may be difficult to measure or count, but we do it anyway. Like the number of soliders at different stages in a battle. We can also express these using metaphors: metaphors which are a testament to the nature of the information. This information is more precise than an abstract concept. Therefore, we have the opportunity for using a medium which appreciates precision, we exploit our senses. Display is systematic.
 
+Iraq war deaths - coalition and civilian deaths
+Unnecessary deaths during the Crimean War as a result of preventable infections
+
 The medium is a critical feature of effective communication. People dislike meeting that should have been emails, but for certain situations an email is massively inappropriate. 
 
 What about the presentation of numbers? Reading them takes a long time, writing them down makes your eyes hurt. Getting someone to recognise a pattern straight away requires both precision and speed. This is data visualisation. 
@@ -25,6 +28,13 @@ The issue - the very thing that makes visualisations effective (the metaphor) is
 
 People like Huff write books about ‘how to mislead’, hoping that people will engage in the opposite, but what’s the opposite? An honest unbiased account, or a persuasive one? A designer who does not feel they are expressing a particular story is still advocating for a realisatic considered view of the data. That is, they are motivated to not mis-represent the data. 
 
+Themes for introduction
+  * benefits of data visualisation
+  * purpose - truth telling - avoid misleading
+  * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
+  * it’s about effective communication for supporting cognition
+
+I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation.
 
 # The Thesis
 
@@ -55,7 +65,9 @@ Chart Junk
   
 How much difference does it make really?
 Woodin vs. South China Morning post
+Titles vs. Climate Stripes
 Desbarats - is it all just ‘it depends’?
+So we have to acknowledge that psychology can’t tell us everything
 
 How good is the evidence we do have?
 Rensink (2021) - how not to study a visualisation
@@ -85,6 +97,8 @@ Newman Scholl, Pentoney Berger,
 Does inclusion of a visualisation actually increase persuasion/trust/belief (Tal & Wansink) + failed replication
 
 Misleading - Rogowitz et al. 1996
+
+Hullman & Diakopoulos: Rhetoric
 
 # Visualisation Literacy
 
@@ -132,6 +146,7 @@ What is framing generally? What does it show about how our brains represent info
 Lundquist et al. 
 Link to Grice - readers/viewers make assumptions about communicative intent. They aren’t just passive receipients. 
 Therefore there is a trust element - when trust is high, more likely to fail to question the delivery of the message. 
+Which papers cite Brown (2008) and Borges (1974)?
 
 Other numerical biases have been studied in a datavis context e.g. Dimara et al. 2017, 2019
 
