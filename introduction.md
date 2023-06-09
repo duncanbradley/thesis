@@ -8,6 +8,8 @@
 
 We are often helped by metaphors in language. They allow us to tie a new concept to something we know. They promote comprehension by capturing meaning in a manner that can be quickly and accurately perceived. But metaphors are concerned with concepts: a ‘cold’ war where no weapons are fired (if ‘heat’ = hostility/conflict). A different type of abstract representation is art: translation to a sensory domain. The horrors of war are adeptly expressed in a cubist painting. These are impossible to quantify, but artists seek to capture them. The cubist painting is effective because it is faithful to the underlying concept. But some things are not so abstract, they may be difficult to measure or count, but we do it anyway. Like the number of soliders at different stages in a battle. We can also express these using metaphors: metaphors which are a testament to the nature of the information. This information is more precise than an abstract concept. Therefore, we have the opportunity for using a medium which appreciates precision, we exploit our senses. Display is systematic.
 
+Data visualisations are abstract in the sense that they don’t show the actual thing, but not abstract in the sense that an artwork is. There is a clear relationship. The number represent a state of the world, and the visualisation represents those numbers. 
+
 Iraq war deaths - coalition and civilian deaths
 Unnecessary deaths during the Crimean War as a result of preventable infections
 
@@ -36,7 +38,9 @@ Themes for introduction
   * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
   * it’s about effective communication for supporting cognition
 
-I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation.
+I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. 
+
+There is lots of choice in data visualisation; how can we make design choices that achieve our goal of effective communication (engagement, enlightenment, shock, understanding, knowledge, utility). 
 
 Tal & Wansink
 

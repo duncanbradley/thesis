@@ -17,6 +17,8 @@ Burns et al. (2021) - misconception about difficulty
 Chart Junk
   * Beyond memorability - Borkin
   * Kopp et al. - embellishments
+
+MacDonald-Ross (1977; see Spence and Levandovsky, 1991) also cautions against making dismissive judgements about ‘expert’ advice in the absence of empirical evidence. Pie charts were used widely without expert approval, but Spence and Lewandowsky find evidence that they are useful in certain scenarios.   
   
 How much difference does it make really?
 Woodin vs. South China Morning post
@@ -42,6 +44,8 @@ Rensink (2021); Elliott et al. (2020) - role of vision science
 Showing less precise data can make things easier to see (aggregation in timeseries) - the opposite of anscombe’s quartet
 Albers/Szafir aggregation/colour
 
+The precision work speaks to our concern with (in)accuracy - that we might be misleading others, that others may mislead us, that charts may be weak and lack clarity. But there is so much more than simply extracting values wrong.
+
 # General Framing in Data Vis - Cognitive Bias
 
 Zacks and Tversky - if different chart types serve different purposes, are we at risk of being mislead by the chart type
@@ -55,11 +59,19 @@ Misleading - Rogowitz et al. 1996
 
 Hullman & Diakopoulos: Rhetoric
 
+Taxonomies have captured the mapping between data types and visualisation types, revealing what is suitable for understanding particular datasets. 
+
+Brust-Renck et al. (2013) - importance of intentionally selecting a message and designing chart appropriately to convey gist. 
+
 # Visualisation Literacy
 
 What would a bias-sensitive measure of data visualisation literacy look like, given what now know about bias?
 
 Look at: CALVI: Critical Thinking Assessment for Literacy in Visualizations
+
+How has literacy been assessed before (Okan)
+
+Why have I chosen this specific measure?
 
 # Truncation
 
@@ -105,6 +117,11 @@ Which papers cite Brown (2008) and Borges (1974)?
 
 Other numerical biases have been studied in a datavis context e.g. Dimara et al. 2017, 2019
 
+Framing effects were initially primarily a reference to valence framing, but have since expanded to encompass a wider range of biases. 
+
+# Vis theory
+
+Grammar of graphics
 
 
   

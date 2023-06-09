@@ -68,3 +68,5 @@ docker ps
 docker stop container_id 
 
 The issue with binder is that you can’t change images (so can’t edit the script) - you can only run it
+
+What’s the benefit over something like groundhog?
