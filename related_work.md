@@ -17,8 +17,9 @@ Burns et al. (2021) - misconception about difficulty
 Chart Junk
   * Beyond memorability - Borkin
   * Kopp et al. - embellishments
+  * Okan et al. (2018) - labels are useful
 
-MacDonald-Ross (1977; see Spence and Levandovsky, 1991) also cautions against making dismissive judgements about ‘expert’ advice in the absence of empirical evidence. Pie charts were used widely without expert approval, but Spence and Lewandowsky find evidence that they are useful in certain scenarios.   
+MacDonald-Ross (1977; see Spence and Levandovsky, 1991) also cautions against making dismissive judgements about ‘expert’ advice in the absence of empirical evidence. Pie charts were used widely without expert approval, but Spence and Lewandowsky find evidence that they are useful in certain scenarios.  - relate this to Tufte
   
 How much difference does it make really?
 Woodin vs. South China Morning post
@@ -62,6 +63,8 @@ Hullman & Diakopoulos: Rhetoric
 Taxonomies have captured the mapping between data types and visualisation types, revealing what is suitable for understanding particular datasets. 
 
 Brust-Renck et al. (2013) - importance of intentionally selecting a message and designing chart appropriately to convey gist. 
+
+Reyna and Brainerd (2008) - Suggest it’s not just about making humans more like computers and memorising verbatim detail, it’s about making sure the gist that they do extract captures the true nature of the information. 
 
 # Visualisation Literacy
 
