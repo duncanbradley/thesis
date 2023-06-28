@@ -4,25 +4,13 @@ The purpose of this chapter is to place my work in a wider context - to give the
 
 # The State of Visualisation and Psychology Research
 
-
+Kosara (2016) makes the case for a solid empirical foundation for design guidelines. However, the evidence base is weak (Kosara, 2016). Some of the recieved wisdom has not been tested at all, other guidance has been disproven or has been confirmed only recently. It’s not even always clear where the evidence ends and the opinion starts - intuition and unfounded statements make for “visualisation folklore” (Correll, 2022, pg. 3). The role of data visualisation research is to generate robust evidence to fill gaps in knowledge. As Correll’s article explores reserarchers’ shared values (). This work was not a systematic review of all literature, but points towards a lack of consistency in achieving new knowledge. 
 
 The stuff that has been really successful isn't really new. It's established psychology effects applied to visualisation (attention for focus and declutter, curse of knowledge, datasaurus (Boger)). What does this say about where we need to look for new knoweldge?
-
-Correll: Are We Making Progress In Visualization Research?
-
-Kosara (2016) - Empire Built on Sand - ‘foundation’
-
-It’s not even always clear where the evidence ends and the opinion starts.
-
-Kosara (2016) makes the case for a solid empirical foundation for design guidelines. Lots is built on intuitions, some has been disproven, some not even investigated. 
-
-stuff we think we know = “visualisation folklore” (Correll, 2022, pg. 3)
 
 Adjacent fields like perceptual psychology might tackle problems well because of more established methods, related empirical work and theory (Correll, 2022). The best source of theory in visualisation might be pyshcological perception and cognition research (Rensink, 2021).
 
 There’s a distinction between my point about asking designers what they think works and asking viewers what they think works. The first is a point about whether claims are built on any evidence at all. The second is a point about whether claims are built upon *the right type* of evidence. 
-
-Why do we need vis research?
 
 Why can’t we just ask people?
 Robert Kosara pie chart misconception work
@@ -63,14 +51,7 @@ Arguably the most influential experiment in the data visualisation field was con
 
 The issue here is not the work itself, rather the interpretation of this work. Indeed, this work has endured replication (Heer and Bostock), it’s findings are far-reaching and really useful. However, to naively take this as the *only* relevant consideration is unheeded, as there are many other tasks than judging ratios. (Bertini et al. 2020). 
 
-Position-encoding is the optimal choice for extracting single values, but is not necessarily the optimal choice for other tasks (e.g., pattern recognition). The ability to extract values is not the only use of charts. Different tasks benefits from different encondings. One particularly interesting example is situations where precision hinders, rather than facilitates, judgements (Correll et al. 2012).  
-  * Line charts typically used for timeseries data
-  * For certain aggregation tasks, there are better encoding types, even when (becuase) those encoding types are less precise
-  * Aggregretation tasks are less concerned with specifics, more concerned with overview. 
-  * The way the visual system tackles line graphs makes it more difficult to perform averaging
-  * Averaging is particularly efficient at lower spatial frequencies 
-  * Better at averaging with color than line graphs. 
-  * This finding offers a new perspective on Anscombe’s quartet. Effectively conveying differences between datasets conceals their similarities. Using a less precise visual channel would facilitate recognition of the latter. 
+Position-encoding is the optimal choice for extracting single values, but is not necessarily the optimal choice for other tasks (e.g., pattern recognition). The ability to extract values is not the only use of charts. Different tasks benefits from different encondings. One particularly interesting example is situations where precision hinders, rather than facilitates, judgements (Correll et al. 2012). Aggregretation tasks are less concerned with specifics, more concerned with overview, so there are better encoding types, which are less precise. Line charts typically used for timeseries data. The way the visual system tackles line graphs makes it more difficult to perform averaging. Averaging is particularly efficient at lower spatial frequencies, so there is better averaging with color than line graphs. This finding offers a new perspective on Anscombe’s quartet. Effectively conveying differences between datasets conceals their similarities. Using a less precise visual channel would facilitate recognition of the latter. 
 
 Furthermore, different encoding types are suited to different types of data. For example, some are intrinsically suited to displaying part-to-whole relationships (e.g., pie charts, stacked bar charts), whilst others are better suited to displaying trends (e.g., line charts). Zacks and Tversky (different chart types serve different purposes); 
 
