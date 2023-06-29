@@ -72,8 +72,6 @@ Newman Scholl, Pentoney Berger,
 
 Does inclusion of a visualisation actually increase persuasion/trust/belief (Tal & Wansink) + failed replication
 
-Misleading - Rogowitz et al. 1996
-
 Hullman & Diakopoulos: Rhetoric
 
 Taxonomies have captured the mapping between data types and visualisation types, revealing what is suitable for understanding particular datasets. 
@@ -85,6 +83,46 @@ Reyna and Brainerd (2008) - Suggest it’s not just about making humans more lik
 How do I move from general cognitive bias to truncation specifically?
 What’s different about truncation?
 
+# Truncation
+
+One topic that has enjoyed attention in recent years is axis truncation. This issue has also captured minds outside of academia. Perhaps it’s particularly interesting to engage with (for both groups) because it seems like a big change comes from a subtle manipulation. The data and the chart type both stay the same; all that’s needed is a tweak of the axis. It is another example of where popular opinion can be at odds with research findings. Part of this may be because people like simple rules, but the research doesn’t offer simple rules here. 
+
+Sentence on why relative difference has been so widely studied. Sentence on why it’s particularly important for risk perception
+
+Sentence on the benefits of studying impressions as well as value extractions. This is a hangover from Cleveland and McGill. See Stone et al. (2015)
+
+Early studies - one sentence each (use citations of these in later work):
+Cleveland et al. (1982)
+Taylor and Anderson (1986)
+Arunachalam et al. (2002)
+Beattie and Jones (2002)
+Raschke and Steinbart (2008)
+Pennington and Tuttle (2009)
+
+Pandey et al. (2015)
+Witt (2019)
+Correll et al. (2020)
+Yang et al. (2021)
+Driessen et al. (2022)
+
+Risk studies:
+Sandman et al. (1994)
+Add other papers here
+
+Other scale manipulations
+Y-axis inversion - Woodin et al. (2021); Pandey (2015)
+Log scales - Romano et al. (2020) - see also cited articles
+
+To what extent is there a difference in the definitions of ‘axis truncation’:
+  * both ends vs. one end
+  * bars vs. axes
+What is it about Witt’s study that means it can give such precise recommendations whereas others can’t
+
+There is an important distinction between ‘error’ and ‘bias’ - various interpretations may not necessarily be wrong - just different.
+
+Introducing my topic - magnitude judgements:
+Rarely mentioned as deceptive when describing axis manipulations
+  
 # Visualisation Literacy
 
 What would a bias-sensitive measure of data visualisation literacy look like, given what now know about bias?
@@ -95,15 +133,6 @@ How has literacy been assessed before (Okan)
 
 Why have I chosen this specific measure?
 
-# Truncation
-
-To what extent is there a difference in the definitions of 'axis truncation':
-  * both ends vs. one end
-  * bars vs. axes
-What is it about Witt’s study that means it can give such precise recommendations whereas others can’t
-
-There is an important distinction between ‘error’ and ‘bias’ - various interpretations may not necessarily be wrong - just different.
-  
 # Accessibility
 
 # Colour
