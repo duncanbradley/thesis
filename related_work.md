@@ -122,14 +122,29 @@ There is an important distinction between ‘error’ and ‘bias’ - various i
 
 Introducing my topic - magnitude judgements:
 Rarely mentioned as deceptive when describing axis manipulations
+
+Certain types of misleading design are consistently misleading (e.g. inverted y-axis). They are consistently misleading becuase this isn’t based on the data at all. Other types are not consistently misleading (e.g. truncated y-axis). Here, it’s impossible to say *a priori* that a chart is misleading because the quality of the design depends on the data. Therefore, it’s really about the *potential* to mislead. A simple test could be whether the ‘misleader’ (to use Ge et al.’s (2023) term) needs to have the word ‘inappropriate’ before it to convey the issue. For example, concealed uncertainty, cherry picking, missing data are all self explanatory, but ‘aggregation’ and ‘scale range’ need the word inappropriate before them in order to highlight the issue. It is the later that might be considered ‘potentially’ misleading. Ge et al. (2023) also note that assessing response accuracy requires a specific task, so misleadingness will always be related to specific tasks. 
   
 # Visualisation Literacy
 
-What would a bias-sensitive measure of data visualisation literacy look like, given what now know about bias?
+Increasing popularity and use of data visualisation has expanded the audience who are exposed to charts. Burns et al. (2023) discusses research aimed at understanding how relatively inexperienced users understand charts. This is important, but there is inconsistency around what constitutes a novice, and also a inconsistency between general population and samples used to explore that population. The term novice is unhelpful since it forces a binary perspective onto a more nuanced picture. Why not look at individual variation in ability? Burns reports very few cases where novice was defined by literacy.
 
-Look at: CALVI: Critical Thinking Assessment for Literacy in Visualizations
+It is useful to understand variability in biases by looking at individual differences. Get a better picture of how they might work, and the types of audience most likely to be affected. 
 
-How has literacy been assessed before (Okan)
+Some people are ‘novices’ - discuss the two novices papers - but there are not just two groups - literacy scales can be useful
+Visualisation literacy is the ability to comprehend data presented in visualisations (Boy et al.)
+
+Galesic and Garcia-Retamero’s 13-item scale (2011) was based on Friel et al.’s (2001) hierarchy of skills for interpreting visualisations. 
+Garcia-Retamero and Galesic (2010) found that…
+Okan et al. (2012) found that
+Boy et al (2014) developed a new method
+Garcia-Retamero et al. (2016) developed a new method due to the length and potential negative consequences of previous tests (i.e. inducing anxiety). Based on prior work developing numeracy scales through subjective judgements. The 5-item version is a refined version of the 10-item subjective scale, based on the items which most strongly correlated with the objective measure, and actually performs better than the 10-item scale. Final items focused on skills (how good are you at …)  more than preferences ( do you like ….) . Diverse participant pool (US m-turkers, UGs in Spain, surgeons and patients in Spanish hospitals). Captures variation in both objective abilities but also metacognition - beliefs about own abilities/skills. 
+Okan et al. (2016) found
+[more papers using the subjective scale](https://scholar.google.com/scholar?cites=12562930392859617416&as_sdt=2005&sciodt=0,5&hl=en)
+Lee et al. (2017) - justification for creating the VLAT
+Camba et al. (2022) suggest that the ability to detect misleading charts should be considered an important feature of data visualisation literacy. 
+Ge et al. (2023) noted that previous work on visualisation literacy has focused on interpretation of well-designed charts. Despite this, the ability to make sense of poorly designed charts is also relevant. Good approach - not to ask Ps whether they think the charts are misleading, but to intersperse misleading and honest charts within a test and measure accuracy. Develop a robust test of 30 items to assess ability to accurately comprehend deceptive designs. Ge et al. (2023) suggest that sufficient attention and critical thinking can help combat misleading visualisations. However, some cognitive biases are persistent even against these efforts. Perhaps this is where the distiction between correctness and interpretation comes in (see Correll et al., 2020, Yang et al., 2021 Stone et al., 2015).
+
 
 Why have I chosen this specific measure?
 
