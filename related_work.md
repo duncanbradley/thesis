@@ -13,6 +13,8 @@ The stuff that has been really successful isn't really new. It's established psy
 
 Adjacent fields like perceptual psychology might tackle problems well because of more established methods, related empirical work and theory (Correll, 2022). The best source of theory in visualisation might be pyshcological perception and cognition research (Rensink, 2021).
 
+Hegarty on need for evidence-based claims. 
+
 There’s a distinction between my point about asking designers what they think works and asking viewers what they think works. The first is a point about whether claims are built on any evidence at all. The second is a point about whether claims are built upon *the right type* of evidence. 
 
 Why can’t we just ask people?
@@ -20,6 +22,7 @@ Robert Kosara pie chart misconception work
 Elting
 Burns et al. (2021) - misconception about difficulty
 Borkin (2011) - self-report conflicts with utility of rainbow colourmap
+See highlights in Çöltekin et al. (2017) references
 Chart Junk
   * Beyond memorability - Borkin
   * Kopp et al. - embellishments
@@ -36,6 +39,7 @@ Isenberg et al. (2013)
 Lam et al (2011)
 Tory (2014)
 Hullman et al. (2019) - importance of decision tasks and not just precision tasks.
+El Greco
 
 Different approaches to studying - correctness vs interpretation
 
@@ -68,6 +72,8 @@ The precision work speaks to our concern with (in)accuracy - that we might be mi
 # General Framing in Data Vis - Cognitive Bias
 
 Previously discussed work has been concerned with whether values are extracted precisely. But thisn’t isn’t the only way values can miselad. What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
+
+Striking patterns can be easily missed. Boger et al.’s datasaurus study illustrates the role of selective attention. Participants instructed to view dots in a particular colour/location failed to notice distinct dinosaur patterns in non-focal data. Even when one is trying to be assume the perspective of a naïve viewer, it’s difficult to adopt an objective outlook when viewing visualisations. Xiong et al.’s curse of knowledge study demonstrates that being briefed about a particular pattern results in over-weighting of these aspects in one’s cognitive representation. The implications for creators are that important messages may be missed if they are not addressed explicitly. What is obvious to a designer may not translate to a viewer. Focus and declutter has long been a recommendation, and is now supported by empirical evidence. This body of research also points to the use of text to support communication of a chart’s intended message. It may seem suspect to have this level of editorial control, instead wanting to let the data speak for themselves, but considering the various rhetorical tecniques, it’s clear there is no truly objective way to present data. 
 
 Zacks and Tversky - if different chart types serve different purposes, are we at risk of being mislead by the chart type
 Xiong proximity
@@ -134,6 +140,7 @@ There is an important distinction between ‘error’ and ‘bias’ - various i
 
 Introducing my topic - magnitude judgements:
 Rarely mentioned as deceptive when describing axis manipulations
+Explain why risk research is so interested in magnitude of difference effects. The choice to do something always has an alternative action. Speigelhalter explains why relative risks are better than absolute risks. But sometimes magnitude does have to be communicated. 
 
 Certain types of misleading design are consistently misleading (e.g. inverted y-axis). They are consistently misleading becuase this isn’t based on the data at all. Other types are not consistently misleading (e.g. truncated y-axis). Here, it’s impossible to say *a priori* that a chart is misleading because the quality of the design depends on the data. Therefore, it’s really about the *potential* to mislead. A simple test could be whether the ‘misleader’ (to use Ge et al.’s (2023) term) needs to have the word ‘inappropriate’ before it to convey the issue. For example, concealed uncertainty, cherry picking, missing data are all self explanatory, but ‘aggregation’ and ‘scale range’ need the word inappropriate before them in order to highlight the issue. It is the later that might be considered ‘potentially’ misleading. Ge et al. (2023) also note that assessing response accuracy requires a specific task, so misleadingness will always be related to specific tasks. 
   
@@ -212,5 +219,6 @@ Kosara and Haroz suggest that the absence of a replication crisis in the visuali
 Their papers discusses several features of poor-quality/sub-standard empirical work that might invalidate a study’s conclusions. Along with other issues (including excessive research degrees of freedom and experimental design issues), they discuss how issues in statistical analysis, such as misapplication of statistical tests, jeopardise validity. To remedy this, data and analysis code should be shared publicly. This facilitates identification of problems and their subsequent rectification. This practices serves as proof of validity: being transparent about analytic process lends credibility. Documenting experimental design assists identifcation of issues/confirmation of good design. Sharing *everything* allows others to carry out all three types of replication to be achieved - including those which are typically challenging - reanalysis and direct replication.
 
 Haroz (2018) - journal articles alone do not provide a complete picture of a research project, so data and code must be openly accessible for the research to be considered reliable/trustworthy. In the visualisation field, a lack of sharing prevents proper examination of conclusions. In VIS 2017 - 15% shared materials openly, 6% shared data openly. Certain sites are less reliable than others because they are easily modified, or are short-lived, becoming afflicted by ‘link-rot’.
+
 
   
