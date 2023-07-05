@@ -17,12 +17,9 @@ Hegarty on need for evidence-based claims.
 
 There’s a distinction between my point about asking designers what they think works and asking viewers what they think works. The first is a point about whether claims are built on any evidence at all. The second is a point about whether claims are built upon *the right type* of evidence. 
 
-Why can’t we just ask people?
+Unfortunately the guidance contains a lot of received wisdom. The most famous is chart junk. Essentially represents a preference for mimimalist designs. There’s nothing wrong with it per se, other than the fact it wasn’t based on evidence. Indeed, there have been situations where it’s been shown to be helpful. Defining the term experimentally would also clarify exactly what features constitute ‘chart junk’, making guidance clearer.
+
 Robert Kosara pie chart misconception work
-Elting
-Burns et al. (2021) - misconception about difficulty
-Borkin (2011) - self-report conflicts with utility of rainbow colourmap
-See highlights in Çöltekin et al. (2017) references
 Chart Junk
   * Beyond memorability - Borkin
   * Kopp et al. - embellishments
@@ -30,6 +27,14 @@ Chart Junk
   * Borgo et al. (2012)
   * Haroz et al. (2015)
   * Skau et al. (2015)
+  * Stock and Behrens (1991)
+
+So, having established that we need an evidence base, next comes the question of how to generate this evidence. One option would be to base our guidance on what people think works best. However, introspection and hunches are not always a reliable source. 
+Elting et al. (1999) - compared to tables, pie charts, and bar charts, icon arrays resulted in the most accurate judgements about clinical trials, but none of the 34 physicians in the sample preferred this method.
+Burns et al. (2021) - participants estimated that the pictographs took longer to understand, compared to equivalent charts without icons. However, this self-report measure was at odds with the actual response times, which indicated no differences between chart types.
+Borkin (2011) - self-report conflicts with utility of rainbow colourmap
+See highlights in Çöltekin et al. (2017) references
+This is not to say that collecting these judgements isn’t useful. Indeed, it provides a valuable insight into people’s willingness to engage with visualisations. However, it’s important that these findings are treated appropriately, and aren’t used to inform conclusions about effectiveness.
 
 How should data visualisations be studied?
 Rensink (2021) - how not to study a visualisation
