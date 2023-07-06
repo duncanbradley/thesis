@@ -34,7 +34,7 @@ People like Huff write books about ‘how to mislead’, hoping that people will
 
 Themes for introduction
   * benefits of data visualisation
-  * purpose - truth telling - avoid misleading
+  * purpose - truth telling - avoid misleading - Spiegelhalter/Harford
   * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
   * it’s about effective communication for supporting cognition
 
@@ -42,7 +42,7 @@ I like the idea of study numbers because they have the illusion of objectivity a
 
 There is lots of choice in data visualisation; how can we make design choices that achieve our goal of effective communication (engagement, enlightenment, shock, understanding, knowledge, utility). 
 
-Tal & Wansink
+Tal & Wansink 
 
 # The Thesis
 
@@ -57,7 +57,7 @@ My role is not to cover all bases and predict precisely what will happen. Instea
 
 # Thesis Statement?
 
-It is my thesis that…
+It is my thesis that interpretations of magnitude can differ according to the design of a data visualisation. Judgements pertaining to values’ magnitudes are under-explored in data visualisation research, but are relevant to interpretations and decision-making. The effect is one of context: certain aspects of a chart subtly convey the context surrounding values, giving cues to magnitude. However, it must be recognised that there are limits to a chart’s influence, and that magnitudes judgements are not wholly determined by the presentation style.
 
 # Overview of Chapters
 

@@ -16,6 +16,8 @@ Despite the fact that a map has no axes in the typical sense, its construction i
 
 There is a difference between the choropleth map study and the bar chart study in terms of upper limits. Because the bar chart data is drawn from a finite population, there is a logical upper limit. Becuase the choropleth map data represents a measurement, rather than a proportion, there is no logical upper limit. This highlights that axes can provide various types of numerical context, but that it’s important to consider what the type of data at hand when deciding axis limits.  
 
+Markant’s findings are relevant here because they also illustrate how external information moderates/mediates the impact of charts. Markant’s work refers to perspective, my work refers to knowledge, but both show how the impact of a design is not fixed, and can depend on what’s in someone’s mind. 
+
 # Data Visualisation Literacy
 
 # Implications
