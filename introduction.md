@@ -6,8 +6,14 @@
 
 “Ich bin ein Berliner”
 
-We are often helped by metaphors in language. They allow us to tie a new concept to something we know. They promote comprehension by capturing meaning in a manner that can be quickly and accurately perceived. But metaphors are concerned with concepts: a ‘cold’ war where no weapons are fired (if ‘heat’ = hostility/conflict). A different type of abstract representation is art: translation to a sensory domain. The horrors of war are adeptly expressed in a cubist painting. These are impossible to quantify, but artists seek to capture them. The cubist painting is effective because it is faithful to the underlying concept. But some things are not so abstract, they may be difficult to measure or count, but we do it anyway. Like the number of soliders at different stages in a battle. We can also express these using metaphors: metaphors which are a testament to the nature of the information. This information is more precise than an abstract concept. Therefore, we have the opportunity for using a medium which appreciates precision, we exploit our senses. Display is systematic.
+Numbers are hard to understand and can be unhelpful when represented abstractly. Plotting data in visualisations counteracts this.
 
+Metaphors are used to express more clearly. They express concepts in terms of familiar and meanigful notions. To assist comprehension of numbers, we use visualisations, which are akin to metaphor. 
+
+Representing the world through numbers. 
+
+Data visualisations function like metaphors. Metaphors promote comprehension by expressing concepts in terms of familiar and meaningful notions. Similarly, representing numbers *as* visual phenomena transforms understanding. However, whilst metaphors’ symbolic representation is evocative, it is imprecise (metaphors cannot express exactly how much healthier one person is compared to another), the symbolic representation in data visualisation is precise. We can exploit our vision. 
+ 
 Data visualisations are abstract in the sense that they don’t show the actual thing, but not abstract in the sense that an artwork is. There is a clear relationship. The number represent a state of the world, and the visualisation represents those numbers. 
 
 Iraq war deaths - coalition and civilian deaths
