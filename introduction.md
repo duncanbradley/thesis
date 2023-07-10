@@ -2,41 +2,34 @@
 
 ~ 2800 words
 
-# Metaphors for War
+When communicating with words, using metaphors helps conveys ideas. When communicating with numbers, data visualisations perform a similar role. A list of numbers can allude to an upwards trend, but representing those numbers *as* visual phenomena facilitates comprehension.
 
-“Ich bin ein Berliner”
+Whilst metaphors are evocative, data visualisations afford precision. In a line chart plotting an upward trend, the pattern depicted corresponds to the exact nature of the increase. The human visual system’s sensitivity to this type of systematic depiction makes data visualisation a powerful tool. Presenting a different pattern would elicit a different mental representation. 
 
-Numbers are hard to understand and can be unhelpful when represented abstractly. Plotting data in visualisations counteracts this.
+Broadly, data visualisations make it easier for the brain to process numerical information. As *external* representations, they reduce perceptual and cognitive burdens in interpretation (Scaife and Rogers, 1996). Imparting efficiency and clarity facilitates pattern-recognition and reasoning. 
 
-Metaphors are used to express more clearly. They express concepts in terms of familiar and meanigful notions. To assist comprehension of numbers, we use visualisations, which are akin to metaphor. 
+However, a single dataset can be depicted in countless different ways, and results can vary widely (Franconeri et al., 2021). Thus, data visualisation’s strength can also be its vulnerability. Outsourcing cognitive processes to a graphical depiction leaves a viewer at the mercy of the chosen method of visual representation. Thus, effective design is crucial. 
 
-Representing the world through numbers. 
+There are many ways to define effectiveness, depending on the purpose of the visualisation (analysis, communication, persuasion). 
+But are we looking for accuracy? or speed? or something broader? 
+Effectiveness could also be considered engagement?
+Need to define it more narrowly as a concern with faithful representation of data. 
+However, given limitations in data, we might think about this on a broaded scale. Instead, we might more accurately think of this in terms of how faithfully the visualisation represents the state of the world that the data pertain to. 
 
-Data visualisations function like metaphors. Metaphors promote comprehension by expressing concepts in terms of familiar and meaningful notions. Similarly, representing numbers *as* visual phenomena transforms understanding. However, whilst metaphors’ symbolic representation is evocative, it is imprecise (metaphors cannot express exactly how much healthier one person is compared to another), the symbolic representation in data visualisation is precise. We can exploit our vision. 
- 
-Data visualisations are abstract in the sense that they don’t show the actual thing, but not abstract in the sense that an artwork is. There is a clear relationship. The number represent a state of the world, and the visualisation represents those numbers. 
 
-Iraq war deaths - coalition and civilian deaths
-Unnecessary deaths during the Crimean War as a result of preventable infections
 
-The medium is a critical feature of effective communication. People dislike meeting that should have been emails, but for certain situations an email is massively inappropriate. 
-
-What about the presentation of numbers? Reading them takes a long time, writing them down makes your eyes hurt. Getting someone to recognise a pattern straight away requires both precision and speed. This is data visualisation. 
-
-A testament to their ubiquity is the battery icon: a visualisation only a few pixels wide, that we carry everywhere we go. 
-
-So they are a tool for representation, for helping us think. They facilitate cognition through efficient and clear external representations. 
-
-Scaife and Rogers (1996) referred to graphics like data visualisations as ‘external representations’, and established the concept of ‘external cognition’, which concerns the influence of these graphics on cognitive processing. Key features of this concept include facilitating cognition through efficient and clear external representations (computational offloading; re-representation) and encouraging particular inferences through certain formats (graphical constraining). For further reference, who is citing Scaife and Rogers? See also Card (2002)
+The goal of data visualisation is to promote recognition, examination and retention of this trend.
+This means they are not only used for communication, but for analytical tasks. 
 
 Data representations are a broad field, but they all share in common an ability to capture information and convey it in an efficient way. They exploit our sensory capabilities, and cognitive heuristics. 
 Other examples include sonficiation and physicalisation, though visualisation is the most common. 
 
 Yet, there are so many different ways to represent this information, so the question is, how do we design them for maximum effectiveness? There are many ways to define effectiveness, depending on the purpose of the visualisation (analysis, communication, persuasion). But they all require understanding of the interaction between the chart and the viewer. However, this space is also crowded by other concerns, usually aesthetic preferences. Where relevant, we can use scientific research. 
 
-The issue - the very thing that makes visualisations effective (the metaphor) is what can make them misleading.
-
+The issue - the very thing that makes visualisations effective (the metaphor) is what can make them misleading. 
 People like Huff write books about ‘how to mislead’, hoping that people will engage in the opposite, but what’s the opposite? An honest unbiased account, or a persuasive one? A designer who does not feel they are expressing a particular story is still advocating for a realisatic considered view of the data. That is, they are motivated to not mis-represent the data. 
+
+When taken at face value, a poorly design chart can be miselading
 
 Themes for introduction
   * benefits of data visualisation
@@ -44,9 +37,13 @@ Themes for introduction
   * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
   * it’s about effective communication for supporting cognition
 
+Effective communication of numerical information is typically concerned with clarity and coherence. 
+
 I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. The popularity of the ‘chart-junk’ concept also speaks to an instinct that if only we presented data with minimal embellishments, we would show it in its purest form (Kosara, 2016). 
 
 There is lots of choice in data visualisation; how can we make design choices that achieve our goal of effective communication (engagement, enlightenment, shock, understanding, knowledge, utility). 
+
+Consider a pie chart showing the composition of a country’s energy sources. If exactly half of a country’s energy is generated by fossil fuels, this source will be represented by exactly half of the pie chart. When the pie chart’s fossil fuel segment occupies more or less than 50% of the chart, this is easily detected/reflected in mental representation. 
 
 Tal & Wansink 
 
