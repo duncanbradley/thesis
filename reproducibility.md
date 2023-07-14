@@ -45,6 +45,7 @@ Why code for stats?
 Easier to check
 Why open-source? - democritisation, not proprietary software
 
+How’s it different to {groundhog}?
 
 What other research has the replication crisis involved that is not the purpose of this chapter?
 Bishop (2019) - HARKing, p-hacking, low power, publication bias

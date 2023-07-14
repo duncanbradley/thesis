@@ -31,9 +31,9 @@ Chart Junk
 
 So, having established that we need an evidence base, next comes the question of how to generate this evidence. One option would be to base our guidance on what people think works best. However, introspection and hunches are not always a reliable source. 
 Elting et al. (1999) - compared to tables, pie charts, and bar charts, icon arrays resulted in the most accurate judgements about clinical trials, but none of the 34 physicians in the sample preferred this method.
-Burns et al. (2021) - participants estimated that the pictographs took longer to understand, compared to equivalent charts without icons. However, this self-report measure was at odds with the actual response times, which indicated no differences between chart types.
-Borkin (2011) - self-report conflicts with utility of rainbow colourmap
-See highlights in Çöltekin et al. (2017) references
+Burns et al. (2021) - participants estimated that the pictographs took longer to understand, compared to equivalent charts without icons. However, this self-report measure was at odds with the actual recorded response times, which indicated no differences between chart types.
+Borkin (2011) - medical students almost unanimously prefered the rainbow colour scheme, but made few errors when using divering color scheme (e.g. red-blue).
+Comparing different statistical map designs - choropleth maps preferred but confered no performance advantage over other map designs (Mendonça et al., 2014).
 This is not to say that collecting these judgements isn’t useful. Indeed, it provides a valuable insight into people’s willingness to engage with visualisations. However, it’s important that these findings are treated appropriately, and aren’t used to inform conclusions about effectiveness.
 
 How should data visualisations be studied?
