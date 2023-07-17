@@ -28,6 +28,7 @@ Chart Junk
   * Haroz et al. (2015)
   * Skau et al. (2015)
   * Stock and Behrens (1991)
+  * Kulla-Mader (2007)
 
 So, having established that we need an evidence base, next comes the question of how to generate this evidence. One option would be to base our guidance on what people think works best. However, introspection and hunches are not always a reliable source. 
 Elting et al. (1999) - compared to tables, pie charts, and bar charts, icon arrays resulted in the most accurate judgements about clinical trials, but none of the 34 physicians in the sample preferred this method.
@@ -44,7 +45,7 @@ Isenberg et al. (2013)
 Lam et al (2011)
 Tory (2014)
 Hullman et al. (2019) - importance of decision tasks and not just precision tasks.
-El Greco
+El Greco - Ceja et al. (2020)
 
 Different approaches to studying - correctness vs interpretation
 
@@ -56,6 +57,8 @@ Woodin vs. South China Morning post
 Titles vs. Climate Stripes
 Desbarats - is it all just ‘it depends’?
 So we have to acknowledge that it’s not as simple as following a set of rules - context and rhetoric also play a role
+
+The structure of Franconeri’s summary broadly follows the progress of visualisation research, and highlights the different considerations, from the low-level to higher level. First precision (low-level vision), then accuracy (low-level cognition), then comprehension (high-level cognition). This is also a sequence of greater abstraction, with the final stage further away from the specifics of the dataset and closer to the general. 
 
 # Precision
 
@@ -80,8 +83,6 @@ Previously discussed work has been concerned with whether values are extracted p
 
 Striking patterns can be easily missed. Boger et al.’s datasaurus study illustrates the role of selective attention. Participants instructed to view dots in a particular colour/location failed to notice distinct dinosaur patterns in non-focal data. Even when one is trying to be assume the perspective of a naïve viewer, it’s difficult to adopt an objective outlook when viewing visualisations. Xiong et al.’s curse of knowledge study demonstrates that being briefed about a particular pattern results in over-weighting of these aspects in one’s cognitive representation. The implications for creators are that important messages may be missed if they are not addressed explicitly. What is obvious to a designer may not translate to a viewer. Focus and declutter has long been a recommendation, and is now supported by empirical evidence. This body of research also points to the use of text to support communication of a chart’s intended message. It may seem suspect to have this level of editorial control, instead wanting to let the data speak for themselves, but considering the various rhetorical tecniques, it’s clear there is no truly objective way to present data. 
 
-Zacks and Tversky - if different chart types serve different purposes, are we at risk of being mislead by the chart type
-Xiong proximity
 Newman Scholl, Pentoney Berger, 
 
 Does inclusion of a visualisation actually increase persuasion/trust/belief (Tal & Wansink) + failed replication
@@ -96,6 +97,10 @@ Reyna and Brainerd (2008) - Suggest it’s not just about making humans more lik
 
 How do I move from general cognitive bias to truncation specifically?
 What’s different about truncation?
+
+# Deception and Misleading
+
+Lisnic et al. (2023) - deception with visualisation is typically considered to occur when charts do not apply good visualisation practices. However, this paper suggests that, in their large social media sample, few charts (~12%) actually used deceptive practices. Instead, the deception was achieved by using the (properly constructed) charts to support  unreliable reasoning. ‘Vulnerable’ visualisations are those that lack relevant context for exposing weaknesses in these inductive arguments. This lends support the notion that certain uses of visualisation are only misleading *in context*. The issue is *epistemological*: issues arise when the message conveyed by the visualisation is at odds with other knowledge about the world. 
 
 # Truncation
 
@@ -114,6 +119,14 @@ Raschke and Steinbart (2008)
 Pennington and Tuttle (2009)
 
 Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect message-level representation of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes.
+
+Wainer (1984) - a number of examples of bad visualisations, mostly focused on distorting data e.g. by manipulating scales, implementing area encoding incorrectly, use of inconsistent baselines. Wainer explains that it would be misleading to obscure differences by expanding a scale to include 0.
+
+Bar charts not starting at zero were perceived as less credible in a student sample (Geidner and Cameron, 2017), suggesting an awareness of what constitutes a misleading design. 
+
+Add notes on Pandey et al.’s (2015) definitions of deception. 
+
+Correll and Heer - the space of ‘black hat’ visualisation concerns design of charts with intention to mislead. This involves violating conventions, inappropriate aggregation, concealing important patterns, exploiting visual biases
 
 Other research has also explored how axis ranges affect interpretation of data. Cleveland et al. (1982) explored how perception of correlation in scatterplots changes as axis limits change. When both axes are expanded, and the cluster appears smaller, perceived correlation increases. Yang et al. (2020) investigated the effects, possible mitigation, and individual differences associated with *y*-axis truncation. The rationale for this set of experiments was that previous work on *y*-axis truncation had low power (e.g., Pandey et al. 2015; Witt et al., 2019), or problematic experimental design (Raschke & Steinbart, 2008). Visualisations were created using standardised measurement of deception as defined by the Graph Discrepancy Index (Steinbart, 1989; although criticised by Mather et al., 2005). Participants indicated on a Likert scale their perceived relative difference between the two displayed values. In the initial experiment, a truncation effect was observed, with greater truncation resulting in greater perceived differences. Analysis revealed no association between participants’ susceptibility to the truncation effect and their graph literacy. 
 
@@ -151,7 +164,9 @@ Certain types of misleading design are consistently misleading (e.g. inverted y-
   
 # Visualisation Literacy
 
-Increasing popularity and use of data visualisation has expanded the audience who are exposed to charts. Burns et al. (2023) discusses research aimed at understanding how relatively inexperienced users understand charts. This is important, but there is inconsistency around what constitutes a novice, and also a inconsistency between general population and samples used to explore that population. The term novice is unhelpful since it forces a binary perspective onto a more nuanced picture. Why not look at individual variation in ability? Burns reports very few cases where novice was defined by literacy.
+It is impossible to discuss the construction of effective data visualisations without reference to data visualisation literacy. Increasing popularity and use of data visualisation has expanded the audience who are exposed to charts. This means that individuals with minimal or zero training are often expected to interpret visual displays. 
+
+Burns et al. (2023) discusses research aimed at understanding how relatively inexperienced users understand charts. This is important, but there is inconsistency around what constitutes a novice, and also a inconsistency between general population and samples used to explore that population. The term novice is unhelpful since it forces a binary perspective onto a more nuanced picture. Why not look at individual variation in ability? Burns reports very few cases where novice was defined by literacy.
 
 It is useful to understand variability in biases by looking at individual differences. Get a better picture of how they might work, and the types of audience most likely to be affected. 
 
@@ -194,8 +209,24 @@ Why have I chosen this specific measure?
   * Xiong -Seeing What You Believe or Believing What You See? Belief Biases Correlation Estimation
 
 # Text
+Visualisations are rarely presented in isolation. Often, they contain captions, titles or annotations, and in scientific or news articles, they are embedded within a larger context. Despite this, relatively little work has explored the effect of accompanying text on the interpretation of information presented in data visualisations. 
 
-See Zotero
+In 2010, Segel and Heer introduced the concept of narrative visualisations, which involve incorporating visualisations into storytelling. Presenting data as part of a narrative, they suggested, can provide additional detail and structure in data exploration tasks. Whilst influential, particularly regarding data journalism, this study did not focus on how embedding visualisations within a narrative could increase subjective or unreliable interpretations of data. However, Hullman and Diakopoulos (2011) outlined various ways in which rhetoric in narrative visualisations could influence interpretations of presented information. Explicit rhetorical devices (e.g., unambiguous political statements) are not the only way to elicit different perspectives, they argued. Indeed, framing, which can involve minor changes to a visualisation, can result in noticeable differences in interpretation. In addition to this explicit-implicit distinction, Hullman and Diakopolous also distinguished between *denotation *and* connotation. Denotation *is where a visual feature directly communicates an aspect of the data (e.g., a bar of particular height conveys a particular value). C*onnotation *is where a visual feature implies something about the data, leading to a certain interpretation (e.g., bars suggest discrete values, lines suggest continuous values).
+
+According to Hullman and Diakopoulos (2011), there are four ‘editorial layers’ where a designer can introduce rhetoric. At the *data* level, values can be aggregated, and outliers omitted. At the *visual representation* level, design choices influence perception (e.g., colour). At the *annotation* level, text and graphics can be added. At the *interactivity* level, menus and search boxes can bias exploration towards certain patterns. The techniques discussed in this paper are not all evidence of a designer’s intention to mislead, however. They can be used positively to convey an honest message. 
+Hullman and Diakopolous (2011) provided many examples of rhetorical techniques. Those associated with provenance include citing sources, and differentiation (or not) of base data and forecasted data. Rhetorical techniques relating to mapping include the use of spatial relations to convey meaning (e.g., ‘up’ representing ‘good’ and ‘down’ representing ‘bad’), and altering the salience of certain aspects (e.g., by duplicating labels). Rhetorical techniques associated with textual content include use of metaphors and similes in titles, and text which is framed to appeal to certain perspectives. Hullman and Diakopoulos (2011) also discuss rhetorical techniques relating to the process of inspecting and understanding a visualisation. These include directing attention through anchoring (e.g., presenting elements in a specific order), or implying particular viewing objectives. This notion is similar to Preim et al.’s (1998) definition of ‘instructive captions’, which advise how a viewer should explore an image (as opposed to ‘descriptive captions’, which describe or explain something about the image). 
+
+In addition to theoretical work on the rhetorical function of narratives, some empirical work has investigated specifically how text accompanying data visualisations affects interpretation of data. Kong et al. (2018) explored this relationship using two visualisations: one concerning countries’ acceptance of refugees and one about US defence spending. In both visualisations, the absolute numbers and the proportions that were displayed expressed contrasting messages. Therefore, each visualisation could be used to assert either of the main opposing political views on the presented issue.
+The titles presented with visualisations in Kong et al. (2018) did not include appeals to human interest or conflict, but simply stated one of two possible interpretations of the data (by focusing solely on either absolute values or proportions). When asked to recall the main message of the visualisation, participants exhibited a tendency to repeat the perspective of the previously-displayed *title*. One third of participants, when asked, were unable to remember either of the titles. However many of these participants had indeed recalled the title’s message when asked what the visualisation showed. Furthermore, the majority of participants stated that the information was presented in a neutral manner, suggesting they largely ignored the biased perspectives promoted by the titles. Many revealed that they viewed the information as impartial because it came from official sources, or because it contained statistics. This fits with evidence that mere inclusion of a visualisation can increase the trustworthiness presented information (Tal & Wansink, 2016; though see a failed replication by Dragicevic & Jansen, 2018. Kong et al. mentioned that this also relates to danah boyd’s (2017) hypothesis for why subtle biases in the packaging of information might be particularly influential. They encourage the reader to make links between stated ‘facts’ without directly expressing the author’s argument. Consequently, the reader’s interpretation may  feel more objective, and perhaps more authentic.
+
+Exposure to biased titles did not result in a significant change in attitudes, but Kong et al. (2018) suggested that if the data concerned less controversial subjects, attitude change may have been more common. In order to mitigate the biasing effect of titles on message recall, Kong et al. proposed (but do not test) a possible intervention. Promoting ‘passive’ engagement with titles (either by not displaying titles or displaying titles after a delay), they argued, might help to reduce their impact. In a separate experiment by Kong et al. (2018), participants were asked to write ‘neutral’ titles to accompany the visualisations. The majority produced unbiased descriptions, but 30% of responses were still classed as biased. This illustrates how attitudes can interfere with perceptions of data even when objectivity is required.
+
+Kong et al. (2019) employed the term ‘slanted’ to describe titles that promote a particular perspective or narrative. In an experiment, they varied the slant of titles by manipulating the alignment between the title and the displayed data. In one condition, two perspectives were displayed in the chart. One perspective was visually more prominent than the other and the title focused on the less prominent perspective. In another condition, only one perspective was displayed, and the title referred to the absent alternative perspective. When recalling the message presented by each chart, participants’ most common response was to simply refer to the topic without discussing the pattern of results. However, those who discussed the pattern of results tended to recall the message presented by the title. Participants were more likely to correctly recall the message presented by the data when the title contradicted the data, compared to when the slant was more subtle. However, Kong et al. suggested that the data may have been easier to interpret and recall in the contradictory condition because half the amount of data was present in comparison to the condition which depicted two alternative perspectives simultaneously. Participants’ focus on the title’s perspective provides some evidence of confirmation bias (perceiving new information as evidence of a given view, and ignoring contradictory information). The vast majority judged the information as impartial (like in Kong et al., 2018), but participants’ perception of the credibility of the data, chart, and title all decreased as the degree of title-chart misalignment increased. 
+
+In an experiment conducted by Tversky and Schiano (1989), participants viewed visualisations showing asymmetrical curves, which were accompanied by descriptions. These descriptions suggested that the curve was either symmetrical or asymmetrical. Participants were asked to reproduce the curves from memory. The experimenters rated these reproductions as having greater symmetry after participants’ exposure to symmetrical descriptions, compared to asymmetrical descriptions (which did not elicit biased responses). This supports the notion that accompanying text can alter how data is remembered. However, experimenter ratings of line drawings are unlikely to be highly reliable dependent measures.
+
+Kim et al. (2021) - captions less likely to inform takeaway interpretations when not corresponding to salient features, so the recommendation is to make important features more salient e.g. by excluding irrelevant dates/categories, or adding annotations. 
+Cheng et al. (2022) - interested in the content/style of captions. Captions referring to highly salient phenomena facilitate recall when refer to actual numbers. Captions referring to less salient phenomena facilitate recall when they refer to visual patterns.
 
 # Numerical Framing
 
