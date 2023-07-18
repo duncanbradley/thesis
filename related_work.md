@@ -77,6 +77,12 @@ Finally, Bertini et al. explained that simply conveying information is not the o
 
 The precision work speaks to our concern with (in)accuracy - that we might be misleading others, that others may mislead us, that charts may be weak and lack clarity. But there is so much more than simply extracting values wrong.
 
+Yuan et al. (2019) found that when graphs presented *multiple* values in equal set sizes (2v2, 6v6), this was no longer the case. Observers did not use the optimal cue, *position,* in their judgements of aligned bars, but *extent* (area/length). They also reported that when viewing bars graphs with unequal set sizes, observers are biased by the overall area covered. This means that the set with more values is typically seen as having a greater average value (signal size bias). Yuan et al.’s (2019) study explores perceptual proxies: features of a display used by the visual system to represent basic aspects of a dataset. Perceptual proxies provide shortcuts for decision-making by employing pattern-recognition processes instead of encoding exact values (Ondov et al., 2020). Their use illustrates that individuals do not necessarily engage with the aspects of a visualisation which are most relevant for their judgements, but draw on other aspects, which can sometimes lead them astray. 
+
+Even when not misleading, certain charts can be considered be unhelpful. Nothelfer and Franconeri (2020) demonstrate that explicitly encoding differences between values (rather than plotting two values separately) can assist users in finding required information. This demonstrates employing design choices which emphasise relevant information facilitates communication. 
+
+There is a fair amount of theory corresponding to how extract values, interpret pattern, but the last part, which is understanding that data in context, is pretty vague. The more abstract, the harder it is to study in a controlled manner. Psychophysics has a clear set of variables to control and manipulation. Building a theory of how information presented visually influences decision-making and interacts with prior beliefs, is challenging. Sensemaking attempts do this, often using qualitative methodology. 
+
 # General Framing in Data Vis - Cognitive Bias
 
 Previously discussed work has been concerned with whether values are extracted precisely. But thisn’t isn’t the only way values can miselad. What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
@@ -102,6 +108,12 @@ What’s different about truncation?
 
 Lisnic et al. (2023) - deception with visualisation is typically considered to occur when charts do not apply good visualisation practices. However, this paper suggests that, in their large social media sample, few charts (~12%) actually used deceptive practices. Instead, the deception was achieved by using the (properly constructed) charts to support  unreliable reasoning. ‘Vulnerable’ visualisations are those that lack relevant context for exposing weaknesses in these inductive arguments. This lends support the notion that certain uses of visualisation are only misleading *in context*. The issue is *epistemological*: issues arise when the message conveyed by the visualisation is at odds with other knowledge about the world. 
 
+Dimara et al. (2020) present a list of cognitive biases which may be related to visualisation, categorised by the types of tasks to which they are related. For example, biased estimation may occur due to the base-rate fallacy, biased decision-making may occur due to the attraction effect, framing effect, biased opinion reporting may occur due to focusing effect, etc. They also identify ‘flavours’ of bias in addition to main categorisation for example ‘association’, where the relationship between different pieces of information affects cogntiion, or ‘baseline’, where correspondence to outcomes affects cognition. They also note that there may not be a direct association with taxonomies of more fine-grained visualisation tasks, but it’s clear to see how they may connect. They point out that there has not been a lot of work investigating cognitive biases in visualisation. Also discussed is the notion that rational approaches shouldn’t be mistaken for biases (which necessitate genuine error) due to different perspectives. It’s not clear which category truncation biases would fall into - perhaps Correll et al. (2020) address this.
+
+Lauer and O’Brien (2020) class a truncated line chart as deceptive. In the same study they also explore 3D pie charts, which distort the actual expression of numbers. Fail to distinguish between charts that are deceptive in any context, and those that are only deceptive in certain contexts. 
+
+Lo et al. (2022) point out that some frequently discussed misleading visualsations are rarely employed (e.g. inverted axes). They create a taxonomy of misleading visualisations, from a large sample of images associated with bad charts harvested from the internet. They identify cases where it’s not the visualisation per se, but just bad data. Some where the chart has inconsistencies or omissions - though it’s not guaranteed this is actually misleading. Others still where the chart suggests something but it isn’t plotted wrong e.g. implying causation through correlation. Argue that visualisations that are not informative are comparable to misleading visualisation, but I suggest there is a crucial difference. 
+
 # Truncation
 
 One topic that has enjoyed attention in recent years is axis truncation. This issue has also captured minds outside of academia. Perhaps it’s particularly interesting to engage with (for both groups) because it seems like a big change comes from a subtle manipulation. The data and the chart type both stay the same; all that’s needed is a tweak of the axis. It is another example of where popular opinion can be at odds with research findings. Part of this may be because people like simple rules, but the research doesn’t offer simple rules here. 
@@ -118,13 +130,15 @@ Beattie and Jones (2002)
 Raschke and Steinbart (2008)
 Pennington and Tuttle (2009)
 
-Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect message-level representation of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes.
+Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect *message-level representation* of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes. 
 
 Wainer (1984) - a number of examples of bad visualisations, mostly focused on distorting data e.g. by manipulating scales, implementing area encoding incorrectly, use of inconsistent baselines. Wainer explains that it would be misleading to obscure differences by expanding a scale to include 0.
 
 Bar charts not starting at zero were perceived as less credible in a student sample (Geidner and Cameron, 2017), suggesting an awareness of what constitutes a misleading design. 
 
-Add notes on Pandey et al.’s (2015) definitions of deception. 
+Pandey et al. (2015) suggest deception occurs when an interpretation of a chart deviates from the true ‘message’. Yet this leaves open the question of what the message should be. One supposes that they are referring to the ‘ground truth’ e.g. Correll et al. (2020). 
+
+Fan et al. (2022) develop a tool for identifying misleading line charts, and automatically providing ‘unbiased’ equivalent plots. This involves expanding an axis to include zero whenever it is omitted from the original. However, this risks conveying the magnitude of differences as smaller, potentially diminishing viewers’ interpretations of the magnitude of important differences. 
 
 Correll and Heer - the space of ‘black hat’ visualisation concerns design of charts with intention to mislead. This involves violating conventions, inappropriate aggregation, concealing important patterns, exploiting visual biases
 
@@ -146,7 +160,7 @@ Sandman et al. (1994)
 Add other papers here
 
 Other scale manipulations
-Y-axis inversion - Woodin et al. (2021); Pandey (2015)
+Y-axis inversion - Woodin et al. (2021)
 Log scales - Romano et al. (2020) - see also cited articles
 
 To what extent is there a difference in the definitions of ‘axis truncation’:
