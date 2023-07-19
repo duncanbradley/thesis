@@ -60,6 +60,10 @@ So we have to acknowledge that it’s not as simple as following a set of rules 
 
 The structure of Franconeri’s summary broadly follows the progress of visualisation research, and highlights the different considerations, from the low-level to higher level. First precision (low-level vision), then accuracy (low-level cognition), then comprehension (high-level cognition). This is also a sequence of greater abstraction, with the final stage further away from the specifics of the dataset and closer to the general. 
 
+Chen et al. (2020) extoll the virtues of psychology work in visualisation, proposing that it becuase it is ultimately studying the mind, and using visualisations simply as experimental stimuli, it can generate generalisable and fundamental findings, greatly facilitating progress in our quest to understand of the how visualisations work. This is compared to work which is focused on the visualisations themselves, which is useful, but does not produce the same type of knowledge. Analysing a single comparison constitutes a fraction of the work, since theories about cognitive processes are built through cumulative work and performing several comparisons. Inadequate best practice recommendations indicate unsufficient understanding of cognitive processing of visualisations. 
+
+Abdul-Rahman et al. (2020) illustrate the huge number of variables that can be manipulated to gain insight into visualisations. Discuss the importance of controlling for non-manipualted variables. Criticisms levelled at studies with high and low levels of experimental control - but important to recognise that in the former, focus is to on ecological validity, in the latter, important to recognise that scope of manipulation may be purposefully broader. There is often a need to strike a balance, depending on the research question. 
+
 # Precision
 
 Arguably the most influential experiment in the data visualisation field was conducted by Cleveland and McGill (1984), who sought to identify elementary perceptual processes involved in viewing visualisations. There are many different ways of graphically representing values. However, the precision of the visual system’s differs according to the characteristics of the stimulus. Therefore, through psychophyiscal testing, it’s possible to work out how well interpretations of different presentation formats correspond to the actual numbers. For each visualisation, participants identified which of two marks conveyed the smaller value, and estimated, as a percentage, how much smaller this was than the larger mark. The consequent leaderboard is the “ranking of visual channels”.  Position-encoding produced less error than both length- and angle-encoding. Therefore, where possible, data should be encoded using position on a common (aligned) scale. This means that grouped bars elicit more precise representations than stacked bars. How do we interpret this ranking? Are there theoretical reasons for why area is not as good as other channels?
@@ -121,6 +125,10 @@ One topic that has enjoyed attention in recent years is axis truncation. This is
 Sentence on why relative difference has been so widely studied. Sentence on why it’s particularly important for risk perception
 
 Sentence on the benefits of studying impressions as well as value extractions. This is a hangover from Cleveland and McGill. See Stone et al. (2015)
+
+Gagnon (2018) suggests that the bottom third of line charts should be left blank, in order to indicate that the lowest value is not zero. This is not empicircally verified. 
+
+People have difficulty with other scale manipulations e.g. log-scales (Romano et al., 2020) and inverted scales (Woodin et al., 2021)
 
 Early studies - one sentence each (use citations of these in later work):
 Cleveland et al. (1982)
@@ -192,14 +200,15 @@ Garcia-Retamero and Galesic (2010) found that…
 Okan et al. (2012) found that
 Boy et al (2014) developed a new method
 Garcia-Retamero et al. (2016) developed a new method due to the length and potential negative consequences of previous tests (i.e. inducing anxiety). Based on prior work developing numeracy scales through subjective judgements. The 5-item version is a refined version of the 10-item subjective scale, based on the items which most strongly correlated with the objective measure, and actually performs better than the 10-item scale. Final items focused on skills (how good are you at …)  more than preferences ( do you like ….) . Diverse participant pool (US m-turkers, UGs in Spain, surgeons and patients in Spanish hospitals). Captures variation in both objective abilities but also metacognition - beliefs about own abilities/skills. 
-Okan et al. (2016) found
+Okan et al. (2016) found 
+Driessen (2022) say that Okan (2016) report that literacy is postively associated with comprehension of misleading charts. 
 [more papers using the subjective scale](https://scholar.google.com/scholar?cites=12562930392859617416&as_sdt=2005&sciodt=0,5&hl=en)
 Lee et al. (2017) - justification for creating the VLAT
 Camba et al. (2022) suggest that the ability to detect misleading charts should be considered an important feature of data visualisation literacy. 
 Ge et al. (2023) noted that previous work on visualisation literacy has focused on interpretation of well-designed charts. Despite this, the ability to make sense of poorly designed charts is also relevant. Good approach - not to ask Ps whether they think the charts are misleading, but to intersperse misleading and honest charts within a test and measure accuracy. Develop a robust test of 30 items to assess ability to accurately comprehend deceptive designs. Ge et al. (2023) suggest that sufficient attention and critical thinking can help combat misleading visualisations. However, some cognitive biases are persistent even against these efforts. Perhaps this is where the distiction between correctness and interpretation comes in (see Correll et al., 2020, Yang et al., 2021 Stone et al., 2015).
 
 
-Why have I chosen this specific measure?
+Why have I chosen this specific measure? It’s been used in similar studies e.g. Yang et al. (2021), Mantri et al. (2022). It is also likely to be more sensitive than Okan et al.’s  (2019) scale given it ranges from 0-30, rather than 1-4.
 
 # Accessibility
 
@@ -241,6 +250,8 @@ In an experiment conducted by Tversky and Schiano (1989), participants viewed vi
 
 Kim et al. (2021) - captions less likely to inform takeaway interpretations when not corresponding to salient features, so the recommendation is to make important features more salient e.g. by excluding irrelevant dates/categories, or adding annotations. 
 Cheng et al. (2022) - interested in the content/style of captions. Captions referring to highly salient phenomena facilitate recall when refer to actual numbers. Captions referring to less salient phenomena facilitate recall when they refer to visual patterns.
+Hearst (2023) argues that text and charts should be treated with equal importamnce.
+
 
 # Numerical Framing
 
@@ -258,10 +269,20 @@ Framing effects were initially primarily a reference to valence framing, but hav
 
 # Vis theory
 
-Grammar of graphics
+Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making.
+
+Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
+
+Saket et al. (2019) explore the speed and accuracy different chart types for different tasks. They find that variation, such that there is no one best option overall.
+
+Recent work by Markant et al. (2023) highlights how prior attitudes interact with data visualisation, such that even visualisations which successful updated beliefs did not alter attitudes. It’s not all about portraying accurate and clear plots. 
+
+Mantri et al. (2022) use the 5-item SGL.
+
+Saket et al. (2019) find mixed evidence regarding association between preferences and performance. There was association, but not perfect, since expressed a liking for tables in some tasks where they performed signifcantly worse. Many authors suggest that preferences are driven to some extent by familiarity, rather than performance advantages. 
 
 Spyrison - what factors make a visualisation paper appealing? it’s not open data practices…
-Cockburn et al. (2020) and Kosara & Haroz (2018) are both papers about open science in visualisation research. 
+Cockburn et al. (2020) mentions open science in visualisation research. 
 
 Hardwicke et al. (2018) explore “Data availability, reusability, and analytic reproducibility” (from title) - Kosara and Haroz suggest that visualisation would benefit from these efforts to improve research quality. 
 
