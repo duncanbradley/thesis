@@ -16,7 +16,7 @@ Effectiveness could also be considered engagement?
 Need to define it more narrowly as a concern with faithful representation of data. 
 However, given limitations in data, we might think about this on a broaded scale. Instead, we might more accurately think of this in terms of how faithfully the visualisation represents the state of the world that the data pertain to. 
 
-
+Grice (1975) characterises discourse as essentially cooperative in nature. Among others, ‘quality’ (i.e. truthfulness) is a central aspect of effective communication. 
 
 The goal of data visualisation is to promote recognition, examination and retention of this trend.
 This means they are not only used for communication, but for analytical tasks. 
