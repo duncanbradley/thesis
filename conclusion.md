@@ -11,12 +11,16 @@ How do each of the studies complement each other? What are the outstanding quest
 
 discuss counterfacutals - 
 
+The axes are a canvas for conveying context.
+
 What does the bar chart study say about the choropleth map study?
 Despite the fact that a map has no axes in the typical sense, its construction is extremely similar to geometric charts. The only difference is that the axes (legend) are not a canvas on which to plot (that’s the purpose of the map). The fact that there is a range of values, and then plotted data, remains the same. From an experimental point of view, however it’s useful. First, it’s a different type of encoding, so expands the evidence to different visualisation techniques. Second, it allows the axis and plotted values to be divorced, such that the values appear the same regardless of the axis limits. Therefore, it’s a particularly strong test of the theory - the appearance of values don’t change as a result of the manipulation. 
 
 There is a difference between the choropleth map study and the bar chart study in terms of upper limits. Because the bar chart data is drawn from a finite population, there is a logical upper limit. Becuase the choropleth map data represents a measurement, rather than a proportion, there is no logical upper limit. This highlights that axes can provide various types of numerical context, but that it’s important to consider what the type of data at hand when deciding axis limits.  
 
 Markant’s findings are relevant here because they also illustrate how external information moderates/mediates the impact of charts. Markant’s work refers to perspective, my work refers to knowledge, but both show how the impact of a design is not fixed, and can depend on what’s in someone’s mind. 
+
+Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
 
 # Data Visualisation Literacy
 
