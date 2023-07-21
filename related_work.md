@@ -5,21 +5,69 @@ The purpose of this chapter is to place my work in a wider context - to give the
   * we need to move beyond precision and look at interpretations
   * we need to move away from the idea that certain designs are *inherently* misleading, and think about context
 
-# The State of Visualisation and Psychology Research
+1. We need good evidence to properly understand how visualisations work
+2. Claims haven’t always been based on evidence (Tufte)
+3. And asking people is also problematic
+4. But there are good methods
+5. This is evidence for the role of psychology (Chen, Abdul-Rahman)
+6. Evidence on Precision
+7. Cognitive Models and Visualisation Theories
+8. Deception
+9. Evidence on Cognition (short)
+10. Truncation
+11. Literacy
 
-Curse of knowledge illustrates that interpretation of visualisations can be driven by prior beliefs.
+# The Need for Evidence
 
-Kindlmann and Scheidegger (2014) set out an algebraic approach to visualisation design. This concerns the nature of the correspondence between a dataset and its visual representation, and consists of three principles. Problematic visualisation practices occur when a) the degree of variation within a dataset is disproportate to the appearance of variation, b) different datasets appear indistinct, and c) altering visualisation parameters alters appearance.
+We do not passively receive the information. That which has been encoded has to be decoded.
 
-The algebriac approach has motivated the study of the effectiveness of different chart options for detecting issues during exploratory data analysis (Correll et al., 2019) and building a tool for identifying misleading visualisations through repeat testing with distinct inputs (McNutt et al., 2020).  
+So far, I’ve briefly defined the nature and purpose of data visualisation. I’ve emphasised the importance of honesty in visualisation. I suggest that this concerns not just the data itself, but the communication. Just as we have methods for assessing the veracity of data, we may also have methods for assessing the veracity of visualisation. But for this, we need evidence, because the human visual and cognitive systems are not simple. So, how good is the evidence?
 
 Kosara (2016) makes the case for a solid empirical foundation for design guidelines. However, the evidence base is weak (Kosara, 2016). Some of the recieved wisdom has not been tested at all, other guidance has been disproven or has been confirmed only recently. It’s not even always clear where the evidence ends and the opinion starts - intuition and unfounded statements make for “visualisation folklore” (Correll, 2022, pg. 3). The role of data visualisation research is to generate robust evidence to fill gaps in knowledge. As Correll’s article explores reserarchers’ shared values (). This work was not a systematic review of all literature, but points towards a lack of consistency in achieving new knowledge. 
+
+MacDonald-Ross (1977; see Spence and Levandovsky, 1991) also cautions against making dismissive judgements about ‘expert’ advice in the absence of empirical evidence. Pie charts were used widely without expert approval, but Spence and Lewandowsky find evidence that they are useful in certain scenarios.  - relate this to Tufte
+
+# The State of Visualisation Research - What’s The Role of Psychology?
+
+So, having established that we need an evidence base, next comes the question of how to generate this evidence. One option would be to base our guidance on what people think works best. However, introspection and hunches are not always a reliable source. 
+Elting et al. (1999) - compared to tables, pie charts, and bar charts, icon arrays resulted in the most accurate judgements about clinical trials, but none of the 34 physicians in the sample preferred this method.
+Burns et al. (2021) - participants estimated that the pictographs took longer to understand, compared to equivalent charts without icons. However, this self-report measure was at odds with the actual recorded response times, which indicated no differences between chart types.
+Borkin (2011) - medical students almost unanimously prefered the rainbow colour scheme, but made few errors when using divering color scheme (e.g. red-blue).
+Comparing different statistical map designs - choropleth maps preferred but confered no performance advantage over other map designs (Mendonça et al., 2014).
+Saket et al. (2019) explore the speed and accuracy different chart types for different tasks. They find that variation, such that there is no one best option overall.
+Saket et al. (2019) find mixed evidence regarding association between preferences and performance. There was association, but not perfect, since expressed a liking for tables in some tasks where they performed signifcantly worse. Many authors suggest that preferences are driven to some extent by familiarity, rather than performance advantages. 
+This is not to say that collecting these judgements isn’t useful. Indeed, it provides a valuable insight into people’s willingness to engage with visualisations. However, it’s important that these findings are treated appropriately, and aren’t used to inform conclusions about effectiveness.
+
+If we can’t just ask people what they think, what should we do instead?
+
+# Methods
+It’s important to use methods which are suitable for the investigation. Pandey et al.’s (2015) interest in deception at the *message* level necessitates appropriate testing. They did not measure precision or accuracy in estimation tasks, but probed participants’ interpretations of visualisations’ overall message. 
+
+Much of the vision-science work is focused on user performance. 
+
+Studying mechanisms is beneficial for understanding how to design effective graphics (Elliott et al., 2020). 
+
+Elliott et al. (2020) suggest looking beyond current methods to methods from vision sciences, where there are a variety of paradigms for assessing performance, which allow researchers to gather robust data on a various aspects of visualisation. Dependent measures vary in their focus, either looking at accuracy (comparing response to a correct answer) precision (variability of response) or reaction time (processing speed). 
+
+Lam et al (2011) reveal the wide range of investigations that can be considered ‘studies in visualisation’, from a focus on exploratory data analysis, perception and cognition and user experience, plus a range of techniques, from controlled experiments, usability tests, interviews, observations, and case studies. 
+
+Ceja et al. (2020) point out a limitation of reproduction methods for measuring perceived values of previously seen charts. They can only provide insight into how people *remember* values, since any bias in visual perception would apply equally during the process of visually reproducing a value through the method of adjustment.
+
+Suh et al. (2022) express the difficulty in choosing appropriate tasks, highlighting a trade-off between ecological validity and precision.  
+
+Rensink (2021) reveals how the field of visualisation research is muddied by not-useful, not-relevant, or poor quality research, which makes it harder for good findings to be disseminated. There are several common issues with studies in visualisation, which could be improved to produce more useful findings. Using multiple trials and datasets and manipulating specific visualisation features, allows the underlying mechanism to be uncovered. Use one task at a time, vary one feature at a time, removing redundant aspects, in order to be able to identify what is causing differences in performance or interpretation. Other frequently missed yet important issues include appropriate counterbalancing, reporting effect sizes and acknowledging individual differences. Ensuring proposed *mechanisms* of behaviour are not solely based on statistical methods, and explanations draw on existing knowledge of other mechanisms. 
+
+The structure of Franconeri’s summary presents a sequence of greater abstraction, with the final stage further away from the specifics of the dataset and closer to the general. First precision for extracting individual values, then working with visualisations to make comparisons and summaries, then decision making. It’s clear that there is not just one way of defining effectiveness in visualisation.
+
+Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and horizontal and vertical position. This is to fit with a schema, facilitating comphrension. Make plots intuitive so original patterns can be recovered.
+
+Padilla et al. (2020) - go beyond speed and accuracy measures to gain real insight into the cognitive effort required to complete a task. Index working memory through more sensitive methods: dual-task paradigm and pupilometry. 
+
+Boger et al. illustrates the limitations placed on processing when performing complex comparison tasks.  
 
 The stuff that has been really successful isn't really new. It's established psychology effects applied to visualisation (attention for focus and declutter, curse of knowledge, datasaurus (Boger)). What does this say about where we need to look for new knoweldge?
 
 Adjacent fields like perceptual psychology might tackle problems well because of more established methods, related empirical work and theory (Correll, 2022). The best source of theory in visualisation might be pyshcological perception and cognition research (Rensink, 2021).
-
-Hegarty on need for evidence-based claims. 
 
 There’s a distinction between my point about asking designers what they think works and asking viewers what they think works. The first is a point about whether claims are built on any evidence at all. The second is a point about whether claims are built upon *the right type* of evidence. 
 
@@ -35,54 +83,21 @@ Chart Junk
   * Skau et al. (2015)
   * Stock and Behrens (1991)
   * Kulla-Mader (2007)
+  * Franconeri et al. (2021) - overview of ‘chart junk’ studies
 
-So, having established that we need an evidence base, next comes the question of how to generate this evidence. One option would be to base our guidance on what people think works best. However, introspection and hunches are not always a reliable source. 
-Elting et al. (1999) - compared to tables, pie charts, and bar charts, icon arrays resulted in the most accurate judgements about clinical trials, but none of the 34 physicians in the sample preferred this method.
-Burns et al. (2021) - participants estimated that the pictographs took longer to understand, compared to equivalent charts without icons. However, this self-report measure was at odds with the actual recorded response times, which indicated no differences between chart types.
-Borkin (2011) - medical students almost unanimously prefered the rainbow colour scheme, but made few errors when using divering color scheme (e.g. red-blue).
-Comparing different statistical map designs - choropleth maps preferred but confered no performance advantage over other map designs (Mendonça et al., 2014).
-This is not to say that collecting these judgements isn’t useful. Indeed, it provides a valuable insight into people’s willingness to engage with visualisations. However, it’s important that these findings are treated appropriately, and aren’t used to inform conclusions about effectiveness.
-
-How should data visualisations be studied?
-Rensink (2021) - how not to study a visualisation
-Elliott et al. (2020) - role of vision science
-Munzner (2009)
-Isenberg et al. (2013)
-Lam et al (2011)
-Tory (2014)
-Hullman et al. (2019) - importance of decision tasks and not just precision tasks.
-El Greco - Ceja et al. (2020)
-
-Different approaches to studying - correctness vs interpretation
-
-MacDonald-Ross (1977; see Spence and Levandovsky, 1991) also cautions against making dismissive judgements about ‘expert’ advice in the absence of empirical evidence. Pie charts were used widely without expert approval, but Spence and Lewandowsky find evidence that they are useful in certain scenarios.  - relate this to Tufte
-  
-The picture is complicated further by examples that don’t even conform to empirical findings
-This is echoed by Bertini et al. (2020), who mention Heer et al.’s (2010) work which explores the notion that effective visualisations may not conform to the simple rules generated by empirical findings. 
-Woodin vs. South China Morning post
-Titles vs. Climate Stripes
-Desbarats - is it all just ‘it depends’?
-So we have to acknowledge that it’s not as simple as following a set of rules - context and rhetoric also play a role
-
-The structure of Franconeri’s summary presents a sequence of greater abstraction, with the final stage further away from the specifics of the dataset and closer to the general. First precision for extracting individual values, then working with visualisations to make comparisons and summaries, then decision making. It’s clear that there is not just one way of defining effectiveness in visualisation.
-
-Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and horizontal and vertical position. This is to fit with a schema, facilitating comphrension. Make plots intuitive so original patterns can be recovered.
-
-Padilla et al. (2020) - go beyond speed and accuracy measures to gain real insight into the cognitive effort required to complete a task. Index working memory through more sensitive methods: dual-task paradigm and pupilometry. 
-
-Ceja et al. (2020) point out a limitation of reproduction methods for measuring perceived values of previously seen charts. They can only provide insight into how people *remember* values, since any bias in visual perception would apply equally during the process of visually reproducing a value through the method of adjustment.
-
-Rensink (2021) reveals how the field of visualisation research is muddied by not-useful, not-relevant, or poor quality research, which makes it harder for good findings to be disseminated. 
-
-Boger et al. illustrates the limitations placed on processing when performing complex comparison tasks.  
+# The Role of Psychology
 
 Chen et al. (2020) extoll the virtues of psychology work in visualisation, proposing that it becuase it is ultimately studying the mind, and using visualisations simply as experimental stimuli, it can generate generalisable and fundamental findings, greatly facilitating progress in our quest to understand of the how visualisations work. This is compared to work which is focused on the visualisations themselves, which is useful, but does not produce the same type of knowledge. Analysing a single comparison constitutes a fraction of the work, since theories about cognitive processes are built through cumulative work and performing several comparisons. Inadequate best practice recommendations indicate unsufficient understanding of cognitive processing of visualisations. 
 
 Abdul-Rahman et al. (2020) illustrate the huge number of variables that can be manipulated to gain insight into visualisations. Discuss the importance of controlling for non-manipualted variables. Criticisms levelled at studies with high and low levels of experimental control - but important to recognise that in the former, focus is to on ecological validity, in the latter, important to recognise that scope of manipulation may be purposefully broader. There is often a need to strike a balance, depending on the research question. 
 
-# Precision
+Tversky (1997) argues that our representation of data is entrenched in language, cognition and culture. 
 
-Arguably the most influential experiment in the data visualisation field was conducted by Cleveland and McGill (1984), who sought to identify elementary perceptual processes involved in viewing visualisations. There are many different ways of graphically representing values. However, the precision of the visual system’s differs according to the characteristics of the stimulus. Therefore, through psychophyiscal testing, it’s possible to work out how well interpretations of different presentation formats correspond to the actual numbers. For each visualisation, participants identified which of two marks conveyed the smaller value, and estimated, as a percentage, how much smaller this was than the larger mark. The consequent leaderboard is the “ranking of visual channels”.  Position-encoding produced less error than both length- and angle-encoding. Therefore, where possible, data should be encoded using position on a common (aligned) scale. This means that grouped bars elicit more precise representations than stacked bars. How do we interpret this ranking? Are there theoretical reasons for why area is not as good as other channels?
+# What evidence do we have? - Precision
+
+Arguably the most influential experiment in the data visualisation field was conducted by Cleveland and McGill (1984), who sought to identify elementary perceptual processes involved in viewing visualisations. There are many different ways of graphically representing values. However, the precision of the visual system’s differs according to the characteristics of the stimulus. Therefore, through psychophysical testing, it’s possible to work out how well interpretations of different presentation formats correspond to the actual numbers. For each visualisation, participants identified which of two marks conveyed the smaller value, and estimated, as a percentage, how much smaller this was than the larger mark. The consequent leaderboard is the “ranking of visual channels”.  Position-encoding produced less error than both length- and angle-encoding. Therefore, where possible, data should be encoded using position on a common (aligned) scale. This means that grouped bars elicit more precise representations than stacked bars. How do we interpret this ranking? Are there theoretical reasons for why area is not as good as other channels?
+
+Work also covered basic processes, such as the anchoring mechanism behind visual comparisons (Simkin and Hastie, 1987). 
 
 The issue here is not the work itself, rather the interpretation of this work. Indeed, this work has endured replication (Heer and Bostock), it’s findings are far-reaching and really useful. However, to naively take this as the *only* relevant consideration is unheeded, as there are many other tasks than judging ratios. (Bertini et al. 2020). 
 
@@ -103,9 +118,11 @@ Even when not misleading, certain charts can be considered be unhelpful. Nothelf
 
 There is a fair amount of theory corresponding to how extract values, interpret pattern, but the last part, which is understanding that data in context, is pretty vague. The more abstract, the harder it is to study in a controlled manner. Psychophysics has a clear set of variables to control and manipulation. Building a theory of how information presented visually influences decision-making and interacts with prior beliefs, is challenging. Sensemaking attempts do this, often using qualitative methodology. 
 
-# General Framing in Data Vis - Cognitive Bias
+# Cognition - Beyond Precision
 
-Previously discussed work has been concerned with whether values are extracted precisely. But thisn’t isn’t the only way values can miselad. What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
+Typically focused on extraction of information, not extraction of meaning. 
+
+Previously discussed work has been concerned with whether values are extracted precisely. But thisn’t isn’t the only way values can mislead. What other ways could we be mislead, not by imprecision (perceptual bias), but by cognitive bias.
 
 Striking patterns can be easily missed. Boger et al.’s datasaurus study illustrates the role of selective attention. Participants instructed to view dots in a particular colour/location failed to notice distinct dinosaur patterns in non-focal data. Even when one is trying to be assume the perspective of a naïve viewer, it’s difficult to adopt an objective outlook when viewing visualisations. Xiong et al.’s curse of knowledge study demonstrates that being briefed about a particular pattern results in over-weighting of these aspects in one’s cognitive representation. The implications for creators are that important messages may be missed if they are not addressed explicitly. What is obvious to a designer may not translate to a viewer. Focus and declutter has long been a recommendation, and is now supported by empirical evidence. This body of research also points to the use of text to support communication of a chart’s intended message. It may seem suspect to have this level of editorial control, instead wanting to let the data speak for themselves, but considering the various rhetorical tecniques, it’s clear there is no truly objective way to present data. 
 
@@ -136,6 +153,14 @@ Driessen et al. (2022) showed participants line charts with axes starting at 0, 
 
 Lo et al. (2022) point out that some frequently discussed misleading visualsations are rarely employed (e.g. inverted axes). They create a taxonomy of misleading visualisations, from a large sample of images associated with bad charts harvested from the internet. They identify cases where it’s not the visualisation per se, but just bad data. Some where the chart has inconsistencies or omissions - though it’s not guaranteed this is actually misleading. Others still where the chart suggests something but it isn’t plotted wrong e.g. implying causation through correlation. Argue that visualisations that are not informative are comparable to misleading visualisation, but I suggest there is a crucial difference. 
 
+Wainer (1984) - a number of examples of bad visualisations, mostly focused on distorting data e.g. by manipulating scales, implementing area encoding incorrectly, use of inconsistent baselines. Wainer explains that it would be misleading to obscure differences by expanding a scale to include 0.
+
+Correll and Heer - the space of ‘black hat’ visualisation concerns design of charts with intention to mislead. This involves violating conventions, inappropriate aggregation, concealing important patterns, exploiting visual biases
+
+Certain types of misleading design are consistently misleading (e.g. inverted y-axis). They are consistently misleading becuase this isn’t based on the data at all. Other types are not consistently misleading (e.g. truncated y-axis). Here, it’s impossible to say *a priori* that a chart is misleading because the quality of the design depends on the data. Therefore, it’s really about the *potential* to mislead. A simple test could be whether the ‘misleader’ (to use Ge et al.’s (2023) term) needs to have the word ‘inappropriate’ before it to convey the issue. For example, concealed uncertainty, cherry picking, missing data are all self explanatory, but ‘aggregation’ and ‘scale range’ need the word inappropriate before them in order to highlight the issue. It is the later that might be considered ‘potentially’ misleading. Ge et al. (2023) also note that assessing response accuracy requires a specific task, so misleadingness will always be related to specific tasks. 
+
+Kindlmann and Scheidegger (2014) set out an algebraic approach to visualisation design. This concerns the nature of the correspondence between a dataset and its visual representation, and consists of three principles. Problematic visualisation practices occur when a) the degree of variation within a dataset is disproportate to the appearance of variation, b) different datasets appear indistinct, and c) altering visualisation parameters alters appearance. The algebriac approach has motivated the study of the effectiveness of different chart options for detecting issues during exploratory data analysis (Correll et al., 2019) and building a tool for identifying misleading visualisations through repeat testing with distinct inputs (McNutt et al., 2020).  
+
 # Truncation
 
 One topic that has enjoyed attention in recent years is axis truncation. This issue has also captured minds outside of academia. Perhaps it’s particularly interesting to engage with (for both groups) because it seems like a big change comes from a subtle manipulation. The data and the chart type both stay the same; all that’s needed is a tweak of the axis. It is another example of where popular opinion can be at odds with research findings. Part of this may be because people like simple rules, but the research doesn’t offer simple rules here. 
@@ -158,15 +183,11 @@ Pennington and Tuttle (2009)
 
 Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect *message-level representation* of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes. 
 
-Wainer (1984) - a number of examples of bad visualisations, mostly focused on distorting data e.g. by manipulating scales, implementing area encoding incorrectly, use of inconsistent baselines. Wainer explains that it would be misleading to obscure differences by expanding a scale to include 0.
-
 Bar charts not starting at zero were perceived as less credible in a student sample (Geidner and Cameron, 2017), suggesting an awareness of what constitutes a misleading design. 
 
 Pandey et al. (2015) suggest deception occurs when an interpretation of a chart deviates from the true ‘message’. Yet this leaves open the question of what the message should be. One supposes that they are referring to the ‘ground truth’ e.g. Correll et al. (2020). 
 
 Fan et al. (2022) develop a tool for identifying misleading line charts, and automatically providing ‘unbiased’ equivalent plots. This involves expanding an axis to include zero whenever it is omitted from the original. However, this risks conveying the magnitude of differences as smaller, potentially diminishing viewers’ interpretations of the magnitude of important differences. 
-
-Correll and Heer - the space of ‘black hat’ visualisation concerns design of charts with intention to mislead. This involves violating conventions, inappropriate aggregation, concealing important patterns, exploiting visual biases
 
 Other research has also explored how axis ranges affect interpretation of data. Cleveland et al. (1982) explored how perception of correlation in scatterplots changes as axis limits change. When both axes are expanded, and the cluster appears smaller, perceived correlation increases. Yang et al. (2020) investigated the effects, possible mitigation, and individual differences associated with *y*-axis truncation. The rationale for this set of experiments was that previous work on *y*-axis truncation had low power (e.g., Pandey et al. 2015; Witt et al., 2019), or problematic experimental design (Raschke & Steinbart, 2008). Visualisations were created using standardised measurement of deception as defined by the Graph Discrepancy Index (Steinbart, 1989; although criticised by Mather et al., 2005). Participants indicated on a Likert scale their perceived relative difference between the two displayed values. In the initial experiment, a truncation effect was observed, with greater truncation resulting in greater perceived differences. Analysis revealed no association between participants’ susceptibility to the truncation effect and their graph literacy. 
 
@@ -179,16 +200,6 @@ Correll et al. (2020) also found that participants’ ratings of the severity of
 
 Starting the *y*-axis at zero can make differences between values harder to detect (Correll et al., 2020). Therefore, Witt et al. (2019) developed and tested optimal *y*-axis ranges in bar and line charts displaying various effect sizes. Three different axis scalings were employed: maximal (ranging from 0-100); minimal (restricted to the range of the displayed data); and standardised (between one and two standard deviations of the dependent variable). For each trial, a linear regression model was developed, with the intercept indicating participants’ bias, and the slope indicating their sensitivity. Bias was smallest and sensitivity greatest with the standardised axis scaling. Consequently, Witt et al. recommended that an axis should extend roughly 0.7 standard deviations in each direction or span roughly 1.5 standard deviations overall. In this study, participants judged the size of the effect (as small, medium, or large), but not the magnitude of difference between one data point and another. For the latter type of judgement, as Pandey et al.’s (2015) data suggests, starting the axis at any point other than zero remains a danger.
 
-Driessen et al. (2022)
-
-Risk studies:
-Sandman et al. (1994)
-Add other papers here
-
-Other scale manipulations
-Y-axis inversion - Woodin et al. (2021)
-Log scales - Romano et al. (2020) - see also cited articles
-
 To what extent is there a difference in the definitions of ‘axis truncation’:
   * both ends vs. one end
   * bars vs. axes
@@ -198,10 +209,46 @@ There is an important distinction between ‘error’ and ‘bias’ - various i
 
 Introducing my topic - magnitude judgements:
 Rarely mentioned as deceptive when describing axis manipulations
-Explain why risk research is so interested in magnitude of difference effects. The choice to do something always has an alternative action. Speigelhalter explains why relative risks are better than absolute risks. But sometimes magnitude does have to be communicated. 
+Explain why risk research is so interested in magnitude of difference effects. The choice to do something always has an alternative action. Speigelhalter explains why absolute risks are better than relative risks. But sometimes magnitude does have to be communicated. 
 
-Certain types of misleading design are consistently misleading (e.g. inverted y-axis). They are consistently misleading becuase this isn’t based on the data at all. Other types are not consistently misleading (e.g. truncated y-axis). Here, it’s impossible to say *a priori* that a chart is misleading because the quality of the design depends on the data. Therefore, it’s really about the *potential* to mislead. A simple test could be whether the ‘misleader’ (to use Ge et al.’s (2023) term) needs to have the word ‘inappropriate’ before it to convey the issue. For example, concealed uncertainty, cherry picking, missing data are all self explanatory, but ‘aggregation’ and ‘scale range’ need the word inappropriate before them in order to highlight the issue. It is the later that might be considered ‘potentially’ misleading. Ge et al. (2023) also note that assessing response accuracy requires a specific task, so misleadingness will always be related to specific tasks. 
-  
+# Cognitive Models and Visualisation Theories
+
+Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making.
+
+Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
+
+# Text
+Visualisations are rarely presented in isolation. Often, they contain captions, titles or annotations, and in scientific or news articles, they are embedded within a larger context. Despite this, relatively little work has explored the effect of accompanying text on the interpretation of information presented in data visualisations. 
+
+In 2010, Segel and Heer introduced the concept of narrative visualisations, which involve incorporating visualisations into storytelling. Presenting data as part of a narrative, they suggested, can provide additional detail and structure in data exploration tasks. Whilst influential, particularly regarding data journalism, this study did not focus on how embedding visualisations within a narrative could increase subjective or unreliable interpretations of data. However, Hullman and Diakopoulos (2011) outlined various ways in which rhetoric in narrative visualisations could influence interpretations of presented information. Explicit rhetorical devices (e.g., unambiguous political statements) are not the only way to elicit different perspectives, they argued. Indeed, framing, which can involve minor changes to a visualisation, can result in noticeable differences in interpretation. In addition to this explicit-implicit distinction, Hullman and Diakopolous also distinguished between *denotation *and* connotation. Denotation *is where a visual feature directly communicates an aspect of the data (e.g., a bar of particular height conveys a particular value). C*onnotation *is where a visual feature implies something about the data, leading to a certain interpretation (e.g., bars suggest discrete values, lines suggest continuous values).
+
+According to Hullman and Diakopoulos (2011), there are four ‘editorial layers’ where a designer can introduce rhetoric. At the *data* level, values can be aggregated, and outliers omitted. At the *visual representation* level, design choices influence perception (e.g., colour). At the *annotation* level, text and graphics can be added. At the *interactivity* level, menus and search boxes can bias exploration towards certain patterns. The techniques discussed in this paper are not all evidence of a designer’s intention to mislead, however. They can be used positively to convey an honest message. 
+Hullman and Diakopolous (2011) provided many examples of rhetorical techniques. Those associated with provenance include citing sources, and differentiation (or not) of base data and forecasted data. Rhetorical techniques relating to mapping include the use of spatial relations to convey meaning (e.g., ‘up’ representing ‘good’ and ‘down’ representing ‘bad’), and altering the salience of certain aspects (e.g., by duplicating labels). Rhetorical techniques associated with textual content include use of metaphors and similes in titles, and text which is framed to appeal to certain perspectives. Hullman and Diakopoulos (2011) also discuss rhetorical techniques relating to the process of inspecting and understanding a visualisation. These include directing attention through anchoring (e.g., presenting elements in a specific order), or implying particular viewing objectives. This notion is similar to Preim et al.’s (1998) definition of ‘instructive captions’, which advise how a viewer should explore an image (as opposed to ‘descriptive captions’, which describe or explain something about the image). 
+
+In addition to theoretical work on the rhetorical function of narratives, some empirical work has investigated specifically how text accompanying data visualisations affects interpretation of data. Kong et al. (2018) explored this relationship using two visualisations: one concerning countries’ acceptance of refugees and one about US defence spending. In both visualisations, the absolute numbers and the proportions that were displayed expressed contrasting messages. Therefore, each visualisation could be used to assert either of the main opposing political views on the presented issue.
+
+The titles presented with visualisations in Kong et al. (2018) did not include appeals to human interest or conflict, but simply stated one of two possible interpretations of the data (by focusing solely on either absolute values or proportions). When asked to recall the main message of the visualisation, participants exhibited a tendency to repeat the perspective of the previously-displayed *title*. One third of participants, when asked, were unable to remember either of the titles. However many of these participants had indeed recalled the title’s message when asked what the visualisation showed. Furthermore, the majority of participants stated that the information was presented in a neutral manner, suggesting they largely ignored the biased perspectives promoted by the titles. Many revealed that they viewed the information as impartial because it came from official sources, or because it contained statistics. This fits with evidence that mere inclusion of a visualisation can increase the trustworthiness presented information (Tal & Wansink, 2016; though see a failed replication by Dragicevic & Jansen, 2018. Kong et al. mentioned that this also relates to danah boyd’s (2017) hypothesis for why subtle biases in the packaging of information might be particularly influential. They encourage the reader to make links between stated ‘facts’ without directly expressing the author’s argument. Consequently, the reader’s interpretation may  feel more objective, and perhaps more authentic.
+
+Exposure to biased titles did not result in a significant change in attitudes, but Kong et al. (2018) suggested that if the data concerned less controversial subjects, attitude change may have been more common. In order to mitigate the biasing effect of titles on message recall, Kong et al. proposed (but do not test) a possible intervention. Promoting ‘passive’ engagement with titles (either by not displaying titles or displaying titles after a delay), they argued, might help to reduce their impact. In a separate experiment by Kong et al. (2018), participants were asked to write ‘neutral’ titles to accompany the visualisations. The majority produced unbiased descriptions, but 30% of responses were still classed as biased. This illustrates how attitudes can interfere with perceptions of data even when objectivity is required.
+
+Kong et al. (2019) employed the term ‘slanted’ to describe titles that promote a particular perspective or narrative. In an experiment, they varied the slant of titles by manipulating the alignment between the title and the displayed data. In one condition, two perspectives were displayed in the chart. One perspective was visually more prominent than the other and the title focused on the less prominent perspective. In another condition, only one perspective was displayed, and the title referred to the absent alternative perspective. When recalling the message presented by each chart, participants’ most common response was to simply refer to the topic without discussing the pattern of results. However, those who discussed the pattern of results tended to recall the message presented by the title. Participants were more likely to correctly recall the message presented by the data when the title contradicted the data, compared to when the slant was more subtle. However, Kong et al. suggested that the data may have been easier to interpret and recall in the contradictory condition because half the amount of data was present in comparison to the condition which depicted two alternative perspectives simultaneously. Participants’ focus on the title’s perspective provides some evidence of confirmation bias (perceiving new information as evidence of a given view, and ignoring contradictory information). The vast majority judged the information as impartial (like in Kong et al., 2018), but participants’ perception of the credibility of the data, chart, and title all decreased as the degree of title-chart misalignment increased. 
+
+In an experiment conducted by Tversky and Schiano (1989), participants viewed visualisations showing asymmetrical curves, which were accompanied by descriptions. These descriptions suggested that the curve was either symmetrical or asymmetrical. Participants were asked to reproduce the curves from memory. The experimenters rated these reproductions as having greater symmetry after participants’ exposure to symmetrical descriptions, compared to asymmetrical descriptions (which did not elicit biased responses). This supports the notion that accompanying text can alter how data is remembered. However, experimenter ratings of line drawings are unlikely to be highly reliable dependent measures.
+
+Kim et al. (2021) - captions less likely to inform takeaway interpretations when not corresponding to salient features, so the recommendation is to make important features more salient e.g. by excluding irrelevant dates/categories, or adding annotations. 
+Cheng et al. (2022) - interested in the content/style of captions. Captions referring to highly salient phenomena facilitate recall when refer to actual numbers. Captions referring to less salient phenomena facilitate recall when they refer to visual patterns.
+Hearst (2023) argues that text and charts should be treated with equal importamnce.
+
+
+Other numerical biases have been studied in a datavis context (e.g. Dimara et al. 2017, 2019) Framing effects were initially primarily a reference to valence framing, but have since expanded to encompass a wider range of biases. 
+
+# Beyond Representation
+
+Recent work by Markant et al. (2023) highlights how prior attitudes interact with data visualisation, such that even visualisations which successful updated beliefs did not alter attitudes. It’s not all about portraying accurate and clear plots. 
+
+Curse of knowledge illustrates that interpretation of visualisations can be driven by prior beliefs.
+
+
 # Visualisation Literacy
 
 It is impossible to discuss the construction of effective data visualisations without reference to data visualisation literacy. Increasing popularity and use of data visualisation has expanded the audience who are exposed to charts. This means that individuals with minimal or zero training are often expected to interpret visual displays. 
@@ -225,89 +272,11 @@ Lee et al. (2017) - justification for creating the VLAT
 Camba et al. (2022) suggest that the ability to detect misleading charts should be considered an important feature of data visualisation literacy. 
 Ge et al. (2023) noted that previous work on visualisation literacy has focused on interpretation of well-designed charts. Despite this, the ability to make sense of poorly designed charts is also relevant. Good approach - not to ask Ps whether they think the charts are misleading, but to intersperse misleading and honest charts within a test and measure accuracy. Develop a robust test of 30 items to assess ability to accurately comprehend deceptive designs. Ge et al. (2023) suggest that sufficient attention and critical thinking can help combat misleading visualisations. However, some cognitive biases are persistent even against these efforts. Perhaps this is where the distiction between correctness and interpretation comes in (see Correll et al., 2020, Yang et al., 2021 Stone et al., 2015).
 
-
 Why have I chosen this specific measure? It’s been used in similar studies e.g. Yang et al. (2021), Mantri et al. (2022). It is also likely to be more sensitive than Okan et al.’s  (2019) scale given it ranges from 0-30, rather than 1-4.
-
-# Accessibility
-
-# Colour
-
-  * Schloss quantity biases
-  * Schloss background colour
-  * Szafir colour for different size marks
-
-# Uncertainty
-
-  * Kale
-  * Kay
-  * Correll VSUPs
-
-# Prior Beliefs
-
-  * Spiegelhalter pre-bunking
-  * Heyer et al. 
-  * Doug Markant
-  * Xiong -Seeing What You Believe or Believing What You See? Belief Biases Correlation Estimation
-
-# Text
-Visualisations are rarely presented in isolation. Often, they contain captions, titles or annotations, and in scientific or news articles, they are embedded within a larger context. Despite this, relatively little work has explored the effect of accompanying text on the interpretation of information presented in data visualisations. 
-
-In 2010, Segel and Heer introduced the concept of narrative visualisations, which involve incorporating visualisations into storytelling. Presenting data as part of a narrative, they suggested, can provide additional detail and structure in data exploration tasks. Whilst influential, particularly regarding data journalism, this study did not focus on how embedding visualisations within a narrative could increase subjective or unreliable interpretations of data. However, Hullman and Diakopoulos (2011) outlined various ways in which rhetoric in narrative visualisations could influence interpretations of presented information. Explicit rhetorical devices (e.g., unambiguous political statements) are not the only way to elicit different perspectives, they argued. Indeed, framing, which can involve minor changes to a visualisation, can result in noticeable differences in interpretation. In addition to this explicit-implicit distinction, Hullman and Diakopolous also distinguished between *denotation *and* connotation. Denotation *is where a visual feature directly communicates an aspect of the data (e.g., a bar of particular height conveys a particular value). C*onnotation *is where a visual feature implies something about the data, leading to a certain interpretation (e.g., bars suggest discrete values, lines suggest continuous values).
-
-According to Hullman and Diakopoulos (2011), there are four ‘editorial layers’ where a designer can introduce rhetoric. At the *data* level, values can be aggregated, and outliers omitted. At the *visual representation* level, design choices influence perception (e.g., colour). At the *annotation* level, text and graphics can be added. At the *interactivity* level, menus and search boxes can bias exploration towards certain patterns. The techniques discussed in this paper are not all evidence of a designer’s intention to mislead, however. They can be used positively to convey an honest message. 
-Hullman and Diakopolous (2011) provided many examples of rhetorical techniques. Those associated with provenance include citing sources, and differentiation (or not) of base data and forecasted data. Rhetorical techniques relating to mapping include the use of spatial relations to convey meaning (e.g., ‘up’ representing ‘good’ and ‘down’ representing ‘bad’), and altering the salience of certain aspects (e.g., by duplicating labels). Rhetorical techniques associated with textual content include use of metaphors and similes in titles, and text which is framed to appeal to certain perspectives. Hullman and Diakopoulos (2011) also discuss rhetorical techniques relating to the process of inspecting and understanding a visualisation. These include directing attention through anchoring (e.g., presenting elements in a specific order), or implying particular viewing objectives. This notion is similar to Preim et al.’s (1998) definition of ‘instructive captions’, which advise how a viewer should explore an image (as opposed to ‘descriptive captions’, which describe or explain something about the image). 
-
-In addition to theoretical work on the rhetorical function of narratives, some empirical work has investigated specifically how text accompanying data visualisations affects interpretation of data. Kong et al. (2018) explored this relationship using two visualisations: one concerning countries’ acceptance of refugees and one about US defence spending. In both visualisations, the absolute numbers and the proportions that were displayed expressed contrasting messages. Therefore, each visualisation could be used to assert either of the main opposing political views on the presented issue.
-The titles presented with visualisations in Kong et al. (2018) did not include appeals to human interest or conflict, but simply stated one of two possible interpretations of the data (by focusing solely on either absolute values or proportions). When asked to recall the main message of the visualisation, participants exhibited a tendency to repeat the perspective of the previously-displayed *title*. One third of participants, when asked, were unable to remember either of the titles. However many of these participants had indeed recalled the title’s message when asked what the visualisation showed. Furthermore, the majority of participants stated that the information was presented in a neutral manner, suggesting they largely ignored the biased perspectives promoted by the titles. Many revealed that they viewed the information as impartial because it came from official sources, or because it contained statistics. This fits with evidence that mere inclusion of a visualisation can increase the trustworthiness presented information (Tal & Wansink, 2016; though see a failed replication by Dragicevic & Jansen, 2018. Kong et al. mentioned that this also relates to danah boyd’s (2017) hypothesis for why subtle biases in the packaging of information might be particularly influential. They encourage the reader to make links between stated ‘facts’ without directly expressing the author’s argument. Consequently, the reader’s interpretation may  feel more objective, and perhaps more authentic.
-
-Exposure to biased titles did not result in a significant change in attitudes, but Kong et al. (2018) suggested that if the data concerned less controversial subjects, attitude change may have been more common. In order to mitigate the biasing effect of titles on message recall, Kong et al. proposed (but do not test) a possible intervention. Promoting ‘passive’ engagement with titles (either by not displaying titles or displaying titles after a delay), they argued, might help to reduce their impact. In a separate experiment by Kong et al. (2018), participants were asked to write ‘neutral’ titles to accompany the visualisations. The majority produced unbiased descriptions, but 30% of responses were still classed as biased. This illustrates how attitudes can interfere with perceptions of data even when objectivity is required.
-
-Kong et al. (2019) employed the term ‘slanted’ to describe titles that promote a particular perspective or narrative. In an experiment, they varied the slant of titles by manipulating the alignment between the title and the displayed data. In one condition, two perspectives were displayed in the chart. One perspective was visually more prominent than the other and the title focused on the less prominent perspective. In another condition, only one perspective was displayed, and the title referred to the absent alternative perspective. When recalling the message presented by each chart, participants’ most common response was to simply refer to the topic without discussing the pattern of results. However, those who discussed the pattern of results tended to recall the message presented by the title. Participants were more likely to correctly recall the message presented by the data when the title contradicted the data, compared to when the slant was more subtle. However, Kong et al. suggested that the data may have been easier to interpret and recall in the contradictory condition because half the amount of data was present in comparison to the condition which depicted two alternative perspectives simultaneously. Participants’ focus on the title’s perspective provides some evidence of confirmation bias (perceiving new information as evidence of a given view, and ignoring contradictory information). The vast majority judged the information as impartial (like in Kong et al., 2018), but participants’ perception of the credibility of the data, chart, and title all decreased as the degree of title-chart misalignment increased. 
-
-In an experiment conducted by Tversky and Schiano (1989), participants viewed visualisations showing asymmetrical curves, which were accompanied by descriptions. These descriptions suggested that the curve was either symmetrical or asymmetrical. Participants were asked to reproduce the curves from memory. The experimenters rated these reproductions as having greater symmetry after participants’ exposure to symmetrical descriptions, compared to asymmetrical descriptions (which did not elicit biased responses). This supports the notion that accompanying text can alter how data is remembered. However, experimenter ratings of line drawings are unlikely to be highly reliable dependent measures.
-
-Kim et al. (2021) - captions less likely to inform takeaway interpretations when not corresponding to salient features, so the recommendation is to make important features more salient e.g. by excluding irrelevant dates/categories, or adding annotations. 
-Cheng et al. (2022) - interested in the content/style of captions. Captions referring to highly salient phenomena facilitate recall when refer to actual numbers. Captions referring to less salient phenomena facilitate recall when they refer to visual patterns.
-Hearst (2023) argues that text and charts should be treated with equal importamnce.
-
-
-# Numerical Framing
-
-General knowledge on cognition about numbers - couple of papers summarising how good/bad we are and interesting findings. 
-Non-visual perspective
-What is framing generally? What does it show about how our brains represent information?
-Lundquist et al. 
-Link to Grice - readers/viewers make assumptions about communicative intent. They aren’t just passive receipients. 
-Therefore there is a trust element - when trust is high, more likely to fail to question the delivery of the message. 
-Which papers cite Brown (2008) and Borges (1974)?
-
-Other numerical biases have been studied in a datavis context e.g. Dimara et al. 2017, 2019
-
-Framing effects were initially primarily a reference to valence framing, but have since expanded to encompass a wider range of biases. 
-
-# Vis theory
-
-Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making.
-
-Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
-
-Saket et al. (2019) explore the speed and accuracy different chart types for different tasks. They find that variation, such that there is no one best option overall.
-
-Recent work by Markant et al. (2023) highlights how prior attitudes interact with data visualisation, such that even visualisations which successful updated beliefs did not alter attitudes. It’s not all about portraying accurate and clear plots. 
 
 Mantri et al. (2022) use the 5-item SGL.
 
-Saket et al. (2019) find mixed evidence regarding association between preferences and performance. There was association, but not perfect, since expressed a liking for tables in some tasks where they performed signifcantly worse. Many authors suggest that preferences are driven to some extent by familiarity, rather than performance advantages. 
 
-Spyrison - what factors make a visualisation paper appealing? it’s not open data practices…
-Cockburn et al. (2020) mentions open science in visualisation research. 
-
-Hardwicke et al. (2018) explore “Data availability, reusability, and analytic reproducibility” (from title) - Kosara and Haroz suggest that visualisation would benefit from these efforts to improve research quality. 
-
-Kosara and Haroz suggest that the absence of a replication crisis in the visualisation field doesn’t necessarily point to lack of an issue but rather a lack of replications (though they note a handful of conceptual replications).
-Their papers discusses several features of poor-quality/sub-standard empirical work that might invalidate a study’s conclusions. Along with other issues (including excessive research degrees of freedom and experimental design issues), they discuss how issues in statistical analysis, such as misapplication of statistical tests, jeopardise validity. To remedy this, data and analysis code should be shared publicly. This facilitates identification of problems and their subsequent rectification. This practices serves as proof of validity: being transparent about analytic process lends credibility. Documenting experimental design assists identifcation of issues/confirmation of good design. Sharing *everything* allows others to carry out all three types of replication to be achieved - including those which are typically challenging - reanalysis and direct replication.
-
-Haroz (2018) - journal articles alone do not provide a complete picture of a research project, so data and code must be openly accessible for the research to be considered reliable/trustworthy. In the visualisation field, a lack of sharing prevents proper examination of conclusions. In VIS 2017 - 15% shared materials openly, 6% shared data openly. Certain sites are less reliable than others because they are easily modified, or are short-lived, becoming afflicted by ‘link-rot’.
 
 
   
