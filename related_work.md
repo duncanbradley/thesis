@@ -75,15 +75,8 @@ Unfortunately the guidance contains a lot of received wisdom. The most famous is
 
 Robert Kosara pie chart misconception work
 Chart Junk
-  * Beyond memorability - Borkin
-  * Kopp et al. - embellishments
-  * Okan et al. (2018) - labels are useful
-  * Borgo et al. (2012)
-  * Haroz et al. (2015)
-  * Skau et al. (2015)
-  * Stock and Behrens (1991)
-  * Kulla-Mader (2007)
-  * Franconeri et al. (2021) - overview of ‘chart junk’ studies
+
+  * Franconeri et al. (2021) - overview of ‘chart junk’ studies - evidence is mixed. 
 
 # The Role of Psychology
 
@@ -175,13 +168,10 @@ Gagnon (2018) suggests that the bottom third of line charts should be left blank
 
 People have difficulty with other scale manipulations e.g. log-scales (Romano et al., 2020) and inverted scales (Woodin et al., 2021)
 
-Early studies - one sentence each (use citations of these in later work):
-Cleveland et al. (1982)
-Taylor and Anderson (1986)
-Arunachalam et al. (2002)
-Beattie and Jones (2002)
-Raschke and Steinbart (2008)
-Pennington and Tuttle (2009)
+Cleveland et al. (1982) explored how perception of correlation in scatterplots changes as axis limits change. When both axes are expanded, and the cluster appears smaller, perceived correlation increases.
+Taylor and Anderson (1986) - both line charts and bar charts, perceived differences larger when takes up larger part of chart. Survey sent to an unspecified number of US accountants, asking them to respond to the pattern of finanical perofrmance depicted. 
+Arunachalam and Pei (2002) - students’ investment decisions biased by bar charts use of truncated axes.  
+Raschke and Steinbart (2008) - mention the possibility that a closer reading might mitigate the biasing effects - later disproven by Correll et al. (2020)
 
 
 
@@ -191,10 +181,8 @@ Pennington and Tuttle (2009)
 
 In the risk communication, researchers have arrived at similar research questions through different routes. The goal here is often to alter impressions and behaviour in a way that makes people safer, because people are generally not risk averse. The goal is not just to inform, but to push people in a specific direction. 
 
-Sandman et al. (1994) - 
 Stone et al. (2003) follows Stone et al.’s (1997) observation that itentions to avoid risk were greater when presented with charts than numbers.  They explored the hypothesis that graphics increased perceptions of risk reduction (i.e. impressions of a greater difference between values) becuase of the way they drew attention to the ‘background’ information (total number at risk) or the ‘foreground’ information (number affected). They manipulated the axes in bar charts such that they either showed both or just the foregound information. They found that when the physical distance between values was further apart (background information was omitted), this led to impressions of an increased difference between conditions. 
-Ancker et al. (2006) - 
-Chua et al. (2006) - 
+
 Garcia-Retamero and Galesic (2010) - however, people’s understanding of relative differences is improved when foreground information in presented within the context of background information (in bar charts and icon arrays).
 Okan et al. (2012) test comprehension of graphs that violate conventions of mapping higher values to high positions. They tested a range on unconventional bar charts designs which required participants to reject first impressions based on typical ways of displaying quantity. These charts led to frequent misinterpretations, where people were unable to go beyond what these charts would have implied had they used conventional mappings. These errors were more common in participnats with low literacy, highlighting an lower ability to think critically about a chart’s dislay of values, overriding convention-based interpretations. 
  
@@ -205,8 +193,10 @@ Some studies have looked at impressions of magnitudes.
 Stone et al. (2017) - actually look at impressions of magnitude as a result of different bar chart designs. Rather than manipulating the range of axis values, they investigated the addition of stacked bars conveying background information, versus blank space. When the background informaton was not highlight, this increased perceptions of the event’s likelihood. 
 It’s possible that this occurs because visually representing numerators *and* denominators supports a viewer to take account of the proportion in their reasoning, helping to convey the true magnitude (Stone et al. 2018). 
 Okan et al. (2018) - manipulated axis limits to explore perceptions and understandings of risk. They find that risk perceptions were increased when axis terminated just above the bars, compared to well above at a denominator value. The measures collected regarding interpretations of values’ magnitudes are combined into a measure of risk reduction, to probe risk perception. They suggest that magnitude judgements could be informed by axis limits, but do not test this directly. 
-The only study which has focused specifically is Sandman et al. (1994). They used risk ladders. 
-Using linear vs. log scales, Freeman et al. (2021) did not replicate this, yet as well as the graphical cue, had many additional textual cues to likelihood in the title, label, and in the description as a number and a percentage. 
+
+The only study which has focused specifically is Sandman et al. (1994). They used risk ladders, where indivudal probabilities are presented on vertical scales encompassing a range of probaility values. By change the range of values, the position of data points also changes. Participnats view a single risk ladder, which plotted data on asbestos risk. Perceived threat (a composite measure made up of perceived likelihood, danger, reported concern and fear) was higher when the same data point appeared at the 75% position on a scale, compared to the 25% position. There was mixed evidence for the effects on intentions to spend money mitigating the risk. Participants did not rely on the visuals completely, since a substanially higher risk plotted at the same position as the higher instance, still generated higher ratings. There is also a confound, in that the range of axis values differed between conditions. 
+
+Using linear vs. log scales, Freeman et al. (2021) did not replicate this, yet as well as the graphical cue, had many additional textual cues to likelihood in the title, label, and in the description as a number and a percentage. The use of a broken axis may also have meant less attention was paid to the physical position. 
 
 
 Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect *message-level representation* of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes. 
@@ -244,6 +234,8 @@ Write about the dfference between measuring correctness and interpretations - se
 # Cognitive Models and Visualisation Theories
 
 Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making.
+
+See Okan et al. 2016 for overview of models
 
 Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
 
@@ -293,20 +285,19 @@ Some people are ‘novices’ - discuss the two novices papers - but there are n
 Visualisation literacy is the ability to comprehend data presented in visualisations (Boy et al.)
 
 Galesic and Garcia-Retamero’s 13-item scale (2011) was based on Friel et al.’s (2001) hierarchy of skills for interpreting visualisations. 
-Garcia-Retamero and Galesic (2010) found that…
-Okan et al. (2012) found that
-Boy et al (2014) developed a new method
-Garcia-Retamero et al. (2016) developed a new method due to the length and potential negative consequences of previous tests (i.e. inducing anxiety). Based on prior work developing numeracy scales through subjective judgements. The 5-item version is a refined version of the 10-item subjective scale, based on the items which most strongly correlated with the objective measure, and actually performs better than the 10-item scale. Final items focused on skills (how good are you at …)  more than preferences ( do you like ….) . Diverse participant pool (US m-turkers, UGs in Spain, surgeons and patients in Spanish hospitals). Captures variation in both objective abilities but also metacognition - beliefs about own abilities/skills. 
-Okan et al. (2016) found 
+Okan et al. (2012) found that this scale predicted the degree to which a graphical representation would facilitate comprehension of risk information. 
+Okan et al. (2016) used the 2011 scale, looking at charts which violated conventions around presenting magnitudes (e.g. inverted axes). Higher literacy is associated with more time processing graph the misleading features, facilitating correct interpretations. Lower literacy was associated with greater reliance on conventions (e.g. relationship between vertical position and magnitude).
+
+Garcia-Retamero et al. (2016) developed a new method due to the length and potential negative consequences of previous tests (i.e. inducing anxiety). Based on prior work developing numeracy scales through subjective judgements. The 5-item version is a refined version of the 10-item subjective scale, based on the items which most strongly correlated with the objective measure, and actually performs better than the 10-item scale. Final items focused on skills (how good are you at …)  more than preferences ( do you like ….) . Diverse participant pool (US m-turkers, UGs in Spain, surgeons and patients in Spanish hospitals). Captures variation in both objective abilities but also metacognition - beliefs about own abilities/skills. Additional benefit of reducing anxiety. 
 Driessen (2022) say that Okan (2016) report that literacy is postively associated with comprehension of misleading charts. 
 [more papers using the subjective scale](https://scholar.google.com/scholar?cites=12562930392859617416&as_sdt=2005&sciodt=0,5&hl=en)
-Lee et al. (2017) - justification for creating the VLAT
+Lee et al. (2017) - created the 53-item VLAT with a wide range of visualisation types. VLAt is postiively associated with both numeracy and need for cognition (Lee et al., 2019)
+Okan et al. (2019) developed another short graph literacy scale, noting the excessive length of current scales. This 4-items were chosen due to their representativeness of overall literacy, and the score is based on the number of correct answers (1 per chart). 
 Camba et al. (2022) suggest that the ability to detect misleading charts should be considered an important feature of data visualisation literacy. 
 Ge et al. (2023) noted that previous work on visualisation literacy has focused on interpretation of well-designed charts. Despite this, the ability to make sense of poorly designed charts is also relevant. Good approach - not to ask Ps whether they think the charts are misleading, but to intersperse misleading and honest charts within a test and measure accuracy. Develop a robust test of 30 items to assess ability to accurately comprehend deceptive designs. Ge et al. (2023) suggest that sufficient attention and critical thinking can help combat misleading visualisations. However, some cognitive biases are persistent even against these efforts. Perhaps this is where the distiction between correctness and interpretation comes in (see Correll et al., 2020, Yang et al., 2021 Stone et al., 2015).
 
-Why have I chosen this specific measure? It’s been used in similar studies e.g. Yang et al. (2021), Mantri et al. (2022). It is also likely to be more sensitive than Okan et al.’s  (2019) scale given it ranges from 0-30, rather than 1-4.
+Why have I chosen this specific measure? It’s been used in similar studies e.g. Yang et al. (2021); Mantri et al. (2022).(Can find other uses through citations.) It is also likely to be more sensitive than Okan et al.’s  (2019) scale given it ranges from 0-30, rather than 1-4 (find use through citations)
 
-Mantri et al. (2022) use the 5-item SGL.
 
 
 
