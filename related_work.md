@@ -118,6 +118,8 @@ Even when not misleading, certain charts can be considered be unhelpful. Nothelf
 
 There is a fair amount of theory corresponding to how extract values, interpret pattern, but the last part, which is understanding that data in context, is pretty vague. The more abstract, the harder it is to study in a controlled manner. Psychophysics has a clear set of variables to control and manipulation. Building a theory of how information presented visually influences decision-making and interacts with prior beliefs, is challenging. Sensemaking attempts do this, often using qualitative methodology. 
 
+Indeed, a focus on precision is also present in the literature on misleading visualisations. This literature is important because understanding how visualiastions can produce distorted impressions of data also informs about effective design practices, mechanisms, etc. Informs our understanding of human interaction with visualisation in general, not just edge cases where the wrong impression occurs. Lets us know how *different* impressions occur.  
+
 # Cognition - Beyond Precision
 
 Typically focused on extraction of information, not extraction of meaning. 
@@ -181,6 +183,32 @@ Beattie and Jones (2002)
 Raschke and Steinbart (2008)
 Pennington and Tuttle (2009)
 
+
+
+
+
+# Risk Studies on Axis Manipulation
+
+In the risk communication, researchers have arrived at similar research questions through different routes. The goal here is often to alter impressions and behaviour in a way that makes people safer, because people are generally not risk averse. The goal is not just to inform, but to push people in a specific direction. 
+
+Sandman et al. (1994) - 
+Stone et al. (2003) follows Stone et al.’s (1997) observation that itentions to avoid risk were greater when presented with charts than numbers.  They explored the hypothesis that graphics increased perceptions of risk reduction (i.e. impressions of a greater difference between values) becuase of the way they drew attention to the ‘background’ information (total number at risk) or the ‘foreground’ information (number affected). They manipulated the axes in bar charts such that they either showed both or just the foregound information. They found that when the physical distance between values was further apart (background information was omitted), this led to impressions of an increased difference between conditions. 
+Ancker et al. (2006) - 
+Chua et al. (2006) - 
+Garcia-Retamero and Galesic (2010) - however, people’s understanding of relative differences is improved when foreground information in presented within the context of background information (in bar charts and icon arrays).
+Okan et al. (2012) test comprehension of graphs that violate conventions of mapping higher values to high positions. They tested a range on unconventional bar charts designs which required participants to reject first impressions based on typical ways of displaying quantity. These charts led to frequent misinterpretations, where people were unable to go beyond what these charts would have implied had they used conventional mappings. These errors were more common in participnats with low literacy, highlighting an lower ability to think critically about a chart’s dislay of values, overriding convention-based interpretations. 
+ 
+Okan et al. (2016) - 
+
+Stone et al. (2015) - concerned with risk magnitudes - understanding of actual likelihood. Notes that a complete understanding of relative differences doesn’t actually guarantee an understanding of abolsute magnitude.
+Some studies have looked at impressions of magnitudes. 
+Stone et al. (2017) - actually look at impressions of magnitude as a result of different bar chart designs. Rather than manipulating the range of axis values, they investigated the addition of stacked bars conveying background information, versus blank space. When the background informaton was not highlight, this increased perceptions of the event’s likelihood. 
+It’s possible that this occurs because visually representing numerators *and* denominators supports a viewer to take account of the proportion in their reasoning, helping to convey the true magnitude (Stone et al. 2018). 
+Okan et al. (2018) - manipulated axis limits to explore perceptions and understandings of risk. They find that risk perceptions were increased when axis terminated just above the bars, compared to well above at a denominator value. The measures collected regarding interpretations of values’ magnitudes are combined into a measure of risk reduction, to probe risk perception. They suggest that magnitude judgements could be informed by axis limits, but do not test this directly. 
+The only study which has focused specifically is Sandman et al. (1994). They used risk ladders. 
+Using linear vs. log scales, Freeman et al. (2021) did not replicate this, yet as well as the graphical cue, had many additional textual cues to likelihood in the title, label, and in the description as a number and a percentage. 
+
+
 Deception in data visualisation does not necessarily involve displaying inaccurate data (Yang et al., 2020). A simple design choice can prompt users to form an inaccurate view of the data. Pandey et al. (2015) investigated four chart formats that have been classed as ‘deceptive’, either because they exaggerate or understate the message conveyed by the data, or because they present the opposite perspective. Exaggeration or understatement of patterns can occur through use of a truncated y-axis, use of area encoding for quantity, or an aspect ratio manipulation. An opposite perspective can be presented using an inverted *y*-axis. Pandey et al.’s investigation explored how these formats affect *message-level representation* of the data. This refers to the domain concepts communicated (e.g., greater access to safe drinking water) rather than just the graphical elements (e.g., higher bars). Indeed, they suggest that misunderstandings of the data may arise during translation from graphical schemata (Pinker, 1990) to real-world understanding. All deceptive techniques investigated in the study led to misunderstandings in participants, with large effect sizes. 
 
 Bar charts not starting at zero were perceived as less credible in a student sample (Geidner and Cameron, 2017), suggesting an awareness of what constitutes a misleading design. 
@@ -211,16 +239,20 @@ Introducing my topic - magnitude judgements:
 Rarely mentioned as deceptive when describing axis manipulations
 Explain why risk research is so interested in magnitude of difference effects. The choice to do something always has an alternative action. Speigelhalter explains why absolute risks are better than relative risks. But sometimes magnitude does have to be communicated. 
 
+Write about the dfference between measuring correctness and interpretations - see axis extension paper. 
+
 # Cognitive Models and Visualisation Theories
 
 Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making.
 
 Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
 
+Okan et al. (2012) has a good overview of the general graph comprhension model. 
+
 # Text
 Visualisations are rarely presented in isolation. Often, they contain captions, titles or annotations, and in scientific or news articles, they are embedded within a larger context. Despite this, relatively little work has explored the effect of accompanying text on the interpretation of information presented in data visualisations. 
 
-In 2010, Segel and Heer introduced the concept of narrative visualisations, which involve incorporating visualisations into storytelling. Presenting data as part of a narrative, they suggested, can provide additional detail and structure in data exploration tasks. Whilst influential, particularly regarding data journalism, this study did not focus on how embedding visualisations within a narrative could increase subjective or unreliable interpretations of data. However, Hullman and Diakopoulos (2011) outlined various ways in which rhetoric in narrative visualisations could influence interpretations of presented information. Explicit rhetorical devices (e.g., unambiguous political statements) are not the only way to elicit different perspectives, they argued. Indeed, framing, which can involve minor changes to a visualisation, can result in noticeable differences in interpretation. In addition to this explicit-implicit distinction, Hullman and Diakopolous also distinguished between *denotation *and* connotation. Denotation *is where a visual feature directly communicates an aspect of the data (e.g., a bar of particular height conveys a particular value). C*onnotation *is where a visual feature implies something about the data, leading to a certain interpretation (e.g., bars suggest discrete values, lines suggest continuous values).
+In 2010, Segel and Heer introduced the concept of narrative visualisations, which involve incorporating visualisations into storytelling. Presenting data as part of a narrative, they suggested, can provide additional detail and structure in data exploration tasks. Whilst influential, particularly regarding data journalism, this study did not focus on how embedding visualisations within a narrative could increase subjective or unreliable interpretations of data. However, Hullman and Diakopoulos (2011) outlined various ways in which rhetoric in narrative visualisations could influence interpretations of presented information. Explicit rhetorical devices (e.g., unambiguous political statements) are not the only way to elicit different perspectives, they argued. Indeed, framing, which can involve minor changes to a visualisation, can result in noticeable differences in interpretation. In addition to this explicit-implicit distinction, Hullman and Diakopolous also distinguished between *denotation *and* connotation. Denotation *is where a visual feature directly communicates an aspect of the data (e.g., a bar of particular height conveys a particular value). *Connotation *is where a visual feature implies something about the data, leading to a certain interpretation (e.g., bars suggest discrete values, lines suggest continuous values).
 
 According to Hullman and Diakopoulos (2011), there are four ‘editorial layers’ where a designer can introduce rhetoric. At the *data* level, values can be aggregated, and outliers omitted. At the *visual representation* level, design choices influence perception (e.g., colour). At the *annotation* level, text and graphics can be added. At the *interactivity* level, menus and search boxes can bias exploration towards certain patterns. The techniques discussed in this paper are not all evidence of a designer’s intention to mislead, however. They can be used positively to convey an honest message. 
 Hullman and Diakopolous (2011) provided many examples of rhetorical techniques. Those associated with provenance include citing sources, and differentiation (or not) of base data and forecasted data. Rhetorical techniques relating to mapping include the use of spatial relations to convey meaning (e.g., ‘up’ representing ‘good’ and ‘down’ representing ‘bad’), and altering the salience of certain aspects (e.g., by duplicating labels). Rhetorical techniques associated with textual content include use of metaphors and similes in titles, and text which is framed to appeal to certain perspectives. Hullman and Diakopoulos (2011) also discuss rhetorical techniques relating to the process of inspecting and understanding a visualisation. These include directing attention through anchoring (e.g., presenting elements in a specific order), or implying particular viewing objectives. This notion is similar to Preim et al.’s (1998) definition of ‘instructive captions’, which advise how a viewer should explore an image (as opposed to ‘descriptive captions’, which describe or explain something about the image). 
