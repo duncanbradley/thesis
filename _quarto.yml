@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "Cognitive Processing of Magnitude in Data Visualisations"
+  title: "An Investigation Into the Cognitive Processing of Magnitude in Data Visualisations"
   author: "Duncan Bradley"
   chapters:
     - index.qmd
