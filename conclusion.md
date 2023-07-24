@@ -3,6 +3,17 @@
 ~ 2500 words
 Intro - this work is a defence of the thesis that… I suggest that…, demonstrate that
 
+Data representations exploit our sensory capabilities, and cognitive heuristics. 
+
+Effective communication of numerical information is typically concerned with clarity and coherence. 
+
+I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. The popularity of the ‘chart-junk’ concept also speaks to an instinct that if only we presented data with minimal embellishments, we would show it in its purest form (Kosara, 2016). 
+
+
+Grice (1975) characterises discourse as essentially cooperative in nature. Among others features, ‘quality’ (i.e. truthfulness) is a central aspect of effective communication. 
+
+  * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
+
 Are these magnitude effects as bad (or worse) than magnitude of *difference* effects?
 
 # Findings
@@ -29,6 +40,10 @@ Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferen
 # Limitations
 
 # Future Directions
+
+* decision making
+* additional factors influencing magnitude judgements
+* investigating effects on magnitude of difference judgements due to extended axes. Explore dual displays e.g. Ritchie et al. (2019). 
 
 # Closing Remarks
 
