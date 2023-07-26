@@ -1,0 +1,11 @@
+Data visualisation is a powerful communication tool which leverages the power of the human visual and cognitive systems. 
+Viewers are at the whim of data visualisation design choices, which can drastically affect message-level interpretations.
+This thesis explores how design choices might affect interpretations of magnitude in data visualisations. This work was carried out to explore cognitive mechanisms, and was conducted with a focus on computational reproducibility. 
+
+An initial study establishes the role of axis limits in informing magnitude judgements. The range surrounding dot plots was manipulated such that the same dots appeared at high or low positions. This affected perceptions of magnitude. The question is raised regarding whether it is the context supplied by the axis limits, or the physical positions that conveys magnitude. Responses to charts using inverted axes demonstrate that judgements informed by data points’ relative positions within axis range. 
+
+A second study explores how magnitude may be conveyed in visualisations where values are plotted using color, rather than geometric encodings. Choropleth maps were designed to display the same values, and the design of the colour legend was manipulated. Extending beyond the range of the values caused magnitudes to be interpreted as smaller. 
+
+A final study extends this to another common type of visualisation, and compare how default bar chart designs may suggest a larger magnitude than those where the value extends to a denominator. The role of external knowledge is also explored, with accompanying text manipulated to include or omit each dataset’s denominator value. 
+
+Taken together, these investigations provide insight into a cognitive mechanisms involved in interpreting magnitude in data visualisations. Essentially, the framing of values within axes and color legends provides a cue to magnitude. An absence of external knowledge leads to exaggerated effects. This provides insight into how charts might be designed to convey magnitude, and the degree of bias elicited.
