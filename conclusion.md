@@ -1,6 +1,13 @@
 # Discussion
 
 ~ 2500 words
+
+Briefly recap research questions and objectives
+Briefly recount the answers to those questions
+Discuss significance and implication of findings
+Discuss the contributions made
+Critical review of methodology
+
 Intro - this work is a defence of the thesis that… I suggest that…, demonstrate that
 
 Data representations exploit our sensory capabilities, and cognitive heuristics. 
@@ -9,6 +16,7 @@ Effective communication of numerical information is typically concerned with cla
 
 I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. The popularity of the ‘chart-junk’ concept also speaks to an instinct that if only we presented data with minimal embellishments, we would show it in its purest form (Kosara, 2016). 
 
+We may say that axis limits *inform* but do not *dictate* magnitude judgements. 
 
 Grice (1975) characterises discourse as essentially cooperative in nature. Among others features, ‘quality’ (i.e. truthfulness) is a central aspect of effective communication. 
 
@@ -32,6 +40,14 @@ There is a difference between the choropleth map study and the bar chart study i
 Markant’s findings are relevant here because they also illustrate how external information moderates/mediates the impact of charts. Markant’s work refers to perspective, my work refers to knowledge, but both show how the impact of a design is not fixed, and can depend on what’s in someone’s mind. 
 
 Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
+
+# 
+
+For each of the studies, what are the different things that I might have done to extend them further:
+Dot Plots: Does the range of plausible values matter? 
+Choropleth Maps: Compare against typical design to see what impressions of magnitude are
+Bar Charts: Test role of upper axis limit (above/below)
+
 
 # Data Visualisation Literacy
 
