@@ -24,6 +24,11 @@ Grice (1975) characterises discourse as essentially cooperative in nature. Among
 
 Are these magnitude effects as bad (or worse) than magnitude of *difference* effects?
 
+On horizontal postion: Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and *horizontal* and vertical position. This is to fit with a schema, facilitating comphrension. 
+
+Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
+
+
 # Findings
 
 How do each of the studies complement each other? What are the outstanding questions from one study that are answered by another study? How do we interpret the results in light of the other studies? What are the repeated findings that we have replicated? What are the main differences between the studies, unique contributions?
