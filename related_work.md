@@ -60,148 +60,33 @@
 
 **Line charts and bar charts are equally susceptible to biases due to truncation (Correll et al., 2020; Witt et al., 2019), yet there may be reason to treat them differently. Truncation distorts the mapping between a bar’s extent and the quantity it represents, but line charts’ free-floating position-encoding does not convey quantity in the same manner, providing immunity against such distortion (Bergstrom and West). Therefore, whilst starting an axis at zero provides no guarantee of an appropriate depiction of values’ differences, it ensures adherence to a fundamental aspect of visualisation design. Alternatively, quantiative data with discrete categories can be plotted using position-encodings only (e.g., dot plots), avoiding this trade-off.**
 
-————
+# Misleading Data Visualisations
 
-# New Perspectives on Misleading Visualisations
-
-**Some misleading visualisations may prevent viewers from accurately extracting numerical information. However, research on axis truncation illustrates that misleading visulisations may also interfere with subjective judgements. A line chart may avoid misrepresenting a dataset’s numerical properties yet generate a distorted impression of the magnitude of a trend. The latter is revealed not by assessing viewers’ *performance*, but their *interpretations*.**
+**Some misleading visualisations may prevent viewers from accurately extracting numerical information. However, research on axis truncation illustrates that misleading visulisations may also interfere with subjective judgements. A line chart may avoid misrepresenting a dataset’s numerical properties yet generate a distorted impression of the magnitude of a trend. The latter is revealed not by assessing viewers’ *performance*, but their *interpretations* (Stone et al., 2015).**
 
 **Influencing subjective judgements may still be considered a *misleading* practice because a dishonest framing of information could elicit a warped impression that would differ from the same viewer’s better-informed perspective. Therefore, not all aspects of deceptive design are *inherently* misleading, and deceptiveness can be context-dependent. Comparing examples of ‘misleaders’ from Ge et al.’s (2023) design space helps illustrates this distinction. ‘Concealed uncertainty’ and ‘cherry-picking’ refer to unambiguously deceptive practices, whereas ‘aggregation’ and ‘scale range’ must be preceded by the word *inappropriate* in order to convey their capacity to deceive.**
  
 # The Present Thesis
 
-**Data visualisation design has the potential to impact subjective judgements about many aspects of data, such as variability, noise, and numerosity. The literature on axis truncation has closely examined how data visualisations can influence judgements of *relative* magnitude (differences between values). In contrast, little is known about how data visualisations may influence judgements of *absolute* magnitude: how large or small values are. This thesis seeks to remedy this issue. This thesis explores judgements of values’ *magnitudes*. It is my thesis that **
+**Data visualisation design has the potential to impact subjective judgements about many aspects of data, such as variability, noise, and numerosity. Prior research has closely examined how axis ranges/data visualisations can influence judgements of *relative* magnitude (differences between values). In contrast, little is known about how axis ranges/data visualisations may influence judgements of *absolute* magnitude: how large or small values are. This thesis demonstrates that interpretations of values’ *magnitudes* are influenced by axis ranges/data visualisation design.**
 
+**In bar charts displaying data on individuals affected by a risk, perceived likelihood decreased when the total population at risk was also emphasised using shaded bars, rather than blank space (Stone et al., 2017). Other work directly manipulating axis limits impeded analysis of effects on values’ magnitudes by combining these judgements with measures of relative difference (Okan et al., 2018). In bar charts violating the convention of mapping higher values to higher positions, participants’ difficulty rejecting first impressions led to frequent misinterpretations of presented values’ magnitudes, particularly for participants with low literacy (Okan et al., 2012). Visualisations that facilitate comprehension of relative differences may fail to effectively communicate values’ absolute magnitudes, illustrating a potential trade-off in design (Reyna et al., 2008).**
 
+**Two studies have specifically examined on how axis ranges may inform impressions of absolute magnitude. Sandman et al. (1994) manipulated risk ladders, where individual probabilities are presented on vertical scales incorporating a range of probability values. Changing this range alters the position of a plotted value. Perceived threat (a composite measure made up of perceived likelihood, danger, reported concern and fear) was higher when the risk appeared near to the top of the ladder, compared to near the bottom. However, plotted values’ positions did not completely dictate magnitude judgments. A numerically higher risk plotted at the same position near the top of the ladder generated higher ratings. There was also mixed evidence regarding the effects on intentions to spend money mitigating the risk. Confidence in the robustness of these findings is limited by use of a single trial per participant, a single scenario, a composite measure obscuring pure magnitude ratings, and a confounding variable of the risk ladder’s range.**
 
-Introducing my topic - magnitude judgements:
-Rarely mentioned as deceptive when describing axis manipulations
+**Comparing linear and logarithmic risk ladders, Freeman et al. (2021) did not replicate Sandman et al.’s (1994) main finding. However, in addition to a graphical cue to magnitude, risk ladders employed additional symbolic number cues in their titles, labels, and accompanying descriptions. A broken scale may also have reduced the degree to which inferences were based on the value’s physical position. Therefore, participants’ judgements may not have been purely based on appearance of visualisations.**
 
-Stone et al. (2015) - concerned with risk magnitudes - understanding of actual likelihood. Notes that a complete understanding of relative differences doesn’t actually guarantee an understanding of abolsute magnitude.
-Some studies have looked at impressions of magnitudes. 
-Stone et al. (2017) - actually look at impressions of magnitude as a result of different bar chart designs. Rather than manipulating the range of axis values, they investigated the addition of stacked bars conveying background information, versus blank space. When the background informaton was not highlighted, this increased perceptions of the event’s likelihood. 
-
-**Related work has also explored comprehension of visualisations which violate the convention of mapping higher values to higher positions. Participants’ difficulty rejecting first impressions generated by unconventional bar charts designs led to frequent misinterpretations of presented values, particularly for participants with low literacy (Okan et al., 2012).**
-
-It’s possible that this occurs because visually representing numerators *and* denominators supports a viewer to take account of the proportion in their reasoning, helping to convey the true magnitude (Stone et al. 2018). 
-Okan et al. (2018) - manipulated axis limits to explore perceptions and understandings of risk. They find that risk perceptions were increased when axis terminated just above the bars, compared to well above at a denominator value. The measures collected regarding interpretations of values’ magnitudes are combined into a measure of risk reduction, to probe risk perception. They suggest that magnitude judgements could be informed by axis limits, but do not test this directly. 
-
-The only study which has focused specifically is Sandman et al. (1994). They used risk ladders, where indivudal probabilities are presented on vertical scales encompassing a range of probability values. By change the range of values, the position of data points also changes. Participants view a single risk ladder, which plotted data on asbestos risk. Perceived threat (a composite measure made up of perceived likelihood, danger, reported concern and fear) was higher when the same data point appeared at the 75% position on a scale, compared to the 25% position. There was mixed evidence for the effects on intentions to spend money mitigating the risk. Participants did not rely on the visuals completely, since a substanially higher risk plotted at the same position as the higher instance, still generated higher ratings. There is also a confound, in that the range of axis values differed between conditions. 
-
-Kindlmann and Scheidegger (2014) set out an algebraic approach to visualisation design. This concerns the nature of the correspondence between a dataset and its visual representation, and consists of three principles. Problematic visualisation practices occur when a) the degree of variation within a dataset is disproportate to the appearance of variation, b) different datasets appear indistinct, and c) altering visualisation parameters alters appearance. Yet many visualisations are agnostic about magnitude. 
-
-**Comparing linear and logarithmic scales, Freeman et al. (2021) did not replicate this findings. However, in addition to the graphical cue to magnitude, the risk ladders employed additional symbolic number cues in their titles, labels, and accompanying descriptions. Use of a broken axis may also have limited attention to physical position. Therefore, participants’ judgements may not have been purely based on appearance of visualisation**
-
-# Text
-Visualisations are rarely presented in isolation. Often, they contain captions, titles or annotations, and in scientific or news articles, they are embedded within a larger context. Despite this, relatively little work has explored the effect of accompanying text on the interpretation of information presented in data visualisations. 
-
-Kim et al. (2021) - captions less likely to inform takeaway interpretations when not corresponding to salient features, so the recommendation is to make important features more salient e.g. by excluding irrelevant dates/categories, or adding annotations. 
-Cheng et al. (2022) - interested in the content/style of captions. Captions referring to highly salient phenomena facilitate recall when refer to actual numbers. Captions referring to less salient phenomena facilitate recall when they refer to visual patterns.
-Hearst (2023) argues that text and charts should be treated with equal importamnce.
+**Limited insight into how mangnitude is interpreted in data visualisations impedes understanding of how visualisations may effectively communicate magnitude.**
 
 # Visualisation Literacy
-It is impossible to discuss the construction of effective data visualisations without reference to data visualisation literacy. Increasing popularity and use of data visualisation has expanded the audience who are exposed to charts. This means that individuals with minimal or zero training are often expected to interpret visual displays. 
+**Understanding individual differences in the ability to comprehend data in visualisastions is important for understanding the psychology data visualisations (Boy et al., 2014). Research on this topic has requires reliable tools for measuring data visualisation literacy.**
 
-Burns et al. (2023) discusses research aimed at understanding how relatively inexperienced users understand charts. This is important, but there is inconsistency around what constitutes a novice, and also an inconsistency between general population and samples used to explore that population. The term novice is unhelpful since it forces a binary perspective onto a more nuanced picture. Why not look at individual variation in ability? Burns reports very few cases where novice was defined by literacy.
+**Galesic and Garcia-Retamero’s 13-item test (2011) was based on Friel et al.’s (2001) hierarchy of skills for interpreting visualisations, from comprehension to extrapolation. Research has demonstrated that this scale can predict whether a graphical representation will facilitate understanding of risk information (Okan et al., 2012). Another 53-item test employs a wide range of data visualisation formats, and higher scores are postively associated with both numeracy and need for cognition (Lee et al., 2019).**
 
-It is useful to understand variability in biases by looking at individual differences. Get a better picture of how they might work, and the types of audience most likely to be affected. 
+**Research on data visualisation literacy has tended to focus on interpretation of well-designed charts (Ge et al., 2023). Yet, the ability to detect (Camba et al., 2022) and make sense of (Ge et al., 2023) misleading charts should be considered an important feature of data visualisation literacy. A robust 30-item test enables assessment of individuals’ ability to accurately comprehend deceptive designs (Ge et al., 2023). This work also suggests that attention and critical thinking may be benefit viewers in avoiding some, but not all, biased interpretations. Using Galesic and Garcia-Retamero’s 13-item test (2011), Okan et al. (2016) found that higher literacy is associated with more time processing a visualisation’s misleading features, thus promoting correct interpretations. Lower literacy is associated with greater reliance on conventions (e.g., the relationship between vertical position and magnitude).**
 
-Some people are ‘novices’ - discuss the two novices papers - but there are not just two groups - literacy scales can be useful
-Visualisation literacy is the ability to comprehend data presented in visualisations (Boy et al.)
-
-Galesic and Garcia-Retamero’s 13-item scale (2011) was based on Friel et al.’s (2001) hierarchy of skills for interpreting visualisations. 
-Okan et al. (2012) found that this scale predicted the degree to which a graphical representation would facilitate comprehension of risk information. 
-Okan et al. (2016) used the 2011 scale, looking at charts which violated conventions around presenting magnitudes (e.g. inverted axes). Higher literacy is associated with more time processing graph the misleading features, facilitating correct interpretations. Lower literacy was associated with greater reliance on conventions (e.g. relationship between vertical position and magnitude).
-
-Garcia-Retamero et al. (2016) developed a new method due to the length and potential negative consequences of previous tests (i.e. inducing anxiety). Based on prior work developing numeracy scales through subjective judgements. The 5-item version is a refined version of the 10-item subjective scale, based on the items which most strongly correlated with the objective measure, and actually performs better than the 10-item scale. Final items focused on skills (how good are you at …)  more than preferences ( do you like ….) . Diverse participant pool (US m-turkers, UGs in Spain, surgeons and patients in Spanish hospitals). Captures variation in both objective abilities but also metacognition - beliefs about own abilities/skills. Additional benefit of reducing anxiety. 
-Lee et al. (2017) - created the 53-item VLAT with a wide range of visualisation types. VLAt is postiively associated with both numeracy and need for cognition (Lee et al., 2019)
-Okan et al. (2019) developed another short graph literacy scale, noting the excessive length of current scales. This 4-items were chosen due to their representativeness of overall literacy, and the score is based on the number of correct answers (1 per chart). 
-Camba et al. (2022) suggest that the ability to detect misleading charts should be considered an important feature of data visualisation literacy. 
-Ge et al. (2023) noted that previous work on visualisation literacy has focused on interpretation of well-designed charts. Despite this, the ability to make sense of poorly designed charts is also relevant. Good approach - not to ask Ps whether they think the charts are misleading, but to intersperse misleading and honest charts within a test and measure accuracy. Develop a robust test of 30 items to assess ability to accurately comprehend deceptive designs. Ge et al. (2023) suggest that sufficient attention and critical thinking can help combat misleading visualisations. However, some cognitive biases are persistent even against these efforts. Perhaps this is where the distiction between correctness and interpretation comes in (see Correll et al., 2020, Yang et al., 2021 Stone et al., 2015).
-
-Why have I chosen this specific measure? It’s been used in similar studies e.g. Yang et al. (2021); Mantri et al. (2022).(Can find other uses through citations - (https://scholar.google.com/scholar?cites=12562930392859617416&as_sdt=2005&sciodt=0,5&hl=en)) It is also likely to be more sensitive than Okan et al.’s  (2019) scale given it ranges from 0-30, rather than 1-4 (find use through citations)
+**The empirical work presented in this thesis employs the 5-item version of Garcia-Retamero et al.’s (2016) Subjective Graph Literacy scale. This echos prior work developing subjective numeracy scales. Users are asked to rate their competence in working with bar charts, line charts, and pie charts, and also their ability to perform simple assessments using bar charts. Despite its short completion time and use of subjective ratings, it is strongly correlated with an objective measure of data visualisation literacy (Galesic and Garcia-Retamero, 2011). The scale also produces a final score out of 30, offering greater sensitivity than a similarly brief objective scale, where tallying correct responses produces a final score out of 4. These characteristics make for an appropriate tool for assessing participants’ data visualisation literacy in experimental studies. Indeed, this measure has been used to assess variability between participants in studies on axis truncation (Yang et al., 2021), correlation (Strain et al., 2023), information synthesis (Mantri et al., 2022), and explanation of visualisations (Yang et al., 2023).**
 
 # Overview of Chapters
 
 **Chapter 2** contains a review of relevant published research on data visualisation, providing background and justification for the empirical work contained in this thesis. **Chapter 3** contains a review of relevant published work on computational tools for reproducible research and details the computational approach used in this thesis. **Chapter 4** presents a pair of experiments which demonstrate that magnitude judgements can be influenced by data points’ relative positions within axis limits. **Chapter 5** presents an experiment which demonstrates that magnitude judgements can be influenced by the limits of color legends in choropleth maps. **Chapter 6** presents a pair of experiments which demonstrate the role of contextual information on interpretation of magnitude in data visualisation. **Chapter 7** contains a discussion of my empirical work, including implications and future directions. 
-
-——————————————————————
-
-# Not Sure Where
-
-Robert Kosara pie chart misconception work
-
-Tversky (1997) argues that our representation of data is entrenched in language, cognition and culture. 
-
-Does inclusion of a visualisation actually increase persuasion/trust/belief (Tal & Wansink) + failed replication
-
-Bar charts not starting at zero were perceived as less credible in a student sample (Geidner and Cameron, 2017), suggesting an awareness of what constitutes a misleading design. 
-
-Pandey et al. (2015) suggest deception occurs when an interpretation of a chart deviates from the true ‘message’. Yet this leaves open the question of what the message should be. One supposes that they are referring to the ‘ground truth’ e.g. Correll et al. (2020). 
-
-Correll and Heer - the space of ‘black hat’ visualisation concerns design of charts with intention to mislead. This involves violating conventions, inappropriate aggregation, concealing important patterns, exploiting visual biases.
-
-We do not passively receive the information. That which has been encoded has to be decoded.
-
-Look at reviewer comments to see what are considered my successful contributions 
-
-It is my thesis that interpretations of magnitude can differ according to the design of a data visualisation. Judgements pertaining to values’ magnitudes are under-explored in data visualisation research, but are relevant to interpretations and decision-making. The effect is one of context: certain aspects of a chart subtly convey the context surrounding values, giving cues to magnitude. However, it must be recognised that there are limits to a chart’s influence, and that magnitudes judgements are not wholly determined by the presentation style.
-
-It is my thesis that the design of a visualisation can influence interpretation of plotted values’ absolute magnitudes. It is well established that design choices (e.g., y-axis truncation) affect interpretation of plotted values’ *relative* magnitudes, yet *absolute* magnitudes have been under-explored. In several controlled experiments, using a range of visualisation types I demonstrate that 
-
-Studying mechanisms is beneficial for understanding how to design effective graphics (Elliott et al., 2020).**
-
-Ceja et al. (2020) point out a limitation of visual reproduction methods for measuring perceived values of previously seen charts. They can only provide insight into how people *remember* values, since any bias in visual perception would apply equally during the process of visually reproducing a value through the method of adjustment. Padilla et al. (2020) - go beyond speed and accuracy measures to gain real insight into the cognitive effort required to complete a task. Index working memory through more sensitive methods: dual-task paradigm and pupilometry. 
-
-Valuable and robust findings have been established by uncovering known psychology mechanisms, apply them to visualisation (attention for focus and declutter, curse of knowledge, datasaurus (Boger)). Other numerical biases have been studied in a datavis context (e.g. Dimara et al. 2017, 2019) Framing effects were initially primarily a reference to valence framing, but have since expanded to encompass a wider range of biases. What does this say about where we need to look for new knoweldge?
-
-Abdul-Rahman et al. (2020) discusses the importance of controlling for non-manipulated variables. 
-
-Pandey et al.’s (2015) interest in deception at the *message* level necessitates appropriate testing. They did not measure precision or accuracy in estimation tasks, but probed participants’ interpretations of visualisations’ overall message. 
-
-The precision work speaks to our concern with (in)accuracy - that we might be misleading others, that others may mislead us, that charts may be weak and lack clarity. But there is so much more than simply extracting values wrong.
-
-Anscombe’s quartet
-
-It may seem suspect to have this level of editorial control, instead wanting to let the data speak for themselves, but considering the various rhetorical tecniques, it’s clear there is no truly objective way to present data. 
-
-Dimara et al. (2020) point out that there has not been a lot of work investigating cognitive biases in visualisation. 
-
-Expanding both axes in scatterplots, such that a cluster of data points appears smaller and is surrounded by blank space, increases the perceived correlation (Cleveland et al., 1982).
-
-This directed the focus for many subsequent studies towards understanding basic processing.
-
-Dimara et al. 2020 also discussed the notion that rational approaches shouldn’t be mistaken for biases (which necessitate genuine error) due to different perspectives.
-
-Hullman and Diakopolous - Rhetoric
-
-Garcia-Retamero and Galesic (2010) - however, people’s understanding of relative differences is improved when foreground information in presented within the context of background information (in bar charts and icon arrays).
-
-**In the same study where they look at truncated line charts, Lauer and O’Brein also explore 3D pie charts which distort the actual expression of numbers. They fail to distinguish between charts that misrepresent values, and those that simply present a certain view.**
-
-Although not empirically tested, a suggestion for avoiding misinterpretation of truncated line charts involves introducing additional blank space below plotted data (Gagnon, 2018).
-
-However, this risks conveying the magnitude of differences as smaller, potentially diminishing viewers’ interpretations of the magnitude of important differences.**
-
-# Cognitive Models and Visualisation Theories - where would this go? - the classic models haven’t really informed my review or experiment 
-
-Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making. See Okan et al. 2012 and 2016 for overview of models
-
-The algebriac approach has motivated the study of the effectiveness of different chart options for detecting issues during exploratory data analysis (Correll et al., 2019) and building a tool for identifying misleading visualisations through repeat testing with distinct inputs (McNutt et al., 2020).  
-
-# Beyond Representation - not sure where this would go
-Recent work by Markant et al. (2023) highlights how prior attitudes interact with data visualisation, such that even visualisations which successful updated beliefs about specific patterns in data did not alter overall attitudes. It’s not all about portraying accurate and clear plots. 
-
-**The definition of misleading charts can be expanded even further, accounting for the fact that they can be *used* to further a point. Lisnic et al. (2023) - deception with visualisation is typically considered to occur when charts do not apply good visualisation practices. However, this paper suggests that, in their large social media sample, few charts (~12%) actually used deceptive practices. Instead, the deception was achieved by using the (properly constructed) charts to support unreliable reasoning. ‘Vulnerable’ visualisations are those that lack relevant context for exposing weaknesses in these inductive arguments. This lends support the notion that certain uses of visualisation are only misleading *in context*. The issue is *epistemological*: issues arise when the message conveyed by the visualisation is at odds with other knowledge about the world.** 
-
-For example, Wainer (1984) presents a number of examples of bad visualisations, mostly focused on distorting data by manipulating axes, incorrectly implementing area encoding, using inconsistent baselines, etc. 
-
-Misleading visualisation design has often been characterised as interfering with a viewer’s ability to accurate extract numerical information (Wainer et al., 1984; Rougier et al. 2014). 
-
-Measuring objective performance (error, rt, precision) has been the focus of much research (Hegarty, 2011). 
-
-**Lo et al.’s taxonomy tries to be more comprehensive - but ends up being too comprehensive - this illustrates that it’s important to be specific when we’re talking about deception.** Lo et al. (2022) point out that some frequently discussed misleading visualsations are rarely employed (e.g. inverted axes). They create a taxonomy of misleading visualisations, from a large sample of images associated with bad charts harvested from the internet. They identify cases where it’s not the visualisation per se, but just bad data. Some where the chart has inconsistencies or omissions - though it’s not guaranteed this is actually misleading. Others still where the chart suggests something but it isn’t plotted wrong e.g. implying causation through correlation. Argue that visualisations that are not informative are comparable to misleading visualisation, but I suggest there is a crucial difference. Not central to the main issue- maybe not too much detail required here. Nevertheless, it is important to remain cogniscant of what we mean by misleading - Lo’s defintion is too comprehensive.
-
-Ge et al. (2023) also note that assessing response accuracy requires a specific task, so misleadingness will always be related to specific tasks.**
-
-Brust-Renck et al. (2013) - importance of intentionally selecting a message and designing chart appropriately to convey gist. Reyna and Brainerd (2008) - Suggest it’s not just about making humans more like computers and memorising verbatim detail, it’s about making sure the gist that they do extract captures the true nature of the information. 
