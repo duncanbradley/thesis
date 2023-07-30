@@ -1,20 +1,42 @@
 # Discussion
 
-~ 2500 words
-
 # Briefly recap research questions and objectives
 
+This work sought to explore…
+Interested in cognitive mechanisms because…
 
 # Briefly recount the answers to those questions
 
+Overall, this work provides robust evidence for the effects of…
+There was consistent evidence of…
+
+Although the three sets of experiments investigate the same overarching question, each provides unique contributions.
+
+The studies in Chapter 1 manipulate the orientation of an axes, in addition to the range of values. They demonstrate that values’ relative positions inform interpretations of magnitude. This illustrates the greater importance of the axes in informing judgements, rather than conventions around magnitude. Viewers do indeed take into account the relative numerical position when assessing magnitude.
+
+The study in Chapter 2 uses a non-geometric encoding, which prevented the appearance of plotted data changing when manipulating axis (color legend) limits. That judgements significantly differ in spite of a more subtle cue provides insght into mechanisms. Judgements are driven by the correspondence between the plotted data and the axes that informs impressions, not simply the appearance of values. 
+
+The studies in Chapter 3 reveal that biases due to axis are affected by external knowledge about the dataset. 
+
+Repeating the same general finding in each experiment contributes to robustness. The findings complement each other.
 
 # Discuss significance and implication of findings
 
 
+
 # Discuss the contributions made
 
+This studies contributions are:
+axis range affects magnitude
+magnitude might be something to show (rarely considered before)
+adds to evidence that chart design isn’t just about presenting values accurately, biases aren’t just about incorrect interpretations
+adds to evidence that a designer’s responsibility is to faithfully represent values
+displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitudee
 
 # Critical review of methodology
+
+Judgements were collected using rating scales. Effort was taken to make these ratings meaningful etc.
+However this data could be better. Decision-making is a clear option. It’s not that judgdments are not important - they are a different process to decision-amking and a valid subject on their own. It’s that decision-making allows for a better idea of effect size, normative mapping from data to behaviour.
 
 Intro - this work is a defence of the thesis that… I suggest that…, demonstrate that
 
@@ -34,8 +56,7 @@ Are these magnitude effects as bad (or worse) than magnitude of *difference* eff
 
 On horizontal postion: Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and *horizontal* and vertical position. This is to fit with a schema, facilitating comphrension. 
 
-Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. Similarly, a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
-
+Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. 
 
 # Findings
 
@@ -43,11 +64,7 @@ How do each of the studies complement each other? What are the outstanding quest
 
 discuss counterfacutals - 
 
-The axes are a canvas for conveying context.
-
-What does the bar chart study say about the choropleth map study?
-Despite the fact that a map has no axes in the typical sense, its construction is extremely similar to geometric charts. The only difference is that the axes (legend) are not a canvas on which to plot (that’s the purpose of the map). The fact that there is a range of values, and then plotted data, remains the same. From an experimental point of view, however it’s useful. First, it’s a different type of encoding, so expands the evidence to different visualisation techniques. Second, it allows the axis and plotted values to be divorced, such that the values appear the same regardless of the axis limits. Therefore, it’s a particularly strong test of the theory - the appearance of values don’t change as a result of the manipulation. 
-
+Different types of context:
 There is a difference between the choropleth map study and the bar chart study in terms of upper limits. Because the bar chart data is drawn from a finite population, there is a logical upper limit. Becuase the choropleth map data represents a measurement, rather than a proportion, there is no logical upper limit. This highlights that axes can provide various types of numerical context, but that it’s important to consider what the type of data at hand when deciding axis limits.  
 
 Correll et al. used context-free visualisations to test the effects of truncation, yet advocate for the importance of context when designing charts. Perhaps testing visualisations in context would reveal limitations.
@@ -56,12 +73,7 @@ Markant’s findings are relevant here because they also illustrate how external
 
 Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
 
-# 
 
-For each of the studies, what are the different things that I might have done to extend them further:
-Dot Plots: Does the range of plausible values matter? 
-Choropleth Maps: Compare against typical design to see what impressions of magnitude are
-Bar Charts: Test role of upper axis limit (above/below)
 
 
 # Data Visualisation Literacy
@@ -71,6 +83,11 @@ Bar Charts: Test role of upper axis limit (above/below)
 # Limitations
 
 # Future Directions
+
+For each of the studies, what are the different things that I might have done to extend them further:
+Dot Plots: Does the range of plausible values matter? 
+Choropleth Maps: Compare against typical design to see what impressions of magnitude are
+Bar Charts: Test role of upper axis limit (above/below)
 
 * decision making - though correll et al use ratings, and various risk studies, incl. Stone et al. 2018
 * additional factors influencing magnitude judgements
@@ -179,3 +196,5 @@ Some people are ‘novices’ - discuss the two novices papers - but there are n
 It is useful to understand variability in biases by looking at individual differences. Get a better picture of how they might work, and the types of audience most likely to be affected. 
 
 Visualisation literacy is the ability to comprehend data presented in visualisations (Boy et al.)
+
+Ziemkiewicz and Kosara: a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
