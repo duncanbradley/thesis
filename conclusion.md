@@ -16,82 +16,64 @@ The studies in Chapter 1 manipulate the orientation of an axes, in addition to t
 
 The study in Chapter 2 uses a non-geometric encoding, which prevented the appearance of plotted data changing when manipulating axis (color legend) limits. That judgements significantly differ in spite of a more subtle cue provides insght into mechanisms. Judgements are driven by the correspondence between the plotted data and the axes that informs impressions, not simply the appearance of values. 
 
-The studies in Chapter 3 reveal that biases due to axis are affected by external knowledge about the dataset. 
+The studies in Chapter 3 reveal external knowledge affects the degree to which judgements are affected by axis limits. A lack of contextual knowledge about denominator values renders more reliance on appearance of values. 
 
 Repeating the same general finding in each experiment contributes to robustness. The findings complement each other.
 
+**The stimuli used in these studies also reveal different approaches to setting axis limits to convey magnitude. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations.**
+
+# Data Visualisation Literacy
+
+We consistently found that literacy didn’t affect our 
+This matches prior findings e.g. Yang 
+Yet it is clear that there are individual differences
+Therefore our measure of literacy isn’t best
+A differnet type of literacy is better
+Ge et al.’s measure looks good
+But a shorter measure would be good for experimental studies
+
 # Discuss significance and implication of findings
 
-
+# Why bias isn’t bad
+Use of the term ‘bias’ in this work should not be taken as a negative view. 
+Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
+Also Grice
+Also opportunity to leverage bias for effective design
+Bias exemplifies the power of the mind, not its limitations. An impressive sensitivity to context, and artful balance with existing knowledge.
 
 # Discuss the contributions made
 
 This studies contributions are:
 axis range affects magnitude
-magnitude might be something to show (rarely considered before)
+magnitude might be something to show (rarely considered before, and not reflected in default software, or in default designs e.g. choropleth maps) 
 adds to evidence that chart design isn’t just about presenting values accurately, biases aren’t just about incorrect interpretations
 adds to evidence that a designer’s responsibility is to faithfully represent values
 displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitudee
 
-# Critical review of methodology
-
-Judgements were collected using rating scales. Effort was taken to make these ratings meaningful etc.
-However this data could be better. Decision-making is a clear option. It’s not that judgdments are not important - they are a different process to decision-amking and a valid subject on their own. It’s that decision-making allows for a better idea of effect size, normative mapping from data to behaviour.
-
-Intro - this work is a defence of the thesis that… I suggest that…, demonstrate that
-
-Data representations exploit our sensory capabilities, and cognitive heuristics. 
-
-Effective communication of numerical information is typically concerned with clarity and coherence. 
-
-I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. The popularity of the ‘chart-junk’ concept also speaks to an instinct that if only we presented data with minimal embellishments, we would show it in its purest form (Kosara, 2016). 
-
-We may say that axis limits *inform* but do not *dictate* magnitude judgements. 
-
-Grice (1975) characterises discourse as essentially cooperative in nature. Among others features, ‘quality’ (i.e. truthfulness) is a central aspect of effective communication. 
-
-  * increase utility (maintain benefits, avoid harms) - through ensuring accuracy
-
-Are these magnitude effects as bad (or worse) than magnitude of *difference* effects?
-
-On horizontal postion: Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and *horizontal* and vertical position. This is to fit with a schema, facilitating comphrension. 
-
-Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. 
-
-# Findings
-
-How do each of the studies complement each other? What are the outstanding questions from one study that are answered by another study? How do we interpret the results in light of the other studies? What are the repeated findings that we have replicated? What are the main differences between the studies, unique contributions?
-
-discuss counterfacutals - 
-
-Different types of context:
-There is a difference between the choropleth map study and the bar chart study in terms of upper limits. Because the bar chart data is drawn from a finite population, there is a logical upper limit. Becuase the choropleth map data represents a measurement, rather than a proportion, there is no logical upper limit. This highlights that axes can provide various types of numerical context, but that it’s important to consider what the type of data at hand when deciding axis limits.  
-
-Correll et al. used context-free visualisations to test the effects of truncation, yet advocate for the importance of context when designing charts. Perhaps testing visualisations in context would reveal limitations.
-
-Markant’s findings are relevant here because they also illustrate how external information moderates/mediates the impact of charts. Markant’s work refers to perspective, my work refers to knowledge, but both show how the impact of a design is not fixed, and can depend on what’s in someone’s mind. 
-
-Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
-
-
-
-
-# Data Visualisation Literacy
-
-# Implications
-
 # Limitations
 
-# Future Directions
+Displaying magnitude involves a trade off with other things
+There will be certain situations when there’s not a clear upper limit. 
 
-For each of the studies, what are the different things that I might have done to extend them further:
-Dot Plots: Does the range of plausible values matter? 
-Choropleth Maps: Compare against typical design to see what impressions of magnitude are
-Bar Charts: Test role of upper axis limit (above/below)
+# Critical review of methodology and future directions
 
-* decision making - though correll et al use ratings, and various risk studies, incl. Stone et al. 2018
-* additional factors influencing magnitude judgements
-* investigating effects on magnitude of difference judgements due to extended axes. Explore dual displays e.g. Ritchie et al. (2019). 
+Judgements were collected using rating scales. 
+This mirrors other studies: correll et al use ratings, and various risk studies, incl. Stone et al. 2018
+Effort was taken to make these ratings meaningful etc.
+However this data could be better. 
+Decision-making is a clear option. 
+It’s not that judgdments are not important - they are a different process to decision-amking and a valid subject on their own. 
+It’s that decision-making allows for a better idea of effect size, normative mapping from data to behaviour.
+
+**For each of the studies, what are the different things that I might have done to extend them further:**
+**Dot Plots: Does the range of plausible values matter? **
+**Choropleth Maps: Compare against typical design to see what impressions of magnitude are**
+**Bar Charts: Test role of upper axis limit (above/below)**
+
+This thesis only explores one aspect of visualisation design that might impact assessments of magnitude, yet other factors could be relevant. These may be non-design features, more cognitive biases, but still important to test in a visualisation context. We will not know the full picture about processing of magnitude in visualisations until we consider other things beyond axis range. 
+
+A possible compromise may involve generating two visualisations. The first would highligh values’ magnitudes by using axes to convey context. The second would highlight values’ relative differences by using axes which facilitate comparisons between values. A similar approach is discussed in work on axis trunaction (Correll et al.), and was reported to benefit users (Ritchie et al., 2019).
+
 
 # Closing Remarks
 
@@ -198,3 +180,24 @@ It is useful to understand variability in biases by looking at individual differ
 Visualisation literacy is the ability to comprehend data presented in visualisations (Boy et al.)
 
 Ziemkiewicz and Kosara: a focus on precision of individual elements fails to account for the overall form of the graphic and how it might fit with metaphors. Consistent with Tversky and Zacks. Thinking about metaphor is a good way to understand how and why design choices might affect interpretation. 
+
+On horizontal postion: Part of Franconeri et al.’s (2021) discussion of creating understandable charts discusses the role of conventions for representing magnitude. These include color intensity and *horizontal* and vertical position. This is to fit with a schema, facilitating comphrension. See also Okan et al. 2016.
+
+Markant’s findings are relevant here because they also illustrate how external information moderates/mediates the impact of charts. Markant’s work refers to perspective, my work refers to knowledge, but both show how the impact of a design is not fixed, and can depend on what’s in someone’s mind. 
+
+Intro - this work is a defence of the thesis that… I suggest that…, demonstrate that
+
+Data representations exploit our sensory capabilities, and cognitive heuristics. 
+Effective communication of numerical information is typically concerned with clarity and coherence. 
+We may say that axis limits *inform* but do not *dictate* magnitude judgements. 
+
+I like the idea of study numbers because they have the illusion of objectivity and trustworthiness, which decreases likelihood of spotting bias and manipulation. They are also more precisely defined than other types of information, which means that we should theoretically all be able to represent them the same - yet this does not happen. We are not even always  consistent even with ourselves. But bias shouldn’t always be considered a negative thing - it reflects valuable features of our cognitive system. The popularity of the ‘chart-junk’ concept also speaks to an instinct that if only we presented data with minimal embellishments, we would show it in its purest form (Kosara, 2016). 
+
+Grice (1975) characterises discourse as essentially cooperative in nature. Among others features, ‘quality’ (i.e. truthfulness) is a central aspect of effective communication. 
+
+discuss counterfacutals - 
+
+Correll et al. used context-free visualisations to test the effects of truncation, yet advocate for the importance of context when designing charts. Perhaps testing visualisations in context would reveal limitations.
+
+Ziemkiewicz and Kosara note that cognitive models which assume an ‘information extraction’ perspective tend to ignore the fact that one’s internal representations can influence interpretation - it goes both ways. 
+
