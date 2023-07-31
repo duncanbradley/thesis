@@ -1,9 +1,21 @@
 # Discussion
 
-# Briefly recap research questions and objectives
+# Briefly recap research questions and objectives - TODAY
 
-This work sought to explore…
-Interested in cognitive mechanisms because…
+Data visualisations exploit humans’ perceptual and cognitive capabilities to facilitate comprehension of data. 
+
+Data visualisations allow viewers to efficiently appraise many facets of a dataset. 
+Systematically manipulating data visualisation designs helps us understand the processes involved in interpreting presented information. 
+
+Understanding magnitude in data could be important in many domains, where it is important not just to know variablity but also magnitude. In such cases, designers may wish to design to convey magnitude. To understand the consequences of design, research is necessary.
+
+
+The aim of this project was to investigate how axis limits inform judgements of magnitude in data visualisations. 
+
+I contribute a series of experiments revealing how axis limits inform judgements of how large or small plotted values are. 
+These findings contribute to our understanding of the cognitive processing of magnitude in data visualisations.
+
+
 
 # Briefly recount the answers to those questions
 
@@ -20,7 +32,7 @@ The studies in Chapter 3 reveal external knowledge affects the degree to which j
 
 Repeating the same general finding in each experiment contributes to robustness. The findings complement each other.
 
-**The stimuli used in these studies also reveal different approaches to setting axis limits to convey magnitude. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations.**
+**The stimuli used in these studies also reveal different approaches to setting axis limits to convey magnitude. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not uniform.**
 
 # Data Visualisation Literacy
 
@@ -32,23 +44,33 @@ A differnet type of literacy is better
 Ge et al.’s measure looks good
 But a shorter measure would be good for experimental studies
 
-# Discuss significance and implication of findings
+# Discuss significance and implication of findings 
 
-# Why bias isn’t bad
-Use of the term ‘bias’ in this work should not be taken as a negative view. 
-Gigerenzer and Brighton - Homo heuristicus: Why biased minds make better inferences,” Topics in cognitive science, vol. 1, no. 1, pp. 107–143, 2009. - suggests that biases shouldn’t be seen as completely negative, but useful.
-Also Grice
-Also opportunity to leverage bias for effective design
-Bias exemplifies the power of the mind, not its limitations. An impressive sensitivity to context, and artful balance with existing knowledge.
+**The present work discusses *bias*, but use of this term does not necessarily warrant a negative perspective. Unquestioning acceptance of the message conveyed by a visualisation is obviously detrimental. However, *failing* to account for visual cues to values’ magnitudes could also be considered a limitation in cognitive processing. Sensitivity to values’ relative positions within an axis range and ability to weight this information in accordance with other knowledge constitute a powerful capability. Appropriate use graphical cues to magnitude provide an opportunity to leverage this bias for effective communication.**
+
+**Sensitivity to norms in communication is another relevant factor. Under the assumption that visualisation design follows Gricean pragmatic principles (Grice, 1975), viewers’ judgements will be guided by a chart’s implied message. Values’ relative positions within axes would be considered relevant and reliable information, thus informing inferences about magnitude.** 
 
 # Discuss the contributions made
+
+# Extending Prior Research
+
+Axis truncation - 
+Correll - there is no neutral way to display values.
+Sandman - 
+Bertini et al. - effecitivness of vis beyond precision
+Main motivation - Kosara (2016)
+Reyna - importance of gist
+Stone - importance of magnitude judgements
+
+Mechanism
+Framing effects - Tversky - Pinker, Carpenter and Shah
 
 This studies contributions are:
 axis range affects magnitude
 magnitude might be something to show (rarely considered before, and not reflected in default software, or in default designs e.g. choropleth maps) 
 adds to evidence that chart design isn’t just about presenting values accurately, biases aren’t just about incorrect interpretations
 adds to evidence that a designer’s responsibility is to faithfully represent values
-displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitudee
+displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitude
 
 # Limitations
 
@@ -56,6 +78,8 @@ Displaying magnitude involves a trade off with other things
 There will be certain situations when there’s not a clear upper limit. 
 
 # Critical review of methodology and future directions
+
+X is a core aspect of the present work. 
 
 Judgements were collected using rating scales. 
 This mirrors other studies: correll et al use ratings, and various risk studies, incl. Stone et al. 2018
@@ -65,17 +89,27 @@ Decision-making is a clear option.
 It’s not that judgdments are not important - they are a different process to decision-amking and a valid subject on their own. 
 It’s that decision-making allows for a better idea of effect size, normative mapping from data to behaviour.
 
-**For each of the studies, what are the different things that I might have done to extend them further:**
-**Dot Plots: Does the range of plausible values matter? **
-**Choropleth Maps: Compare against typical design to see what impressions of magnitude are**
-**Bar Charts: Test role of upper axis limit (above/below)**
+Determine wheterh axis limits are considered to represent the range of plausible values for assessing magnitude? - for cases where there is no denominator
+Given that typical design (especially in choropleth maps) is to convey differences in magnitude, compare how closely absolute magnitude judgements from these plots correspond to magnitude judgemetns in magnitude-aware plots. This would also be a test of how much people rely on visuals vs numbers.  
 
 This thesis only explores one aspect of visualisation design that might impact assessments of magnitude, yet other factors could be relevant. These may be non-design features, more cognitive biases, but still important to test in a visualisation context. We will not know the full picture about processing of magnitude in visualisations until we consider other things beyond axis range. 
 
 A possible compromise may involve generating two visualisations. The first would highligh values’ magnitudes by using axes to convey context. The second would highlight values’ relative differences by using axes which facilitate comparisons between values. A similar approach is discussed in work on axis trunaction (Correll et al.), and was reported to benefit users (Ritchie et al., 2019).
 
+Even broader - consideration of various aspects of a data that might be communicated beyond the values (e.g. noise, numerosity, etc.). Designers may prioritise different aspects of design for different messages. Algebraic visualisation design. 
 
-# Closing Remarks
+# Closing Remarks - TODAY
+
+Design choices influences the framing of information presented in a visualisation, in turn influencing the message conveyed.
+The use of axis limits can inform judgements about data, specifically overall magnitudes.
+Highlight the role of context in conveying magnitude - there is no universal approach.
+The power of design choices to enlighten or mislead.
+The evidence collected through empirical studies informs how viewers may make inferences about magnitude and how data visualisations might be designed to convey magnitude. 
+
+
+
+ 
+
 
 
 ————————————————————————————————————————————————————————————
@@ -132,13 +166,11 @@ Hullman and Diakopolous - Rhetoric
 
 Garcia-Retamero and Galesic (2010) - however, people’s understanding of relative differences is improved when foreground information in presented within the context of background information (in bar charts and icon arrays).
 
-**In the same study where they look at truncated line charts, Lauer and O’Brein also explore 3D pie charts which distort the actual expression of numbers. They fail to distinguish between charts that misrepresent values, and those that simply present a certain view.**
+In the same study where they look at truncated line charts, Lauer and O’Brein also explore 3D pie charts which distort the actual expression of numbers. They fail to distinguish between charts that misrepresent values, and those that simply present a certain view.
 
 Although not empirically tested, a suggestion for avoiding misinterpretation of truncated line charts involves introducing additional blank space below plotted data (Gagnon, 2018).
 
 However, this risks conveying the magnitude of differences as smaller, potentially diminishing viewers’ interpretations of the magnitude of important differences.**
-
-# Cognitive Models and Visualisation Theories - where would this go? - the classic models haven’t really informed my review or experiment 
 
 Padilla (2018) argues for greater adoption and generation of cognitive models in visualisation research. Knowledge of the cognitive mechanisms processes involved in interpreting a particular visualisation helps understand how a suitable experiment can be designed. There’s not a single process, but a combination, starting from encoding of basic visual information, top-down and bottom-up processing, through to decision-making. See Okan et al. 2012 and 2016 for overview of models
 
@@ -147,7 +179,7 @@ The algebriac approach has motivated the study of the effectiveness of different
 # Beyond Representation - not sure where this would go
 Recent work by Markant et al. (2023) highlights how prior attitudes interact with data visualisation, such that even visualisations which successful updated beliefs about specific patterns in data did not alter overall attitudes. It’s not all about portraying accurate and clear plots. 
 
-**The definition of misleading charts can be expanded even further, accounting for the fact that they can be *used* to further a point. Lisnic et al. (2023) - deception with visualisation is typically considered to occur when charts do not apply good visualisation practices. However, this paper suggests that, in their large social media sample, few charts (~12%) actually used deceptive practices. Instead, the deception was achieved by using the (properly constructed) charts to support unreliable reasoning. ‘Vulnerable’ visualisations are those that lack relevant context for exposing weaknesses in these inductive arguments. This lends support the notion that certain uses of visualisation are only misleading *in context*. The issue is *epistemological*: issues arise when the message conveyed by the visualisation is at odds with other knowledge about the world.** 
+The definition of misleading charts can be expanded even further, accounting for the fact that they can be *used* to further a point. Lisnic et al. (2023) - deception with visualisation is typically considered to occur when charts do not apply good visualisation practices. However, this paper suggests that, in their large social media sample, few charts (~12%) actually used deceptive practices. Instead, the deception was achieved by using the (properly constructed) charts to support unreliable reasoning. ‘Vulnerable’ visualisations are those that lack relevant context for exposing weaknesses in these inductive arguments. This lends support the notion that certain uses of visualisation are only misleading *in context*. The issue is *epistemological*: issues arise when the message conveyed by the visualisation is at odds with other knowledge about the world.
 
 For example, Wainer (1984) presents a number of examples of bad visualisations, mostly focused on distorting data by manipulating axes, incorrectly implementing area encoding, using inconsistent baselines, etc. 
 
