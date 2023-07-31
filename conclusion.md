@@ -1,28 +1,21 @@
 # Discussion
 
-# Briefly recap research questions and objectives - TODAY
+# Briefly recap research questions and objectives
 
-Data visualisations exploit humans’ perceptual and cognitive capabilities to facilitate comprehension of data. 
+**Data visualisations facilitate comprehension of data by exploiting humans’ perceptual and cognitive capabilities. Systematically manipulating data visualisation designs can help reveal cognitive mechanisms involved in interpretation. This, in turn, can inform recommendations for effective design.**
 
-Data visualisations allow viewers to efficiently appraise many facets of a dataset. 
-Systematically manipulating data visualisation designs helps us understand the processes involved in interpreting presented information. 
+**Data visualisations can illuminate many aspects of a dataset, from correlations to distributions. Viewers may also form impressions of values’ absolute magnitudes: how large or small values are. To understand this process, it is necessary to examine how visual cues contribute to one’s mental representation.**
 
-Understanding magnitude in data could be important in many domains, where it is important not just to know variablity but also magnitude. In such cases, designers may wish to design to convey magnitude. To understand the consequences of design, research is necessary.
+**The aim of this thesis was to investigate how data visualisation designs influence interpretations of values’ absolute magnitudes. I contribute a series of experiments demonstrating that judgements about magnitude are informed by values’ relative positions within axis limits. This reveals that visual cues to numerical context play a role in processing of how large or small data points are.**
 
+gist/message level
 
-The aim of this project was to investigate how axis limits inform judgements of magnitude in data visualisations. 
-
-I contribute a series of experiments revealing how axis limits inform judgements of how large or small plotted values are. 
-These findings contribute to our understanding of the cognitive processing of magnitude in data visualisations.
-
-
+**Although the three sets of experiments consider the same overarching question, each provides a unique contribution.**
 
 # Briefly recount the answers to those questions
 
 Overall, this work provides robust evidence for the effects of…
 There was consistent evidence of…
-
-Although the three sets of experiments investigate the same overarching question, each provides unique contributions.
 
 The studies in Chapter 1 manipulate the orientation of an axes, in addition to the range of values. They demonstrate that values’ relative positions inform interpretations of magnitude. This illustrates the greater importance of the axes in informing judgements, rather than conventions around magnitude. Viewers do indeed take into account the relative numerical position when assessing magnitude.
 
@@ -76,6 +69,7 @@ displaying magnitude may or may not be important, they have to decide, and they 
 
 Displaying magnitude involves a trade off with other things
 There will be certain situations when there’s not a clear upper limit. 
+It won’t work if values span whole range of plausible values.
 
 # Critical review of methodology and future directions
 
@@ -98,23 +92,22 @@ A possible compromise may involve generating two visualisations. The first would
 
 Even broader - consideration of various aspects of a data that might be communicated beyond the values (e.g. noise, numerosity, etc.). Designers may prioritise different aspects of design for different messages. Algebraic visualisation design. 
 
-# Closing Remarks - TODAY
+# Closing Remarks
 
-Design choices influences the framing of information presented in a visualisation, in turn influencing the message conveyed.
-The use of axis limits can inform judgements about data, specifically overall magnitudes.
-Highlight the role of context in conveying magnitude - there is no universal approach.
+Context makes numbers meaningful. 
+
+Data visualisation designers’ choices determine the characteristics of a visualisation and the message conveyed about the data. The work presented in this thesis demonstrates the connection between the graphical and semantic levels. 
+
+The work presented in this thesis demonstrates the connection between a visualisation’s physical characteristics and its message. Both are determined by a data visualisation designers’ choices. Presenting context which is not part of a dataset illustrates the non-impartial aspect of visualisation design. 
+
+Evidence collected through empirical studies informs on framing of information - sensitivity to context in presenting numbers as big or small. 
 The power of design choices to enlighten or mislead.
-The evidence collected through empirical studies informs how viewers may make inferences about magnitude and how data visualisations might be designed to convey magnitude. 
 
 
 
- 
-
-
-
-————————————————————————————————————————————————————————————
-————————————————————————————————————————————————————————————
-————————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————
+——————————————————————————————————————————————————————————
 
 # Not Sure Where
 
