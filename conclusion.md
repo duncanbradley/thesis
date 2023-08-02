@@ -1,7 +1,5 @@
 # Discussion
 
-# Briefly recap research questions and objectives
-
 **Data visualisations facilitate comprehension of data by exploiting humans’ perceptual and cognitive capabilities. Systematically manipulating data visualisation designs can help reveal cognitive mechanisms involved in interpretation. This, in turn, can inform recommendations for effective design.**
 
 **Data visualisations can illuminate many aspects of a dataset, from correlations to distributions. Viewers may also form impressions of values’ absolute magnitudes: how large or small values are. To understand this process, it is necessary to examine how visual cues contribute to one’s mental representation.**
@@ -10,8 +8,6 @@
 
 **Although the three sets of experiments consider the same overarching question, each provides a unique contribution.**
 
-# Briefly recount the answers to those questions
-
 Overall, this work provides robust evidence for the effects of…
 There was consistent evidence of…
 
@@ -19,60 +15,37 @@ The studies in Chapter 1 manipulate the orientation of an axes, in addition to t
 
 The study in Chapter 2 uses a non-geometric encoding, which prevented the appearance of plotted data changing when manipulating axis (color legend) limits. That judgements significantly differ in spite of a more subtle cue provides insght into mechanisms. Judgements are driven by the correspondence between the plotted data and the axes that informs impressions, not simply the appearance of values. 
 
-The studies in Chapter 3 reveal external knowledge affects the degree to which judgements are affected by axis limits. A lack of contextual knowledge about denominator values renders more reliance on appearance of values. 
+The studies in Chapter 3 reveal external knowledge affects the degree to which judgements are affected by axis limits. A lack of contextual knowledge about denominator values renders more reliance on appearance of values. This is slightly different because unlike others, the denominator is part of the dataset. 
 
-Repeating the same general finding in each experiment contributes to robustness. The findings complement each other.
+Repeating the same general finding in each experiment contributes to robustness. The findings complement each other.  Framing effects - Tversky - Pinker, Carpenter and Shah. adds to evidence that chart design isn’t just about presenting values accurately, biases aren’t just about incorrect interpretations - Reyna - importance of gist- good understanding is not guaranteed by precision (bertini)
 
-**The stimuli used in these studies also reveal different approaches to setting axis limits to convey magnitude. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not homogenous.**
+**The stimuli used in these studies also reveal different approaches to conveying magnitude using axis limits. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not homogenous.**
 
 # Data Visualisation Literacy
 
 **Data visualisation literacy levels did not account for variation in responses to axis manipulations. This accords with research on axis truncation, which found that the same subjective literacy measure was not associated with the degree of bias in judgements of relative differences (Yang et al., 2021). The same has also been observed using an objective literacy measure (Okan et al., 2018).  Another experiment on the same issue, using yet another literacy measure, did observe that data visualisation literacy predicted bias (Driessen et al., 2022). However, a lack of diversity in the sample’s literacy levels diminished confidence in the utility of this measure.**  
 
-**Variability in participants’ responses is evident. Therefore, it’s not the case that individual differences do not exist, rather that the data visualisation literacy employed measure was not best placed to capture these differences. The measure may register basic skills for comprehending visualisations, rather than susceptibility to visualisation design (Yang et al., 2021). Ge et al. suggest that critical thinking skills predict the degree of bias elicited by deceptive designs, and produce a literacy measure designed to capture this capacity. However, its considerable length makes it unsuitable for use as a covariate in experimental studies. A shorter literacy measure of critical thinking in comprehension of data visualisations would be valuable.** 
+**Variability in participants’ responses is evident, suggesting the data visualisation literacy employed measure was not best placed to capture these differences. The measure may register basic skills for comprehending visualisations, rather than susceptibility to visualisation design (Yang et al., 2021). Ge et al. suggest that critical thinking skills predict the degree of bias elicited by deceptive designs, and produce a literacy measure designed to capture this capacity. However, its considerable length makes it unsuitable for use as a covariate in experimental studies. A shorter literacy measure of critical thinking in comprehension of data visualisations would be valuable.** 
 
-# Discuss significance and implication of findings 
+# Contributions and Implications
 
-**The present work discusses *bias*, but use of this term does not necessarily warrant a negative perspective. Unquestioning acceptance of the message conveyed by a visualisation is obviously detrimental. However, *failing* to account for visual cues to values’ magnitudes could also be considered a limitation in cognitive processing. Sensitivity to values’ relative positions within an axis range and ability to weight this information in accordance with other knowledge constitute a powerful capability. Appropriate use graphical cues to magnitude provide an opportunity to leverage this bias for effective communication.**
+*This investigation addresses a neglected topic in data visualisation research.* By demonstrating viewers’ sensitivity to absolute magnitude, we present new considerations for design. Empirical studies were formulated to improve upon the design of previous experiments (Sandman et al., 1994), in order to generate robust evidence and develop an understanding of underlying mechanisms (Kosara, 2016). 
+
+Like Correll et al. (2020) There is no axis setting that generates an unbiased impression of data, since we’re not talking about correctness, but subjective interpretation. - designer’s responsibility is to faithfully represent values - displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitude
+
+**The present work discusses *bias*, but use of this term does not necessarily warrant a negative perspective. Unquestioning acceptance of the message conveyed by a visualisation is obviously detrimental. However, *failing* to account for visual cues to values’ magnitudes could also be considered a limitation in cognitive processing. Sensitivity to values’ relative positions within an axis range and ability to weight this information in accordance with other knowledge constitute a powerful capability. Appropriate use of graphical cues to magnitude provides an opportunity to leverage this bias for effective communication.**
 
 **Sensitivity to norms in communication is another relevant factor. Under the assumption that visualisation design follows Gricean pragmatic principles (Grice, 1975), viewers’ judgements will be guided by a chart’s implied message. Values’ relative positions within axes would be considered relevant and reliable information, thus informing inferences about magnitude.** 
 
-# Discuss the contributions made
+# Limitations and Future Directions
 
-# Extending Prior Research
-
-Correll - there is no neutral way to display values.
-Sandman - 
-Bertini et al. - effecitivness of vis beyond precision
-Main motivation - Kosara (2016)
-Reyna - importance of gist
-Stone - importance of magnitude judgements
-
-Big picture sentences
-
-Mechanism
-Framing effects - Tversky - Pinker, Carpenter and Shah
-
-This studies contributions are:
-axis range affects magnitude
-magnitude might be something to show (rarely considered before, and not reflected in default software, or in default designs e.g. choropleth maps) 
-adds to evidence that chart design isn’t just about presenting values accurately, biases aren’t just about incorrect interpretations
-adds to evidence that a designer’s responsibility is to faithfully represent values
-displaying magnitude may or may not be important, they have to decide, and they have to be aware of what it might (or might not say) about magnitude
-
-# Limitations
-
-**Magnitude is one of many aspects of data that designers may convey. This work does not suggest that conveying magnitude will be appropriate in all scenarios. Different aspects of data may be considered be more pertinent. Additionally, datasets may present contraints, such as unequal denominator values, which would prohibit use of a single denominator value as an axis limit. However, these limitations should not detract from the overall utility of these findings.** 
-
-**Conflicting graphical cues may prevent designers conveying magnitude *in addition to* other aspects. For example, a truncated axis may clearly display relative differences between data points but omit context illustrating values’ absolute magnitudes. Alternatively, an extended axis may clearly display absolute magnitudes but obscure values’ relative differences. A possible compromise to this trade-off may involve generating two visualisations. One would illustrate absolute magnitudes using axes limits in a manner similar to Chapters 1-3. Another would illustrate relative differences by using axis limits which promote discrimination between values. A similar approach is discussed in work on axis truncation (Correll et al.), and has been reported to benefit users (Ritchie et al., 2019). Future work could investigate the utility of this approach for conveying both absolute magnitudes and relative differences.** 
-
-# Critical review of methodology and future directions
+**This work does not suggest that conveying absolute magnitude will be appropriate in all scenarios. Other aspects of data may be considered be more pertinent. Conflicting graphical cues may prevent designers conveying magnitude *in addition to* other aspects. For example, a truncated axis may clearly display relative differences between data points but omit context illustrating values’ absolute magnitudes. Alternatively, an extended axis may clearly display absolute magnitudes but obscure values’ relative differences. A possible compromise to this trade-off may involve generating two visualisations: one to illustrate absolute magnitudes and another to promote discrimination between values. A similar approach is discussed in work on axis truncation (Correll et al.), and has been reported to benefit users (Ritchie et al., 2019). Future work could investigate the utility of this approach for conveying both absolute magnitudes and relative differences.** 
 
 **Eliciting judgements using rating scales is an established method for measuring interpretations of visualisations (see Correll et al. 2020, Witt, 2019, Yang et al. 2021, Pandey et al. 2015,  Stone et al. 2017, 2018, Okan et al. 2018, Okan et al. 2020, Sandman et al. 1994). To ensure participants’ responses reflected message-level interpretations, all scales captured ratings pertaining to the information presented, not simply the graphical elements. However, future work employing decision-making measures would complement this work. First, this would provide insight into how axis limits’ presentation of magnitude influences behaviour. Second, this would more effectively illustrate the strength of effects observed. Measuring responses in terms of tangible outcomes (e.g., monetary value) can capture the magnitude of bias a more concrete manner. Other experiments in the field offer inspiration for effective and comprehensible decision-making tasks (e.g., Kale et al. 2021, Bancilhon et al., 2019).** 
 
 **Future work could also investigate the contribution of numerical context when plotting information about familiar measurements and relative frequencies. One approach to investigating this question would involve testing multiple different axis ranges whilst maintaining data points’ approximate physical positions. This would reveal whether interpretations of magnitude are directly proportional to the range of numerical values on an axis. Furthermore, this thesis focuses on how axis limits inform magnitude judgements, but many other factors may also influence interpretations, from numerical units to prior beliefs. A comprehensive account of cognitive processing of magnitude in data visualisations will also incorporate additional biases and mechanisms.** 
 
-**An algebraic approach to visualisation design suggests that substantial changes in data should be reflected accordingly in a visualisation (Kindlmann and Scheidegger, 2014). However, this capacity requires ability to convey substantial change in the *specific aspect* of a dataset of interest. A design supporting comprehension of relative differences may be poorly suited to conveying/communicating other messages. This thesis demonstrates that conventional data visualisation formats present an opportunity for conveying an often-overlooked aspect of a dataset: absolute magnitude. Just as adjusting axis limits influences interpretations about absolute magnitude, other design choices may help communicate other messages. Future work should identify whether graphical cues to other features of data, such as noise or numerosity, have been similarly under-explored. Developing an understanding of cognitive processes involved in interpretating these features would inform effective design.** 
+**An algebraic approach to visualisation design suggests that substantial changes in data should be reflected accordingly in a visualisation (Kindlmann and Scheidegger, 2014). However, this capacity requires ability to convey substantial change in the *specific aspect* of a dataset of interest. A design supporting comprehension of relative differences may be poorly suited to conveying/communicating other messages. This thesis demonstrates that conventional data visualisation formats present an opportunity for conveying/communicating an often-overlooked aspect of a dataset: absolute magnitude. Just as adjusting axis limits influences interpretations about absolute magnitude, other design choices may help convey/communicate other messages. Future work should identify whether graphical cues to other features of data, such as noise or numerosity, have been similarly under-explored. Developing an understanding of cognitive processes involved in interpretating these features would inform effective design.** 
 
 # Closing Remarks
 
@@ -208,4 +181,10 @@ Evidence collected through empirical studies
 Data visualisation designers’ choices influence the characteristics of a visualisation and the message conveyed about the data. The work presented in this thesis demonstrates the connection between the graphical and semantic levels. 
 
 The work presented in this thesis demonstrates the connection between a visualisation’s physical characteristics and its message. Both are determined by a data visualisation designers’ choices. Presenting context which is not part of a dataset illustrates the non-impartial aspect of visualisation design. 
+
+Certain constraints limit how widely these findings can be applied.
+
+For example, a dataset with unequal denominator values would prohibit use of a single denominator value as an axis limit. 
+
+Is numerical context always appropriate way to convey subjective magnitude? Mangnitude comes not just from numerical context but also topical context. 
 
