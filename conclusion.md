@@ -1,4 +1,4 @@
-# Discussion
+# Conclusion
 
 **Data visualisations facilitate comprehension of data by exploiting humans’ perceptual and cognitive capabilities. Systematically manipulating data visualisation designs can help reveal cognitive mechanisms involved in interpretation. This, in turn, can inform recommendations for effective design.**
 
@@ -6,7 +6,7 @@
 
 **The aim of this thesis was to investigate how data visualisation design influences interpretations of values’ absolute magnitudes. This investigation focused on viewers’ *gist* representations of data, rather than their comprehension of specific values. I conducted a series of experiments demonstrating that judgements about magnitude are informed by values’ relative positions within axis limits. This reveals that graphical cues to context play a role in the processing of how large or small values are.**
 
-# Main Findings
+## Main Findings
 
 **The three sets of experiments in this thesis consider the same overarching question, but each provides a unique contribution.**
 
@@ -18,16 +18,21 @@
 
 **The stimuli used in these studies reveal different approaches to conveying magnitude using axis limits. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not uniform.**
 
-**Overall, this work provides consistent evidence of framing effects affecting magnitude judgements in data visualisations.* According to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).** This occurs because … (Tversky and Kahneman). 
+**Overall, this work provides consistent evidence of framing effects affecting magnitude judgements in data visualisations.* According to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).** This occurs because … (Tversky and Kahneman, 1974) - anchoring - prior information - estimations
+
+Another framework for understanding these is…
+Similarly, these effects could be considered framing effects, where influenced by surrounding information. 
+It’s not necessarily one or the other - the frame of reference is what creates that initial first impression. It’s a trivial. temporal distinrtion
+(Tversky and Kahneman, 1981) - Framing effect - preferences - presentation of information itself
 Reyna (2008), Stone et al,. 2015 - importance of gist
 
-# Data Visualisation Literacy
+## Data Visualisation Literacy
 
 **Data visualisation literacy levels did not account for variation in responses to axis manipulations. This accords with research on axis truncation, which found that the same subjective literacy measure was not associated with the degree of bias in judgements of relative differences (Yang et al., 2021). The same has also been observed using an objective literacy measure (Okan et al., 2018).  Another experiment on the same issue, using yet another literacy measure, did observe that data visualisation literacy predicted bias (Driessen et al., 2022). However, a lack of diversity in the sample’s literacy levels diminished confidence in the utility of this measure.**  
 
 **Variability in participants’ responses is evident, suggesting the data visualisation literacy employed measure was not best placed to capture these differences. The measure may register basic skills for comprehending visualisations, rather than susceptibility to visualisation design (Yang et al., 2021). Ge et al. suggest that critical thinking skills predict the degree of bias elicited by deceptive designs, and produce a literacy measure designed to capture this capacity. However, its considerable length makes it unsuitable for use as a covariate in experimental studies. A shorter literacy measure of critical thinking in comprehension of data visualisations would be valuable.** 
 
-# Contributions and Implications
+## Contributions and Implications
 
 **This investigation addresses a neglected topic in data visualisation research. Empirical results demonstrating viewers’ sensitivity to *absolute magnitude* present new considerations for design. Experiments were designed to generate robust evidence (Kosara, 2016), enhancing the findings of intial work on this topic (Sandman et al., 1994). Furthermore, a focus on identifying underlying cognitive mechanisms provides insight into how graphical cues to magnitude are processed, and additional factors influencing interpretations.**
 
@@ -37,7 +42,7 @@ Reyna (2008), Stone et al,. 2015 - importance of gist
 
 **Sensitivity to norms in communication is another relevant factor. Under the assumption that visualisation design follows Gricean pragmatic principles (Grice, 1975), viewers’ judgements will be guided by a chart’s implied message. Values’ relative positions within axes would be considered relevant and reliable information, thus informing inferences about magnitude.** 
 
-# Limitations and Future Directions
+## Limitations and Future Directions
 
 **This work does not suggest that conveying absolute magnitude will be appropriate in all scenarios. Other aspects of data may be considered be more pertinent. Conflicting graphical cues may prevent designers conveying magnitude *in addition to* other aspects. For example, a truncated axis may clearly display relative differences between data points but omit context illustrating values’ absolute magnitudes. Alternatively, an extended axis may clearly display absolute magnitudes but obscure values’ relative differences. A possible compromise to this trade-off may involve generating two visualisations: one to illustrate absolute magnitudes and another to promote discrimination between values. A similar approach is discussed in work on axis truncation (Correll et al.), and has been reported to benefit users (Ritchie et al., 2019). Future work could investigate the utility of this approach for conveying both absolute magnitudes and relative differences.** 
 
@@ -47,9 +52,9 @@ Reyna (2008), Stone et al,. 2015 - importance of gist
 
 **An algebraic approach to visualisation design suggests that substantial changes in data should be reflected accordingly in a visualisation (Kindlmann and Scheidegger, 2014). However, this capacity requires ability to convey substantial change in the *specific aspect* of a dataset of interest. A design supporting comprehension of relative differences may be poorly suited to conveying other messages. This thesis demonstrates that conventional data visualisation formats present an opportunity for communicating an often-overlooked aspect of a dataset: absolute magnitude. Just as adjusting axis limits influences interpretations about absolute magnitude, other design choices may help convey other messages. Future work should identify whether graphical cues to other features of data, such as noise or numerosity, have been similarly under-explored. Developing an understanding of cognitive processes involved in interpretating these features would inform effective design.** 
 
-# Closing Remarks
+## Closing Remarks
 
-**Context makes numbers meaningful. In data visualisations, context be can established not only by plotted data points, but also extrinsic details. By determining a visualisation’s physical characteristics, designers may also influence the message conveyed about the data. Viewers’ sensitivity to the framing of data illustrates the power of design choices to enlighten or mislead.** 
+**Context makes numbers meaningful. In data visualisations, context be can established not only by plotted data, but also extrinsic details. By determining a visualisation’s physical characteristics, designers may also influence the message conveyed about the data. Viewers’ sensitivity to the framing of data illustrates the power of design choices to enlighten or mislead.** 
 
 ——————————————————————————————————————————————————————————
 ——————————————————————————————————————————————————————————
