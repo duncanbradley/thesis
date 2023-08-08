@@ -1,16 +1,18 @@
 # Reproducibility
 
+Plesser (2018) - much inconsistency about definitions of 
+
+Given that much of the discussion around adoption of software concerns researcher motivation, compared to availability of tools, this thesis serves as a case study for reproducible research. I do not explore all the capabilities of these tools, but employ a simple implementation of a few in order to demonstrate a minimal use case.
+
+1. Description is not enough
+2. Code and data is not enough
+3. Other options for reproducibility (e.g. VMs) are poor quality solutions
+
+——————————————
+
 accessible and transparent, increase engagement, responsible
 
 What is open source?
-
-3000-4000 words. 
-
-Chapter in a fortnight
-Need to add all papers below
-1. For each paper, search within the reproducibility folder, read the summaries in the other papers to get an idea of the interesting points
-2. Read through paper and highlight relevant points
-3. Write summary of paper
 
 This thesis should be a case study in reproducible research. This is part of the thesis in how to conduct data visualisation research. 
 This includes reproducible experiments - PsychoPy
@@ -39,8 +41,6 @@ Documentation
   * Best practices for computational environment
 (git, rmarkdown, papaja, philosophies - functional programming (DRY), etc.) 
 
-  * Read Turing Way and EasyStats
-
 Why code for stats?
 Easier to check
 Why open-source? - democritisation, not proprietary software
@@ -52,7 +52,6 @@ Bishop (2019) - HARKing, p-hacking, low power, publication bias
 I have also attempted to address these, but I focus on a different type of reproducibility here.
 
 Discuss how little computational reproducibility is mentioned in the main texts on reproducibility. 
-
 
 References for why decision-making is a good paradigm
 Acknowledge that there are better tasks than what I used
@@ -69,8 +68,6 @@ docker ps
 docker stop container_id 
 
 The issue with binder is that you can’t change images (so can’t edit the script) - you can only run it
-
-What’s the benefit over something like groundhog?
 
 Spyrison - what factors make a visualisation paper appealing? it’s not open data practices…
 Cockburn et al. (2020) mentions open science in visualisation research. 
