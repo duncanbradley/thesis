@@ -1,7 +1,32 @@
 # Reproducibility
 
-Plesser (2018) - much inconsistency about definitions of 
+Setting the scene
+Science has a problem
+Why does reproducibility help?
 
+Plesser (2018) - much inconsistency about definitions of reproducibility
+***
+Different types of reproducibility
+
+Can’t rely on researchers sharing on demand becuase a) they might be not want to reply; b) they might not be able to reply
+
+The benefits of Docker are numerous.
+
+Some suggest virtual machines have benefits over Docker, others suggest Docker has benefits over virtual machines
+
+buildmer fits with the idea of showing incremental work, by automatically re-creating the process of the models that didn’t work
+however it also ensures consistency, and optimises output
+As an R package, it is archived, and its source code is transparent
+
+PsychoPy was created with open science principles in mind
+And pavlovia’s integration with verstion control demonstrates design for computational reproducibility
+
+is groundhog equivalent to renv?
+
+Quarto
+Language-agnostic
+Rmarkdown more established, quarto shares many features, and represents state of the art 
+***
 Given that much of the discussion around adoption of software concerns researcher motivation, compared to availability of tools, this thesis serves as a case study for reproducible research. I do not explore all the capabilities of these tools, but employ a simple implementation of a few in order to demonstrate a minimal use case.
 
 1. Description is not enough
