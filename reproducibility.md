@@ -1,11 +1,74 @@
 # Reproducibility
 
+*Sandve et al. 2013* - computational reproducibility confers benefits to researchers, as well as being their duty. Behaviour and technology play equal parts in working toward computational reproducibility. Each stage of processing must be included. Automated working has three benefits over manual processing: reduced error, increased efficiency, and increased reproducibiltiy. Version control facilitates inspection of prior versions of code, allowing the stability of results to be assessed across different versions. Maintaining a record of intermediate steps facilitates diagnosis of issues, plus inspection of entire approach preceding conclusions. Roughly similar findings are not particularly informative - exact reproduction requires random seeds, in order to properly verify results. Producing analysis at different levels of aggregation can support comprhension of summaries using richer data. It’s useful to pair textual description and explanation with corresponding analysis code, literate programming tools make this easier. Supporting third parties in reproducing research may increases perceptions of the robustness and reliability. 
+
+*Wilson et al. 2015* - rather than focusing on absolute best practices, presents a starting point for repoducible working, smaller steps towards fully reproducible work. Comprehensible naming practices. Modularity is the precursor to code that is comprehensible and easy to reuse. This involves well-defined functions. Documentation to introduce each program. Support reuse of code, avoid repetition, also avoid controlling code through commenting, but use a programattical approach instead. Through version control, archiving of changes to a document does not rely solely on user’s descriptions but digital records of actual modifications.
+
+*Piccolo and Frampton (2016)* - dependencies, software versions, and parameters complicate reproduction, requiring detail and precision in specification. Textual descriptions accompanying analysis can facilitate, but can only go so far. Literate programming helps ensure documentation is closely linked to code, not separate. Literate programming facilitates comprehension of code. Virtual machines are large, containers are lightweight in comparison. Dockerfiles compatible with version control systems. Minor changes are trivial in Dockerfiles but painful in virtual machines. However, Dockerfiles are associated with a smaller number of limitations. Authors may feel the advantges of reproducible practices even more than their peers. A partial effort towards reproducibility still trumps a wholly irreproducible research project. 
+
+*White et al. 2013* - open science recommendations are similar across disciplines. Sharing data can enhance exisiting analyses and facilitate application of new analyses (Fienberg and Martin, 1985). Formats for metadata vary from textual descriptions to machine-readable files. Regarding metadata, the best is the enemy of the good. As well as describing characteristics, it should detail data collection, and known issues. Raw data and code for processing should be supplied. Use non-proprietary file types. Avoid simple errors like failing to separate values from units, and spaces in file names, ambiguous blank cells. Figshare is an ‘all-purpose’ solution. Lenient licences avoid unneccessary restrictions. 
+
+*Klein et al. (2018)* - access to the constituent parts of research accelerates scientific progress (Ioannidis, 2012). Sharing details is crucial for assessing the credibility of research. Reproducibility supports identification of errors in analysis. Another selfish reason for sharing resources permanently is insurance against loss of those resources. Stimuli and other materials e.g. experiemntal scripts should be shared. ‘Codebook’ or ‘Data Dictionary’ for machine readable metadata. Analysis shared need not be perfect to be useful. Detail journey from original dataset to inferential statistics. Stating that data will be shared upon request is associated with insufficient willingness/ability to share. Independent providers are the best choices for repositories, in particular OSF for its range of features. Reproducibility crisis has sparked “urgent conversation”.
+
+*Knuth, 1984* - what we produce shouldn’t be considered a set of instructions for a computer to follow. Rather, it should assist a human in understanding what those instructions are. Comprehensibility of code is important. Varaibles should be appropriately named and explained. 
+
+*Barnes, 2010* - reject perfectionism, accept limitations of code, and share it. Such limitations arise becuase the task at hand only requires the code to function as expected for the specific scenario. (Non-essential) ideals are often ignored if not essential. It is not possible to benefit from external inquiry if the code is not shared.
+
+*Peng, 2011* - focuses on computational science. Replication allows for independent evaluation of research findings, but is resource intensive. Assessing reproducibility offers another simpler way to evaluate reliability of work. Presents a spectrum of reproducibility. Sharing code offers some benefits over a standalone publication, the addition of data increases reproducibility further, but even better is the ability to execute this code, falling short of a full replication.
+
+*Ioaniddis, 2005* - Many lines of inquiry may be producing unreliable conclusions. Better powered experiments are required. Highlights a general concern with the trustworthiness of findings. 
+
+*Open Science Collaboration, 2015* - replication study, revealing that the evidence many established findings was not as strong as initial reported.  
+
+*Houtkoop et al., 2018* - Several things impede or deter sharing of research data: lack of expertise, lack of precedent, lack of time/motivation. 
+
+*Grüning et al., 2018* - reproducibility has become a hot topic recently. Computational notebooks and tools for dynamic document generation (Jupyter, R Markdown) do not capture the computational environment. Suggests that virtual machines are more comprehensive than containers. Reocrding the dependencies is necessary. Containers present an opportunity to capture a wider element of the computational environment beyond package managers. Reproducing the environment used to generate a container is an additional challenge to the sustainability of this solution. Containers are not isolated from the hardware or underlying kernel (operating system level), limiting their reproducibility. The challenges are no longer completely depending on innovations in technology, but researchers’ engagement with these tools.   
+
+*Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of code do not match the care required for other aspects of research. The typical researcher’s documentation of code is inconsistent with their attention to detail in other aspects of research. Citing software supports reproducibility and also acknowledges the contribution of software in research (LeVeque et al., 2012). 
+
+*FitzJohn et al., 2014* - Knitr provides opportunities for literate programming. Data visualisations may be created dynamically, in the same way as the analysis. Computationally-expensive code is problematic - I suggest that caching can provide a solution. Continuous integration offers the ability to detect whether each new change has not prevented successful outputs/compilation. Dependencies can be recorded automatically. Also cite examples of studies failing to reproduce or even use much acadmic software provided. 
+
+ *Wickham, 2014* - a set of tools and criteria for preparing data prior to analysis. A principled way of approaching this task simplifies the process. The main goal is facilitating analysis. Ensuring correct structure. A column for each variable (each type of measurement) and a row for each observation (each related instance). Functions designed to create tidy data treat data in a standardised manner, thus can be employed in concert.
+
+*Stodden et al., 2015* - different types of reproducibility: empirical (robustness of methods and their reporting), computational (robustness of software), analytical (robustness of analysis, Stodden, 2011, 2013).
+
+*Perez-Riverol et al., 2016* - using github to support computational reproducibility
+
+*Boettiger, 2015* - to capture dependencies, one must reproduce the computational environment used. That Dockerfiles promote are human-readable promotes transparency. Dockerfiles capture a greater level of dependencies than makefiles, because they can capture software versions. Tools must be practicable as well as productive. Lack of familiarity is a barrier. Increasingly complex and elegant solutions may present their own challenges e.g. dynamic document generation alo requires LaTeX dependencies. 
+
+*Cito et al., 2016* - unlike with virtual machines, the machine running a container provides the kernel, reducing size and enhancing computational power. 
+
+*Nüst et al., 2017* - introduce the notion of Executable Research Compendia, providing data, code, computational environment, and interface. The concept is that this is ‘self-contained’. This follows the development of Research Compendia (Gentleman and Lang, 2007), which focused on providing data and analysis code, and use of dynamic documents. Executable Research Compendia are a way of packaging research resources/output. Because of each researcher’s unique specialisms and preferences, there are roughly the same number computational environments as researchers. Package managers allow for automatic recording of many dependencies, but not the development environment itself. Sharing is not sufficient becuase what is shared must be comprehensible. Key the the notion of Executable Research Compendia is being providing a ‘one-click’ functionality that indicates successful reproduction of all computational processes, resulting in an exact correspondence between generated and reported results. However, perfect reproducibility only indicates that computational processes run as expected, not that the conclusions of the research independently valid. Docker cannot be used in conjuction with proprietary software. 
+
+*Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities. 
+
+*Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
+
+*Stodden et al., 2016* - reproduction of computational processes ought to be achieved*independently*. 
+
+*Wilkinson et al., 2016* - FAIR principles are designed to help machines locate and reuse data. Effective data management facilitates advances in knowledge. Findable, Accessible, Interoperable, and Reusable. FAIR principles are also relevant to other computational tools, including those used for analysis of data. Machine readability is important for using the ever-increasing proliferation of data.
+
+*Boettiger and Eddelbuettel, 2017* - Dockerfiles are used to create Docker images. When the image is running, there is a Docker container. **R**ocker captures R environments for use in Docker. It makes the computational enivornment ‘portable’, for use with a variety of systems. When designing Rocker images, the authors faced a trade-off between generalisibility and specificity. An image designed to be too widely applicable would be cumbersome, but it would be hard to find one that fits with an overly-specific use case. Their solution is to provide base images that are easily expanded for specific requirements. 
+
+Definition of replicability as generation of new data to further examine a reported finding - Simons (2014) 
+Evidence on why descriptions of software do not suffice for reproducibility - Ince (2012)
+Define replicability and reproducibility as I would - Bollen et al. (2015)
+The reference for Docker - Merkel (2014)
+
+The reporting of scientific studies involves lots of summary. Raw data is collected then processed, then analysed. In a small set of inferential statistics upon which a claim rests, a lot is going on behind the scenes. The ability to trace conclusions back to their original source is not just useful, but a crucial aspect of science. 
+
+
+
+
+
 Setting the scene
 Science has a problem
 Why does reproducibility help?
 
+*preserve* computational environment
+
 Plesser (2018) - much inconsistency about definitions of reproducibility
-***
+
 Different types of reproducibility
 
 Can’t rely on researchers sharing on demand becuase a) they might be not want to reply; b) they might not be able to reply
@@ -26,7 +89,7 @@ is groundhog equivalent to renv?
 Quarto
 Language-agnostic
 Rmarkdown more established, quarto shares many features, and represents state of the art 
-***
+
 Given that much of the discussion around adoption of software concerns researcher motivation, compared to availability of tools, this thesis serves as a case study for reproducible research. I do not explore all the capabilities of these tools, but employ a simple implementation of a few in order to demonstrate a minimal use case.
 
 1. Description is not enough
