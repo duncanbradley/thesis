@@ -40,7 +40,7 @@
 
 *Nüst et al., 2017* - introduce the notion of Executable Research Compendia, providing data, code, computational environment, and interface. The concept is that this is ‘self-contained’. This follows the development of Research Compendia (Gentleman and Lang, 2007), which focused on providing data and analysis code, and use of dynamic documents. Executable Research Compendia are a way of packaging research resources/output. Because of each researcher’s unique specialisms and preferences, there are roughly the same number computational environments as researchers. Package managers allow for automatic recording of many dependencies, but not the development environment itself. Sharing is not sufficient becuase what is shared must be comprehensible. Key the the notion of Executable Research Compendia is being providing a ‘one-click’ functionality that indicates successful reproduction of all computational processes, resulting in an exact correspondence between generated and reported results. However, perfect reproducibility only indicates that computational processes run as expected, not that the conclusions of the research independently valid. Docker cannot be used in conjuction with proprietary software. 
 
-*Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities. 
+*Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities (see also Lamprecht et al., 2020). 
 
 *Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
 
@@ -50,24 +50,78 @@
 
 *Boettiger and Eddelbuettel, 2017* - Dockerfiles are used to create Docker images. When the image is running, there is a Docker container. **R**ocker captures R environments for use in Docker. It makes the computational enivornment ‘portable’, for use with a variety of systems. When designing Rocker images, the authors faced a trade-off between generalisibility and specificity. An image designed to be too widely applicable would be cumbersome, but it would be hard to find one that fits with an overly-specific use case. Their solution is to provide base images that are easily expanded for specific requirements. 
 
+___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ _
+
+*Garijo et al., 2022* - some recommendations are perhaps beyond the scope of a single empirical research project - e.g. considering policies on software contributions and long-term maintenance. Provides guidance on managing research software repositories. 
+
+*Nüst et al., 2020* - working towards reproducibility, may mean prioritising openness and human readability over optimising performance. Containers offer greater transparency compared to virtual machines. Proprietary and GUI software are not compatible with containers. Conventions facilitate comprehnsion, and following guidance can assist less experienced researchers generate useful outputs. Dockerfiles provide instructions for installing dependencies and loading required files. This Dockerfile is used to produced an image, and an image that is running is a container. The authors recommend that researchers make use of existing images, such as Rocker. Dockerfiles should be both comprehensible to humans and machine-readable. The authors provide advice on formatting. Package managers may be used in concert with Dockerfiles, but collating all dependency information in a single Dockerfile provides simplicity, and ensures that intended version are specified even when software is updated. It is necessary to capture the specific versions of packages and other software. All files required by the Dockerfile must be included in the repository. Caching is another consideration. Even old Docker containers may not function properly. Best is the enemy of the good.
+
+*Peikert and Brandmeier, 2021* - my approach is very similar to the workflow described in this paper. Dynamic documents promote use of literate programming, resulting in reproducible manuscripts. Make (and Makefiles) outline the sequence in which programmes should be executed, so is appropriate when a workflow involves significant processing of data prior to analysis. Renv does not capture base R version or additional dependencies. 
+
+*Chen et al., 2019* - suggests moving simply beyond notions openness and transparent, and the importance of whether such resources are usable. This does involve preserving a workflow, licensing, using established repositories. Suitable approach to reproducibility considers the data, analysis, and other characteristcis of the research project. 
+
+*Marwick et al., 2018* - research compendia organise resources for reproducibility. Any files *produced* by the compendia ought to be expendable, since it should be trivial to reproduce them using the resources available. Raw data should kept separate from other files so that processing is clear and does not alter the original file. Containers offer a more sophisticated solution to the dependency issue, a text file would be a simpler option.
+
+*Rule et al., 2019* - computational notebooks (e.g. Jupyter notebooks) integrate several aspects of analysis workflow into a single document. Split code into appropriate chunks that achieve a clearly-defined goal. Write functions to avoid duplication, make code modular. This bears many similarities to the Unix philosophy (Gancarz, 2003).
+
+*Nüst et al., 2020* - **R**ocker containers can be ‘stacked’ together as required, avoiding unnecessary complexity. 
+
+*Wickham et al., 2019* - the Tidyverse is designed with humans in mind, facilitating comprehension and use. 
+
+*Lee et al., 2018* - comments should provide a comprehensive account of the code. Examples may help explain functions. The contents of a README should cover elementary information such as setup instructions and licence. Other aspects of recommendations are beyond the scope of empirical research, such as informative error messages, help commands and documentation for APIs (application programming interfaces). 
+
+*Trisovic et al., 2022* - Poor documentation, programming errors and missing resources can lead to reproducibility issues. Automated approach to analysing reproduciblity of over 9000 R scripts, examining whether code would run successfully, not whether output matched reported findings. Approximately three in four files produced errors when executed. Implementing a code-cleaning algorithm reduced this number, but the majority still failed to run successfully. This indicated that good programming behaviours can improve code but cannot totally eliminate issues. Because code is often only produced in order to achieve an initial objective, it is not written with sustainability in mind. Very few files analysed were R markdown, which allows dynamic document generation, which would expose initial researchers to more errors. Errors also arose due to incompatibility of R package versions, which reveals the benefits of containerisation/capturing the computational environment. Recommend renv, relative file paths, and Docker.
+
+*Plesser, 2018* - Initially, the possibility of issues or inconsistencies arising from computer code was overlooked. Much inconsistency about definitions of reproducibility
+
+*Blischak et al., 2019* - scientific approaches requires that researchers may indepdentently authenticate other researchers’ conclusions.
+
+*Trisovic et al., 2021*  - Examining files taken from an online repository, successful executing depended on Python version and the presence of files capturing dependencies.
+
+*Bahaidarah et al., 2022* - reproducibility in research is ‘essential’
+
+*Crüwell et al ., 2019* - behaviours that support reproducibility and replicability in general may be referred to using the umbrella term ‘Open Science Practices’. 
+
+*Nosek et al., 2015* - TOP Guidelines for Open Science practices, requires sharing.
+
+*van Lissa et al., 2020* - WORCS workflow involves many aspects covered in my work.
+
+*Bertin and Baumer, 2020* - use relative file paths, since these are ‘portable’. Adherence to tidyverse style code is likely to lead to more comprehensible code. Several R packages provide support for reproducibile practices. The authors present a package which supports reproducible practices. Users who specify a local working directory are confronted with an error which instructs them to choose an appropriate file path instead. Also tracks dependencies and encourages use of functionality which sets the random seed. 
+
+*Stodden et al., 2018*. - actually tests reproducibility 
+
+Though there are some indicators, it can be difficult to verify scientific findings without replication. But there are certain aspects of research that are more easily checked e.g. analysis and data. But the pre-requisite is that these resources are available and suitable packaged to reflect original researchers’ use. This provides opportunity to assess one aspect of research, in order to gauge its trustworthiness.
+
+Rough structure:
+Intro: reproducibility crisis, definitions
+Sharing data and code
+Best practices for coding
+Issues with computational reproducibility
+Best practices for computational reproducibility
+Relationship to present work
+___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ _
+
+Definitions:
 Definition of replicability as generation of new data to further examine a reported finding - Simons (2014) 
-Evidence on why descriptions of software do not suffice for reproducibility - Ince (2012)
-Define replicability and reproducibility as I would - Bollen et al. (2015)
-The reference for Docker - Merkel (2014)
+There has been a disconnect between use of terms in experimental and computational disciplines (Drummond, 2009)
+Define replicability and reproducibility as I would - Bollen et al. (2015) 
+Claerbout uses reproducibility as I would - but replication differently - see Rougier et al. (2017)
+
+Evidence on why descriptions of software do not suffice for reproducibility - Ince (2012) - ***READ***
+
+A lack of transparency underlies issues with reproducibility, whereas problematic research methods underly issues with replicability (Munafo et al., 2017) - ***READ***
+
+Provision of data and code on request is often not fulfilled as promised - Collberg & Proebsting (2016) - ***READ***
+
+ _________________________
 
 The reporting of scientific studies involves lots of summary. Raw data is collected then processed, then analysed. In a small set of inferential statistics upon which a claim rests, a lot is going on behind the scenes. The ability to trace conclusions back to their original source is not just useful, but a crucial aspect of science. 
-
-
-
-
 
 Setting the scene
 Science has a problem
 Why does reproducibility help?
 
 *preserve* computational environment
-
-Plesser (2018) - much inconsistency about definitions of reproducibility
 
 Different types of reproducibility
 
@@ -144,6 +198,8 @@ Discuss how little computational reproducibility is mentioned in the main texts 
 References for why decision-making is a good paradigm
 Acknowledge that there are better tasks than what I used
 Suggest what could come next
+
+The reference for Docker - Merkel (2014)
 
 1. Docker File - base image  (e.g. rocker verse for tidyverse) + custom instructions (install certain packages) - it’s a set of instructions for the image
 2. Docker Image - captures the exact environment that you want (needs to be built before container can run)
