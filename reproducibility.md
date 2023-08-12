@@ -88,7 +88,13 @@ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ 
 
 *Bertin and Baumer, 2020* - use relative file paths, since these are ‘portable’. Adherence to tidyverse style code is likely to lead to more comprehensible code. Several R packages provide support for reproducibile practices. The authors present a package which supports reproducible practices. Users who specify a local working directory are confronted with an error which instructs them to choose an appropriate file path instead. Also tracks dependencies and encourages use of functionality which sets the random seed. 
 
-*Stodden et al., 2018*. - actually tests reproducibility 
+*Collberg & Proebsting (2016)* - Provision of data and code on request is often not fulfilled as promised. Collected 601 papers and attemped ‘weak repeatability’ - finding and executing programs that supported the work. Of elibigle papers, under half could be successfully executed by the authors. In many cases, the software was not publically available. Various issues included sharing non-final versions of code, original programmer no longer available, local storage failures, restrictive institutional licences, concern about potential use, concern about labour involved in providing support.
+
+*Stodden et al., 2018*. - Studied 204 papers from a journal which required authors to provide data and code on request. These resources were only provided 44% of the time, and results were successfully reproduced in only 26% of cases.
+
+*Leipzig et al., 2021* - different types of resources require different metadata implementations/considerations. Docker containers and YAML frontmatter are types of metadata. Metadata provides an important contribution towards reproducbility. 
+
+*Holmes et al., 2021* - Rmarkdown provides transparency across the entire analytical workflow. Frequent updates to tidyverse packages necessitate recording package versions. 
 
 Though there are some indicators, it can be difficult to verify scientific findings without replication. But there are certain aspects of research that are more easily checked e.g. analysis and data. But the pre-requisite is that these resources are available and suitable packaged to reflect original researchers’ use. This provides opportunity to assess one aspect of research, in order to gauge its trustworthiness.
 
@@ -107,11 +113,14 @@ There has been a disconnect between use of terms in experimental and computation
 Define replicability and reproducibility as I would - Bollen et al. (2015) 
 Claerbout uses reproducibility as I would - but replication differently - see Rougier et al. (2017)
 
-Evidence on why descriptions of software do not suffice for reproducibility - Ince (2012) - ***READ***
+A lack of transparency underlies issues with reproducibility, whereas problematic research methods underly issues with replicability (Munafo et al., 2017).
 
-A lack of transparency underlies issues with reproducibility, whereas problematic research methods underly issues with replicability (Munafo et al., 2017) - ***READ***
+Widespread recognition of problems in science (Baker, 2016).
+Researchers has neglected to focus on reproducibility (Ince, 2010).
+The notion of reproducible research code was discussed over 30 years ago, with ‘electronic documents’ providing the ability to package code with a manuscript (Claerbout, 1992).
+Research software is opaque unless shared (Morin et al., 2012).
 
-Provision of data and code on request is often not fulfilled as promised - Collberg & Proebsting (2016) - ***READ***
+Donoho, D.L. 2010 An invitation to reproducible computational research.Biostatistics 11(3): 385–388.
 
  _________________________
 
