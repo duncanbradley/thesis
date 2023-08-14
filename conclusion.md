@@ -18,13 +18,7 @@
 
 **The stimuli used in these studies reveal different approaches to conveying magnitude using axis limits. *Frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrisincally linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Designers must consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not uniform.**
 
-**Overall, this work provides consistent evidence of framing effects affecting magnitude judgements in data visualisations.* According to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).** This occurs because … (Tversky and Kahneman, 1974) - anchoring - prior information - estimations
-
-Another framework for understanding these is…
-Similarly, these effects could be considered framing effects, where influenced by surrounding information. 
-It’s not necessarily one or the other - the frame of reference is what creates that initial first impression. It’s a trivial. temporal distinrtion
-(Tversky and Kahneman, 1981) - Framing effect - preferences - presentation of information itself
-Reyna (2008), Stone et al,. 2015 - importance of gist
+**Overall, this work provides consistent evidence of *framing effects* affecting magnitude judgements in data visualisations. Axes served as a frame of reference biasing the interpretation of numbers, thus mental representation of information was influenced by its presentation (Tversky and Kahneman, 1981; Kahneman, 1992). Furthermore, according to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).** 
 
 ## Data Visualisation Literacy
 
