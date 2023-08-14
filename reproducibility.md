@@ -13,7 +13,7 @@ Improving methods, plus reporting and dissemination, will improve the quality of
 HARKing, p-hacking, low power, publication bias (Bishop, 2019)
 
 Widespread recognition of problems in science (Baker, 2016).
-Researchers has neglected to focus on reproducibility (Ince, 2010).
+Researchers have neglected to focus on reproducibility (Ince, 2010).
 
 *Crüwell et al ., 2019* - behaviours that support reproducibility and replicability in general may be referred to using the umbrella term ‘Open Science Practices’. 
 
@@ -23,15 +23,13 @@ Replication allows for independent evaluation of research findings (in computati
 
 The pre-requisite is that these resources are available and suitable packaged to reflect original researchers’ use. This provides opportunity to assess one aspect of research, in order to gauge its trustworthiness.
 
- *Blischak et al., 2019* - scientific approaches requires that researchers may indepdentently authenticate other researchers’ conclusions.
-
-*Sandve et al. 2013* - Supporting third parties in reproducing research may increases perceptions of the robustness and reliability. 
-
-*Piccolo and Frampton (2016)* - Authors may feel the advantges of reproducible practices even more than their peers. 
 *Klein et al. (2018)* - Reproducibility crisis has sparked “urgent conversation”.
 
-*Klein et al. (2018)* - Sharing details is crucial for assessing the credibility of research. Reproducibility supports identification of errors in analysis. Another selfish reason for sharing resources permanently is insurance against loss of those resources. 
+## Reasons for Sharing
 
+Supporting third parties in reproducing research may increases perceptions of the robustness and reliability (Sandve et al., 2013). Sharing details is crucial for assessing the credibility of research. Reproducibility supports identification of errors in analysis (Klein et al., 2018). Scientific approaches requires that researchers may indepdentently authenticate other researchers’ conclusions (Blischak et al., 2019). This is a duty (Sandve et al., 2013).
+
+Authors may feel the advantages of reproducible practices even more than their peers (Piccolo and Frampton, 2016). For example, working towards reproducibility can save time and effort (Sandve et al., 2013), and sharing resources permanently is insurance against loss of those resources *Klein et al. (2018)*.
 
 ## Definitions
 
@@ -45,36 +43,41 @@ Claerbout uses reproducibility as I would - but replication differently - see Ro
 
 ## Barriers to Open Research - Why Public Sharing
 
-Several things impede or deter sharing of research data: lack of expertise, lack of precedent, lack of time/motivation (Houtkoop et al., 2018). 
-
-Provision of data and code on request is often not fulfilled as promised. Collected 601 papers and attemped ‘weak repeatability’ - finding and executing programs that supported the work. Of elibigle papers, under half could be successfully executed by the authors. In many cases, the software was not publically available. Various issues included sharing non-final versions of code, original programmer no longer available, local storage failures, restrictive institutional licences, concern about potential use, concern about labour involved in providing support (Collberg & Proebsting, 2016)
+Provision of data and code on request is often not fulfilled as promised. Collected 601 papers and attemped ‘weak repeatability’ - finding and executing programs that supported the work. Of elibigle papers, under half could be successfully executed by the authors. In many cases, the software was not publically available. Various issues included sharing non-final versions of code, original programmer no longer available, local storage failures, restrictive institutional licences, concern about potential use, concern about labour involved in providing support (Collberg & Proebsting, 2016).
 
 Studied 204 papers from a journal which required authors to provide data and code on request. These resources were only provided 44% of the time, and results were successfully reproduced in only 26% of cases (Stodden et al., 2018)
 
-The challenges are no longer completely depending on innovations in technology, but researchers’ engagement with these tools (Grüning et al., 2018).
+Behaviour and technology are bother relevant to the equation. Whilst it has been suggested that behaviour and technology play equal parts in working toward reproducibility (Sandve et al. 2013), others suggest that innovations have been so effective that challenges are now primarly about researchers’ engagement with these tools (Grüning et al., 2018). Several things impede or deter sharing of research data: lack of expertise, lack of precedent, lack of time/motivation (Houtkoop et al., 2018). 
 
-*Sandve et al. 2013* - computational reproducibility confers benefits to researchers, as well as being their duty. Behaviour and technology play equal parts in working toward computational reproducibility. 
+## Open Data
 
-## Open Data/Metadata/FAIR
+## Metadata
+
+*Klein et al. (2018)* - ‘Codebook’ or ‘Data Dictionary’ for machine readable metadata. 
+*White et al. 2013* - Formats for metadata vary from textual descriptions to machine-readable files. As well as describing characteristics, it should detail data collection, and known issues. 
+
+
+## FAIR
+
+FAIR principles are designed to help machines locate and reuse data. Effective data management facilitates advances in knowledge. Findable, Accessible, Interoperable, and Reusable. FAIR principles are also relevant to other computational tools, including those used for analysis of data. Machine readability is important for using the ever-increasing proliferation of data (Wilkinson et al., 2016).
+
+*Jiménez et al., 2017* - Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities (see also Lamprecht et al., 2020). 
+
+
 
 *Klein et al. (2018)* - Stimuli and other materials e.g. experimental scripts should be shared. 
 
-FAIR principles are designed to help machines locate and reuse data. Effective data management facilitates advances in knowledge. Findable, Accessible, Interoperable, and Reusable. FAIR principles are also relevant to other computational tools, including those used for analysis of data. Machine readability is important for using the ever-increasing proliferation of data (Wilkinson et al., 2016).
 
 Different types of resources require different metadata implementations/considerations. Metadata provides an important contribution towards reproducbility (Leipzig et al., 2021).
 
 *White et al. 2013* - Avoid simple errors like failing to separate values from units, and spaces in file names, ambiguous blank cells. 
 
-*Jiménez et al., 2017* - Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities (see also Lamprecht et al., 2020). 
 
 *Nosek et al., 2015* - TOP Guidelines for Open Science practices, requires sharing.
 
 *Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. 
 
-*Klein et al. (2018)* - ‘Codebook’ or ‘Data Dictionary’ for machine readable metadata. 
-
 *Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
-*White et al. 2013* - Formats for metadata vary from textual descriptions to machine-readable files. As well as describing characteristics, it should detail data collection, and known issues. 
 *White et al. 2013* - Lenient licences avoid unneccessary restrictions. 
 
 *Marwick et al., 2018* - Raw data should kept separate from other files so that processing is clear and does not alter the original file. 
@@ -283,5 +286,5 @@ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 *Marwick et al., 2018* - research compendia organise resources for reproducibility. 
 Bertin and Baumer’s (2020) package also tracks dependencies. 
 
-
+The challenges are no longer completely depending on innovations in technology, but researchers’ engagement with these tools (Grüning et al., 2018).
 
