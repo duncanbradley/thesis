@@ -4,19 +4,61 @@ project:
 book:
   title: "An Investigation Into the Cognitive Processing of Magnitude in Data Visualisations"
   author: "Duncan Bradley"
+  abstract: |
+    Abstract will go here.
+  
+    With multiple paragraphs
   chapters:
     - index.qmd
-    - introduction.md
-    - reproducibility.md
+    - intro.md
+    - conclusion.md
     - references.qmd
 
-bibliography: references.bib
+thesis:
+  #supervisor:
+  #  name: Andrew J. Stewart, Caroline Jay
+  degree-name: Doctor of Philosophy
+  university: The University of Manchester
+  department: Division of Psychology, Communication & Human Neuroscience
+  group: School of Health Sciences
+  faculty: Faculty of Biology, Medicine and Health
+  mydate: pls
+  copyright: "Frontmatter/copyright.tex"
+  declaration: "Frontmatter/declaration.tex"
+  acknowledgements: "Frontmatter/acknowledgements.tex"
 
-format:
+filters:
+  - section-bibliographies
+reference-section-title: References
+citeproc: false
+
+bibliography: references.bib
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/elife.csl"
+citation_package: biblatex
+
+#format:
 #  pdf:
 #    documentclass: scrreprt
+#  html:
+#    documentclass: scrreprt
+#  quarto-thesis:
+
+format:
+  quarto-thesis-pdf:
+    urlcolor: blue
+    linkcolor: blue
+    toclinkcolor: black
+    toc-depth: 3
+  docx:
+    output-dir: docx
+    toc: true
+    toc-depth: 3
+    always_allow_html: true
   html:
-    documentclass: scrreprt
+    output-dir: html
+    theme: [cosmo, assets/theme.scss]
+    toc: true
+    toc-depth: 3
 
 # use for pdf only
 #mainfont: Poppins
