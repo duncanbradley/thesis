@@ -1,7 +1,5 @@
 # Reproducibility
 
-
-
 ## Problems in Research
 
 *Ioaniddis, 2005* - Many lines of inquiry may be producing unreliable conclusions. Better powered experiments are required. Highlights a general concern with the trustworthiness of findings. 
@@ -19,6 +17,8 @@ Researchers have neglected to focus on reproducibility (Ince, 2010).
 
 *White et al. 2013* - open science recommendations are similar across disciplines. 
 
+*Nosek et al., 2015* - TOP Guidelines for Open Science practices, requires sharing.
+
 Replication allows for independent evaluation of research findings (in computational science), but is resource intensive. Assessing reproducibility offers another simpler way to evaluate reliability of work (Peng, 2011). 
 
 The pre-requisite is that these resources are available and suitable packaged to reflect original researchers’ use. This provides opportunity to assess one aspect of research, in order to gauge its trustworthiness.
@@ -27,9 +27,7 @@ The pre-requisite is that these resources are available and suitable packaged to
 
 ## Reasons for Sharing
 
-Supporting third parties in reproducing research may increases perceptions of the robustness and reliability (Sandve et al., 2013). Sharing details is crucial for assessing the credibility of research. Reproducibility supports identification of errors in analysis (Klein et al., 2018). Scientific approaches requires that researchers may indepdentently authenticate other researchers’ conclusions (Blischak et al., 2019). This is a duty (Sandve et al., 2013).
-
-Authors may feel the advantages of reproducible practices even more than their peers (Piccolo and Frampton, 2016). For example, working towards reproducibility can save time and effort (Sandve et al., 2013), and sharing resources permanently is insurance against loss of those resources *Klein et al. (2018)*.
+**There are many convincing arguments for reproducibility. Scientific approaches require that researchers can properly assess the credibility of research (Klein et al., 2018) and independently authenticate other researchers’ conclusions (Blischak et al., 2019) and . Thus, supporting third parties in reproducing research can increase perceptions of its robustness and reliability (Sandve et al., 2013). This also facilitates identification of errors in analysis (Klein et al., 2018). In addition to these motivating factors, authors may appreciate the advantages of reproducible practices even more than their peers (Piccolo and Frampton, 2016). For example, these practices can save time and effort (Sandve et al., 2013), and sharing resources permanently provides insurance against the loss of those resources (Klein et al., 2018).**
 
 ## Definitions
 
@@ -43,19 +41,26 @@ Claerbout uses reproducibility as I would - but replication differently - see Ro
 
 ## Barriers to Open Research - Why Public Sharing
 
-Provision of data and code on request is often not fulfilled as promised. Collected 601 papers and attemped ‘weak repeatability’ - finding and executing programs that supported the work. Of elibigle papers, under half could be successfully executed by the authors. In many cases, the software was not publically available. Various issues included sharing non-final versions of code, original programmer no longer available, local storage failures, restrictive institutional licences, concern about potential use, concern about labour involved in providing support (Collberg & Proebsting, 2016).
+**If authors consistently shared these data and code *on request*, freely available access could be considered unnecessary. However, empirical research demonstrates why it is important to share resources *publicly*. In a study of 204 papers from a journal which *required* authors to provide data and code on request, only 44% delivered on this promise (Stodden et al., 2018). Where research code is not publically available, various issues preclude procurement. These include local storage failures, restrictive institutional licences, concern about potential use, and concern about labour involved in providing support (Collberg & Proebsting, 2016). Provision of data and code on request simply cannot be guaranteed, necessitating public sharing.**
 
-Studied 204 papers from a journal which required authors to provide data and code on request. These resources were only provided 44% of the time, and results were successfully reproduced in only 26% of cases (Stodden et al., 2018)
-
-Behaviour and technology are bother relevant to the equation. Whilst it has been suggested that behaviour and technology play equal parts in working toward reproducibility (Sandve et al. 2013), others suggest that innovations have been so effective that challenges are now primarly about researchers’ engagement with these tools (Grüning et al., 2018). Several things impede or deter sharing of research data: lack of expertise, lack of precedent, lack of time/motivation (Houtkoop et al., 2018). 
+**Researchers’ working practices and technological solutions both contribute to reproducibility. Whilst it has been suggested that behaviour and technology play *equal* roles (Sandve et al. 2013), others suggest that innovations have been so effective that the primary challenge is now researchers’ engagement with these tools (Grüning et al., 2018). Researchers report that several factors impede or deter their sharing of research data, including lack of expertise, lack of precedent, and lack of time (Houtkoop et al., 2018).**
 
 ## Open Data
 
-## Metadata
+*Marwick et al., 2018* - Raw data should kept separate from other files so that processing is clear and does not alter the original file. 
+*White et al. 2013* - Avoid simple errors like failing to separate values from units, and spaces in file names, ambiguous blank cells. 
+*White et al. 2013* - Raw data and code for processing should be supplied. 
 
+
+## Metadata/Documentation
+
+Different types of resources require different metadata implementations/considerations. Metadata provides an important contribution towards reproducbility (Leipzig et al., 2021).
 *Klein et al. (2018)* - ‘Codebook’ or ‘Data Dictionary’ for machine readable metadata. 
 *White et al. 2013* - Formats for metadata vary from textual descriptions to machine-readable files. As well as describing characteristics, it should detail data collection, and known issues. 
-
+*Lee et al., 2018* - The contents of a README should cover elementary information such as setup instructions and licence. 
+Docker containers and YAML frontmatter are types of metadata (Leipzig et al., 2021).
+Documentation to introduce each program (Wilson et al., 2015). 
+*Lee et al., 2018* - comments should provide a comprehensive account of the code. Examples may help explain functions. 
 
 ## FAIR
 
@@ -63,80 +68,52 @@ FAIR principles are designed to help machines locate and reuse data. Effective d
 
 *Jiménez et al., 2017* - Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities (see also Lamprecht et al., 2020). 
 
-
-
-*Klein et al. (2018)* - Stimuli and other materials e.g. experimental scripts should be shared. 
-
-
-Different types of resources require different metadata implementations/considerations. Metadata provides an important contribution towards reproducbility (Leipzig et al., 2021).
-
-*White et al. 2013* - Avoid simple errors like failing to separate values from units, and spaces in file names, ambiguous blank cells. 
-
-
-*Nosek et al., 2015* - TOP Guidelines for Open Science practices, requires sharing.
-
 *Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. 
 
-*Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
 *White et al. 2013* - Lenient licences avoid unneccessary restrictions. 
-
-*Marwick et al., 2018* - Raw data should kept separate from other files so that processing is clear and does not alter the original file. 
-
-*Klein et al. (2018)* - Independent providers are the best choices for repositories, in particular OSF for its range of features. 
-
-*White et al. 2013* - Use non-proprietary file types. 
-
-*Lee et al., 2018* - The contents of a README should cover elementary information such as setup instructions and licence. 
 
 *Nüst et al., 2017* - Sharing is not sufficient becuase what is shared must be comprehensible. 
 
 *Chen et al., 2019* - suggests moving simply beyond notions openness and transparent, and the importance of whether such resources are usable. This does involve preserving a workflow, licensing, using established repositories. Suitable approach to reproducibility considers the data, analysis, and other characteristcis of the research project. 
 
-Docker containers and YAML frontmatter are types of metadata (Leipzig et al., 2021).
+*Klein et al. (2018)* - Stimuli and other materials e.g. experimental scripts should be shared. 
 
+*Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
+
+*Klein et al. (2018)* - Independent providers are the best choices for repositories, in particular OSF for its range of features. 
+
+*White et al. 2013* - Use non-proprietary file types to facilitate re-use. 
 
 ## Sharing Code
 
-*White et al. 2013* - Raw data and code for processing should be supplied. 
-Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018).
-Research software is opaque unless shared (Morin et al., 2012).
-*Stodden et al., 2016* - reproduction of computational processes ought to be achieved*independently*. 
-*Piccolo and Frampton (2016)* - Textual descriptions accompanying analysis can facilitate, but can only go so far. 
+**Including in a manscript a textual description of an analysis conducted presents an incomplete and vague acount of this process (Piccolo and Frampton, 2016). Researchers must share code in order to detail the journey from the original dataset to inferential statistics (Klein et al., 2018), otherwise their software is a ‘black box’ (Morin et al., 2012). Doing so permits *independent* reproduction of all computational processes (Stodden et al., 2016).**
 
-*Sandve et al. 2013* - Roughly similar findings are not particularly informative - exact reproduction requires random seeds, in order to properly verify results. 
-
-*Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of code do not match the care required for other aspects of research. The typical researcher’s documentation of code is inconsistent with their attention to detail in other aspects of research. 
-
-*Klein et al. (2018)* - Detail journey from original dataset to inferential statistics. 
-
+Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018). 
 *Marwick et al., 2018* - Any files *produced* by the compendia ought to be expendable, since it should be trivial to reproduce them using the resources available. 
+Each stage of processing must be included (Sandve et al., 2013)
+
+## Documenting Code
+*Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of software do not match the care required for other aspects of research. The typical researcher’s documentation of software is inconsistent with their attention to detail in other aspects of research. 
 
 ## Best vs. Good
 
-Reject perfectionism, accept limitations of code, and share it. Such limitations arise becuase the task at hand only requires the code to function as expected for the specific scenario. (Non-essential) ideals are often ignored if not essential. It is not possible to benefit from external inquiry if the code is not shared (Barnes, 2010).
+**A principle often endorsed in this literature concerns the merits of small efforts. Taking *some* steps to increase reproducibility still enhances a project’s quality compared to neglecting this aspect altogether (Piccolo and Frampton, 2016). Witholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’.**
 
-Best is the enemy of the good (containers) - (Nüst et al., 2020).
-*Piccolo and Frampton (2016)* - A partial effort towards reproducibility still trumps a wholly irreproducible research project. 
-*White et al. 2013* - Regarding metadata, the best is the enemy of the good. 
-*Klein et al. (2018)* - Analysis shared need not be perfect to be useful. 
-
-
+**Analysis code does not need be perfect to in order to be useful to others (Klein et al., 2018), and it is impossible to benefit from external inquiry if the code is not shared (Barnes, 2010). Barnes (2010) argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers ought to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata (White et al., 2013) and containerisation (Nüst et al., 2020).**
 
 ## Coding Practices
 
-Rather than focusing on absolute best practices, Wilson et al. (2015) present a starting point for repoducible working, smaller steps towards fully reproducible work. Comprehensible naming practices. Modularity is the precursor to code that is comprehensible and easy to reuse. This involves well-defined functions. Documentation to introduce each program. Support reuse of code, avoid repetition, also avoid controlling code through commenting, but use a programattical approach instead. 
+**Programming with an automated approach has three benefits over manual processing: increased efficiency, increased reproducibility, and reduced error (Sandve et al., 2013). Researchers should split code into appropriate chunks which each achieve a clearly-defined goal (Rule et al., 2019). Writing functions in a modular style avoids redundant repetition, promotes comprehension and supports reuse of code (Wilson et al., 2015). This approach shares many similarities with the Unix philosophy (Gancarz, 2003).**
 
-Tidyverse is designed with humans in mind, facilitating comprehension and use (Wickham et al., 2019).
+**Several other coding behaviours can facilite or inhibit reproducibility. For example, *absolute* file paths refer to a specific directory on a user’s machine, which will not be replicated on other users’ machines. Using *relative* file paths, which locate files in relation to the project directory, ensure code is *portable* and can be used on any machine (Bertin and Baumber, 2020). Additionally, independent researchers cannot successfully verify findings if only an approximate resemblance is achieved. Therefore, for any process involving random number generation, a random seed must be specified within the script, to ensure exact reproduction of results (Sandve et al., 2013). For maximum transparency, researchers should avoid controlling code through comments, but use programatical approaches instead (Wilson et al., 2015).**
+
+# Tidyverse
 
 Wickham (2014) introduces a set of tools and criteria for preparing data prior to analysis. A principled way of approaching this task simplifies the process. The main goal is facilitating analysis. Ensuring correct structure. A column for each variable (each type of measurement) and a row for each observation (each related instance). Functions designed to create tidy data treat data in a standardised manner, thus can be employed in concert.
 
-Split code into appropriate chunks that achieve a clearly-defined goal. Write functions to avoid duplication, make code modular (Rule et al., 2019). This bears many similarities to the Unix philosophy (Gancarz, 2003).
+The Tidyverse, a collection of packages, …
+Tidyverse is designed with humans in mind, facilitating comprehension and use (Wickham et al., 2019). Adherence to tidyverse style code is likely to lead to more comprehensible code (Bertin and Baumer, 2020). 
 
-Use relative file paths, since these are ‘portable’. Adherence to tidyverse style code is likely to lead to more comprehensible code. Several R packages provide support for reproducibile practices. The authors present a package which supports reproducible practices. Users who specify a local working directory are confronted with an error which instructs them to choose an appropriate file path instead. Also encourages use of functionality which sets the random seed (Bertin and Baumer, 2020). 
-
-*Lee et al., 2018* - comments should provide a comprehensive account of the code. Examples may help explain functions. 
-
-*Sandve et al. 2013* - Each stage of processing must be included. Automated working has three benefits over manual processing: reduced error, increased efficiency, and increased reproducibiltiy. 
 
 
 ## Literate Programming and Dynamic Documents
@@ -155,11 +132,12 @@ The notion of reproducible research code was discussed over 30 years ago, with �
 
 *Peikert and Brandmeier, 2021* - Dynamic documents promote use of literate programming, resulting in reproducible manuscripts. 
 
-
 ## Attempts at Computational Reproducbility
 
 Examining files taken from an online repository, successful executing depended on Python version and the presence of files capturing dependencies (Trisovic et al., 2021).
 Poor documentation, programming errors and missing resources can lead to reproducibility issues. Automated approach to analysing reproduciblity of over 9000 R scripts, examining whether code would run successfully, not whether output matched reported findings. Approximately three in four files produced errors when executed. Implementing a code-cleaning algorithm reduced this number, but the majority still failed to run successfully. This indicated that good programming behaviours can improve code but cannot totally eliminate issues. Because code is often only produced in order to achieve an initial objective, it is not written with sustainability in mind. Very few files analysed were R markdown, which allows dynamic document generation, which would expose initial researchers to more errors. Errors also arose due to incompatibility of R package versions, which reveals the benefits of containerisation/capturing the computational environment. Recommend renv, relative file paths, and Docker (Trisovic et al., 2022).
+Collected 601 papers and attemped ‘weak repeatability’ - finding and executing programs that supported the work. Of elibigle papers, under half could be successfully executed by the authors. In many cases, the software was not publically available. Various issues in reproduction include sharing non-final versions of code, original programmer no longer available (Collberg & Proebsting, 2016).
+Studied 204 papers from a journal which required authors to provide data and code on request - results were successfully reproduced in only 26% of cases (Stodden et al., 2018)
 
 ## Computational Reproducibility
 
@@ -170,7 +148,6 @@ Peng (2011) presents a spectrum of reproducibility. Sharing code offers some ben
 *Nüst et al., 2017* - Because of each researcher’s unique specialisms and preferences, there are roughly the same number computational environments as researchers. 
 *Piccolo and Frampton (2016)* - dependencies, software versions, and parameters complicate reproduction, requiring detail and precision in specification. 
 Containers present an opportunity to capture a wider element of the computational environment beyond package managers (Grüning et al., 2018).
-
 
 # Containers vs. Virtual Machines
 
@@ -187,11 +164,9 @@ Containers offer greater transparency compared to virtual machines (Nüst et al.
 
 Recording the dependencies is necessary (Grüning et al., 2018).
 
-
 *Peikert and Brandmeier, 2021* - Renv does not capture base R version or additional dependencies. 
 *Nüst et al., 2017* - Package managers allow for automatic recording of many dependencies, but not the development environment itself. 
 Containers present an opportunity to capture a wider element of the computational environment beyond package managers (Grüning et al., 2018).
-
 
 ## Docker
 
@@ -229,15 +204,13 @@ Through version control, archiving of changes to a document does not rely solely
 *Peirce et al., 2019* - PsychoPy was developed as a tool for conducting open and reproducible research. Designed to be used on different platforms, and to make available the underlying Python scripts for each experiment, open source, uses non-proprietary file formats. Previous versions of the software can be specified easily, to avoid encountering errors as a result of new releases. 
 
 ## Beyond the Scope
-*Lee et al., 2018*- Other aspects of recommendations are beyond the scope of empirical research, such as informative error messages, help commands and documentation for APIs (application programming interfaces). 
+*Lee et al., 2018*- Other aspects of recommendations are beyond the scope of empirical research, such as error messages, help commands and documentation for APIs (application programming interfaces). 
 *Garijo et al., 2022* - some recommendations are perhaps beyond the scope of a single empirical research project - e.g. considering policies on software contributions and long-term maintenance. Provides guidance on managing research software repositories.
 Reproducing the environment used to generate a container is an additional challenge to the sustainability of this solution (Grüning et al., 2018). 
 *Peikert and Brandmeier, 2021* - Make (and Makefiles) outline the sequence in which programmes should be executed, so is appropriate when a workflow involves significant processing of data prior to analysis. 
 *Nüst et al., 2017* - introduce the notion of Executable Research Compendia, providing data, code, computational environment, and interface. The concept is that this is ‘self-contained’. This follows the development of Research Compendia (Gentleman and Lang, 2007), which focused on providing data and analysis code, and use of dynamic documents. Executable Research Compendia are a way of packaging research resources/output. Key to the notion of Executable Research Compendia is being providing a ‘one-click’ functionality that indicates successful reproduction of all computational processes, resulting in an exact correspondence between generated and reported results. However, perfect reproducibility only indicates that computational processes run as expected, not that the conclusions of the research independently valid.
 
-## Workflows
-*van Lissa et al., 2020* - WORCS workflow involves many aspects covered in my work.
-*Peikert and Brandmeier, 2021* - my approach is very similar to the workflow described in this paper. 
+**Whilst I did not follow a specific pre-defined workflow, my approach closely resembles published workflows (e.g., van Lissa et al., 2020; Peikert and Brandmeier, 2021).**
 
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
@@ -270,6 +243,12 @@ Their papers discusses several features of poor-quality/sub-standard empirical w
 
 Haroz (2018) - journal articles alone do not provide a complete picture of a research project, so data and code must be openly accessible for the research to be considered reliable/trustworthy. In the visualisation field, a lack of sharing prevents proper examination of conclusions. In VIS 2017 - 15% shared materials openly, 6% shared data openly. Certain sites are less reliable than others because they are easily modified, or are short-lived, becoming afflicted by ‘link-rot’.
 
+# Conluding Remarks
+
+Working reproducibly is a duty (Sandve et al., 2013).
+Research software is opaque unless shared, then it becomes transparent (Morin et al., 2012).
+
+
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
@@ -288,3 +267,10 @@ Bertin and Baumer’s (2020) package also tracks dependencies.
 
 The challenges are no longer completely depending on innovations in technology, but researchers’ engagement with these tools (Grüning et al., 2018).
 
+The authors present a package which supports reproducible practices. Users who specify a local working directory are confronted with an error which instructs them to choose an appropriate file path instead. Also encourages use of functionality which sets the random seed (Bertin and Baumer, 2020). 
+
+Rather than focusing on absolute best practices, Wilson et al. (2015) present a starting point for repoducible working, smaller steps towards fully reproducible work. 
+
+Researchers should also ensure that variable names are comprehensible (Wilson et al., 2015) and avoid spaces in file names in order to facilitate programming (White et al., 2013).
+
+Write functions to avoid duplication, make code modular (Rule et al., 2019).
