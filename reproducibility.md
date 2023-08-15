@@ -86,16 +86,13 @@ FAIR principles are designed to help machines locate and reuse data. Effective d
 
 ## Sharing Code
 
-**Including in a manscript a textual description of an analysis conducted presents an incomplete and vague acount of this process (Piccolo and Frampton, 2016). Researchers must share code in order to detail the journey from the original dataset to inferential statistics (Klein et al., 2018), otherwise their software is a ‘black box’ (Morin et al., 2012). Doing so permits *independent* reproduction of all computational processes (Stodden et al., 2016).**
-
-Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018). 
-*Marwick et al., 2018* - Any files *produced* by the compendia ought to be expendable, since it should be trivial to reproduce them using the resources available. 
-Each stage of processing must be included (Sandve et al., 2013)
+**Including in a manscript a textual description of an analysis conducted presents an incomplete and vague acount of this process (Piccolo and Frampton, 2016). Researchers must share code in order to detail the journey from the original dataset to inferential statistics (Klein et al., 2018), otherwise their software is a ‘black box’ (Morin et al., 2012). Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018). However, it is now widely recognised that a computational analysis pipeline presents many opportunities for error. Making code openly available permits *independent* reproduction of all computational processes (Stodden et al., 2016). Each stage of processing must be included (Sandve et al., 2013) and any files *produced* using the analytical pipeline should be expendable, since it should be trivial to reproduce them using the code supplied (Marwick et al., 2018).**
 
 ## Documenting Code
+
 *Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of software do not match the care required for other aspects of research. The typical researcher’s documentation of software is inconsistent with their attention to detail in other aspects of research. 
 
-## Best vs. Good
+## The Best is the Enemy of the Good
 
 **A principle often endorsed in this literature concerns the merits of small efforts. Taking *some* steps to increase reproducibility still enhances a project’s quality compared to neglecting this aspect altogether (Piccolo and Frampton, 2016). Witholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’.**
 
@@ -105,32 +102,15 @@ Each stage of processing must be included (Sandve et al., 2013)
 
 **Programming with an automated approach has three benefits over manual processing: increased efficiency, increased reproducibility, and reduced error (Sandve et al., 2013). Researchers should split code into appropriate chunks which each achieve a clearly-defined goal (Rule et al., 2019). Writing functions in a modular style avoids redundant repetition, promotes comprehension and supports reuse of code (Wilson et al., 2015). This approach shares many similarities with the Unix philosophy (Gancarz, 2003).**
 
-**Several other coding behaviours can facilite or inhibit reproducibility. For example, *absolute* file paths refer to a specific directory on a user’s machine, which will not be replicated on other users’ machines. Using *relative* file paths, which locate files in relation to the project directory, ensure code is *portable* and can be used on any machine (Bertin and Baumber, 2020). Additionally, independent researchers cannot successfully verify findings if only an approximate resemblance is achieved. Therefore, for any process involving random number generation, a random seed must be specified within the script, to ensure exact reproduction of results (Sandve et al., 2013). For maximum transparency, researchers should avoid controlling code through comments, but use programatical approaches instead (Wilson et al., 2015).**
+**Several other coding behaviours can facilite or inhibit reproducibility. For example, *absolute* file paths refer to a specific directory on a user’s machine, which will not be replicated on other users’ machines. Using *relative* file paths, which locate files in relation to the project directory, ensure code is *portable* and can be used on any machine (Bertin and Baumer, 2020). Additionally, independent researchers cannot successfully verify findings if only an approximate resemblance is achieved. Therefore, for any process involving random number generation, a random seed must be specified within the script, to ensure exact reproduction of results (Sandve et al., 2013). For maximum transparency, researchers should avoid controlling code through comments, but use programatical approaches instead (Wilson et al., 2015).**
 
 # Tidyverse
 
-Wickham (2014) introduces a set of tools and criteria for preparing data prior to analysis. A principled way of approaching this task simplifies the process. The main goal is facilitating analysis. Ensuring correct structure. A column for each variable (each type of measurement) and a row for each observation (each related instance). Functions designed to create tidy data treat data in a standardised manner, thus can be employed in concert.
-
-The Tidyverse, a collection of packages, …
-Tidyverse is designed with humans in mind, facilitating comprehension and use (Wickham et al., 2019). Adherence to tidyverse style code is likely to lead to more comprehensible code (Bertin and Baumer, 2020). 
-
-
+**The task of preparing data prior to analysis is an important aspect of working with data. Wickham (2014) presents a set of tools, and underlying theory for this task, arguing that analysis can be facilitated by ensuring that data is in the correct structure. This structure is known as ‘tidy’ data, which consists of a column for each variable (each type of measurement) and a row for each observation (each unit measured). A principled approach simplifies the process of creating a tidy dataset using Wickham’s functions. Because each function treats data in a standardised manner, various functions can be employed in concert. The collection of R packages containing these functions (the ‘Tidyverse’) was designed with a concern for humans (Wickham et al., 2019), so Tidyverse-style code is likely to promote comprehension (Bertin and Baumer, 2020).**
 
 ## Literate Programming and Dynamic Documents
 
-What we produce shouldn’t be considered a set of instructions for a computer to follow. Rather, it should assist a human in understanding what those instructions are. Comprehensibility of code is important. Varaibles should be appropriately named and explained (Knuth, 1984).
-
-Computational notebooks (e.g. Jupyter notebooks) integrate several aspects of analysis workflow into a single document (Rule et al., 2019). 
-Rmarkdown provides transparency across the entire analytical workflow (Holmes et al., 2021).
-Knitr provides opportunities for literate programming. Data visualisations may be created dynamically, in the same way as the analysis. Computationally-expensive code is problematic - I suggest that caching can provide a solution. Continuous integration offers the ability to detect whether each new change has not prevented successful outputs/compilation (FitzJohn et al., 2014).
-
-The notion of reproducible research code was discussed over 30 years ago, with ‘electronic documents’ providing the ability to package code with a manuscript (Claerbout, 1992).
-
-*Piccolo and Frampton (2016)* - Literate programming helps ensure documentation is closely linked to code, not separate. Literate programming facilitates comprehension of code.  
-
-*Sandve et al. 2013* - It’s useful to pair textual description and explanation with corresponding analysis code, literate programming tools make this easier. 
-
-*Peikert and Brandmeier, 2021* - Dynamic documents promote use of literate programming, resulting in reproducible manuscripts. 
+**Knuth (1984) presented a novel perspective on comprehensibility in computer programming which has been influential in the literature on computational reproducibility. Knuth’s premise is that a programming script should not be regarded primarily as a set of instructions for a computer to follow, but a tool to assist humans in understanding those instructions. This approach, known as ‘literate programming’, involves pairing code with corresponding text, such that reporting and documentation are closely linked to underlying code (Sandve et al., 2013; Piccolo and Frampton, 2016). Dynamic documents allow authors to mix code and narrative within a single file, with results updated whenever the document is rendered. Producing (and re-producing) an entire manuscript using a dynamic document offers opportunities to easily observe the implementation of code used for each aspect of analysis (Peikert and Brandmeier, 2021). In addition to descriptive and inferential statistics, data visualisations may also be rendered dynamically (FitzJohn et al., 2014). This efficient format enhances transparency (Holmes et al., 2021), supports interactivity (Rule et al., 2019) and avoids errors due to manually collating results (Peikert and Brandmeier, 2021). Including computationally-expensive code (e.g., complex statistical models) within a dynamic document can be problematic since this code is executed every time the document is rendered (FitzJohn et al., 2014). However, capacity for model caching provides a convenient antidote.**
 
 ## Attempts at Computational Reproducbility
 
@@ -209,8 +189,17 @@ Through version control, archiving of changes to a document does not rely solely
 Reproducing the environment used to generate a container is an additional challenge to the sustainability of this solution (Grüning et al., 2018). 
 *Peikert and Brandmeier, 2021* - Make (and Makefiles) outline the sequence in which programmes should be executed, so is appropriate when a workflow involves significant processing of data prior to analysis. 
 *Nüst et al., 2017* - introduce the notion of Executable Research Compendia, providing data, code, computational environment, and interface. The concept is that this is ‘self-contained’. This follows the development of Research Compendia (Gentleman and Lang, 2007), which focused on providing data and analysis code, and use of dynamic documents. Executable Research Compendia are a way of packaging research resources/output. Key to the notion of Executable Research Compendia is being providing a ‘one-click’ functionality that indicates successful reproduction of all computational processes, resulting in an exact correspondence between generated and reported results. However, perfect reproducibility only indicates that computational processes run as expected, not that the conclusions of the research independently valid.
+Continuous integration offers the ability to detect whether each new change has not prevented successful outputs/compilation (FitzJohn et al., 2014).
 
 **Whilst I did not follow a specific pre-defined workflow, my approach closely resembles published workflows (e.g., van Lissa et al., 2020; Peikert and Brandmeier, 2021).**
+
+
+# Conluding Remarks
+
+Working reproducibly is a duty (Sandve et al., 2013).
+Research software is opaque unless shared, then it becomes transparent (Morin et al., 2012).
+The notion of reproducible research code was discussed over 30 years ago, with ‘electronic documents’ providing the ability to package code with a manuscript (Claerbout, 1992).
+
 
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
@@ -224,6 +213,7 @@ The reporting of scientific studies involves lots of summary. Raw data is collec
 buildmer fits with the idea of showing incremental work, by automatically re-creating the process of the models that didn’t work
 however it also ensures consistency, and optimises output
 As an R package, it is archived, and its source code is transparent
+Rule et al. say: Document the process, not the results. 
 
 Quarto
 Language-agnostic
@@ -242,11 +232,6 @@ Kosara and Haroz suggest that the absence of a replication crisis in the visuali
 Their papers discusses several features of poor-quality/sub-standard empirical work that might invalidate a study’s conclusions. Along with other issues (including excessive research degrees of freedom and experimental design issues), they discuss how issues in statistical analysis, such as misapplication of statistical tests, jeopardise validity. To remedy this, data and analysis code should be shared publicly. This facilitates identification of problems and their subsequent rectification. This practices serves as proof of validity: being transparent about analytic process lends credibility. Documenting experimental design assists identifcation of issues/confirmation of good design. Sharing *everything* allows others to carry out all three types of replication to be achieved - including those which are typically challenging - reanalysis and direct replication.
 
 Haroz (2018) - journal articles alone do not provide a complete picture of a research project, so data and code must be openly accessible for the research to be considered reliable/trustworthy. In the visualisation field, a lack of sharing prevents proper examination of conclusions. In VIS 2017 - 15% shared materials openly, 6% shared data openly. Certain sites are less reliable than others because they are easily modified, or are short-lived, becoming afflicted by ‘link-rot’.
-
-# Conluding Remarks
-
-Working reproducibly is a duty (Sandve et al., 2013).
-Research software is opaque unless shared, then it becomes transparent (Morin et al., 2012).
 
 
 __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
@@ -274,3 +259,12 @@ Rather than focusing on absolute best practices, Wilson et al. (2015) present a 
 Researchers should also ensure that variable names are comprehensible (Wilson et al., 2015) and avoid spaces in file names in order to facilitate programming (White et al., 2013).
 
 Write functions to avoid duplication, make code modular (Rule et al., 2019).
+Literate programming facilitates comprehension of code (Piccolo and Frampton, 2016).
+Varaibles should be appropriately named and explained (Knuth, 1984).
+It’s useful to pair textual description and explanation with corresponding analysis code, literate programming tools make this easier (Sandve et al., 2013).
+
+Knitr provides opportunities for literate programming (FitzJohn et al., 2014). 
+
+Computational notebooks (e.g. Jupyter notebooks) integrate several aspects of analysis workflow into a single document (Rule et al., 2019). 
+Rmarkdown provides transparency across the entire analytical workflow (Holmes et al., 2021).
+Dynamic documents promote use of literate programming, resulting in reproducible manuscripts (Peikert and Brandmeier, 2021).
