@@ -31,13 +31,9 @@ The pre-requisite is that these resources are available and suitable packaged to
 
 ## Definitions
 
-Much inconsistency about definitions of reproducibility (Plesser, 2018)
-Definition of replicability as generation of new data to further examine a reported finding (Simons, 2014) 
-There has been a disconnect between use of terms in experimental and computational disciplines (Drummond, 2009)
-Define replicability and reproducibility as I would (Bollen et al., 2015) 
-Claerbout uses reproducibility as I would - but replication differently - see Rougier et al. (2017)
+**Inconsistent definitions of reproducibility have been employed in academic works (Plesser, 2018), particularly between experimental and computational disciplines (Drummond, 2009). In this thesis, I will use the following definitions. ’Reproducibility’ in research involves generating results exactly as reported using the project’s original data and code. ‘Replicability’ in research involves generating new data to assess consistency with an existing finding (Simons, 2014).**
 
-*Stodden et al., 2015* - different types of reproducibility: empirical (robustness of methods and their reporting), computational (robustness of software), analytical (robustness of analysis, Stodden, 2011, 2013).
+Define replicability and reproducibility as I would (Bollen et al., 2015) 
 
 ## Barriers to Open Research - Why Public Sharing
 
@@ -45,12 +41,19 @@ Claerbout uses reproducibility as I would - but replication differently - see Ro
 
 **Researchers’ working practices and technological solutions both contribute to reproducibility. Whilst it has been suggested that behaviour and technology play *equal* roles (Sandve et al. 2013), others suggest that innovations have been so effective that the primary challenge is now researchers’ engagement with these tools (Grüning et al., 2018). Researchers report that several factors impede or deter their sharing of research data, including lack of expertise, lack of precedent, and lack of time (Houtkoop et al., 2018).**
 
-## Open Data
+## Sharing Data and Code
 
-*Marwick et al., 2018* - Raw data should kept separate from other files so that processing is clear and does not alter the original file. 
-*White et al. 2013* - Avoid simple errors like failing to separate values from units, and spaces in file names, ambiguous blank cells. 
-*White et al. 2013* - Raw data and code for processing should be supplied. 
+**For full transparency, data should be supplied in a raw, unprocessed form (White et al., 2013). Keeping raw data separate from other files ensures that the original file is not altered and the stages of processing are clear (Marwick et al., 2018).**
 
+**A textual description of analysis in a manuscript presents an incomplete and vague acount of this process (Piccolo and Frampton, 2016). Researchers must share code in order to detail the journey from the original dataset to inferential statistics (Klein et al., 2018), otherwise their software is a ‘black box’ (Morin et al., 2012). Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018). However, it is now widely recognised that a computational analysis pipeline presents many opportunities for error. Making code openly available permits *independent* reproduction of all computational processes (Stodden et al., 2016). This, in turn, can engender trust, promote collaboration, and facilitate new applications (Jiménez et al., 2017). Each stage of processing must be included (Sandve et al., 2013) and any files *produced* using the analytical pipeline should be expendable, since reproducing them using the code supplied should be trivial (Marwick et al., 2018). Other resources, such as stimuli and experiment scripts should also be shared alongside data and code (Klein et al., 2018).**
+
+**When sharing resources, a researcher’s choices can either assist or obstrust re-use (Chen et al., 2019). Using non-proprietary file types ensures that specialist software is not required (White et al. 2013). Data files should not include blank cells, which introduce ambiguity regarding whether data points are missing (White et al. 2013).**
+
+*Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of software do not match the care required for other aspects of research. The typical researcher’s documentation of software is inconsistent with their attention to detail in other aspects of research. 
+
+**Licences contribute to a research project’s longevity, and provide clear statement for third parties, ensuring that their use of resources is appropriate (Jiménez et al., 2017). Where possible, lenient licences should be employed to avoid unneccessary restrictions (White et al., 2013). Rather than personal or institutional websites, independent providers (e.g., Open Science Framework) are recommended for depositing resources (Chen et al., 2019, Klein et al., 2018).**
+
+*Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
 
 ## Metadata/Documentation
 
@@ -64,33 +67,11 @@ Documentation to introduce each program (Wilson et al., 2015).
 
 ## FAIR
 
-FAIR principles are designed to help machines locate and reuse data. Effective data management facilitates advances in knowledge. Findable, Accessible, Interoperable, and Reusable. FAIR principles are also relevant to other computational tools, including those used for analysis of data. Machine readability is important for using the ever-increasing proliferation of data (Wilkinson et al., 2016).
+FAIR principles are designed to help machines locate and reuse data. Findable, Accessible, Interoperable, and Reusable. FAIR principles are also relevant to other computational tools, including those used for analysis of data. Effective data management facilitates advances in knowledge. Machine readability is important for using the ever-increasing proliferation of data (Wilkinson et al., 2016).
 
 *Jiménez et al., 2017* - Original context for FAIR was data, whereas Open Source Software is concerned with software, but they have many similarities (see also Lamprecht et al., 2020). 
 
-*Jiménez et al., 2017* - Open Source Software does not place limits on who may examine, adapt and extend the underlying code.  Therefore, it provides many opportunities for bettering the use of software for research. Exposing work through public sharing can engender trust, promote collaboration, build upon existing work. Licences provide clear statement for third parties, ensuring that use is appropriate and contributes to longevity. 
-
-*White et al. 2013* - Lenient licences avoid unneccessary restrictions. 
-
-*Nüst et al., 2017* - Sharing is not sufficient becuase what is shared must be comprehensible. 
-
-*Chen et al., 2019* - suggests moving simply beyond notions openness and transparent, and the importance of whether such resources are usable. This does involve preserving a workflow, licensing, using established repositories. Suitable approach to reproducibility considers the data, analysis, and other characteristcis of the research project. 
-
-*Klein et al. (2018)* - Stimuli and other materials e.g. experimental scripts should be shared. 
-
-*Smith et al., 2016* - citations of software should be considered equally important as citations of research. The authors should be credited, versions and variants should be named, and associated resources should be easily accessible. Methods for identifying citations should be persistent and unique to the software. 
-
-*Klein et al. (2018)* - Independent providers are the best choices for repositories, in particular OSF for its range of features. 
-
-*White et al. 2013* - Use non-proprietary file types to facilitate re-use. 
-
-## Sharing Code
-
-**Including in a manscript a textual description of an analysis conducted presents an incomplete and vague acount of this process (Piccolo and Frampton, 2016). Researchers must share code in order to detail the journey from the original dataset to inferential statistics (Klein et al., 2018), otherwise their software is a ‘black box’ (Morin et al., 2012). Initially, the possibility of issues or inconsistencies arising from computer code was overlooked (Plesser, 2018). However, it is now widely recognised that a computational analysis pipeline presents many opportunities for error. Making code openly available permits *independent* reproduction of all computational processes (Stodden et al., 2016). Each stage of processing must be included (Sandve et al., 2013) and any files *produced* using the analytical pipeline should be expendable, since it should be trivial to reproduce them using the code supplied (Marwick et al., 2018).**
-
-## Documenting Code
-
-*Stodden et al. 2013* - irreproducible computational working practices are akin to poor record keeping. The expectations around documentation of software do not match the care required for other aspects of research. The typical researcher’s documentation of software is inconsistent with their attention to detail in other aspects of research. 
+*Jiménez et al., 2017* - Open Source Software is software that does not place limits on who may examine, adapt and extend the underlying code. Therefore, it provides many opportunities for bettering the use of software for research. 
 
 ## The Best is the Enemy of the Good
 
@@ -181,9 +162,16 @@ Through version control, archiving of changes to a document does not rely solely
 
 ## PsychoPy
 
+Other resources, such as experimental stimuli and experimental scripts should also be shared alongside data and code (Klein et al., 2018).**
+
+As discussed, data and analysis code are not sufficient for full 
+
+**For experimental psychology, sharing stimuli and experiment scripts is another important aspect of transparent research practices (Klein et al., 2018).**
+
 *Peirce et al., 2019* - PsychoPy was developed as a tool for conducting open and reproducible research. Designed to be used on different platforms, and to make available the underlying Python scripts for each experiment, open source, uses non-proprietary file formats. Previous versions of the software can be specified easily, to avoid encountering errors as a result of new releases. 
 
 ## Beyond the Scope
+A suitable approach to reproducibility considers the data, analysis, and other characteristcis of the research project (Chen et al., 2019). 
 *Lee et al., 2018*- Other aspects of recommendations are beyond the scope of empirical research, such as error messages, help commands and documentation for APIs (application programming interfaces). 
 *Garijo et al., 2022* - some recommendations are perhaps beyond the scope of a single empirical research project - e.g. considering policies on software contributions and long-term maintenance. Provides guidance on managing research software repositories.
 Reproducing the environment used to generate a container is an additional challenge to the sustainability of this solution (Grüning et al., 2018). 
@@ -192,7 +180,6 @@ Reproducing the environment used to generate a container is an additional challe
 Continuous integration offers the ability to detect whether each new change has not prevented successful outputs/compilation (FitzJohn et al., 2014).
 
 **Whilst I did not follow a specific pre-defined workflow, my approach closely resembles published workflows (e.g., van Lissa et al., 2020; Peikert and Brandmeier, 2021).**
-
 
 # Conluding Remarks
 
@@ -268,3 +255,16 @@ Knitr provides opportunities for literate programming (FitzJohn et al., 2014).
 Computational notebooks (e.g. Jupyter notebooks) integrate several aspects of analysis workflow into a single document (Rule et al., 2019). 
 Rmarkdown provides transparency across the entire analytical workflow (Holmes et al., 2021).
 Dynamic documents promote use of literate programming, resulting in reproducible manuscripts (Peikert and Brandmeier, 2021).
+Avoid spaces in files names (White et al. 2013). 
+Definition of replicability as generation of new data to further examine a reported finding (Simons, 2014) 
+
+Claerbout uses reproducibility as I would - but replication differently - see Rougier et al. (2017)
+*Stodden et al., 2015* - different types of reproducibility: empirical (robustness of methods and their reporting), computational (robustness of software), analytical (robustness of analysis, Stodden, 2011, 2013).
+
+Independent provides (.e.g OSF) provide a range of useful features (Klein et al., 2018). 
+
+*White et al. 2013* - Avoid simple errors like failing to separate values from units and ambiguous blank cells. 
+
+*Chen et al., 2019* - suggests moving simply beyond notions openness and transparent, and the importance of whether such resources are usable. This does involve preserving a workflow, licensing, using established repositories. 
+*Nüst et al., 2017* - Sharing is not sufficient becuase what is shared must be comprehensible. 
+
