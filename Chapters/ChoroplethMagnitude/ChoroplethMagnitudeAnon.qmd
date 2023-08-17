@@ -1,0 +1,960 @@
+---
+title: "Choropleth Maps Can Convey **Absolute** Magnitude Through the Range of the Accompanying Color Legend"
+
+knitr:
+  opts_chunk: 
+    cache_comments: false
+  
+format:
+  docx:
+    keep-tex: true  
+    
+prefer-html: true
+
+mainfont: Roboto
+sansfont: Roboto
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  include: false
+    
+abstract: |
+  Data visualization software provides the ability to create highly customizable choropleth maps. This presents an abundance of design choices. The color legend, one particular aspect of choropleth map design, has the potential to effectively convey data points' **absolute** magnitudes (how large or small they are). Color legends present the mapping between a specific range of colors and a specific range of numerical values. In this experiment, we demonstrate that manipulating this range affects interpretations of the **plotted values' absolute magnitudes**. Participants (N = 100) judged the urgency of addressing pollution levels as greater when the color legend's upper bound was equal to the maximum plotted value, compared to when it was significantly larger than the maximum plotted value. This provides insight into the cognitive processing of plotted data in choropleth maps that are designed to promote inferences about overall magnitude.
+
+keywords: 
+  - visualisation
+  - cognition
+  - colour
+  - framing effect
+  
+bibliography: bibliography.bib 
+csl: taylor-and-francis-harvard-x.csl #citation stylesheet
+link_citations: true
+---
+
+```{r}
+#| label: load-libraries
+library(tidyverse)
+library(ggridges)
+library(buildmer)
+library(broom.mixed)
+library(lme4)
+library(insight)
+library(papaja) 
+library(magick) 
+library(patchwork)
+library(ggpubr)
+library(kableExtra)
+library(emmeans)
+library(knitr)
+library(effectsize)
+```
+
+```{r}
+#| label: data-wrangling
+# read in the anonymized data file (created with the anonymization.R script)
+anon_database <- read_csv("data/anon_database.csv")
+
+# to get the data into the correct format for analysis
+
+# extract literacy data
+# calculate literacy score (sum of five responses)
+literacy <- anon_database %>%
+  filter(!is.na(q1_slider.response)) %>%
+  rowwise() %>%
+  mutate(literacy = sum(c(q1_slider.response, 
+                          q2_slider.response, 
+                          q3_slider.response, 
+                          q4_slider.response, 
+                          q5_slider.response))) %>%
+  select(participant,
+         literacy)
+
+# define education categories 
+edu_labels <- set_names(c('No formal qualications',
+                          'Secondary education (e.g. GED/GCSE)',
+                          'High school diploma/A-levels',
+                          'Technical/community college',
+                          'Undergraduate degree (BA/BSc/other)',
+                          'Graduate degree (MA/MSc/MPhil/other)',
+                          'Doctorate degree (PhD/other)',
+                          'Don\'t know / not applicable'),
+                        seq(8,1,-1))
+
+# define gender categories
+gender_labels <- set_names(c("Prefer not to say", 
+                             "In another way:",
+                             "Non-binary", 
+                             "Man", 
+                             "Woman"),
+                           1:5)
+# extract demographics
+# link slider response numbers to gender categories 
+# link slider response numbers to education categories
+demographics <- anon_database %>%
+  filter(!is.na(genderResp1.response)) %>%
+  mutate(genderResp1.response = 
+           recode(genderResp1.response, !!!gender_labels)) %>%
+  mutate(edu_slider.response =
+           recode(edu_slider.response, !!!edu_labels)) %>%
+  select(participant,
+         ageResp.text,
+         genderResp1.response,
+         edu_slider.response)
+
+# extract duration data (in seconds)
+durations <- anon_database %>%
+  filter(!is.na(total_duration)) %>%
+  select(participant, total_duration)
+
+# read in map_data.csv
+mapdata <- read_csv('data/map_data.csv') %>%
+  rowwise() %>%
+  mutate(max_value = max(Data1, Data2, Data3, Data4)) %>%
+  select(item_no, max_value)
+
+# select only relevant columns and rows
+# then join the additional data frames created above
+anon_database <- anon_database %>%
+  select(participant,
+         slider.response,
+         scale,
+         label,
+         item_type,
+         item_no,
+         correct_option,
+         AC_correct, 
+         AC_no_correct, 
+         AC_outcome) %>%
+  filter(!is.na(item_no)) %>%
+  inner_join(literacy, by = "participant") %>%
+  inner_join(demographics, by = "participant") %>%
+  inner_join(durations, by = "participant") %>%
+  inner_join(mapdata, by = "item_no")
+
+# recode slider.response values
+# from 1-2 to 0-1
+# to avoid confusion interpreting these values
+anon_database <- anon_database %>%
+  mutate(slider.response = slider.response - 1,
+         correct_option = correct_option - 1)
+
+# recode names of the 'label' factor to 'present' and 'absent'
+anon_database <- anon_database %>%
+  mutate(label = recode(label, label = "present", blank = "absent"))
+
+# recode the levels of the 'item_type' factor, so that they can be read by R
+# 'E' = experimental
+# 'AC' = attention check
+anon_database <- anon_database %>%
+  mutate(item_type = case_when(item_no <= 48 ~ "E",
+                               item_no > 48 ~ "AC"))
+
+# convert the two experimental factors to 'factor'
+anon_database <- anon_database %>%
+  rename(range = scale) %>%
+  mutate(across(c("range", "label"), as_factor))
+
+# set the contrasts of the two factors to sum contrasts
+contrasts(anon_database$range) <- matrix(c(.5, -.5))
+contrasts(anon_database$label) <- matrix(c(.5, -.5))
+
+# create new dataframe 'passed' 
+# which includes only those who satisfied the attention check criteria
+# and only includes experimental items
+passed <- anon_database %>%
+  filter(AC_outcome == "PASS") %>%
+  filter(item_type == "E")
+
+# create new dataframe 'passed' 
+# which includes those who satisfied the attention check criteria AND those who did not
+# but also only includes experimental items
+both <- anon_database %>%
+  filter(item_type == "E") 
+```
+
+```{r}
+#| label: comparison-function
+# this function takes a model and creates a new model for anova comparison
+# a new set of fixed effects will be specified, but the same random effects structure will be used
+comparison <- function(model, fixed) {
+  
+  form <- formula(model)
+  
+  newfixed <- function(form, fixed) {
+
+    fixedfx <-
+      remove.terms(form,"placeholder") %>% # generate full formula (expand '*')
+      nobars() # get formula for fixed effects only
+
+    fixedterms <-
+      terms.formula(fixedfx) %>% # get terms for fixed effects
+      attr("term.labels") # get character vector of fixed effects terms
+
+    # remove all terms to get only the response
+    response <- remove.terms(fixedfx, fixedterms) %>% remove.terms(fixedterms)
+
+    out <- add.terms(response, fixed)
+    return(out)
+  }
+  
+  getrandom <- function(form) {
+    
+    parens <- function(x) {paste0("(",x,")")}
+    onlyBars <- function(form) {
+      reformulate(
+        sapply(
+          findbars(form), # list of character vector for each random effect
+          function(x)  parens(deparse(x))), # put each character vector in brackets
+        response = form[[2]]) 
+    }
+    
+    out <- onlyBars(form)
+    return(out)
+  }
+  
+  merge.formula <- function(form1, form2, ...){
+    # adapted from https://stevencarlislewalker.wordpress.com/2012/08/06/merging-combining-adding-together-two-formula-objects-in-r/
+    
+    # get character strings of the names for the responses 
+    # (i.e. left hand sides, lhs)
+    lhs1 <- deparse(form1[[2]])
+    #print(lhs1)
+    lhs2 <- deparse(form2[[2]])
+    #print(lhs2)
+    if(lhs1 != lhs2) stop('both formulas must have the same response')
+    
+    # get character strings of the right hand sides
+    rhs1 <- strsplit(paste(form1[3]), " \\+ ")[[1]] 
+    rhs2 <- strsplit(paste(form2[3]), " \\+ ")[[1]] 
+    
+    # put the two sides together with the amazing 
+    # reformulate function
+    out <- reformulate(termlabels = c(rhs1, rhs2), 
+                       response = lhs1)
+    
+    # set the environment of the formula (i.e. where should
+    # R look for variables when data aren't specified?)
+    #environment(out) <- parent.frame()
+    return(out)
+  }
+  
+  newfixedfx <- newfixed(form, fixed)
+  fullranfx <- getrandom(form)
+  merge.formula(newfixedfx, fullranfx)
+  
+}
+```
+
+```{r}
+#| label: anova-results-function
+# this function takes two nested models, runs an anova, and the outputs the Likelihood Ratio Statistic, degrees of freedom, and p value to the global environment
+anova_results <- function(test_model, full_model) {
+  
+  # first argument 
+  test_model_name <- deparse(substitute(test_model))
+  full_model_name <- deparse(substitute(full_model))
+
+  if (class(test_model) == "buildmer") test_model <- test_model@model
+  if (class(full_model) == "buildmer") full_model <- full_model@model
+  
+  anova_output <- anova(test_model, full_model)
+  
+  assign(paste0(test_model_name, ".Chi"),
+         anova_output$Chisq[2],
+         envir = .GlobalEnv)
+  assign(paste0(test_model_name, ".Df"),
+         anova_output$Df[2],
+         envir = .GlobalEnv)
+  assign(paste0(test_model_name, ".p"),
+         anova_output$`Pr(>Chisq)`[2],
+         envir = .GlobalEnv)
+  
+  es <- eta_squared(full_model) 
+  
+  es %>% pull(Parameter) %>%
+    map(function(x) assign(paste0(full_model_name, 
+                                  ".eta.", 
+                                  str_replace(x, ":", "_")),
+                           es %>%
+                             filter(Parameter == x) %>% 
+                             pull(Eta2_partial),
+                           envir = .GlobalEnv))
+}
+```
+
+```{r}
+#| label: random-str-function
+# this function creates a table which displays the random effects structure (intercepts and slopes) for a given model
+random_str <- function(model) {
+  model <- model@model
+  terms <- model %>% find_random %>% unlist() %>% unname()
+  mylist <- model %>% formula %>% findbars() %>% as.character()
+  slopes <- lapply(mylist, str_extract, "(?<=\\+ )(.*)(?= \\| )") %>% 
+    unlist()
+  tibble(terms, slopes)
+}
+```
+
+```{r}
+#| label: print-es-function
+# for dealing with effect sizes less than .001
+print_es <- function(x) {ifelse(x<.01, "< 0.01", paste("=", printnum(x)))}
+```
+
+```{r}
+#| label: setting-seed
+set.seed(45789)
+```
+
+# Introduction {#sec-intro}
+
+To make sense of statistics presented in newspaper articles or scientific reports, it is often important to interpret their meaning in context. This may involve determining whether the presented values represent large or small numbers. Data visualizations are often used to convey statistics, so understanding how these tools may communicate data points' magnitudes is crucial.
+
+**Numerical values in choropleth maps are often encoded using the entire range of the chosen color palette, in order to aid discrimination and facilitate identification of spatial patterns**. Thus, the range of values in the accompanying color legend typically consists of only those values which were observed. However, this is not the only application for a choropleth map. In certain cases, displaying values' *absolute* magnitudes may be considered more pertinent than displaying their *relative* magnitudes. This would allow a viewer to gauge, on the whole, how large or small presented values are, in context. To communicate this, the range of values in the accompanying color legend may include values which were not observed but remain relevant nonetheless. Designers may wish to sacrifice discrimination ability for an overt display of magnitude, in order to convey their intended message.
+
+Indeed, choropleth maps displaying overall magnitudes have been used in practice. @fig-DFP-example depicts data concerning public support for a federal ban on abortion in the U.S. The accompanying color legend presents the entire range of possible values: from 0% to 100% support. Since plotted values do not exceed 30%, their magnitudes appear small, in context. In addition, whereas a typical color scale would amplify differences between regions, this design presents variability between states as low. This lends credibility to the notion that, for this aspect of a divisive issue, public support is consistently low across the U.S.
+
+```{r}
+#| label: fig-DFP-example
+#| include: true
+#| fig-cap: A choropleth map displaying data from an analysis of state-level public support for a federal ban on abortion in the U.S [@fischer_federal_2021]. The color legend employs a diverging blue-red color palette, with white in the center, showing the full range of possible values. The 30% point is marked with a dotted line and labeled to indicate that no state exceeds this level of support. Reproduced with permission.
+#| fig-alt: A choropleth map of the U.S. with the title 'There is not a single state where support for a federal ban on abortion has more than 30 percent support among the public'. The color legend employs a diverging blue-red color palette, with white in the center, showing the full range of possible values. Each state is colored one of several shades of light blue. The 30 percent point is marked with a dotted line and labeled to indicate that no state exceeds this level of support.
+knitr::include_graphics("examples/dfp.png")
+```
+
+**The map may appear homogenous, but choropleth maps present opportunities for conveying information *beyond* relative geographical differences, just as line charts may show stagnant wages. By presenting a wider numerical context, the accompanying legend imbues the map with meaning, illustrating low variability and small magnitudes. The simplicity of this message does not preclude its visualisation; as well as illuminating complex patterns, data visualisations are also designed to improve retention and engagement** [@bertini_why_2020]**, and support cognition** [@hegarty_cognitive_2011]**.**
+
+This paper explores cognitive processing of overall magnitude in choropleth maps. Through an empirical study, we demonstrate that color legends, which depict the mapping between colors and numerical values, can imply **how large or small plotted values' absolute magnitudes are**. Even when the mapping between color and numerical value remains the same, the range of the color legend provides a crucial source of context. The relationship between this range and the plotted data influences viewers' interpretations of magnitude.
+
+# Related Work
+
+## **Choropleth Maps**
+
+**Choropleth maps are thematic maps which employ color to symbolize numerical values, conveying quantitative data in a spatial manner. Choropleth mapping uses datasets where each data point corresponds to a discrete area, typically defined by administrative boundaries (e.g., national or local government regions). Ratios, proportions and averages are plotted to enable appropriate comparisons between regions** [@dent_cartography_2009]**.**
+
+@dent_cartography_2009 **discuss several considerations for choropleth map design, including data pre-processing, spatial resolution, and appropriate accompanying text. However, data classification is a particularly prominent theme in guidance on choropleth mapping. To better convey patterns in the spatial distribution of data, values can be classified into discrete classes** [@kraak_cartography_2013]**. Decisions around classification involve trade-offs between clarity of patterns in the map and clarity of the legend. Natural Breaks methods \[e.g. Jenks optimization;** @jenks_error_1971\] **identify class boundaries according to the distribution of data, ensuring clusters of similar values appear homogenous. The Equal Frequency method ensures uniform prevalence of each class within the map, whereas the Equal Interval method simply employs the same numerical range for each class** [@dent_cartography_2009]**. Unclassed choropleth maps** [@tobler_choropleth_2010]**, which do not employ discrete groups at all, are an alternative option. Legends are not divided into classes, meaning each unique value is represented distinctly. This may increase estimation error, yet avoids the impression that similar values either side of a class boundary are substantially different [@kraak_cartography_2013].**
+
+**Regarding the minimum and maximum values used in the labels for each class, two options are available. Continuous class ranges include non-observed values to create a continuous sequence of numbers. This provides consistency when re-using a legend for multiple maps. However, this may increase the chance that viewers make imprecise estimations of specific values, compared to non-continuous class ranges which include only observed values** [@dent_cartography_2009]**. The use of open-ended categories at a legend's extremes** [@paul_choropleth_1993] **is an additional consideration, generating a similar generalisability-precision trade-off.**
+
+@dykes_rethinking_2010 **explored several creative approaches to map legend design, providing alternatives to conventional implementations. One such design, displaying statistical information within a legend, has been implemented in several forms, for communicating distributions** [@kumar_frequency_2004; @cromley_ogive-based_2006] **and uncertainty** [@retchless_guidance_2016] **in choropleth maps. Several studies have illustrated the influence of legend design on cognitive processing for a range of maps. Proximity between icons and corresponding text within a legend was found to be the most influential aspect of spacing on visual search** [@li_spacing_2014]**. For thematic maps showing several geographical features, overall task performance was found to be similar across three different legend arrangements (list legend, grouped legend, natural legend), but user preferences depended on legends' suitability for specific tasks** [@golebiowska_legend_2015]**. Consistent with left-hemisphere specialised language processing, legends presented on the right of a map were processed faster than those presented on the left** [@edler_searching_2020]**. Eye-movement tracking has revealed that fixation on map legends decreases with repeated exposure, illustrating the role of legends for developing initial cognitive representations** [@hepburn_we_2021]**. This body of research provides evidence that legend design influences various aspects of map interpretation.**
+
+## Communicating **Absolute** Magnitude Through Data Visualization
+
+Empirical studies in various scientific fields have explored how interpretations of magnitude are influenced by data visualization design choices.
+
+Recently, the practice of y-axis truncation has enjoyed attention in experiments at the intersection of the disciplines of data visualization and psychology. Y-axis truncation refers to the practice of minimizing the range of values that appear on the y-axis. This typically involves starting the y-axis at a value greater than zero [@correll_truncating_2020]. However, some experiments on y-axis truncation have employed axes that are roughly symmetrical about the plotted data [@witt_graph_2019]. Truncation effects are therefore not just associated with the exclusion of a zero value, but also the exclusion of values *above* the observed data, which make differences appear smaller. Thus, more generally, truncation effects illustrate people's treatment of axes as implicit scales for making qualitative judgments about presented data.
+
+Research on the effects of y-axis truncation has focused on how this practice can alter people's interpretations of the magnitude of the difference between plotted values. Demonstrating the effect of y-axis truncation with a large online sample, @pandey_how_2015 found that ratings of the magnitude of the difference between values were greater when a truncated axis was used to display the difference between safe drinking water levels in two towns. In both bar charts and line charts, increasing the degree of truncation produces increasing estimations of the severity of the difference between values [@correll_truncating_2020]. Encouraging careful attention to plotted data (by ensuring that numerical values are read precisely) does not eliminate this effect [@correll_truncating_2020]. Warnings somewhat reduce, but do not eradicate, the difference between interpretations of truncated and non-truncated charts [@yang_truncating_2021]. Visual indicators of truncation are also ineffective [@correll_truncating_2020].
+
+@witt_graph_2019 demonstrated that using the widest possible y-axis range diminishes a viewer's sensitivity, which is the ability to distinguish between different degrees of separation between values. On the other hand, using the smallest possible y-axis range increases bias in interpretation (i.e., the extent to which judgments of the magnitude of difference deviate from actual effect sizes). To maximize sensitivity and minimize bias, and to ensure correspondence between the appearance of the difference and the reality, Witt suggests using a range of 1-2 standard deviations for y-axis limits.
+
+Witt's [-@witt_graph_2019] recommendations are prescribed for disciplines which use standardized effect sizes (e.g., Cohen's d) in the reporting of data and statistics. @correll_truncating_2020 provide more general advice relevant to those in all disciplines: the appearance of differences in a visualization should be appropriate for the specific data. Therefore the decision whether or not to truncate an axis depends on the real-world magnitude of the difference, and ultimately designers should ensure they represent this faithfully. Evidence suggests that viewers interpret the axis range as a representation of the relevant numerical context within which plotted data should be assessed. When an axis only just contains a pair of values, they will generally be considered to be highly divergent. When an axis easily contains these values, they will generally be considered similar, because the difference between values will be dwarfed by the vastness of the scale. Arbitrary rules will not absolve a chart designer's responsibility to consider what their visualization implies [@correll_truncating_2020].
+
+As @yang_truncating_2021 discuss, one explanation for these effects draws on Grice's co-operative principle [@grice_logic_1975]. This theory, originally concerning linguistic utterances, would suggest that components of a chart, such as axes, will be considered to communicate relevant information about plotted data. Thus, a viewer will derive a designer's intended message from the features of the visualization. Changing one's interpretation of magnitude in accordance with changes to axis range could therefore be considered a coherent response.
+
+Research on risk communication has also explored how visualization design choices affect interpretations of presented information. A set of experiments relevant to the present investigation originated with empirical data which suggested that icon arrays were more effective than text at promoting risk-averse behavior [@stone_effects_1997]. Further research [@stone_foregroundbackground_2003] suggested that this occurred because the data visualizations only displayed the number of people affected by the negative outcome. Therefore, unlike the text, the icon arrays made the numerator more salient than the denominator (the total number of people in the sample). This was demonstrated empirically in the same study, using bar charts: the difference between numerators (15 vs. 30) appeared much bigger when the larger numerator (30) was used for the upper axis limits, compared to when the denominator (5000) was used for the upper axis limits. Risk reduction (the degree of difference between plotted values) was perceived as smaller when bar charts were extended to incorporate the denominator. Unlike studies on y-axis truncation [@pandey_how_2015; @witt_graph_2019; @correll_truncating_2020; @yang_truncating_2021; @driessen_misleading_2022], the lower axis limit was not manipulated, and remained fixed at zero. This pattern of results has been replicated using icon arrays [@garcia-retamero_who_2010] and pie charts [@hu_foreground-background_2014], and a similar effect has been reported for line charts [@taylor_misleading_1986] suggesting this phenomenon is driven by a common mechanism independent of chart type.
+
+Stone et al.'s [-@stone_foregroundbackground_2003] experiment demonstrated that extending the upper limit caused participants to interpret the *difference between* values as smaller. Unfortunately, the design of this experiment leaves uncertainty as to whether this extension affected interpretations of the magnitude of *the values themselves*, because participants only compared risks between charts in the same condition, not across conditions. However, this issue was addressed by @okan_probability_2020, who found that icon arrays which *did not* display the denominator increased perceived risk relative to those which did (with larger increases at smaller probabilities). Including the denominator also resulted in more accurate estimates of the underlying risk probabilities. This accords with the finding that the apparent magnitude of risk decreases when the upper limit is extended in a risk ladder visualization [@sandman_high_1994]. This implies that interpretations of magnitude are informed, in part, by the data point's position within the risk ladder's limits.
+
+## **Color Legends**
+
+In data visualizations employing geometric encodings (e.g., position, extent), axes are the dimensions along which data are plotted. In colormap visualizations, a different type of axis is present, which is not used to display data directly, but presents the mapping between colors and numerical values, henceforth referred to as a 'color legend'. Default settings in popular visualization tools, such as ggplot2 [@wickham_ggplot2_2016] and Matplotlib [@hunter_matplotlib_2007] tend to employ color legends which use the minimum and maximum values in the data at their extremes. Thus, the potential for values smaller than the minimum, or larger than the maximum, is not encoded by these color legends. This facilitates comparison between values, since using a wide range of colors improves discrimination ability. Crucially, however, it does not facilitate magnitude judgments. Consider, for example, a heatmap showing profits for each quarter over the course of five years. Using the darkest color on the color legend to represent the highest profits could conceal the fact that profits in general have been poor for the entirety of this period, because the color legend is agnostic towards real-world magnitude.
+
+Research involving color legends has often focused on assessing the appropriateness of different color scales and capturing color discriminability through color difference models. @harrower_colorbrewerorg_2003 developed a tool for selecting suitable color scales for particular forms of data: sequential scales for ordinal or numerical data, qualitative scales for categorical data, and diverging scales for highlighting midpoints. **Using choropleth maps,** @brychtova_discriminating_2015 **determined the minimum color distance required for reliably detecting differences between two regions.** Other work has identified specific features which make for an effective color scheme, from low-level properties such as uniform luminance \[@dasgupta_effect_2020\] to high-level properties such as consistency with semantic color associations [@lin_selecting_2013]. Researchers have also modeled the impact of mark size on color discriminability [@stone_engineering_2014] and demonstrated adaptation of color difference models to specific viewing conditions [@szafir_adapting_2014].
+
+Choropleth maps are one of several types of colormap visualization which map color to numerical data (see also, heatmaps and neuroimaging visualizations). Schiewe [-@schiewe_empirical_2019] illustrates that impressions of quantity are positively associated with the proportion of a choropleth map occupied by darker colors. The size of geographical regions and the *classification* of values can both influence the extent to which a map displays colors on the darker end of the chosen color scale, which impacts judgments of presented data. Whilst this study manipulated the appearance of plotted data in maps, other research has held the appearance of plotted data constant in order to study how the context surrounding a color legend affects viewers' inferences. @schloss_mapping_2019 observed that viewers' spontaneous interpretations of the relationship between color and quantity can depend on which background color is used. Their experiment attempted to reconcile contrasting theories about which aspects of a color stimulus are associated with greater quantities ('dark-is-more'; 'contrast-is-more'; 'opaque-is-more'). They found that viewers associate darker colors with greater quantities when there is no apparent variation in the color scale's opacity. However, when the color scale does appear to have varying degrees of opacity, an 'opaque-is-more' association prevails. For example, black-white color scales appear to have low opacity against a blue background (so lighter grays are more readily associated with smaller quantities), but high opacity against a black background (so lighter grays are more readily associated with larger quantities).
+
+Different interpretations of the same dataset can also arise through modified displays of the same color scale. Empirical research has compared color legends which only indicate uncertainty using color features (e.g., increasing luminance and decreasing saturation), to color legends which also signal uncertainty through increasing reduction in the range of possible colors, termed Value-Suppressing Uncertainty Palettes (VSUPs, @correll_value-suppressing_2018). In Correll et al.'s study, participants played a 'Battleship' style game which involved reducing risk by balancing danger and uncertainty. Participants were more likely to favor riskier but more certain options over uncertain options when using VSUPs. Constraining the range of colors at higher uncertainty levels may have reduced the impression that these data points could represent desirable low-danger magnitudes. The experiment we report below examines directly how the range of values in a color legend affects interpretations of magnitude.
+
+# Methodology
+
+## Outline
+
+The present experiment investigates the influence of color legend range on the cognitive processing of magnitude. We manipulated the color legend's upper bound, such that it was equal to the maximum plotted value (*truncated range*) or it was equal to double the maximum plotted value (*extended range*). We employ the term 'truncated' in a broad sense, referring to a scale that is constrained such that potentially relevant values are omitted, not simply a scale that excludes a zero value. Using a lower bound of zero reduced the number of differences between the two conditions, so that only the upper bound was manipulated. This also meant that plotted values' variability appeared smaller, assisting participants in judging the *overall* magnitude of these values. For each item, the color palette, geographic regions, and the mapping between colors and numerical values, were identical across conditions. Therefore, the only difference between versions of a given item was the range of the color legend: the map itself remained unchanged.
+
+Rather than asking participants to make abstract judgments about the size of abstract values, we presented fictitious pollution data, and asked how urgently action should be taken to address the pollution levels displayed in each data visualization. This captures participants' assessments of magnitude through the type of judgments which can drive behavior. In addition to increased ecological validity, we also anticipated that pollution data might be able to generate a balanced set of responses to the question of urgency. A variable evoking an extreme negative reaction may have elicited responses at ceiling and one too trivial may have elicited responses at floor. We expected participants to recognize that a sufficient degree of pollution would require action, but also understand that low levels may require less urgent action. We did not provide a specific definition of urgency for participants to use when making their responses. Therefore, different participants' responses may reflect different notions of urgency. However, the within-participants design accounts for individual variation. Each participant's ratings are compared against their own ratings for the alternative condition, allowing for meaningful comparison between conditions.
+
+Pollution levels were displayed in choropleth maps, which use color encoding to display data aggregated at the level of geographic areas. Note that we do not consider the designs of choropleth maps in this experiment to reflect best practice for plotting pollution statistics. Rather, these designs were motivated by the desire to examine the role of color legends in the interpretation of magnitude. Previous research has illustrated that the size of geographical regions can influence ensemble coding in choropleth maps [@schiewe_empirical_2019]. However, we did not control for this aspect, instead we prioritized ecological validity by using maps with real geographical regions. These maps appeared identical across conditions in order to avoid this bias confounding results.
+
+To control for the possibility that participants used the color legend's numerical labels, rather than the range of values displayed, as a reference for their magnitude judgments, we omitted the color legend's numerical labels in half of trials. This allowed us to test whether the presence of numerical labels affected the degree to which magnitude judgments were influenced by the color legend's upper bound.
+
+## Pre-Registration
+
+We predicted that urgency ratings would be higher for truncated legends, compared to extended legends. In addition, we planned to compare whether any difference between these two conditions was moderated by the presence or absence of numerical labels, but made no predictions about existence or direction of any main effect or interaction. Participants completed Garcia-Retamero et al.'s [@garcia-retamero_measuring_2016] Subjective Graph Literacy scale, therefore we also planned to test whether any observed effects (or lack of) could be explained by differences in data visualization literacy. This five-item scale is a quick, reliable measure that is correlated with scores on Galesic and Garcia-Retamero's [@galesic_graph_2011] test-based measure of data visualization literacy. The pre-registration, plus materials, experiment script, data and analysis code are available at <https://osf.io/qe9hf/?view_only=32c420d6ef6c45b1ae2d3dc42dc6fe69>. This repository contains the requisite resources to generate a fully-reproducible version of this paper.
+
+## Design
+
+In each trial, we independently manipulated two aspects of the choropleth map. When the color legend had a *truncated range*, its upper bound was equal to the maximum value displayed in the map. When the color legend had an *extended range*, its upper bound was equal to double the maximum value (and the maximum value displayed in the map appeared at the legend's halfway point). Numerical labels on the color legend were either *present* or *absent*. This resulted in four unique combinations of conditions. We employed a Latin-squared design, ensuring that each participant was exposed to each combination of conditions throughout the experiment, but only saw one combination for each given map. There were a total of 54 trials (48 experimental trials, six attention check trials). Example stimuli are shown in @fig-example-stimuli.
+
+```{r}
+#| label: fig-example-stimuli
+#| include: true
+#| fig-height: 5
+#| fig-cap: "Example stimuli: six choropleth maps showing fictitious pollution data. Four color legends are displayed below each map, but only one color legend accompanied the map in each trial. Color legends with extended ranges have a maximum value equal to double the maximum plotted value (top row: 400; bottom row: 1800). Color legends with truncated ranges have a maximum value equal to the maximum plotted value in the map (top row: 200; bottom row: 900). During the experiment, all six color scales were used in conjunction with all maximum values."
+#| fig-alt: "A 3x2 grid of choropleth map visualizations, in six different colors. Each has four color legends below. The color legends below the maps in the left column terminate with the same shade of color as the darkest geographical region. The color legends below the maps in the right column terminate with a much darker shade of color. Each color legend is shown with and without numerical labels."
+img1 <- ggplot() + background_image(image_read("examples/supermap_top.png")) + coord_fixed(ratio = 1041/2787)
+img2 <- ggplot() + background_image(image_read("examples/supermap_bottom.png")) + coord_fixed(ratio = 1041/2787)
+
+img1 / img2 + plot_layout()
+```
+
+## Participants
+
+We recruited participants using prolific.co. The experiment was advertised to users with English language fluency, normal or corrected-to-normal vision, and no experience of color deficiency, who had previously participated in more than 100 studies on Prolific. Participants were paid £3.50. Ethical approval was granted by our institution's Ethics Committee (Ref. 2022-11115-23778).
+
+In our pre-registration, we planned to exclude participants who failed more than one attention check question, in order to exclude those who were not sufficiently engaged in the task. However, when many more participants than expected failed more than one attention check question, this criteria was deemed too stringent and we instead awarded payment to all participants who returned data, regardless of their responses to attention check questions. Consequently, due to practical constraints, we were unable to obtain a sample which met our originally-specified sample size (N = 160) and our pre-registered inclusion criteria. Therefore, we terminated data collection once the sample of those who satisfied the attention check criteria was balanced across all four Latin-squaring lists (N = 100; 25 participants per list). We used this sample for our main analysis. As a compromise for the reduction in experimental power, we also demonstrate below that the pattern of effects is largely the same when analyzing the entire dataset (those who satisfied attention check criteria and those who did not; N = 165). In Section 5, we discuss a possible reason for the higher-than-expected rate of incorrect responses to attention check questions. Demographic information is shown in @tbl-demographics.
+
+```{r}
+#| label: prepare-demographics
+# wrangling demographic data for both samples of participants
+compare_samples <- bind_rows("N = 100" = passed, "N = 165" = both, .id = "sample_type")
+
+gender <- 
+  compare_samples %>%
+  group_by(sample_type, genderResp1.response) %>%
+  distinct(participant, .keep_all = TRUE) %>% 
+  summarise(cnt = n()) %>%
+  summarise(freq = cnt / sum(cnt) *100, gender = unique(genderResp1.response)) %>% 
+  pivot_wider(names_from = gender, values_from = freq) %>%
+  select(-`Prefer not to say`, `Prefer not to say`)
+
+age <- compare_samples %>%
+  group_by(sample_type) %>%
+  distinct(participant, .keep_all = TRUE) %>% 
+  summarise(age_mean = mean(ageResp.text),
+            age_sd = sd(ageResp.text))
+
+literacy <- compare_samples %>% 
+  group_by(sample_type) %>%
+  summarise(literacy_mean = mean(literacy),
+            literacy_sd = sd(literacy))
+
+edu <- compare_samples %>%
+  group_by(sample_type, edu_slider.response) %>%
+  distinct(participant, .keep_all = TRUE) %>% 
+  summarise(cnt = n()) %>%
+  summarise(freq = cnt / sum(cnt) *100, edu = unique(edu_slider.response)) %>%
+  filter(edu != 'No formal qualications' & edu != 'Don\'t know / not applicable') %>% 
+  tally(freq) 
+  
+demo_table <- inner_join(gender, age, by = "sample_type") %>%
+  inner_join(literacy) %>%
+  inner_join(edu)
+```
+
+```{r}
+#| label: tbl-demographics
+#| include: true
+#| tbl-cap: Demographic Information
+#| output: asis
+#generate demographic table
+kable(demo_table, "html", # change to "latex" for pdf?
+                       digits = 1,
+                       col.names = c("Sample", 
+                                     "Male (%)",
+                                     "Female (%)",
+                                     "Prefer not to say (%)",
+                                     "Mean",
+                                     "SD",
+                                     "Mean",
+                                     "SD",
+                                     "High School\nor Above (%)")) %>% 
+  kable_styling(font_size = 8) %>% 
+  add_header_above(header = c(" " = 1, "Gender" = 3, "Age" = 2, "Graph Literacy" = 2, "Education" = 1))
+```
+
+## Procedure
+
+The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 2022.1.4] and hosted on pavlovia.org. A link to an interactive version of this experiment has been excluded from this manuscript for anonymization purposes. Participants were instructed to use laptop or desktop computers, rather than another type of device and were told that the experiment was about using information to make decisions. **We did not calibrate or measure color display on participants' own screens, but using a within-participants design prevents this from influencing our results. Each participant was exposed to the both experimental conditions under the same display conditions.** Participants were informed that in each map, each region's color reflected its pollution level, and that data on different types of pollution were shown throughout the experiment, with pollution levels presented using standardized units.
+
+```{r}
+#| label: fig-example-trial
+#| include: true
+#| fig-cap: An example of a single experiment trial, showing a choropleth map with a truncated color legend, plus a response marker on the visual analogue scale.
+knitr::include_graphics("examples/example-trial.png")
+```
+
+In every experimental trial, the text above the map read '*This map shows the levels of a certain type of pollution, in four regions*'. Participants were advised to read the question, which was presented below the map: '*How urgently should pollution levels in these regions be addressed?*' This question was used in all experimental trials, where the left anchor on the visual analogue response scale was labeled '*Not very urgently*' and the right anchor was labeled '*Very urgently*'. The instructions stated that higher pollution levels need to be addressed more urgently than lower pollution levels. Participants were permitted to move the response scale marker as many times as they wished before continuing to the next trial. An example trial is shown in @fig-example-trial.
+
+Attention check items resembled normal trials except for the text displayed. Participants were asked to move the marker to one of three locations: 'to the middle of the scale', 'all the way to the *'Not very urgently'* end of the scale' or 'all the way to the *'Very urgently'* end of the scale'. In experimental trials, response scale granularity was set to 0, which permitted participants to place the marker at any location along the response scale. In attention check trials, response scale granularity was set to 0.5, so participants were only permitted to place the marker at one of three locations specified in the question: the leftmost point, the center of the scale, or the rightmost point.
+
+Following the final trial, participants were informed that both the data presented, and the standardized units used, were fictitious. Finally, participants were presented with a text box and the prompt '*What strategies did you use during the study? Do you have any comments about the study? (optional)*'. Average completion time was `r printnum(passed %>% pull(total_duration) %>% mean()/60)` minutes (SD = `r printnum(passed %>% pull(total_duration) %>% sd()/60)` minutes) for those who satisfied the pre-registered attention check criteria and `r printnum(both %>% pull(total_duration) %>% mean()/60)` minutes (SD = `r printnum(both %>% pull(total_duration) %>% sd()/60)` minutes) for the full sample.
+
+## Materials
+
+Materials were generated using Python (version 3.9.12). Matplotlib (version 3.5.1) was used to generate color legends and geoplot (version 0.5.1) was used for plotting geospatial data.
+
+Each visualization contained a unique combination of four neighboring Chinese provinces (except the six attention check items, which employed six existing combinations used in the experimental items). China was chosen to reduce the potential impact of prior knowledge, as Prolific's participants tend to be located outside China. However, the choice of country was not disclosed to participants and regions were not labeled. The pollution data used were entirely fictitious, as were the 'standardized units' used to present the data.
+
+The maximum value in the plotted data ranged from 200 to 900 (in multiples of 100), and the values for the other three provinces were between 10 and 30 units below this maximum value. Six Matplotlib color scales ('Reds', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges') were each used once per maximum value. **These scales exhibited monotonic and approximately linear variation in lightness (*L*\*). Monochromatic sequential scales were used for simplicity, avoiding additional differences between conditions, such as the relative amounts of different hues (multi-hue scales) or midpoints' positions (diverging scales).** @tbl-colors **shows the start and end colors in CIEL\*a\*b\* space, using CIE standard illuminant D65.**
+
+For each item, a 'mappable' object defined the mapping between numerical values and colors for both truncated and extended color legends. The lightest color in the scale was mapped to zero and the darkest color to double the maximum value. This range was employed in the extended color legend. The truncated color legend, on the other hand, terminated at the maximum value in the data, so the range was halved (but the mapping between numerical values and colors was retained). **No classification was employed in the legends, for maximum consistency across conditions.** Where numerical labels were present, an identical number of labels (between six and ten) appeared on both versions of a color legend. Tick marks were absent from all color legends.
+
+```{r}
+#| label: prepare-colors
+Lab <- read_csv("Lab.csv") %>%
+  select(-`...1`) %>%
+  pivot_wider(names_from = "position",
+              values_from = c('L', 'a', 'b'),
+              names_glue = "{position}_{.value}") %>%
+  select(colorname, length, starts_with("first_"), starts_with("last_"), everything()) %>%
+  mutate(length = case_match(length,
+                             "trunc" ~ "Truncated",
+                             "extend" ~ "Extended"))
+```
+
+```{r}
+#| label: tbl-colors
+#| include: true
+#| tbl-cap: "CIELab Values for Color Legends' Start and End Colors"
+#| output: asis
+# kableExtra might the reason it's not possible to write CIEL*a*b* in caption
+kable(Lab, digits = 2,
+      col.names = c("Color Scale", 
+                    "Range",
+                    "L*",
+                    "a*",
+                    "b*",
+                    "L*",
+                    "a*",
+                    "b*")) %>% 
+  kable_styling(font_size = 8) %>% 
+  add_header_above(header = c(" " = 2, "Start Color" = 3, "End Color" = 3))
+```
+
+# Analysis
+
+## Analysis Methods
+
+Analysis was conducted in R [@r_core_team_r_2022, version 4.2.1].
+
+Linear mixed-effects models were constructed using lme4 [@bates_fitting_2015, version 1.1.31]. Random effects structures were determined using buildmer [@voeten_buildmer_2022, version 2.7], which after identifying the most complex random effects structure that could successfully converge [see @barr_random_2013], then removed random effects terms which did not significantly contribute towards explaining variance. In a diversion from the pre-registered analysis plan, we excluded the interaction term from the models used to test the main effects of color legend range and numerical label presence.
+
+## Part 1: Participants Satisfying Attention Check Criteria (N = 100)
+
+### Color Legend Ranges and Numerical Labels
+
+@fig-main-effect-chart shows the distribution of responses for color legends with truncated and extended ranges.
+
+```{r}
+#| label: fig-main-effect-chart
+#| include: true
+#| fig.cap: Visual analogue scale responses to the question *"How urgently should pollution levels in these regions be addressed?"*. Distributions for the two conditions are shown using histograms, boxplots, and raw data points representing individual observations. In the 'Extended Range' condition, the color legend's upper bound was equal to double the maximum plotted value. In the 'Truncated Range' condition, the color legend's upper bound was equal to the maximum plotted value.
+#| fig-alt: A graphic showing distributions of responses for 'Extended Range' and 'Truncated Range'. Distributions are shown separately for each condition using histograms, boxplots and circles representing individual data points. On the left side is the label "Not very urgently" and on the right "Very urgently". The top histogram, with the label "Extended Range" resembles a Gaussian curve, with its peak roughly in the middle of the axis. The boxplot and raw data also show observations clustered around the middle of the axis. The bottom histogram, with the label "Truncated Range" peaks just before the right hand side of the axis. The boxplot and raw data also show observations are heavily left-skewed.
+
+passed %>%
+ggplot(aes(x = slider.response, y = range)) +
+  geom_density_ridges(scale = 0.5, color = "white", alpha = 0,
+                      jittered_points = T,
+                      position = position_raincloud(height = 0.2),
+                      point_alpha =0.2,
+                      point_color = "grey") +
+    stat_binline(binwidth=0.01, scale = 0.7, alpha = 1, 
+                 fill = "grey",
+                 lwd=1)  +
+  geom_boxplot(outlier.shape=NA,
+                 width = 0.08,
+                 color = "white",
+                 fill = "white",
+                 alpha = 0,
+                 lwd = 1,
+                 position = position_nudge(y=-.15)) +
+      geom_boxplot(outlier.shape=NA,
+                 width = 0.08,
+                 color = "black",
+                 fill = "white",
+                 alpha = 0.7,
+                 lwd = 0.5,
+                 position = position_nudge(y=-.15)) +
+  scale_x_continuous(labels = c(
+    expression(paste(italic("\"Not very urgently\""))),
+    expression(paste(italic("\"Very urgently\"")))),
+                     breaks = c(0,1),
+                     minor_breaks = c(),
+    position = "bottom") +
+  labs(title = "Distribution of Urgency Ratings, by Color Legend Range",
+       subtitle = "Histograms, Boxplots, and Raw Data",
+       x = NULL,
+       y = NULL) +
+  scale_y_discrete(labels = c("Truncated Range", "Extended Range"),
+                   limits = c("trunc", "extend")) +
+  theme_minimal(base_size = 10) +
+  theme(panel.grid.major.y = element_line(color="white"))
+
+```
+
+```{r}
+#| label: part1
+#| cache: true 
+# generating the models for those who satisfied the pre-registered attention check criteria
+full_main <- buildmer(slider.response ~ range + label +
+                         (1 + range*label | participant) + 
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range + label'), 
+                       data = passed)
+
+full_int <- buildmer(slider.response ~ range * label +
+                         (1 + range*label | participant) + 
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label'), 
+                       data = passed)
+```
+
+```{r}
+#| label: part1-tests
+#| cache: true 
+test_range <- lmer(comparison(full_main, fixed = "label"), data = passed)
+test_label <- lmer(comparison(full_main, fixed = "range"), data = passed)
+test_int <- lmer(comparison(full_int, fixed = "range + label"), data = passed)
+
+anova_results(test_range, full_main)
+anova_results(test_label, full_main)
+anova_results(test_int, full_int)
+```
+
+Linear mixed-effects modelling revealed that urgency was rated as significantly higher when the color legend had a truncated range (its upper bound was equal to the maximum value in the dataset) compared to when the color legend had an extended range (its upper bound was equal to double the maximum value): $\chi^2$(`r in_paren(test_range.Df)`) = `r printnum(test_range.Chi)`, p `r printp(test_range.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main.eta.range)`.
+
+Ratings were not significantly different when numerical labels were present, compared to when they were absent: $\chi^2$(`r in_paren(test_label.Df)`) = `r printnum(test_label.Chi)`, p `r printp(test_label.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main.eta.label)`.
+
+There was no interaction between color legend range and numerical labels: $\chi^2$(`r in_paren(test_int.Df)`) = `r printnum(test_int.Chi)`, p `r printp(test_int.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_int.eta.range_label)`. These models all employed random intercepts for participants with random slopes for color legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items.
+
+### Data Visualization Literacy
+
+```{r}
+#| label: part1-lit
+#| cache: TRUE
+full_main_lit <- buildmer(slider.response ~ range + label + literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range + label + literacy'),
+                       data = passed)
+
+full_int_lit <- buildmer(slider.response ~ range * label + literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label + literacy'),
+                       data = passed)
+```
+
+```{r}
+#| label: part1-lit-tests
+#| cache: TRUE
+test_range_lit <- lmer(comparison(full_main_lit, fixed = "label + literacy"), data = passed)
+test_label_lit <- lmer(comparison(full_main_lit, fixed = "range + literacy "), data = passed)
+test_int_lit <- lmer(comparison(full_int_lit, fixed = "range + label + literacy"), data = passed)
+
+anova_results(test_range_lit, full_main_lit)
+anova_results(test_label_lit, full_main_lit)
+anova_results(test_int_lit, full_int_lit)
+```
+
+Adding participants' data visualization literacy as an additional fixed effect did not remove the significant effect of color legend range: $\chi^2$(`r in_paren(test_range_lit.Df)`) = `r printnum(test_range_lit.Chi)`, p `r printp(test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.range)`. This indicates that differences in data visualization literacy cannot explain this effect. The numerical label manipulation remained non-significant when accounting for literacy ($\chi^2$(`r in_paren(test_label_lit.Df)`) = `r printnum(test_label_lit.Chi)`, p `r printp(test_label_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.label)`). The interaction remained non-significant when accounting for literacy ($\chi^2$(`r in_paren(test_int_lit.Df)`) = `r printnum(test_int_lit.Chi)`, p `r printp(test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_int_lit.eta.range_label)`). These models employed random intercepts for participants with random slopes for color legend range and numerical label presence, plus random intercepts for items with random slopes for color legend range.
+
+## Part 2: All Participants (N = 165)
+
+### Color Legend Ranges and Numerical Labels
+
+The above analysis was conducted using data from the 100 participants who satisfied the pre-registered attention check criteria. However, smaller samples are associated with lower statistical power. Below, we conduct the same analysis on the full sample of 165 participants (those who satisfied the pre-registered attention check criteria and those who did not).
+
+```{r}
+#| label: part2
+#| cache: TRUE
+# generating models for entire set of participants
+# BOTH those who satisfied the pre-registered attention check criteria and those who did not
+both_full_main <- buildmer(slider.response ~ range + label +
+                         (1 + range*label | participant) + 
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range + label'), 
+                       data = both)
+
+both_full_int <- buildmer(slider.response ~ range * label +
+                         (1 + range*label | participant) + 
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label'), 
+                       data = both)
+```
+
+```{r}
+#| label: part2-tests
+#| cache: TRUE
+both_test_range <- lmer(comparison(both_full_main, fixed = "label"), data = both)
+both_test_label <- lmer(comparison(both_full_main, fixed = "range"), data = both)
+both_test_int <- lmer(comparison(both_full_int, fixed = "range + label"), data = both)
+
+anova_results(both_test_range, both_full_main)
+anova_results(both_test_label, both_full_main)
+anova_results(both_test_int, both_full_int)
+```
+
+Urgency was rated as significantly higher when a truncated color legend range was used, compared to when an extended color legend range was used: $\chi^2$(`r in_paren(both_test_range.Df)`) = `r printnum(both_test_range.Chi)`, p `r printp(both_test_range.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main.eta.range)`. Ratings were not significantly different when numerical labels were present, compared to when they were absent: $\chi^2$(`r in_paren(both_test_label.Df)`) = `r printnum(both_test_label.Chi)`, p `r printp(both_test_label.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main.eta.label)`. These models employed random intercepts for participants with random slopes for color legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items with random slopes for color legend range.
+
+```{r}
+#| label: part2-contrasts
+# generating contrasts to examine the source of the interaction effect 
+emm_int <- emmeans(both_full_int@model, ~ range * label)
+
+emm_contrasts <- contrast(emm_int, "consec", simple = "each", combine = TRUE, adjust = "sidak") %>%
+  as_tibble() 
+
+contrasts_trunc <- emm_contrasts %>%
+  filter(range == "trunc" & label == ".") 
+
+contrasts_extend <- emm_contrasts %>%
+  filter(range == "extend" & label == ".") 
+
+cont_trunc.z <- contrasts_trunc %>% pull(z.ratio)
+cont_trunc.p <- contrasts_trunc %>% pull(p.value)
+cont_trunc.d <- z_to_d(contrasts_trunc$z.ratio, 
+                       n = length(both_full_int@summary$residuals)/2, 
+                       paired = FALSE, ci = 0.95, alternative = "two.sided")$d
+
+cont_extend.z <- contrasts_extend %>% pull(z.ratio)
+cont_extend.p <- contrasts_extend %>% pull(p.value)
+cont_extend.d <- z_to_d(contrasts_extend$z.ratio, 
+                        n = length(both_full_int@summary$residuals)/2, 
+                        paired = FALSE, ci = 0.95, alternative = "two.sided")$d
+```
+
+There was a significant interaction between color legend range and numerical label presence: $\chi^2$(`r in_paren(both_test_int.Df)`) = `r printnum(both_test_int.Chi)`, p `r printp(both_test_int.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_int.eta.range_label)`. This model employed random intercepts for participants with random slopes for color legend range and numerical label presence, plus random intercepts for items with random slopes for color legend range. We conducted pairwise comparisons with Sidak adjustment using the emmeans package [@lenth_emmeans_2021]. For choropleth maps with extended color legend ranges, there was no difference between ratings for labeled and unlabeled color legends: z = `r printnum(abs(cont_extend.z))`, p `r printp(cont_extend.p, add_equals = TRUE)`, Cohen's *d* = `r printnum(abs(cont_extend.d))`. For choropleth maps with truncated color legend ranges, higher ratings were awarded when numerical labels were absent, compared to when they were present: z = `r printnum(abs(cont_trunc.z))`, p `r printp(cont_trunc.p, add_equals = TRUE)`, Cohen's *d* = `r printnum(abs(cont_trunc.d))`. @fig-interaction-chart displays the means and 95% confidence intervals for each combination of conditions, for both samples of participants: those who satisfied the pre-registered attention check criteria, and the full sample.
+
+```{r}
+#| label: fig-interaction-chart
+#| include: true
+#| fig-height: 5
+#| fig-width: 6
+#| fig-cap: Mean urgency ratings showing the interaction between color legend range and numerical label presence, displayed separately for the different samples of participants. Error bars show 95% confidence intervals around the means.
+##| fig-alt = "A visualization with eight horizontal axes. The #top four are labeled 'Satisfied Attention Check Criteria (N = #100)'. Of these, the top two are labeled 'Truncated Upper #Bound'. These have means and error bars close to the right hand #side of the axis, with the 'Labels Absent' condition very #slightly further to the right than the 'Labels Present' #condition. The means and error bars for both 'Extended Upper #Bound' conditions are near the center of the axis. This entire #pattern of error bars in the top four axes is replicated below, #in the bottom four axes labeled 'All Participants (N = 165)'"
+# creating a named vector for range facet labels
+ranges_labs <- c("Extended Color Legend Range", 
+                 "Truncated Color Legend Range")
+names(ranges_labs) <- c("extend", "trunc")
+
+pp <- passed %>%
+  ggplot(aes(x = slider.response, y = label)) +
+  stat_summary(fun.data = "mean_cl_normal", 
+               color = "grey20", 
+               linewidth = 1, 
+               geom = "errorbar", 
+               alpha = 0.7,
+               width = 0.5,
+               fun.args = list(conf.int = 0.95)) +
+  stat_summary(geom = "point", 
+               fun = "mean", 
+               size = 1) +
+  scale_x_continuous(labels = c(),
+    breaks = c(0,1),
+    limits = c(0,1),
+    expand = c(0.001,0.001),
+    minor_breaks = c()) +
+  labs(title = "Satisfied Attention Check Criteria (N = 100)",
+       x = NULL,
+       y = NULL) +
+  scale_y_discrete(breaks = c("present", "absent"),
+                   labels = c("Labels Present", "Labels Absent")) +  theme_minimal(base_size = 10) +
+  theme(plot.title = element_text(vjust= -2)) +
+  facet_wrap(~ range, ncol = 1, labeller = labeller(range = ranges_labs))
+
+bp <- both %>%
+  ggplot(aes(x = slider.response, y = label)) +
+  stat_summary(fun.data = "mean_cl_normal", 
+               color = "grey20",
+               linewidth = 1, 
+               geom = "errorbar", 
+               alpha = 0.7,
+               width = 0.5,
+               fun.args = list(conf.int = 0.95)) +
+  stat_summary(geom = "point", 
+               fun = "mean", 
+               size = 1) +
+  scale_x_continuous(labels = c(),
+                     breaks = c(0,1),
+                     limits = c(0,1),
+                     expand = c(0.001,0.001),
+                     minor_breaks = c()) +
+  labs(title = "All Participants (N = 165)",
+       x = expression(paste(italic(
+         "--\"Not very urgently\"                                                                 \"Very urgently\"--"))),
+       y = NULL) +
+  scale_y_discrete(breaks = c("present", "absent"),
+                   labels = c("Labels Present", "Labels Absent")) +
+  theme_minimal(base_size = 10) +
+  theme(plot.title = element_text(vjust= -2, size = 12),
+        axis.title.x = element_text(vjust=4.5, size = 10),
+        axis.ticks.length.x = unit(0.3,"cm"),
+        axis.ticks.x = element_line(linewidth = 0.5, color = "grey10")) +
+  facet_wrap(~ range, ncol = 1, labeller = labeller(range = ranges_labs))
+
+pp / bp  + 
+  plot_annotation(title =
+                    "Urgency Ratings: Color Legend Range x Numerical Label Interaction",
+                  subtitle = "Shown separately for participants who satisfied pre-registered attention check criteria,\nand all participants.")
+```
+
+### Data Visualization Literacy
+
+```{r part2-lit, warning=FALSE, message=FALSE, echo=FALSE, results=FALSE, cache=TRUE}
+both_full_main_lit <- buildmer(slider.response ~ range + label + literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range + label + literacy'),
+                       data = both)
+
+both_full_int_lit <- buildmer(slider.response ~ range * label + literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label + literacy'),
+                       data = both)
+```
+
+```{r part2-lit-tests, warning=FALSE, message=FALSE, echo=FALSE, results=FALSE, cache=TRUE}
+both_test_range_lit <- lmer(comparison(both_full_main_lit, fixed = "label + literacy"), data = both)
+both_test_label_lit <- lmer(comparison(both_full_main_lit, fixed = "range + literacy"), data = both)
+both_test_int_lit <- lmer(comparison(both_full_int_lit, fixed = "range + label + literacy"), data = both)
+
+anova_results(both_test_range_lit, both_full_main_lit)
+anova_results(both_test_label_lit, both_full_main_lit)
+anova_results(both_test_int_lit, both_full_int_lit)
+```
+
+The same pattern of results was observed when accounting for differences in data visualization literacy. There was a significant effect of color legend range ($\chi^2$(`r in_paren(both_test_range_lit.Df)`) = `r printnum(both_test_range_lit.Chi)`, p `r printp(both_test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main_lit.eta.range)`) and no effect of numerical label presence ($\chi^2$(`r in_paren(both_test_label_lit.Df)`) = `r printnum(both_test_label_lit.Chi)`, p `r printp(both_test_label_lit.p, add_equals = TRUE)`), $\eta_p^2$ `r print_es(both_full_main_lit.eta.label)`. The interaction between color legend range and numerical label presence remained: $\chi^2$(`r in_paren(both_test_int_lit.Df)`) = `r printnum(both_test_int_lit.Chi)`, p `r printp(both_test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_int_lit.eta.range_label)`. These models employed random intercepts for participants with random slopes for color legend range and numerical label presence, plus random intercepts for items with random slopes for color legend range.
+
+## Exploratory Analysis
+
+Our pre-registered analysis did not detect an effect of the presence of numerical values on urgency ratings. However, a more fine-grained analysis can explore the role of numerical labels with greater sensitivity. This exploratory analysis examines whether urgency ratings are influenced by the actual numerical values displayed. We systematically varied the maximum value displayed in each map, which ranged from 200 to 900. Other plotted values were defined in relation to this value: between 10 and 30 units less than the maximum value. Modelling the effect of different maximum values on ratings will reveal whether judgments were informed by the numerical values displayed.
+
+```{r}
+#| label: exploratory-part1
+#| cache: true
+# with two factors that could explain variance in magnitude ratings
+full_max_value_pres1 <- buildmer(slider.response ~ max_value + range + (1 + range | item_no) + (1 + max_value + range | participant), buildmerControl=list(include='slider.response ~ max_value + range'), data = passed %>% filter(label == "present"))
+#but confound
+full_max_value_abs1 <- buildmer(slider.response ~ max_value + range + (1 + range | item_no) + (1 + max_value + range | participant), buildmerControl=list(include='slider.response ~ max_value + range'), data = passed %>% filter(label == "absent"))
+
+full_max_value_int1 <- buildmer(slider.response ~ max_value * label + range + (1 + label + range | item_no) + (1 + max_value + label + range | participant), buildmerControl=list(include='slider.response ~ max_value * label'), data = passed)
+```
+
+```{r}
+#| label: exploratory-part1-tests
+#| cache: true
+test_max_value_pres1 <- lmer(comparison(full_max_value_pres1, fixed = "range"), data = passed %>% filter(label == "present"))
+
+test_max_value_abs1 <- lmer(comparison(full_max_value_abs1, fixed = "range"), data = passed %>% filter(label == "absent"))
+
+test_max_value_int1 <- lmer(comparison(full_max_value_int1, fixed = "max_value + label + range"), data = passed)
+
+anova_results(test_max_value_pres1, full_max_value_pres1)
+anova_results(test_max_value_abs1, full_max_value_abs1)
+anova_results(test_max_value_int1, full_max_value_int1)
+```
+
+When considering only maps with numerical labels present, ratings increased as a function of maximum value ($\chi^2$(`r in_paren(test_max_value_pres1.Df)`) = `r printnum(test_max_value_pres1.Chi)`, p `r printp(test_max_value_pres1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_pres1.eta.max_value)`). This model employed random intercepts for participants with random slopes for color legend range, plus random intercepts for items with random slopes for color legend range. However, ratings also increased as a function of maximum value even when numerical labels were absent ($\chi^2$(`r in_paren(test_max_value_abs1.Df)`) = `r printnum(test_max_value_abs1.Chi)`, p `r printp(test_max_value_abs1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_abs1.eta.max_value)`). This model employed random intercepts for participants with random slopes for color legend range, plus random intercepts for items. There was no significant interaction between maximum value and numerical label presence ($\chi^2$(`r in_paren(test_max_value_int1.Df)`) = `r printnum(test_max_value_int1.Chi)`, p `r printp(test_max_value_int1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_int1.eta.max_value_label)`). This model employed random intercepts for participants with random slopes for color legend range and numerical label presence, plus random intercepts for items with random slopes for color legend range.
+
+This suggests that the numerical labels themselves were not responsible for the effect of maximum value. Instead, this effect may have been driven by the appearance of the choropleth map. The color for the maximum value was identical in each map with the same color palette, but the three *accompanying* values in each map were always between 10 and 30 units less than the maximum value. Consequently, these values were represented by darker colors when the maximum value was higher, thus conveying greater overall magnitude. Color legend range ($\eta_p^2$ `r print_es(full_max_value_int1.eta.range)`) remains a greater influence than maximum value ($\eta_p^2$ `r print_es(full_max_value_int1.eta.max_value)`).
+
+```{r}
+#| label: exploratory-part2
+#| cache: true
+# with two factors that could explain variance in magnitude ratings
+full_max_value_pres2 <- buildmer(slider.response ~ max_value + range + (1 + range | item_no) + (1 + max_value + range | participant), buildmerControl=list(include='slider.response ~ max_value + range'), data = both %>% filter(label == "present"))
+#but confound
+full_max_value_abs2 <- buildmer(slider.response ~ max_value + range + (1 + range | item_no) + (1 + max_value + range | participant), buildmerControl=list(include='slider.response ~ max_value + range'), data = both %>% filter(label == "absent"))
+
+full_max_value_int2 <- buildmer(slider.response ~ max_value * label + range + (1 + label + range | item_no) + (1 + max_value + label + range | participant), buildmerControl=list(include='slider.response ~ max_value * label'), data = both)
+```
+
+```{r}
+#| label: exploratory-part2-tests
+#| cache: true
+test_max_value_pres2 <- lmer(comparison(full_max_value_pres2, fixed = "range"), data = both %>% filter(label == "present"))
+
+test_max_value_abs2 <- lmer(comparison(full_max_value_abs2, fixed = "range"), data = both %>% filter(label == "absent"))
+
+test_max_value_int2 <- lmer(comparison(full_max_value_int2, fixed = "max_value + label + range"), data = both)
+
+anova_results(test_max_value_pres2, full_max_value_pres2)
+anova_results(test_max_value_abs2, full_max_value_abs2)
+anova_results(test_max_value_int2, full_max_value_int2)
+```
+
+In the models for participants who satisfied the pre-registered attention check criteria *and* those who did not (N = 165), there were significant effects of maximum value, for both maps with labeled color legends ($\chi^2$(`r in_paren(test_max_value_pres2.Df)`) = `r printnum(test_max_value_pres2.Chi)`, p `r printp(test_max_value_pres2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_pres2.eta.max_value)`) and also maps with unlabeled color legends ($\chi^2$(`r in_paren(test_max_value_abs2.Df)`) = `r printnum(test_max_value_abs2.Chi)`, p `r printp(test_max_value_abs2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_abs2.eta.max_value)`). These models employed random intercepts for participants with random slopes for color legend range, plus random intercepts for items with random slopes for color legend range. There was no significant interaction between maximum value and numerical label presence ($\chi^2$(`r in_paren(test_max_value_int2.Df)`) = `r printnum(test_max_value_int2.Chi)`, p `r printp(test_max_value_int2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_int2.eta.max_value_label)`). This model employed random intercepts for participants with random slopes for color legend range and numerical label presence, plus random intercepts for items with random slopes for color legend range. Color legend range ($\eta_p^2$ `r print_es(full_max_value_int2.eta.range)`) remains a greater influence than maximum value ($\eta_p^2$ `r print_es(full_max_value_int2.eta.max_value)`).
+
+```{r}
+#| label: rfx-structures
+# print table showing model random effects structure (not used in final document)
+add_header_above(kable(random_str(full_main), "latex"), "full_main")
+add_header_above(kable(random_str(full_int), "latex"), "full_int")
+add_header_above(kable(random_str(full_main_lit), "latex"), "full_main_lit")
+add_header_above(kable(random_str(full_int_lit), "latex"), "full_int_lit")
+add_header_above(kable(random_str(both_full_main), "latex"), "both_full_main")
+add_header_above(kable(random_str(both_full_int), "latex"), "both_full_int")
+add_header_above(kable(random_str(both_full_main_lit), "latex"), "both_full_main_lit")
+add_header_above(kable(random_str(both_full_int_lit), "latex"), "both_full_int_lit")
+add_header_above(kable(random_str(full_max_value_pres1), "latex"), "full_max_value_pres1")
+add_header_above(kable(random_str(full_max_value_abs1), "latex"), "full_max_value_abs1")
+add_header_above(kable(random_str(full_max_value_int1), "latex"), "full_max_value_int1")
+add_header_above(kable(random_str(full_max_value_pres2), "latex"), "full_max_value_pres2")
+add_header_above(kable(random_str(full_max_value_abs2), "latex"), "full_max_value_abs2")
+add_header_above(kable(random_str(full_max_value_int2), "latex"), "full_max_value_int2")
+```
+
+# Discussion
+
+Choropleth maps are typically used to convey spatial variability, but may alternatively be employed to convey overall magnitude. This experiment clearly demonstrated that the range of the accompanying color legend influences interpretations of **absolute** magnitude in such choropleth maps. When the color legend's upper bound was equivalent to the maximum plotted value, participants rated the urgency of addressing pollution levels as higher, compared to when the color legend's upper bound was equal to double the maximum plotted value. This illustrates that viewers use color legends to put numbers' magnitudes into perspective, interpreting magnitude with respect to the range of the color legend. A color legend does not only provide a mapping between numerical values and colors, it also provides a range of values relevant for considering the **absolute** magnitude of presented data.
+
+Crucially, the colors used to display the data in the maps, as well as the underlying numerical values, were identical across conditions. Therefore, differences in participants' judgments between conditions were not due to these factors. Instead, participants formed different impressions of these data based on the context in which they were presented. We do not suggest that one color legend arrangement used in this experiment was misleading and the other truthful. Rather, we suggest that, under certain circumstances, either could be characterized as misleading. Thus, doctored data and deliberate deception are not the only practices behind problematic visualizations.
+
+Color legends simultaneously encode changes in number through both color and physical position. Different values are represented by different colors *and* occupy different positions on the color legend. In the present experiment, plotted values' analogous positions in the truncated color legend were on the far right hand side, and their corresponding colors were among the darkest in the legend. On the other hand, plotted values' analogous positions were in the middle of the extended color legend, and their corresponding colors were neither the darkest nor the lightest in the legend. This experiment cannot determine whether the location of plotted values on the legend, the range of colors included in the legend, or both of these factors, influenced processing of magnitude. The manipulation of numerical labels does not assist in answering this question because color legends still encode changes in number even when these changes are not labeled. However, this question may have little practical relevance since these aspects are intrinsically linked in a typical color legend.
+
+In this experiment, the width of truncated and extended color legends was identical. In the truncated color legend, a smaller range of colors spanned the same distance: there was less variation in color over the same amount of space. We have not identified any way in which this could explain the present set of results.
+
+## Additional Analyses
+
+Accounting for subjective data visualization literacy did not change the pattern of results. This suggests that data visualization literacy is not responsible for the observed effect of color legend range on interpretations of magnitude. This accords with the finding that data visualization literacy levels did not explain the bias in judgments caused by truncated axes [@yang_truncating_2021]. @yang_truncating_2021 suggest that data visualization literacy measures capture whether an individual has the skills required for comprehending typical chart formats. However, they do not appear to extend to aspects of visualization comprehension which are informed by intuitive judgments rather than basic training.
+
+Our results demonstrate that numerical labels did not influence judgments. Our pre-registered analysis found that there was no difference between ratings for maps with and without numerical labels on the color legend. An exploratory analysis examining this further also indicates that increases in the numerical values displayed on the color legend were not responsible for greater urgency ratings. Instead, it is likely that increased urgency ratings associated with higher maximum values were related to the presence of darker colors in the maps. This was a consequence of accompanying data points' increased proximity to the maximum value at higher maximum values (see @fig-example-stimuli).
+
+For data quality reasons, we conducted our main analysis on a sample of 100 participants who met our pre-registered attention check threshold (no more than one of six attention check questions answered incorrectly). However, we also conducted the same analysis on the full sample of 165 participants, in the interest of validity. The pattern of results in the two samples was extremely similar, indicating similar levels of engagement with the task regardless of attention check scores. Participants may have withdrawn attention from the accompanying text and question once they were aware that these did not change across experimental trials, consequently failing to notice attention-check trials.
+
+The only difference between the pattern of results for these two samples was the interaction between color legend range and numerical label presence. This interaction was not observed in the more selective sample but observed in the full sample. However, @fig-interaction-chart illustrates that the pattern of responses was remarkably similar. In both samples, the difference between ratings for the labeled and unlabeled versions of the truncated color legend was very small, which suggests the significant result was driven by low variance within conditions and increased statistical power in the larger sample. The inconsistency in inferential statistics between samples suggests that this interaction, if not spurious, is not particularly robust.
+
+## Relationship to Prior Work
+
+**Recommendations for best practice in choropleth mapp design are focused on conveying plotted values' relative magnitudes** [@dent_cartography_2009; @kraak_cartography_2013]**. In this work, we suggest that efficiently conveying relative magnitudes is a *sufficient* condition for choropleth mapping, but not a *necessary* condition. We demonstrate that encoding plotted values with a smaller range of colors, and including a wider range in the accompanying legend, informs judgments about *absolute* magnitude. This is consistent with other experiments demonstrating legend design can affect cognitive processing of an accompanying map [@li_spacing_2014; @golebiowska_legend_2015; @edler_searching_2020; @hepburn_we_2021].**
+
+Investigations into chart design have revealed that the range of values surrounding plotted data influences interpretations. Several experiments have observed that participants use axes as a source of context for assessing the magnitude of difference between values [@pandey_how_2015; @witt_graph_2019; @correll_truncating_2020; @yang_truncating_2021]. The present experiment provides further evidence for a less-frequently explored phenomenon: that design choices can affect judgments of *the magnitude of values themselves*. Like @stone_foregroundbackground_2003 and @sandman_high_1994, we demonstrate that plotted values seem greater when they are closer to a data visualization's upper bound. However, this experiment also demonstrates that these types of effects are not unique to data visualizations using geometric encodings. Choropleth maps, where the range of values is presented in a color legend, can also elicit this bias. Arguably, the manipulation in choropleth maps is even more subtle, because of the unique way that choropleth maps separate encoded data from the color legend. In data visualizations such as bar charts, changing the range of values alters the appearance of the data itself (an extended y-axis results in a compressed bar). The present experiment's findings are particularly striking given that the appearance of data remained consistent despite changes to the color legend's upper bound. This suggests differences in judgments were not driven by the visual appearance of the data, but by the interpretation of the data in relation to the range of values in the color legend.
+
+This finding is also connected to research on the interpretation of quantity in colormap visualizations. @schiewe_empirical_2019 observed that assessment of values presented in **choropleth maps are influenced by driven by the coverage of different colors within a map (i.e., the relationship between color and region size)**. We expand upon this work by identifying another factor which biases judgments of data in choropleth maps, yet does not change the appearance of the map itself. Like @correll_value-suppressing_2018, we demonstrate that manipulating a color legend is sufficient to influence participants' responses. Schloss et al.'s [-@schloss_mapping_2019] results demonstrated that a colormap's background color is interpreted as corresponding to the smallest quantity when a scale appears to vary in opacity. That is, background color provides a cue to the size of data points when taken to represent the minimum value. The present experiment demonstrates that, like quantity judgments, magnitude judgments are also driven by visual cues to the minimum and maximum values.
+
+A bias wherein the same values are judged differently depending on their surrounding context is often described as a framing effect [@tversky_framing_1981]. This bias involves using inessential accompanying information to inform one's judgment, rather than discounting this information in order to generate a wholly disinterested assessment. Other research has also demonstrated that the interpretation of numerical values depends on their placement within a range. For example, the same salary is rated as more desirable when it appears near the top rather than the bottom of a range [@brown_does_2008]. The present experiment translates this effect to the visual domain. As @yang_truncating_2021 suggest, biases in viewers' processing of information in data visualizations can be explained with reference to Grice's [-@grice_logic_1975] cooperative principle. Applied to the present experiment, this suggests that viewers would interpret the implication of certain magnitudes through the color legend design as indicative of the designer's intention to communicate values' true magnitudes.
+
+## Limitations and Future Research Directions
+
+Choropleth maps are typically designed to communicate differences between values, rather than values' **absolute** magnitudes. Discrimination between values is facilitated when the color legend's bounds are equal to the minimum and maximum values in the dataset. Therefore, designers may have to make a trade-off between conveying **absolute** magnitude and conveying differences. Which aspect of the data a designer wishes to emphasize will depend on the purpose of their data visualization. For example, a designer may wish to highlight the geographical differences in the construction of new houses, or may wish to highlight the fact that there is no region where targets are being met. The work reported here suggests that extending the range of the color legend beyond the range of the observed data would promote the latter message.
+
+It is important to recognize that a color scale's bounds may not always be interpreted as a complete and accurate source of context for assessing magnitude. Pollution measurements are likely not among the most intuitive numbers to interpret, and in the present experiment, even viewers well-versed in pollution data were prohibited from applying their knowledge, since the fictitious data were presented using fictitious units. The influence of existing knowledge was eliminated to facilitate examination of the cognitive mechanism involved in magnitude judgments. Therefore, in this experiment, there were no *external* cues to magnitude. Consequently, our findings are most relevant for understanding interpretation of magnitude where units are unfamiliar or insignificant. Familiarity with a data visualization's subject matter will typically provide an ability to independently assess magnitudes based on presented values only, which may reduce the influence of design choices. In addition, certain forms of number may carry cues to magnitude even in the absence of existing knowledge. For example, when assessing certain proportions, viewers are likely to be aware that 100% is the maximum possible value and 0% the minimum. Future work should explore the degree to which these scenarios affect how color legends inform magnitude judgments.
+
+Future work should quantify the difference between different color legend ranges in concrete units (e.g., a specific difference in financial investment, or a specific time-frame for resolving an issue). The visual analogue scale used in our investigation does not permit this. However, it was able to reveal that interpretations of magnitude differed between conditions, reflecting the type of inferences that are likely to precede decision-making. The within-participants design ensures that participants' different notions of urgency do not interfere with comparisons between experimental conditions. Future work should also examine a wider variety of topics beyond pollution data in order to examine generalizability. However, our investigation has nonetheless produced informative results, and the observed bias, a framing effect, occurs widely.
+
+Numerical labels at the extremes of color legends are sometimes open-ended. That is, a label at the lower bound may be '\<30' rather than '30'. This interrupts the one-to-one mapping between colors and values. Instead, a specific position and color on the color legend may represent multiple corresponding numerical values. Consequently, *more extreme* values may exist in the data than those represented by the extremes of the legend. This introduces ambiguity regarding the relevant range of values to consider when assessing magnitude, making the color legend a less informative reference. Future research should examine whether the present findings are replicated when a color legend uses this type of numerical label at its extremes, or whether viewers treat color legends with these labels as a weaker cue to plotted values' magnitudes. **Experiments varying the range of values included in classified and multi-hue legends would also be beneficial.**
+
+## Implications
+
+The present experiment contributes to our understanding of cognitive mechanisms involved in assessing magnitudes in choropleth maps. We observed that assessments are informed by the range of the color legend, demonstrating that color legends can be exploited to influence viewers' judgments of data points' **absolute** magnitudes. Further work is required in order to identify various factors influencing the strength of this effect, but the essential implication entails designers considering how magnitude appears as a result of their chosen color legend's range. Without deliberate consideration about the choice of value for a color legend's upper bound, misleading visualizations may emerge. However, like @correll_truncating_2020, we argue there can be no *a priori* system for identifying a range of values that guarantees an unbiased visualization. Instead, the range of the color legend should be appropriate for the data displayed, the intended message, and the task. There are also implications for data visualization software developers in facilitating designers' ability to specify a custom color legend range when required.
+
+# Conclusion
+
+Understanding the consequences of design choices is crucial for understanding how to present data effectively. In choropleth maps, the upper bound of the accompanying color legend influences how large or small plotted values appear to viewers. Data points' proximity to the upper bound increases impressions of their **absolute** magnitude. This finding provides insight into the processing of choropleth maps designed to convey overall magnitude, and promotes use of a suitable range of values on a color legend.
+
+# Disclosure Statement {.unnumbered}
+
+The authors report there are no competing interests to declare.
+
+{{< pagebreak >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

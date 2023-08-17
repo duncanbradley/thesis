@@ -1,0 +1,742 @@
+---
+title: "Axis Limits and Denominator Information Influence Magnitude Ratings in Bar Charts"
+editor: visual
+
+params: 
+  eval_models: false
+    
+execute:
+  echo: false
+  warning: true
+  message: true
+  include: false
+  
+bibliography: axis-extension.bib
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(lme4)
+library(lmerTest)
+library(buildmer)
+library(qwraps2)
+library(emmeans)
+library(effectsize)
+library(papaja)
+library(patchwork)
+library(insight)
+library(knitr)
+library(magick)
+set.seed(45789)
+```
+
+```{r}
+#| label: lazyload-cache
+if (!params$eval_models){
+lazyload_cache_dir('axis-extension_cache/html')}
+```
+
+```{r}
+#| label: wrangle
+anon_data1 <- read_csv('data/anon_data1.csv',
+                       col_types = cols(.default = "?", genderResp2.text = col_character()))
+# correct the coercion of the genderResp2.text to logical
+
+anon_data2 <- read_csv('data/anon_data2.csv')
+
+# perform necessary data wrangling
+wrangle <- function(anon_file, .y) {
+  # .y captures the index of the file in the list supplied to iwalk
+
+# extract literacy data
+# calculate literacy score (sum of five responses)
+literacy <- anon_file %>%
+  filter(!is.na(q1_slider.response)) %>%
+  rowwise() %>%
+  mutate(literacy = sum(c(q1_slider.response, 
+                          q2_slider.response, 
+                          q3_slider.response, 
+                          q4_slider.response, 
+                          q5_slider.response))) %>%
+  select(participant,
+         literacy)
+
+# define education categories 
+edu_labels <- set_names(c('No formal qualications',
+                          'Secondary education (e.g. GED/GCSE)',
+                          'High school diploma/A-levels',
+                          'Technical/community college',
+                          'Undergraduate degree (BA/BSc/other)',
+                          'Graduate degree (MA/MSc/MPhil/other)',
+                          'Doctorate degree (PhD/other)',
+                          'Don\'t know / not applicable'),
+                        seq(8,1,-1))
+
+# define gender categories
+gender_labels <- set_names(c("Pnts", 
+                             "Another",
+                             "NB", 
+                             "M", 
+                             "F"),
+                           1:5)
+# extract demographics
+# link slider response numbers to gender categories 
+# link slider response numbers to education categories
+demographics <- anon_file %>%
+  filter(!is.na(genderResp1.response)) %>%
+  mutate(genderResp1.response = 
+           recode(genderResp1.response, !!!gender_labels)) %>%
+  mutate(edu_slider.response =
+           recode(edu_slider.response, !!!edu_labels)) %>%
+  select(participant,
+         ageResp.text,
+         genderResp1.response,
+         edu_slider.response)
+
+# extract duration data (in seconds)
+durations <- anon_file %>%
+  filter(!is.na(total_duration)) %>%
+  select(participant, total_duration)
+  
+# select relevant columns
+# select only experimental items
+# add literacy and demographic data
+# change data types where appropriate
+# output this file with suffix 'tidy'
+anon_file %>% 
+  filter(item_type == "E") %>%
+  select(matches(c("participant",
+                   "item_no",
+                   "item_type",
+                   "cond",
+                   "axis",
+                   "denominator",
+                   "slider.response",
+                   "mag_slider.response",
+                   "con_slider.response",
+                   "seed_no"))) %>% 
+    inner_join(literacy, by = "participant") %>%
+    inner_join(demographics, by = "participant") %>%
+    inner_join(durations, by = "participant") %>%
+    mutate(total_duration = total_duration / 60) %>%
+    mutate(across(matches(c("cond", "axis")), 
+                  ~ case_match(.x,
+                               "full" ~ "extend",
+                               "trunc" ~ "default"))) %>%
+    mutate(across(matches(c("axis", "denominator", "cond")), as_factor)) %>%
+    mutate(across(c("participant", "item_no"), as.character)) %>%
+    assign(paste0("e", .y),
+           value = ., envir = .GlobalEnv)
+}
+
+iwalk(list(anon_data1, anon_data2), wrangle)
+
+
+# set sum contrasts
+contrasts(e2$axis) <- contr.sum(2)
+contrasts(e2$denominator) <- contr.sum(2)
+```
+
+```{r}
+#| label: anova-results-function
+# this function takes two nested models, runs an anova, and the outputs the Likelihood Ratio Statistic, degrees of freedom, and p value to the global environment
+anova_results <- function(test_model, full_model) {
+  
+  # first argument 
+  test_model_name <- deparse(substitute(test_model))
+  full_model_name <- deparse(substitute(full_model))
+
+  if (class(test_model) == "buildmer") test_model <- test_model@model
+  if (class(full_model) == "buildmer") full_model <- full_model@model
+  
+  anova_output <- anova(test_model, full_model)
+  
+  assign(paste0(test_model_name, ".Chi"),
+         anova_output$Chisq[2],
+         envir = .GlobalEnv)
+  assign(paste0(test_model_name, ".Df"),
+         anova_output$Df[2],
+         envir = .GlobalEnv)
+  assign(paste0(test_model_name, ".p"),
+         anova_output$`Pr(>Chisq)`[2],
+         envir = .GlobalEnv)
+  
+  es <- eta_squared(anova(full_model), partial = TRUE) 
+  
+  es %>% pull(Parameter) %>%
+    map(function(x) assign(paste0(model_name, 
+                                  ".eta.", 
+                                  str_replace(x, ":", "_")),
+                           es %>%
+                             filter(Parameter == x) %>% 
+                             pull(Eta2_partial),
+                           envir = .GlobalEnv))
+}
+```
+
+```{r}
+#| label: summary-extract-function
+
+# this function extracts test statistics and p values from model summaries
+summary_extract <- function(model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  es <- eta_squared(anova(model), partial = TRUE) 
+
+  model %>% 
+    anova() %>%
+    as_tibble(rownames = "term", 
+              .name_repair = make.names) %>%
+    rename("p" = "Pr..F.") %>%
+    inner_join(es, by = join_by("term" == "Parameter")) %>%
+    mutate(term = str_replace(term, ":", "_")) %>%
+    group_split(term) %>%
+    map(~ {
+      vals <- as.list(.x)
+      names(vals) <- paste0(model_name, 
+                            "_", 
+                            .x$term, 
+                            "_", 
+                            names(vals))
+      list2env(vals, envir = globalenv())
+    })
+  
+}
+```
+
+```{r}
+#| label: get-contrasts-function
+
+get_contrasts <- function(contrast_df, condition) {
+
+  df_name <- deparse(substitute(contrast_df))
+
+  contrast_df %>% 
+    contrast("consec", 
+             simple = "each", 
+             combine = TRUE, 
+             adjust = "sidak") %>%
+    as_tibble() %>% 
+    filter(!!sym(condition) != ".") %>%
+    group_split(!!sym(condition)) %>%
+    map(~ {
+      vals <- as.list(.x)
+      names(vals) <- paste0(df_name, 
+                            "_",
+                            pull(., {{condition}}),
+                            "_", 
+                            names(vals))
+      list2env(vals, envir = globalenv())
+    })
+  
+}
+```
+
+```{r}
+#| label: random-str-function
+
+# this function creates a table which displays the random effects structure (intercepts and slopes) for a given model
+random_str <- function(model) {
+  model <- model@model
+  terms <- model %>% find_random %>% unlist() %>% unname()
+  mylist <- model %>% formula %>% findbars() %>% as.character()
+  slopes <- lapply(mylist, str_extract, "(?<=\\+ )(.*)(?= \\| )") %>% 
+    unlist()
+  tibble(terms, slopes)
+}
+```
+
+```{r}
+#| label: get-anomalies-function
+
+# returns the proportion of datasets which needed to re-generated for the highest data point to exceed the highest gridline
+
+get_anomalies <- function(dataset){
+  dataset %>%
+  pull(seed_no) %>% # extract column with seed numbers
+  unique() %>% # get unique values
+  na.omit() %>% # omit NAs
+  sort() %>% # ascending order (since they were generated in order)
+  diff() %>% # calculate difference between each pair of values
+  # the while loop was entered on every trial including the first
+  # the first seed value in both experiments is 2
+  # this indicates that a new seed number was not selected for the first chart
+  #c(1, .) %>% # therefore we prepend a 1 to indicate this
+  `>`(1) %>% # count the number of cases where a new seed number was selected
+  mean()*100 # calculate the proportion of TRUE cases as a %
+}
+```
+
+```{r}
+#| label: print-es-function
+# for dealing with effect sizes less than .001
+print_es <- function(x) {ifelse(x<.01, "< .01", paste("=", printnum(x)))}
+```
+
+```{r}
+#| label: gender-proportions
+gender_e1 <- e1 %>%
+    distinct(participant, .keep_all = TRUE) %>% 
+    group_by(genderResp1.response) %>% summarise(cnt = n()) %>%
+    reframe(freq = cnt / sum(cnt) *100, 
+            gender = unique(genderResp1.response)) %>%
+  pivot_wider(names_from = gender, values_from = freq)
+
+gender_e2 <- e2 %>%
+    distinct(participant, .keep_all = TRUE) %>% 
+    group_by(genderResp1.response) %>% summarise(cnt = n()) %>%
+    reframe(freq = cnt / sum(cnt) *100, 
+            gender = unique(genderResp1.response)) %>%
+  pivot_wider(names_from = gender, values_from = freq)
+```
+
+## Abstract
+
+{{< include text_body/abstract.md >}}
+
+{{< include text_body/introduction.md >}}
+
+## Experiment 1
+
+### Introduction
+
+This experiment investigates the influence of axis limits on interpretations of plotted values' magnitude. Participants viewed bar charts with default axes, or axes which extended to a denominator value well above the bars. Comparing participants' interpretations captures the influence of displaying the same data with and without numerical context.
+
+### Method
+
+#### Materials
+
+We developed 40 scenarios about fictitious studies. Each study evaluated a specific outcome across five categories (e.g., the number of items produced without defects, for five manufacturing methods). The denominator (e.g., total number of items produced) was identical for each category.
+
+We generated bar charts in R [@r_core_team_r_2022] using {ggplot2} (version 4.1.2), {tidyverse} (version 1.3.1) and {ggh4x} (version 0.2.1). The two versions of each chart displayed the same five values, but employed different y-axis limits. Denominator values (400, 500, or 600) were used to generate datasets: data were sampled from normal distribution with a mean equal to either 20% or 40% of a given denominator value, and a standard deviation equal to 1% of the denominator value.
+
+For charts with extended axes, the denominator value was used as the y-axis upper limit. The other charts used a y-axis upper limit which was dictated by ggplot2's default axis settings. These settings automatically identify a set of convenient breaks for each dataset, then slightly extend the plot area, adding an additional 5% of the axis range. In both conditions, a smaller expansion factor of 1% was applied to the lower axis limit, in order to eliminate visible space below the 0 baseline. @fig-example-charts shows example charts for both conditions.
+
+```{r}
+#| label: fig-example-charts
+#| include: true
+#| out-width: "600px"
+#| fig-cap: "Example charts for Experiment 1. The same data appears in both charts. Accompanying text explained what the values represented: _'The graph shows, for each manufacturing method, how many of the items were free from defects'_. The chart with the default axes (left) employs an upper limit determined by ggplot2. The chart with the extended axes (right) employs an upper limit equal to the dataset's denominator value."
+img1 <- image_read("images/E14trunc.png")
+img2 <- image_read("images/E14full.png")
+image_append(c(img1, img2))
+```
+
+For the majority of datasets generated, the default settings produced charts where the highest gridline did not exceed the tallest bar. For consistency, when the opposite situation occurred, we used a different random seed to generate an alternative dataset for both conditions. `r printnum(get_anomalies(e1), digits = 0)`% of datasets used were generated using this method.
+
+In experimental trials (32 total), plotted values consisted of relatively small proportions of the dataset's denominator value (roughly 20% or 40%). To introduce variety and encourage attention, eight filler trials showed plotted values which were roughly 90% of the corresponding denominator value. Denominators for filler trials were selected so that numerical labels on the y-axis would approximately resemble either extended or default bar charts from experimental trials.
+
+We included six attention check trials to assess participants' engagement with the task. These trials were similar to experimental and filler trials, consisting of text, a bar chart, a question and a visual analogue scale. However, participants were instructed to ignore the bar chart and provide a specified response on the visual analogue scale.
+
+#### Design
+
+We employed a within-participants design: participants viewed 16 different charts in each of the two conditions (32 experimental trials total). The correspondence between scenarios and conditions was counterbalanced using two lists. However, all participants saw the same versions of the eight filler items and six attention check items. There were a total of 46 trials, which were presented in a random order.
+
+#### Participants
+
+Participants were recruited using Prolific.co. The experiment was advertised to fluent English speakers with normal-or-corrected to normal vision, who had previously participated in at least 100 studies on the site.
+
+Data were returned by 157 participants. Per pre-registered exclusion criteria, seven participants' submissions were rejected because they answered more than one of six attention check questions incorrectly. Participants whose submissions were accepted received £3.50.
+
+The final sample consisted of 150 participants (`r printnum(gender_e1$M)`% male, `r printnum(gender_e1$F)`% female, `r printnum(gender_e1$NB)`% non-binary). Mean age was `r printnum(e1 %>% pull(ageResp.text) %>% mean())` years (*SD* = `r printnum(e1 %>% pull(ageResp.text) %>% sd())`). The mean data visualisation literacy score was `r printnum(e1 %>% pull(literacy) %>% mean())` (*SD* = `r printnum(e1 %>% pull(literacy) %>% sd())`), out of a maximum of 30.
+
+This experiment was approved by the University of Manchester's Division of Neuroscience and Experimental Psychology Ethics Committee (ethics code: 2022-11115-24245).
+
+#### Procedure
+
+We programmed the experiment using PsychoPy (version 2022.1.4, [@peirce_psychopy2_2019]). Participants were instructed to carry out the experiment using a laptop or desktop computer (not a mobile phone or tablet). After providing informed consent, participants completed a demographic questionnaire and Garcia-Retamero et al.'s [@garcia-retamero_measuring_2016] five-item subjective data visualisation literacy scale.
+
+Participants were asked to imagine they were a researcher tasked with determining the outcome of experiments and surveys. They were instructed to make an overall assessment of all data presented in a graph after studying the text, graph, and question. All questions asked about plotted values' magnitudes (e.g., 'How successful were the manufacturing methods?'), with participants responding on visual analogue scales with anchors at the extremes (e.g., 'very unsuccessful', 'very successful'). @fig-e1-trial shows an example trial.
+
+```{r}
+#| label: fig-e1-trial
+#| include: true
+#| out-width: "600px"
+#| fig-cap: An example trial from Experiment 1, showing a bar chart with a default axis limit. 
+include_graphics("images/trial_e1.png")
+```
+
+Participants were permitted to move the response marker as many times as they liked before proceeding to the next trial, but could not return to previous trials. The response scale's granularity was altered for each attention check item, such that participants could only respond at the extremes or the middle of the scale. Finally, participants were informed that all data presented was fictitious and were given the option to provide comments on the experiment and describe any strategies used. Average completion time was `r printnum(e1 %>% pull(total_duration) %>% mean(), digits = 1)` minutes.
+
+### Analysis
+
+We conducted analysis using R [@r_core_team_r_2022] (version 4.2.1). Linear mixed models were built using {lme4} [@bates_fitting_2015]. Each model was based on a maximal model with by-participant and by-item random effects [@barr_random_2013], and {buildmer} [@voeten_buildmer_2022] was used to identify the final random effects structure, ensuring convergence and removing terms not significantly contributing to explaining variance.
+
+#### Magnitude Ratings
+
+@fig-e1-mag shows the distribution of ratings for charts with default axes and extended axes.
+
+```{r}
+#| label: fig-e1-mag
+#| include: true
+#| out-width: "600px"
+#| fig-cap: The distribution of visual analogue scale ratings in response to default and extended axis limits. Each circle represents a participant's response to an individual bar chart.
+e1 %>%
+  ggplot(aes(x = slider.response, y = cond)) +
+  geom_jitter(width = 0,
+              height = 0.2,
+              alpha = 0.1) +
+  scale_y_discrete(breaks = c("extend", "default"),
+                   labels = c("Extended\nAxis Limit", "Default\nAxis Limit")) + 
+  labs(title = "Experiment 1",
+       subtitle =  "Raw Data",
+      y = NULL,
+       x = NULL) + 
+  scale_x_continuous(labels = c('Very low\nmagnitude', 'Very high\nmagnitude'),
+    breaks = c(1,2),
+    minor_breaks = c()) + 
+  theme_minimal(base_size = 16) +
+  theme(aspect.ratio = 0.55)
+```
+
+```{r}
+#| label: e1-mag
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_mag <- buildmer(slider.response ~ cond +
+                     (1 + cond | participant) + 
+                     (1 + cond | item_no),
+                   data = e1)
+```
+
+```{r}
+summary_extract(e1_mag)
+```
+
+Linear mixed-effects modelling revealed that participants awarded higher ratings to charts with default axes, compared to charts with extended axes: F(`r printnum(e1_mag_cond_NumDF)`, `r printnum(e1_mag_cond_DenDF)`) = `r printnum(e1_mag_cond_F.value)`, p `r printp(e1_mag_cond_p, add_equals = T)`, partial $\eta^2$ = `r printnum(e1_mag_cond_Eta2_partial)`.
+
+```{r}
+#| include: false
+random_str(e1_mag)
+```
+
+This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item.
+
+#### Magnitude Ratings and Data Visualisation Literacy
+
+```{r}
+#| label: e1-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_mag_l <- lmer(add.terms(formula(e1_mag),
+"literacy"),
+              data = e1)
+```
+
+```{r}
+summary_extract(e1_mag_l)
+```
+
+Accounting for differences in data visualisation literacy did not change the significant effect of axis limits: F(`r printnum(e1_mag_l_cond_NumDF)`, `r printnum(e1_mag_l_cond_DenDF)`) = `r printnum(e1_mag_l_cond_F.value)`, p `r printp(e1_mag_l_cond_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_l_cond_Eta2_partial)`.
+
+### Discussion
+
+This experiment explored the consequences of including a graphical cue to a denominator value using bar charts' axes. We observed that plotted values' magnitudes were interpreted as smaller when a default axis limit was used, compared to an axis limit equal to the dataset's denominator value. Therefore, assessments of data were biased by the presence or absence of numerical context in bar charts.
+
+Denominator information informs magnitude judgements. In bar charts with extended axes, denominator information was available through the accompanying text and through axes. Comparison with bar charts employing default axes, where denominator information was *only* available through text, reveals the contribution of the graphical cue to the denominator value. Inconsistency in the differences between conditions illustrates variation in interpretation. The relative similarity of lower magnitude ratings across conditions indicates some attention to denominator information in the absence of a graphical cue. However, some extreme high magnitude ratings suggest that the appearance of tall bars carried the implication of large values. These ratings may indicate a failure to account for denominator information in the absence of a graphical cue. We investigate the role of denominator information further in Experiment 2.
+
+## Experiment 2
+
+### Introduction
+
+Experiment 1 found differences in interpretations of data presented using different axes limits. Overall, plotted data were associated with lower magnitudes when presenting using axes which extended to a denominator value. Compared to bar charts with extended axes, charts with no graphical cue to a denominator value elicited a wider variety of responses. This variety appears to reflect differences in how the denominator information supplied in accompanying text is used in magnitude judgements. This raises questions about how text, including denominator information, might influence the interpretation of different chart designs.
+
+By manipulating the presence of denominator information in accompanying text, in addition to manipulating axis limits, we investigate how these textual and graphical cues inform assessments of data. This allows us to understand how different chart designs are interpreted with and without additional numerical context. This 2x2 design also allows us to determine whether we can replicate the findings from Experiment 1 and also gives us the opportunity to explore whether ratings in the absence of denominator information correspond to the previously observed pattern of extreme ratings.
+
+This second experiment requires minor adaptations to materials and procedure. First, there is a risk that highly ambiguous trials without denominator information supplied in text will elicit unreliable random ratings. Therefore, we collect additional confidence ratings to directly index this aspect of participants' evaluations. This provides a more comprehensive view of participants' cognitive states and interpretations. Second, when denominators are not supplied in text, participants may use denominator values supplied in previous trials to inform their judgements. A limited range of denominators (as in Experiment 1) would artificially diminish uncertainty regarding possible values, inhibiting authentic, spontaneous judgements. Therefore, we expand the range of denominator values in Experiment 2. Third, increasing the number of fillers (which depict relatively high magnitudes) to match the number of experimental items (which depict relatively low magnitudes) will avoid priming effects by ensuring high and low magnitudes seem equally plausible.
+
+### Method
+
+#### Materials
+
+We generated bar charts in R using {ggplot2} (version 4.2.1), {tidyverse} (version 1.3.2) and {ggh4x} (version 0.2.3).
+
+Bar charts were generated using the same method as in Experiment 1. We used the same scenarios from Experiment 1, and generated 24 new scenarios for use as additional filler items, thus employing 32 experimental items and 32 filler items. To increase variation across datasets, we employed a wider range of denominators (200, 400, 600, and 800) meaning the plotted values differed from Experiment 1.
+
+We added the word 'surveyed' or 'assessed' to the accompanying text for seven items where the absence of a denominator may have implied that data were collected for the entire population under study. For example, where the study concerned data collected in five towns, the final sentence read 'The graph shows, for each town, how many people *surveyed* used public transport regularly', to avoid the implication that the denominator was equal to an entire town's population. This ensured that the inclusion of denominator values was equally informative across all scenarios.
+
+`r printnum(get_anomalies(e2), digits = 0)`% of datasets used were re-generated to ensure that the highest gridline of a default axis did not exceed the highest plotted value.
+
+#### Design
+
+We employed a within-participants 2x2 Latin-squared design with two factors: axis limits (default vs. extended) and denominator information (present vs. absent). Participants viewed 8 different charts for each combination of conditions (32 experimental trials total). The correspondence between scenarios and conditions was counterbalanced using four lists. However, all participants saw the same versions of the 32 filler items and six attention check items.
+
+#### Participants
+
+Participants were recruited using Prolific.co, using the same inclusion criteria as Experiment 1. Additionally, the experiment was not advertised to individuals who completed Experiment 1.
+
+Data were returned by 208 participants. Per pre-registered exclusion criteria, eight participants' submissions were rejected because they answered more than one of six attention check questions incorrectly. Participants whose submissions were accepted received £5.00.
+
+The final sample consisted of 200 participants (`r printnum(gender_e2$M)`% male, `r printnum(gender_e2$F)`% female, `r printnum(gender_e2$NB)`% non-binary, `r printnum(gender_e2$Another)`% other, `r printnum(gender_e2$Pnts)`% prefer not to say). Mean age was `r printnum(e2 %>% pull(ageResp.text) %>% mean(na.rm = T))` years (*SD* = `r printnum(e2 %>% pull(ageResp.text) %>% sd(na.rm = T))`)[^1]. The mean data visualisation literacy score was `r printnum(e2 %>% pull(literacy) %>% mean())` (*SD* = `r printnum(e2 %>% pull(literacy) %>% sd())`), out of a maximum of 30.
+
+[^1]: Age data was unavailable for `r e2 %>% distinct(participant, .keep_all = TRUE) %>% pull(ageResp.text) %>% is.na() %>% sum()` participants
+
+This experiment was approved by the University of Manchester's Division of Neuroscience and Experimental Psychology Ethics Committee (ethics code: 2023-11115-28428).
+
+#### Procedure
+
+The procedure was identical to Experiment 1, except for the addition of a confidence rating, where participants were asked 'How confident are you in your response?'. The anchors on the response scale were 'Not very confident' and 'Very confident'. @fig-e2-trial shows an example trial.
+
+For attention check items, participants were asked to provide a specific response on the magnitude rating scale, and a random response on the confidence rating scale.
+
+Average completion time was `r printnum(e2 %>% pull(total_duration) %>% mean(), digits = 1)` minutes.
+
+```{r}
+#| label: fig-e2-trial
+#| include: true
+#| out-width: "600px"
+#| fig-cap: An example trial from Experiment 2, showing a bar chart with an extended axis limit. Note the presence of an additional confidence rating scale.
+
+include_graphics("images/trial_e2.png")
+```
+
+### Analysis
+
+#### Magnitude Ratings
+
+@fig-e2-mag shows the distribution of magnitude ratings for charts with default axes and extended axes, where denominators were absent from text, and where they were present.
+
+```{r}
+#| label: fig-e2-mag
+#| include: true
+#| out-width: "600px"
+#| fig-asp: 1
+#| fig-cap: The distribution of visual analogue scale ratings in response to default and extended axis limits, shown separately for trials where denominator values were absent from accompanying text (top), and trials where denominator values were present in accompanying text (bottom). Each circle represents a participant's response to an individual bar chart.
+
+denom_labs <- c("Denominator Present in Text", 
+                 "Denominator Absent from Text")
+names(denom_labs) <- c("pres", "abs")
+
+e2 %>%
+  ggplot(aes(x = mag_slider.response, y = axis)) +
+  geom_jitter(width = 0,
+              height = 0.2,
+              alpha = 0.1) +
+  scale_y_discrete(limits = c("extend", "default"),
+                   labels = c("Extended\nAxis Limit", "Default\nAxis Limit")) + 
+  labs(title = "Experiment 2 - Magnitude Ratings",
+       subtitle =  "Raw Data",
+      y = NULL,
+       x = NULL) + 
+  scale_x_continuous(labels = c('Very low\nmagnitude', 'Very high\nmagnitude'),
+    breaks = c(1,2),
+    minor_breaks = c()) + 
+  facet_wrap(vars(denominator), ncol = 1, labeller = labeller(denominator = denom_labs)) +
+  theme_minimal(base_size = 16) +
+  theme(aspect.ratio = 0.45)
+```
+
+```{r}
+#| label: e2-mag
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_mag <- buildmer(mag_slider.response ~ axis*denominator +
+                     (1 + axis*denominator | participant) + 
+                     (1 + axis*denominator | item_no),
+                   data = e2)
+```
+
+```{r}
+summary_extract(e2_mag)
+```
+
+A mixed effects model revealed that charts with default axes elicited higher ratings compared to charts with extended axes (F(`r printnum(e2_mag_axis_NumDF)`, `r printnum(e2_mag_axis_DenDF)`) = `r printnum(e2_mag_axis_F.value)`, p `r printp(e2_mag_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_axis_Eta2_partial)`) and charts not accompanied by a denominator in text elicited higher ratings than those accompanied by a denominator (F(`r printnum(e2_mag_denominator_NumDF)`, `r printnum(e2_mag_denominator_DenDF)`) = `r printnum(e2_mag_denominator_F.value)`, p `r printp(e2_mag_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_denominator_Eta2_partial)`).
+
+Crucially, there was also a significant interaction between axis limits and denominator information: F(`r printnum(e2_mag_axis_denominator_NumDF)`, `r printnum(e2_mag_axis_denominator_DenDF)`) = `r printnum(e2_mag_axis_denominator_F.value)`, p `r printp(e2_mag_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_axis_denominator_Eta2_partial)`. @fig-e2-mag-int plots this interaction.
+
+```{r}
+#| label: e2-mag-contrasts
+
+e2_mag_emm <- emmeans(e2_mag@model, pairwise ~ axis * denominator, adjust = 'sidak') 
+  
+get_contrasts(e2_mag_emm, condition = "denominator")
+```
+
+Pairwise comparisons produced using {emmeans} [@lenth_emmeans_2021] revealed that charts with extended and default axes were rated differently when the denominator was present, replicating the effect from Experiment 1 (z = `r printnum(e2_mag_emm_pres_z.ratio)`, p `r printp(e2_mag_emm_pres_p.value, add_equals = TRUE)`), and also when the denominator was absent (z = `r printnum(e2_mag_emm_abs_z.ratio)`, p `r printp(e2_mag_emm_abs_p.value)`). Therefore, the interaction indicates that the magnitude of influence exerted by a bar chart's axis varied according to whether the denominator was present or absent.
+
+```{r}
+#| include: false
+random_str(e2_mag)
+```
+
+This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information.
+
+```{r}
+#| label: fig-e2-mag-int
+#| include: true
+#| message: false
+#| fig-cap: The interaction between axis limits and denominator information, for magnitude ratings. Estimated marginal means are generated by the linear mixed model used in analysis. Translucent bars show 95% confidence intervals.
+
+my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
+
+emmip(e2_mag@model, denominator ~ axis, CIs = T, 
+      dotarg = list(shape = "circle", size = 2), 
+      linearg = list(linetype = "solid", lwd = 1.5),
+      CIarg = list(lwd = 3, alpha = 0.5)) +
+  scale_color_manual(limits = c('abs', 'pres'), 
+                   labels = c('Absent from text', 'Present in text'),
+                   values = my_palette) +
+  scale_x_discrete(limits = c('extend', 'default'), 
+                       labels = c('Extended', 'Default')) +
+  scale_y_continuous(limits = c(1,2), 
+                     breaks = c(1,2), 
+                     minor_breaks = seq(1,2,0.2),
+                     labels = c('Very low\nmagnitude', 
+                                'Very high\nmagnitude')) + 
+  labs(x = "Axis Limit",
+       y = "Magnitude Rating",
+       color = "Denominator in Text",
+       title = "Experiment 2 - Magnitude Ratings",
+       subtitle =  "Estimated Marginal Means") + 
+  theme_minimal(base_size = 16)
+```
+
+#### Magnitude Ratings and Data Visualisation Literacy
+
+```{r}
+#| label: e2-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_mag_l <- lmer(add.terms(formula(e2_mag),
+"literacy"),
+              data = e2)
+```
+
+```{r}
+summary_extract(e2_mag_l)
+```
+
+Accounting for differences in data visualisation literacy did not change the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`., the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`) or the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`).
+
+#### Confidence Ratings
+
+```{r}
+#| label: fig-e2-con
+#| include: true
+#| out-width: "600px"
+#| fig-asp: 1
+#| fig-cap: The distribution of confidence ratings in response to default and extended axis limits, shown separately for trials where denominator values were absent from accompanying text (top), and trials where denominator values were present in accompanying text (bottom). Each circle represents a participant's response to an individual bar chart.
+
+denom_labs <- c("Denominator Present in Text", 
+                 "Denominator Absent from Text")
+names(denom_labs) <- c("pres", "abs")
+
+e2 %>%
+  ggplot(aes(x = con_slider.response, y = axis)) +
+  geom_jitter(width = 0,
+              height = 0.2,
+              alpha = 0.1) +
+  scale_y_discrete(breaks = c("extend", "default"),
+                   labels = c("Extended\nAxis Limit", "Default\nAxis Limit")) + 
+  labs(title = 'Experiment 2 - Confidence Ratings',
+       subtitle = "Raw Data",
+      y = NULL,
+       x = NULL) + 
+  scale_x_continuous(labels = c('Not very\nconfident', 'Very\nconfident'),
+    breaks = c(1,2),
+    minor_breaks = c()) + 
+  facet_wrap(vars(denominator), ncol = 1, labeller = labeller(denominator = denom_labs)) +
+  theme_minimal(base_size = 16) +
+  theme(aspect.ratio = 0.45)
+```
+
+@fig-e2-con shows the distribution of confidence ratings for charts with default axes and extended axes, where denominators were absent from text, and where they were present.
+
+```{r}
+#| label: e2-con
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_con <- buildmer(con_slider.response ~ axis*denominator +
+                     (1 + axis*denominator | participant) + 
+                     (1 + axis*denominator | item_no),
+                   data = e2)
+```
+
+```{r}
+#| label: e2-con-anova
+
+e2_con_summ <- anova(e2_con) %>% as_tibble(rownames = "FixEf", .name_repair = make.names) %>%
+  rename("Pr" = "Pr..F.")
+```
+
+```{r}
+#| label: e2-con-contrasts
+
+e2_con_emm <- emmeans(e2_con@model, pairwise ~ axis * denominator, adjust = 'sidak') 
+  
+get_contrasts(e2_con_emm, condition = "denominator")
+```
+
+```{r}
+#| label: fig-e2-con-int
+#| include: true
+#| out-width: "600px"
+#| message: false
+#| fig-cap: The interaction between axis limits and denominator information, for confidence ratings. Estimated marginal means are generated by the linear mixed model used in analysis. Translucent bars show 95% confidence intervals.
+
+my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
+
+emmip(e2_con@model, denominator ~ axis, 
+      CIs = T, 
+      dotarg = list(shape = "circle", size = 2), 
+      linearg = list(linetype = "solid", lwd = 1.5),
+      CIarg = list(lwd = 3, alpha = 0.5)) +
+  scale_color_manual(limits = c('abs', 'pres'), 
+                   labels = c('Absent from text', 'Present in text'),
+                   values = my_palette,
+                   guide = guide_legend(reverse=T)) +
+  scale_x_discrete(limits = c('extend', 'default'), 
+                       labels = c('Extended', 'Default')) +
+  scale_y_continuous(limits = c(1,2), 
+                     breaks = c(1,2), 
+                     minor_breaks = seq(1,2,0.2),
+                     labels = c('Not very\nconfident', 
+                                'Very\nconfident')) + 
+  labs(x = "Axis Limit",
+       y = "Magnitude Rating",
+       color = "Denominator in Text",
+       title = "Experiment 2 - Confidence Ratings",
+       subtitle =  "Estimated Marginal Means") + 
+  theme_minimal(base_size = 16)
+```
+
+```{r}
+summary_extract(e2_con)
+```
+
+A mixed effects model revealed a main effect associated with axis limits (F(`r printnum(e2_con_axis_NumDF)`, `r printnum(e2_con_axis_DenDF)`) = `r printnum(e2_con_axis_F.value)`, p `r printp(e2_con_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_axis_Eta2_partial)`), a main effect associated with denominator information (F(`r printnum(e2_con_denominator_NumDF)`, `r printnum(e2_con_denominator_DenDF)`) = `r printnum(e2_con_denominator_F.value)`, p `r printp(e2_con_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_denominator_axis_NumDF)`, `r printnum(e2_con_denominator_axis_DenDF)`) = `r printnum(e2_con_denominator_axis_F.value)`, p `r printp(e2_con_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_denominator_axis_Eta2_partial)`. This interaction consisted of a difference between extended and default charts when the denominator was absent from text (z = `r printnum(e2_con_emm_abs_z.ratio)`, p `r printp(e2_con_emm_abs_p.value)`), but no difference between charts when the denominator was present (z = `r printnum(e2_con_emm_pres_z.ratio)`, p `r printp(e2_con_emm_pres_p.value, add_equals = TRUE)`). However, it is clear from @fig-e2-con-int, as well as the partial $\eta^2$ values, that the effect sizes associated with axis limits and the interaction are trivial.
+
+#### Confidence Ratings and Data Visualisation Literacy
+
+```{r}
+#| label: e2-con-lit
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_con_l <- lmer(add.terms(formula(e2_con),
+"literacy"),
+              data = e2)
+```
+
+```{r}
+summary_extract(e2_con_l)
+```
+
+Accounting for differences in data visualisation literacy did not change the pattern of results. There was a main effect associated with axis limits (F(`r printnum(e2_con_l_axis_NumDF)`, `r printnum(e2_con_l_axis_DenDF)`) = `r printnum(e2_con_l_axis_F.value)`, p `r printp(e2_con_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_axis_Eta2_partial)`) and a main effect associated with denominator information (F(`r printnum(e2_con_l_denominator_NumDF)`, `r printnum(e2_con_l_denominator_DenDF)`) = `r printnum(e2_con_l_denominator_F.value)`, p `r printp(e2_con_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_l_denominator_axis_NumDF)`, `r printnum(e2_con_l_denominator_axis_DenDF)`) = `r printnum(e2_con_l_denominator_axis_F.value)`, p `r printp(e2_con_l_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_axis_Eta2_partial)`.
+
+### Discussion
+
+This experiment manipulated bar charts' axis limits and the presence of denominator values in accompanying text. The results demonstrate that values presented in charts with default axis limits are associated with higher magnitude judgements than charts with extended axes, in both the presence and absence of denominator information. However, the absence of denominator information amplifies this bias. These results also suggest that extreme high magnitude ratings for default charts in the presence of a denominator value may be driven by a failure to incorporate that value into reasoning. Finally, confidence in judgements is reliably affected by the inclusion of denominator information in text.
+
+{{< include text_body/discussion.md >}}
+
+## References

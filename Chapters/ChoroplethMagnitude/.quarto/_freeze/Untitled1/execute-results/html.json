@@ -1,0 +1,11 @@
+{
+  "hash": "3e57cda869e204cf447629e4caa3f90c",
+  "result": {
+    "markdown": "---\ntitle: \"Untitled1\"\nformat: html\neditor: visual\nengine: jupyter\n---\n\n```{r}\n#| label: setup\nlibrary(reticulate)\nlibrary(knitr)\n```\n\n\nCreate a variable `x` in the Python session:\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\nx = [1, 2, 3]\n```\n:::\n\n\n`r py$x`\n\n\n```{r}\nx = 4+6+py$x\n```\n\n\n`r x`\n\n",
+    "supporting": [
+      "Untitled1_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
