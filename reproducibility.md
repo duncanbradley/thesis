@@ -62,45 +62,29 @@ Virtual machines perform a similar function to containers. However a notable dif
 
 Despite the myriad recommendations for best practice, a principle often endorsed in the literature on reproducibility concerns the merits of small efforts. Taking *some* steps to increase reproducibility still enhances a project’s quality compared to neglecting this aspect altogether (Piccolo and Frampton, 2016). Withholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’. Analysis code does not need to be perfect in order to be useful to others (Klein et al., 2018), and it is impossible to benefit from external inquiry if the code is not shared (Barnes, 2010). Barnes (2010) argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers ought to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata (White et al., 2013) and containerisation (Nüst et al., 2020).
 
-## My Approach
+## The Approach to Reproducibility in This Thesis
 
-~*buildmer fits with the idea of showing incremental work, by automatically re-creating the process of the models that didn’t work*~
-~*however it also ensures consistency, and optimises output*~
-~*As an R package, it is archived, and its source code is transparent*~
-~*Rule et al. say: Document the process, not the results. *~
+The following describes the different aspects of reproducibility for the subsequent empirical studies presented in this thesis. Whilst this work does not follow a pre-defined workflow, the approach closely resembles published workflows (e.g., van Lissa et al., 2020; Peikert and Brandmeier, 2021).
 
-~*Reproducing the manuscript*~
+### Data, Code, and Dynamic Documents
 
-~*Docker containers and YAML frontmatter are types of metadata (Leipzig et al., 2021).*~
+For each study, raw data is provided. The only pre-processing of this data was the essential removal of sensitive information (transparently documented in corresponding scripts). All subsequent processing, from data cleaning to data wrangling, is included in a Quarto dynamic document (Allaire, et al., 2022), which also includes all data analysis, visualisation, and accompanying text. Therefore, consistent with the principles of literate programming, textual descriptions are presented in conjunction with corresponding code (Sandve et al., 2013).
 
-~*Given that much of the discussion around adoption of software concerns researcher motivation, compared to availability of tools, this thesis serves as a case study for reproducible research. I do not explore all the capabilities of these tools, but employ a simple implementation of a few in order to demonstrate a minimal use case.*~
+The process of selecting appropriate statistical model specifications can be opaque, involving random effects, convergence issues, and additional parameters. In the interest of transparency, consistency, and statistical rigour, I use the *buildmer* package (Voeten, 2022) to automatically determine appropriate statistical model structures. This provides a reproducible account of the steps preceding identification of each statistical model employed in analysis, reducing human error and documenting a process as well as its outcome (Rule et al., 2019). As this package is available CRAN (Comprehensible R Archive Network), it source code is archived and transparent.
 
-~*In experimental psychology, sharing stimuli and experiment scripts is another important aspect of transparent research practices (Klein et al., 2018).*~
+### Docker Containers
 
-~*Peirce et al., 2019 - PsychoPy was developed as a tool for conducting open and reproducible research. Designed to be used on different platforms, and to make available the underlying Python scripts for each experiment, open source, uses non-proprietary file formats. In keeping with Previous versions of the software can be specified easily, to avoid encountering errors as a result of new releases. *~
+Capture dependencies requires reproduction of the computational environment used (Boettiger, 2015). Each study in this thesis is associated with a Dockerfile, which can be used to launch a Docker container with the appropriate R version and package versions used during analysis. Employing Rocker images provides an Integrated Development Environment (RStudio), and speeds up construction of the Docker image. In each container, an entire manuscript can be generated from scratch. The Dockerfiles also provide important project metadata in a human- and machine-readable format (Leipzig et al., 2015).   
 
-For expermints, I used PyshoPy. This tool was deeloped for…
-This is in keeping with 
+### Experiment Resources
+
+In experimental psychology, sharing stimuli and experiment scripts is another important aspect of transparent research practices (Klein et al., 2018). All data visualisations shown to participants, along with all code used to generate those visualisations, has been made available. Experiments were programmed using PsychoPy, which developed as a tool for conducting open and reproducible research (Peirce et al., 2019). The underlying technology is open source, the experiment scripts use non-proprietary file formats, and the ability to specify particular software versions avoids new releases breaking older code. Its integration with GitLab version control software means that each experiment is packaged in a public online repository. An entire project’s resources can be downloaded to a local machine, and an interactive version of the experiment can be run online. 
 
 ## Conclusion
 
 This chapter has discussed how a lack of reproducibility in published research can reduce credibility, and has revealed how various approaches can increase reproducibility. At the heart of these recommendations is the need to comprehensively share resources and embrace technological solutions. Making research code and raw data openly available helps an opaque analysis process to become transparent. When an entire paper’s results can be fully reproduced by an independent third party, they can be thoroughly verified.
 
-Working reproducibly is a duty (Sandve et al., 2013).
-
-The notion of reproducible research code was discussed over 30 years ago, with ‘electronic documents’ providing the ability to package code with a manuscript (Claerbout, 1992).
-
-Thus, it is necessary to capture the specific computational environment used when originally running the software. When specifying a project’s dependencies (the requisite files and software), researchers should ensure that the exact version of each package and program are supplied. 
-
-To capture dependencies, one must reproduce the computational environment used. (Boettiger, 2015)
-
-accessible and transparent, increase engagement, responsible
-
-The reporting of scientific studies involves lots of summary. Raw data is collected then processed, then analysed. In a small set of inferential statistics upon which a claim rests, a lot is going on behind the scenes. The ability to trace conclusions back to their original source is not just useful, but a crucial aspect of science. 
-
-Assessing reproducibility offers another simpler way to evaluate reliability of work (Peng, 2011). 
-
-
+For each empirical study in this thesis, I share raw data alongside code packaged in a dynamic document. This provides transparency, illustrating exactly how the study’s findings were generated. In addition, creating Docker containers for each study allows the analyses to be reproduced in their original computational environment. This comprehensive approach is uncommon in research on data visualisation, therefore this work serves as an example of how research in this field may be made more reproducible.
 
 ## Manuscraps
 
@@ -216,4 +200,23 @@ Researchers have neglected to focus on reproducibility (Ince, 2010).
 
 *Nosek et al., 2015* - TOP Guidelines for Open Science practices, requires sharing.
 Inconsistent definitions of reproducibility have been employed in academic works (Plesser, 2018), particularly between experimental and computational disciplines (Drummond, 2009). In this thesis, I will use the following definitions. ’Reproducibility’ in research involves generating results exactly as reported using the project’s original data and code. ‘Replicability’ in research involves generating new data to assess consistency with an existing finding (Peng, 2011).
+
+Working reproducibly is a duty (Sandve et al., 2013).
+
+The notion of reproducible research code was discussed over 30 years ago, with ‘electronic documents’ providing the ability to package code with a manuscript (Claerbout, 1992).
+
+Thus, it is necessary to capture the specific computational environment used when originally running the software. When specifying a project’s dependencies (the requisite files and software), researchers should ensure that the exact version of each package and program are supplied. 
+
+To capture dependencies, one must reproduce the computational environment used. (Boettiger, 2015)
+
+accessible and transparent, increase engagement, responsible
+
+The reporting of scientific studies involves lots of summary. Raw data is collected then processed, then analysed. In a small set of inferential statistics upon which a claim rests, a lot is going on behind the scenes. The ability to trace conclusions back to their original source is not just useful, but a crucial aspect of science. 
+
+Assessing reproducibility offers another simpler way to evaluate reliability of work (Peng, 2011). 
+
+~*buildmer fits with the idea of showing incremental work, by automatically re-creating the process of the models that didn’t work*~
+~*however it also ensures consistency, and optimises output*~
+~*As an R package, it is archived, and its source code is transparent*~
+~*Rule et al. say: Document the process, not the results. *~
 
