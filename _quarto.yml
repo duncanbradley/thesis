@@ -11,7 +11,7 @@ book:
     Therefore, developing an understanding of cognitive processing of data visualisations is important for guiding the construction of effective and faithful representations of data.
     
     Data visualisations can convey many different features of a dataset. 
-    One such feature is the absolute magnitudes of plotted values: how large or small they are. 
+    One such feature is the absolute magnitude of plotted values: how large or small they are. 
     This thesis investigates cognitive mechanisms involved in judging absolute magnitude in data visualisations, revealing the effects of design choices on interpretation. 
     Three experimental studies explore participants’ subjective judgements of magnitude in a variety of visualisation formats.
     
@@ -39,7 +39,10 @@ book:
     This illustrates how inevitable subjectivity in data visualisation design can influence a data visualisation’s appearance and its message.
   chapters:
     - index.qmd
-    - intro.md
+    - reproducibility.md
+    - Chapters/dot-plots-axes/dot-plots-axes.qmd
+    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+    - Chapters/axis-extension/axis-extension.qmd
     - conclusion.md
     - references.qmd
 
@@ -51,7 +54,6 @@ thesis:
   department: Division of Psychology, Communication & Human Neuroscience
   group: School of Health Sciences
   faculty: Faculty of Biology, Medicine and Health
-  mydate: pls
   copyright: "Frontmatter/copyright.tex"
   declaration: "Frontmatter/declaration.tex"
   acknowledgements: "Frontmatter/acknowledgements.tex"
