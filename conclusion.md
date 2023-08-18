@@ -26,6 +26,10 @@ Data visualisation literacy levels did not account for variation in responses to
 
 Variability in participants’ responses is evident, suggesting the data visualisation literacy employed measure was not best placed to capture these differences. The measure may register basic skills for comprehending visualisations, rather than susceptibility to visualisation design (Yang et al., 2021). Ge et al. (2023) suggest that critical thinking skills predict the degree of bias elicited by deceptive designs, and produced a literacy measure designed to capture this capacity. However, its considerable length makes it unsuitable for use as a covariate in experimental studies. A shorter literacy measure of critical thinking in comprehension of data visualisations would be valuable. 
 
+## Reproducibility
+
+Research on data visualisations has historically aligned with the principles of open and reproducible science (Haroz, 2018). The empirical work in this thesis was conducted with a focus on ensuring reproducibility. In addition to publicly sharing all data and code, I used containerisation software to capture the computational environment used for data processing, analysis and visualisation. This allows the manuscript for each chapter to be reproduced from the raw data, enhancing the transparency and sustainability of this work.
+
 ## Contributions and Implications
 
 This investigation addresses a neglected topic in data visualisation research. Empirical results demonstrating viewers’ sensitivity to *absolute magnitude* present new considerations for design. Experiments were designed to generate robust evidence (Kosara, 2016), enhancing the findings of initial work on this topic (Sandman et al., 1994). Furthermore, a focus on identifying underlying cognitive mechanisms provides insight into how graphical cues to magnitude are processed and additional factors influencing interpretations.
