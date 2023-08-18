@@ -294,8 +294,6 @@ gender_e2 <- e2 %>%
   pivot_wider(names_from = gender, values_from = freq)
 ```
 
-## Abstract
-
 {{< include text_body/abstract.md >}}
 
 {{< include text_body/introduction.md >}}

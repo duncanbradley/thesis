@@ -500,7 +500,7 @@ Lab <- read_csv("Lab.csv") %>%
   pivot_wider(names_from = "position",
               values_from = c('L', 'a', 'b'),
               names_glue = "{position}_{.value}") %>%
-  select(colourname, length, starts_with("first_"), starts_with("last_"), everything()) %>%
+  select(colorname, length, starts_with("first_"), starts_with("last_"), everything()) %>%
   mutate(length = case_match(length,
                              "trunc" ~ "Truncated",
                              "extend" ~ "Extended"))

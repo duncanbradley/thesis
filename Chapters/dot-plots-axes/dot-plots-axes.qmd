@@ -14,7 +14,7 @@ execute:
   message: false
   include: false
       
-bibliography: bibliography.bib
+bibliography: dot-plots-axes.bib
 ---
 
 ```{r}
@@ -47,7 +47,6 @@ tlmgr_install('collection-fontsrecommended') # additional font collection requir
 #| label: lazyload-cache
 if (!params$eval_models){ lazyload_cache_dir("dot-plots-axes_cache/pdf") }
 ```
-
 
 ```{r}
 #| label: load-data
@@ -295,7 +294,7 @@ random_str <- function(model) {
 
 ## Abstract
 
-  When visualising data, chart designers have the freedom to choose the upper and lower limits of charts' numerical axes. Axis limits can determine the physical characteristics of plotted values, such as the physical position of data points in dot plots. In two experiments (total N=300), we demonstrate that axis limits affect viewers' interpretations of the magnitudes of plotted values. Participants did not simply associate values presented at higher vertical positions with greater magnitudes. Instead, participants considered data points' relative numerical positions within the axis limits. Data points were considered to represent larger values when they were closer to the end of the axis associated with greater values, even when they were presented at the *bottom* of a chart. This provides further evidence of framing effects in the display of data, and offers insight into the cognitive mechanisms involved in assessing magnitude in data visualisations.
+When visualising data, chart designers have the freedom to choose the upper and lower limits of charts' numerical axes. Axis limits can determine the physical characteristics of plotted values, such as the physical position of data points in dot plots. In two experiments (total N=300), we demonstrate that axis limits affect viewers' interpretations of the magnitudes of plotted values. Participants did not simply associate values presented at higher vertical positions with greater magnitudes. Instead, participants considered data points' relative numerical positions within the axis limits. Data points were considered to represent larger values when they were closer to the end of the axis associated with greater values, even when they were presented at the *bottom* of a chart. This provides further evidence of framing effects in the display of data, and offers insight into the cognitive mechanisms involved in assessing magnitude in data visualisations.
 
 ## Introduction
 
@@ -486,7 +485,7 @@ Data were returned by 160 participants. Ten participants' submissions were rejec
 
 Analyses were conducted using R (version `r paste0(R.version$major, ".", R.version$minor)`; [@r_core_team_r_2022])
 
-Likert scales express granularity at the level of ordinal data. They record whether one rating is higher or lower than than another, but not the magnitude of this difference. Therefore, Likert scales do not necessarily capture values from latent distributions (mental representations) in a linear manner. The distance between one pair of points and another pair may appear equal, but may represent different distances on the latent distribution. Therefore, it is inappropriate to analyse Likert scale data with metric models, such as linear regression [@liddell_analyzing_2018]. Throughout this paper, we construct cumulative link mixed-effects models, using the *ordinal* package (version 2019.12-10, [@christensen_ordinalregression_2019]) to analyse Likert scale ratings. Odds ratio effect sizes were converted to Cohen' d values using the *effectsize* package (version 0.8.2, [@ben-shachar_effectsize_2020]).
+Likert scales express granularity at the level of ordinal data. They record whether one rating is higher or lower than another, but not the magnitude of this difference. Therefore, Likert scales do not necessarily capture values from latent distributions (mental representations) in a linear manner. The distance between one pair of points and another pair may appear equal, but may represent different distances on the latent distribution. Therefore, it is inappropriate to analyse Likert scale data with metric models, such as linear regression [@liddell_analyzing_2018]. Throughout this paper, we construct cumulative link mixed-effects models, using the *ordinal* package (version 2019.12-10, [@christensen_ordinalregression_2019]) to analyse Likert scale ratings. Odds ratio effect sizes were converted to Cohen' d values using the *effectsize* package (version 0.8.2, [@ben-shachar_effectsize_2020]).
 
 Selection of model random effects structures was automated using the *buildmer* package in R (version 2.3, [@voeten_buildmer_2022]). The maximal random effects structure included random intercepts for participants and scenarios, plus corresponding slopes for the position variable [@barr_random_2013]. *buildmer* initially identified the most complex model which could successfully converge. It subsequently removed terms which did not contribute substantially to explaining variance in ratings.
 
@@ -1084,8 +1083,10 @@ Adjusting for data visualisation literacy did not eliminate the influence of axi
 
 We employed inverted y-axes solely for the purpose of distinguishing competing explanations; their use should not be considered an endorsement. To avoid misinterpretations, participants were given instruction on how to read inverted charts. With this explicit instruction, our data provide evidence *contrary* to the typical finding of misinterpretation resulting from associating higher positions with higher values [@woodin_conceptual_2022; @pandey_how_2015]. However, this instruction may have suppressed a spontaneous interpretation of magnitude, based on physical position, in favour of a learned interpretation. Our investigation therefore only explores the cognitive processing associated with assessing magnitude in charts which viewers know how to read.
 
-This study was designed to explore one factor involved in assessing magnitude. The influence of axis limits on interpretations was relatively small, raising the question of how much this factor influences real-world decision-making and behaviour. A forced choice measure, or response scale with concrete values, would be suitable for capturing these outcomes in future work. Addressing this question will help to quantify how much a designer's choice of axis limits affects a viewer's choices and actions. An appreciable effect would have implications for visualisation design, suggesting use of axis limits which convey magnitude appropriately to avoid misleading users. Suitable axis limits cannot be objectively determined, but must be informed by the designer, based their assessment of the data [@correll_truncating_2020]. The effects of axis range on discrimination ability would also warrant consideration, taking account of the intended application.
+This study was designed to explore one factor involved in assessing magnitude. The influence of axis limits on interpretations was relatively small, raising the question of how much this factor influences real-world decision-making and behaviour. A forced choice measure, or response scale with concrete values, would be suitable for capturing these outcomes in future work. Addressing this question will help to quantify how much a designer's choice of axis limits affects a viewer's choices and actions. An appreciable effect would have implications for visualisation design, suggesting use of axis limits which convey magnitude appropriately to avoid misleading users. Suitable axis limits cannot be objectively determined, but must be informed by the designer, based on their assessment of the data [@correll_truncating_2020]. The effects of axis range on discrimination ability would also warrant consideration, taking account of the intended application.
 
 ### Conclusion
 
 We conducted two experiments investigating how axis limits inform interpretations of plotted values' magnitudes. Participants' subjective judgements were affected by data points' positions in relation to accompanying axis limits. The association between data points' positions and magnitude judgements critically depends on whether plotted data appear closer to the axis limit associated with higher or lower values. The cognitive processes associated with assessing magnitude in data visualisations involve taking into account the numerical context in which the data appear.
+
+## References
