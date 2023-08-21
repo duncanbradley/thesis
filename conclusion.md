@@ -28,7 +28,7 @@ Variability in participants’ responses is evident, suggesting the data visuali
 
 ## Reproducibility
 
-Research on data visualisations has historically aligned with the principles of open and reproducible science (Haroz, 2018). The empirical work in this thesis was conducted with a focus on ensuring reproducibility. In addition to publicly sharing all data and code, I used containerisation software to capture the computational environment used for data processing, analysis and visualisation. This allows the manuscript for each chapter to be reproduced from the raw data, enhancing the transparency and sustainability of this work.
+Research on data visualisations has historically not been aligned with the principles of open and reproducible science (Haroz, 2018). The empirical work in this thesis was conducted with a focus on ensuring reproducibility. In addition to publicly sharing all data and code, I used containerisation software to capture the computational environment used for data processing, analysis and visualisation. This allows the manuscript for each chapter to be reproduced from the raw data, enhancing the transparency and sustainability of this work.
 
 ## Contributions and Implications
 
