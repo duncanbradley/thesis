@@ -103,3 +103,7 @@ Chapter 4 presents an experiment which explores how visualisations may influence
 Chapter 5 presents a pair of experiments which investigate the role of contextual information on interpretations of magnitude. The first experiment demonstrated that participants’ judgements of overall magnitude were affected by extension of bar charts’ upper axis limits which incorporated a denominator value. A second experiment revealed that participants’ bias was increased when this denominator information was excluded from the text accompanying the chart. This illustrates that knowledge about a dataset’s characteristics (e.g., denominator value) can influence the extent to which design choices affect interpretations of magnitude.
 
 Finally, Chapter 6 presents a synthesis of this empirical work, alongside a discussion of implications and future directions.
+
+## New
+
+It is important to remember that data visualisations are created using tools. There is huge choice of tools, options within the tools, and they allow users to create visualisations very quickly. However, the speed means that the tools can take a lot of shortcuts in terms of design, they don’t always represent data is the best way by default. Data visualisation research can be useful for showing the consequences of default settings. 

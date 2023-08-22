@@ -53,3 +53,11 @@ An algebraic approach to visualisation design suggests that material changes in 
 ## Closing Remarks
 
 Context makes numbers meaningful. In data visualisations, context can be established not only by plotted data, but also extrinsic details. By determining a visualisation’s physical characteristics, designers may also influence the message conveyed about the data. Viewers’ sensitivity to the framing of data illustrates the power of design choices to enlighten or mislead. 
+
+
+## New
+
+The final paragraph of the work that first explored magnitude judgements, touches on many of the relevant issues, such as subjectivity and design intentions.
+
+Sandman et al., (1994)
+*“To construct a risk ladder intentionally is to make judgments about the risk perceptions that are likely to be encountered and the risk perceptions that are appropriate to encourage… If such decisions strike the reader as manipulative, the solution may be to use several risk ladders, or to acknowledgein text the bias and intention of the ladder selected. Certainly, it is no solution to renounce the intention and keep the bias.”*
