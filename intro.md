@@ -107,3 +107,9 @@ Finally, Chapter 6 presents a synthesis of this empirical work, alongside a disc
 ## New
 
 It is important to remember that data visualisations are created using tools. There is huge choice of tools, options within the tools, and they allow users to create visualisations very quickly. However, the speed means that the tools can take a lot of shortcuts in terms of design, they don’t always represent data is the best way by default. Data visualisation research can be useful for showing the consequences of default settings. 
+
+Heralding centuries old designs by virtue of the fact that they are famous is a testament to the rhetorical power of visualisations, but no guarantee that they communicate data effectively.
+A Brief History of Data Visualization (Friendly, 2008)
+The history of data visualisation teaches us about the persuasive power of visualisations, rather than the principles of good design.
+Discussion of historical data visualisations is commonplace in lay literature on this topic.
+Shows the importance of studying data visualisations (they are a powerful tool), without actually revealing *why* they are so powerful.
