@@ -1,52 +1,27 @@
 # Postscript to Chapter 3
 
-## Opening: This Study Aimed…
+## Overview
 
-The first study in this thesis was designed to investigate how data visualisations may influence interpretations of magnitude. Axis range was identified as a possible, becuase this accords with existing conventions around magnitude.
+The first study in this thesis was designed to examine whether axis range influences interpretations of absolute magnitude in data visualisations. Axis range was initially identified as a plausible factor influencing magnitude judgements because it dictates data points’ physical positions, which have conventional associations with magnitude (e.g., high positions and high values). However, this study revealed that the principal way in which axis range influences interpretations is by dictating the *relative positions* of data points. Thus, an axis provides a frame of reference which informs subjective judgements of magnitude.
 
-The notion of overall magnitude was chosen because we don’t just use visualisations to extract specific values, we use them to gain an understanding of the overall pattern (the message-level). Researchers even argue that *gist*, not verbatim information, is what informs decisions. An overall characterisation. 
+## Review of Experimental Design
 
-## Justification for design
-For this experiment, it was important to choose a visualisation type that would be amenable to axis manipulation. Dot plots were a suitable candidate for a number of reasons:
-	* there was minimal change to the appearance of the values
-	* inversion wouldn’t unnecessarily distort the encoding
-	* no confusion due to axis starting at zero
+Investigating the influence of axis range on magnitude judgements required appropriately designed experimental stimuli. It was important to employ a suitable visualisation format for the axis manipulations in this study. Dot plots, which were used throughout, employ a position-only encoding. This means that, unlike in bar charts, the encoding is not distorted by axes that do not start at zero. This afforded greater freedom when generating datasets and choosing axis limits. The visualisations could present a wide range of values and also maintain the same difference between the upper and lower limits. Furthermore, unlike bar charts, the physical characteristics of the data points themselves did not change due to the manipulation or inversion of axes, preventing unwanted confounds. The minimalistic design contributes to tight experimental control.
 
-Risk information seemed like an appropriate topic. Try to emulate the types of data that might plausibly be collected and presented in real life. 
+In seeking to understand how axis ranges influence cognitive processing of absolute magnitude, this study adopts some necessarily contrived design choices. In particuarly, the use of singular probability point esimates does not conform to the recommendations for visualising probabilistic information, which involve explicitly encoding uncertainty and displaying discrete outcomes (Fernandes et al. 2018; Kay et al. 2016). In addition, the use of inverted axes violates conventions and is associated with difficulties in comprehension (Pandey et al., 2015, Woodin et al., 2021). However, there is no evidence to suggest that these design choices significantly hindered comprehension. Indeed, participants’ responses to inverted axes were consistent with the understanding that higher values were presented at lower physical positions. This behaviour would not be expected if these visualisations resulted in fundamental misunderstandings. As required for systematic experimental study, stimuli were developed in order to facilitate investigation of underlying cognitive mechanisms.
 
-## Findings
+This study also required careful consideration of participants’ task. Participants were asked to consider various risks, with the chance of negative outcomes presented as percentage probabilities. This topic was chosen to emulate the type of data displayed in everyday settings where absolute magnitude would be a relevant concern. The task was designed to interrogate *message*-level interpretations, pertaining to the prevailing impressions resulting from the visualisations, rather than the comprehension of specific numerical values. Thus, participants were instructed to consider *overall* magnitude (and severity), and respond with a subjective judgement, rather than a precise numerical estimate. Collecting these measures is important, because the *gist* of information, rather than verbatim knowledge, typically informs behaviour (Reyna and Brainerd, 2008).
 
-Like sandman, I found that the 
+## Summary of Findings
 
-I wanted to establish the effect and to go beyond sandman
-1. single topic
-2. single trial per participant
-3. better DV
-4. axis range
+This work demonstrated that axis limits contribute to interpretations of absolute magnitude in data visualisations. When different axis limits accompanying the same data points, magnitude judgements were affected in a subtle yet systematic manner. Participants generated inferences about magnitude by using axis limits as reference points. Magnitude ratings were higher when data points were numerically high within the range of axis values. Severity ratings were not consistently affected by axis limits. It is also important to recognise that interpretations of magnitude were not *dictated* by the numerical context provided by axes, as magnitude ratings were influenced by the absolute values plotted, not just their relative positions.
 
-The data are probability values. 
+Prior research on axis limits had largely focused on interpretation of *relative magnitude* (Driessen, Correll, Yang, Witt, Pandey, Stone et al., 2003). This refers to the magnitude of *difference between plotted values*. However, this study provides evidence that axis limits also affect intepretations of *absolute magnitude*: the magnitude of *the values themselves*. Consequently, it highlights an additional consideration for designers when choosing axis limits. These results accord with prior findings on this topic, which found that the upper and lower limits in risk ladder visualisations affected impressions of risk. The first study in this thesis uses a range of scenarios, specific measures, and highly-controlled stimuli, thus building upon existing evidence to construct a robust evidence base.
 
-Therefore, our stimuli do not conform to the recommendations for visualising probabilistic information, such as explicitly encoding uncertainty and displaying discrete outcomes (Fernandes et al. 2018; Kay et al. 2016).
+## The Next Study
 
-The problems with inverted axes. 
+The overall objective of this thesis is to explore the role of axis limits in the cognitive processing of absolute magnitude in data visualisations. Conclusions must therefore address a general mechanism, meaning experiments should not be limited to one type of data or visualisation format. Rigorous evidence requires examination of different stimuli. Therefore, the second investigation in this thesis explores interpretations of magnitude in choropleth maps.
 
-Blank space vs. context as an explanation. 
+Choropleth maps are a type of data visualisation conveying numerical data associated with discrete geographical areas. For example, they may be used to display literacy rates or the prevalence of an infection in different regions. Values for each region are encoded using colour, often with darker colours symbolising higher values. Therefore, numerical values are not represented using geometric attributes, as employed by other popular visualisations formats, such as scatterplots, bar charts and pie charts, which use position-, length-, and angle-encoding, respectively.
 
-It’s not the case that 
-
-## Next experiment
-
-The intention behind this thesis is to tap in to the general mechanism. I am aware that each experiment covers a small amount of ground. It’s important that sweeping statements aren’t made based on limited scenarios. I am concerned with the display of numerical information generally. Therefore, future experiments were motivated to go beyond this, to expand to another visualisation type, and non-risk data.  
-
-what were the limitations
-
-why did I choose to use standardised units
-
-why visual analog scales? (maybe)
-
-why only pollution?
-
-
-Choropleth maps are a type of statistical map conveying continuous data associated with discrete geographical areas. Whereas other data visualisations encode numerical values using geometric attributes, such as length, position, or angle, choropleth maps encode values using colour. Just as with other visualisation types, the design helps convey the mapping between numerical values and visual features. However, 
-
-For this study, the manipulation of the axes influenced the physical position of plotted data and the range of values. However, with choropleth maps.
+A colour legend often accompanies choropleth maps, displaying the mapping between colours and data points. This functions much like a typical numerical axis (e.g., in a bar chart), showing how visual features correspond to numerical values. However, one crucial difference between a colour legend and a typical axis makes the choropleth map a valuable instrument in this investigation into cognitive processing. It is possible to manipulate a colour legend’s limits without changing the appearance of plotted values in the map or the correspondence between colours and numerical values. This contrasts with the manipulation of dot plots’ axes in the first study in this thesis, where manipulating axis limits necessarily altered the appearance of plotted values. Therefore, the second study investigates whether interpretations of magnitude are informed by a colour legend’s limits alone, in the absence of any change to the appearance of plotted values.
