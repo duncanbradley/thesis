@@ -2,9 +2,9 @@
 
 ## Overview
 
-The first study in this thesis was designed to examine whether axis range influences interpretations of absolute magnitude in data visualisations. Axis range was initially identified as a plausible factor influencing magnitude judgements because it dictates data points’ physical positions, which have conventional associations with magnitude (e.g., high positions and high values). However, this study revealed that the principal way in which axis range influences interpretations is by dictating the *relative positions* of data points. Thus, an axis provides a frame of reference which informs subjective judgements of magnitude.
+The first study in this thesis was designed to examine whether axis range influences interpretations of absolute magnitude in data visualisations. Axis range was initially identified as a plausible factor influencing magnitude judgements because it dictates data points’ physical positions, which have conventional associations with magnitude (e.g., high positions and high values). However, this study revealed that the principal way axis limits influence interpretations is by dictating the *relative positions* of data points. Thus, an axis provides a frame of reference which informs subjective judgements of magnitude.
 
-## Review of Experimental Design
+## Rationale for Experimental Design
 
 Investigating the influence of axis range on magnitude judgements required appropriately designed experimental stimuli. It was important to employ a suitable visualisation format for the axis manipulations in this study. Dot plots, which were used throughout, employ a position-only encoding. This means that, unlike in bar charts, the encoding is not distorted by axes that do not start at zero. This afforded greater freedom when generating datasets and choosing axis limits. The visualisations could present a wide range of values and also maintain the same difference between the upper and lower limits. Furthermore, unlike bar charts, the physical characteristics of the data points themselves did not change due to the manipulation or inversion of axes, preventing unwanted confounds. The minimalistic design contributes to tight experimental control.
 
