@@ -1,17 +1,40 @@
 # Postscript to Chapter 7
 
-Don’t write intro/rationale until postscript to Chapter 5 is written
+## Overview
 
-All of the previous work on bar charts has looked at magnitude judgements
+**The final study in this thesis was designed to examine the role of denominator information in the interpretation of absolute magnitude in data visualisations. A data visualisation’s axis may be expanded to incorporate not just plausible values, but a *denominator* from the underlying dataset. When this graphical cue is accompanied by a textual cue to denominator information, its influence on interpretations of magnitude is diminished, compared to when no textual cue is present. Thus, this study revealed that accompanying contextual information, not just visualisation design, informs subjective judgements of magnitude.**
 
-This concludes the studies carried out. A nice way to finish, by showing the limits of the effect, and also making connections between the two previous studies. There are many more studies that would have been interesting to carry out.
+## Rationale for Experimental Design
 
-Other similarities include:
+**Manipulating upper axis limits in bar charts necessarily alters the length of the bars. As demonstrated in the first study in this thesis, manipulating axes in dot plots alters the physical charactersitics of values to a lesser extent. However, changes the length of bars should not necessarily be considered a confound. This study aimed to explore the effect of incorporating denominators in axes on magnitude judgements. Such modifications cannot avoid also changing the length of bars themselves, therefore the resulting *overall* appearance of the visualisation should be considered part of the manipulation. A lack of precise experimental control over separate elements does not prevent valuable insight into the cognitive processing of magnitude in bar charts.**
 
-Just as the bar charts study shows that default settings are not always appropriate, the choropleth maps study shows that the default plotting approach is not always appropriate. We shouldn’t rely on typical approaches, but consider whether we are really showing what is important. I do not suggest that these designs are always appropriate, but present them for consideration, to ensure that the message conveyed has been chosen wisely. 
+**This study employed default axis limits from a popular visualisation tool in half of experimental trials. As default settings are frequently adopted by data visualisation designers, this reduces artificiality in stimuli, enhancing the experiment’s ecological validity. In addition, this means the study’s conclusions are directly applicable to common visualisation designs, assisting the development of relevant considerations for designers.**
 
+### Comparison to Pilot Experiment
 
+one para
 
+## Summary of Findings
+
+### Main Summary
+
+manuscraps
+
+Important to acknowledge the limits of observed effects
+
+### Relationship to Prior Work
+
+All of the previous work on bar charts has failed to isolate asbolute magnitude judgements. 
+
+Whilst previous work looking specifically at magnitude judgements (Sandman et al., 1994) had set the stage, this expands the investigation to explore new areas in this topic. Compared to before, the evidence base is not only stronger, but also broader, and more in depth. 
+
+### Comparison with Preceding Studies in This Thesis
+
+**This study concludes the empirical investigations in this thesis by revealing how axis limits and additional cues interact to influence magnitude judgements. This demonstrates that considering contextual information is important for understanding the effects of design choices on interpretations of magnitude. However, it also provides insight into the differences in the two preceding studies regarding the *extent* to which axis limits influenced magnitude judgements. The first study observed relatively small differences in participants’ ratings between conditions, whereas the second study observed much larger differences. In light on this final study’s findings, it seems likely that the lack of contextual information in the latter may have contributed to this contrasts. Using fictituous standardised units may have increased reliance on axis limits as a source of information when assessing magnitude.**
+
+**This study used denominator values as upper axis limits. This contrasts with preceding studies, where the type of data plotted did not have a corresponding denominator (i.e., relative frequencies, measurements). Therefore, the final study extends the line of enquiry to examine a different approach to setting axis limits, based on the underlying dataset. By incorporating a denominator, an axis presents the entire range of possible values, rather than a range of plausible values. Viewers’ inferences about magnitude may different in these two cases. Denominators may increase awareness of whether plotted values are *numerically* high or low, whereas plausible values may increase awareness of whether plotted values are *comparatively* high or low, in the context of other relevant magnitudes. Alternatively, viewers may not be sensitive to this difference. This would be an interesting topic for future work, providing greater insight into the framing effects elicited by axis limits.**
+
+**Both this study on bar charts and Study 2 on choropleth maps explore approaches to designing data visualisations beyond typical defaults. They suggest that not all data visualisation designs are suitable for communicating all aspects of data. Therefore, considering alternatives to the default options may be useful when conveying absolute magnitude. Atypical approaches to data visualisation design may provide clarity for viewers.**
 
 
 
