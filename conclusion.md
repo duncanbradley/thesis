@@ -67,3 +67,9 @@ One of the contributions of this study is that by examining how people make inte
 Decision-making tasks would also help get a more rounded view of magnitude - not just based on numerical information but also other notions of magnitude.  
 
 Zacks and Tversky - affordances in assessing magnitude if there is some numerical context. 
+
+Sandman et al., 1994) had set the stage, this expands the investigation to explore new areas in this topic. Compared to before, the evidence base is not only stronger, but also broader, and more in depth.
+
+future study para 3 - numerical or graphical cues?
+
+Neither plausible values nor absolute values provide a complete picture.
