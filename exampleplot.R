@@ -1,4 +1,7 @@
 library(tidyverse)
+library(patchwork)
+
+#### NOISE AND COLOUR ####
 
 ww <- read_csv("c12.csv") %>%
   mutate(y = temp,
@@ -23,23 +26,29 @@ dd <- ww %>%
     labels = custom_ticks_labels,
     limits = c(1, 192), expand = c(0, 0)) +
   scale_y_continuous(limits = c(0, 100), expand = c(0, 0)) +
+  theme_grey(base_size = 11) +
   theme(
-    panel.background = element_rect(color = "black", size = 1, fill = NA)
+    panel.background = element_rect(color = "black", linewidth = 1, fill = NA),
+    legend.position = "none"
   ) +
   labs(x = NULL, y = NULL)
 
-dd +
+noise_line <- dd +
   geom_vline(xintercept = seq(1, 192, 16),
              color = "black") +
   geom_line()
 
-dd +
+noise_color <- dd +
   geom_vline(data = ww,
              aes(xintercept = x, color = y),
              linewidth = 1.1) +
   scale_color_gradient(low = "cornflowerblue", high = "firebrick1") +
   geom_vline(xintercept = seq(1, 192, 16),
              color = "black")
+
+noise_line + noise_color
+
+#### TRUNCATION ####
 
 vals <- c(48, 52)
 cats <- c('A', 'B') 
@@ -52,30 +61,40 @@ baseplot <- mydf %>%
   theme_minimal(base_size = 12) +
   theme(panel.grid.major.x = element_blank())
 
-baseplot + 
+line_trunc <- baseplot + 
   coord_cartesian(ylim = c(46, 54), 
                 xlim = c(0.5, 2.5),
                 expand = F) +
-  geom_path(linewidth = 1) 
+  geom_path(linewidth = 1) +
+  labs(caption = 'Truncated Line Chart')
 
-baseplot + 
+bar_trunc <- baseplot + 
   coord_cartesian(ylim = c(46, 54), 
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_col(width = 0.3) 
+  geom_col(width = 0.3) +
+  labs(caption = 'Truncated Bar Chart')
 
-baseplot + 
+line_full <- baseplot + 
   coord_cartesian(ylim = c(0, 100),
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_path(linewidth = 1) 
+  geom_path(linewidth = 1) +
+  labs(caption = 'Non-Truncated Line Chart')
 
-baseplot + 
+bar_full <- baseplot + 
   coord_cartesian(ylim = c(0, 100),
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_col(width = 0.3) 
+  geom_col(width = 0.3) +
+  labs(caption = 'Non-Truncated Bar Chart')
+
+line_full + line_trunc + bar_full + bar_trunc +
+  plot_layout(nrow = 1) 
   
+
+#### ZACKS AND TVERSKY ####
+
 #line chart ‘a building becomes more secure as the alarm system becomes more active’
 #bar chart ’a building with 10 motion sensors is more secure than a building with 5 motion sensors’
 
@@ -87,7 +106,7 @@ baseplot +
 #"The graph shows a positive correlation between a child’s increases in age and height betweenthe ages of 10 and 12."
 #"Height increases with age. (from about 46 inches at 10 to 55inches at 12)"
 #"Themoremalea personis, the taller he/she is"
-baseplot + 
+ZT_bar <- baseplot + 
   coord_cartesian(ylim = c(0, 60),
                   xlim = c(0.5, 2.5),
                   expand = F) +
@@ -96,14 +115,18 @@ baseplot +
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank()) 
 
-baseplot + 
+ZT_line <- baseplot + 
   coord_cartesian(ylim = c(0, 60),
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_col(width = 0.3) +
+  geom_path() +
   theme(panel.border = element_rect(fill = NA),
         panel.grid.major.y = element_blank(),
         panel.grid.minor.y = element_blank()) 
+
+ZT_bar + ZT_line
+
+#### STACKED BARS ####
 
 vals1 <- c(0, 6, 7, 10)
 vals2 <- c(100, 94, 93, 90)
@@ -113,9 +136,9 @@ mydf <- tibble(vals1, cats)
 mydf2 <- tibble(vals1, vals2, cats) %>%
   pivot_longer(cols = vals1:vals2)
 
-mydf %>%
+stack1 <- mydf %>%
   ggplot(aes(x = vals1, y = cats)) +
-  geom_col(width = 0.5) +
+  geom_col(width = 0.5, fill = '#4571a8') +
   scale_y_discrete(limits = rev) +
   theme_minimal() +
   coord_cartesian(ylim = c(0.5, 4.5),
@@ -124,18 +147,22 @@ mydf %>%
   labs(x = NULL, y = NULL) +
   theme(panel.border = element_rect(fill = NA),
         panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank()) 
+        panel.grid.minor = element_blank())
 
-mydf2 %>%
-  ggplot(aes(x = value, y = cats, fill = name)) +
-  geom_col(width = 0.5, position = "fill") +
+stack2 <- mydf2 %>%
+  ggplot(aes(x = value, y = cats, fill = name, group = cats)) +
+  geom_col(width = 0.5, position = "stack") +
   scale_y_discrete(limits = rev) +
   theme_minimal() +
   coord_cartesian(ylim = c(0.5, 4.5),
-                  xlim = c(0, 1),
+                  xlim = c(0, 100),
                   expand = F) +
   labs(x = NULL, y = NULL) +
   theme(panel.border = element_rect(fill = NA),
         panel.grid.major.y = element_blank(),
-        panel.grid.minor = element_blank()) 
+        panel.grid.minor = element_blank(),
+        legend.position = "none") +
+  scale_fill_manual(values = c("#4571a8", "#a3a3a3"))
+
+stack1 + stack2
 
