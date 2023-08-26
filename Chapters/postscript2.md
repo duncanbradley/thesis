@@ -12,44 +12,18 @@ This study explored interpretations of magnitude using rating scales, rather tha
 
 ## Summary of Findings
 
-### Main Summary
+This work demonstrated that colour legends’ limits contribute to interpretations of absolute magnitude in choropleth maps. The corresponding location of plotted data points within accompanying colour legend influenced magnitude judgements, despite consistency in the colours used to convey plotted values. Magnitude ratings were higher when data points were located closer to the colour legend’s upper limit. This suggests that the colour legend was used as a frame of reference when interpreting how high or low plotted values were. This investigation also revealed that magnitude judgements were not influenced by the numerical values of plotted data points. This is likely due to the use of fictitious standardised units, which prevented participants from drawing on contextual knowledge when assessing magnitude. 
 
-This work demonstrated that color legends’ limits contribute to interpretations of absolute magnitude in choropleth maps. The corresponding location of plotted data points within accompanying colour legend influenced magnitude judgements, despite consistency in the colours used to convey plotted values. Magnitude ratings were higher when data points were located closer to the colour legend’s upper limit. This suggests that the colour legend was used as a frame of reference when interpreting how high or low plotted values were. This investigation also revealed that magnitude judgements were not influenced by the numerical values of plotted data points. This is likely due to the use of fictitious standardised units, which prevented participants from drawing on contextual knowledge when assessing magnitude. 
+Choropleth maps are usually designed in order to display spatial variability in a dataset: relative magnitude. Indeed, prior work has explored in depth how designs may promote optimal discrimination between plotted values (Jenks and Caspall, 1971; Brychtova and Coltekin, 2015; Dent et al., 2009). However, this typical application does not require that choropleth maps are only used for that purpose. This study illustrates that choropleth maps can also be legitimately employed to convey absolute magnitude. Thus, alternative approaches to data visualisation design which break with convention can still be valid.
 
-Choropleth maps are usually designed in order to display spatial variability in a dataset: relative magnitude. **Indeed, prior work has explored in depth how designs may promote optimal discrimination between plotted values (Jenks and Caspall, 1971; Brychtova and Coltekin, 2015; Dent et al., 2009).** However, this typical application does not require that choropleth maps are only used for that purpose. This study illustrates that choropleth maps can also be legitimately employed to convey absolute magnitude. Thus, alternative approaches to data visualisation design which break with convention can still be valid.
+This study also accords with the observation that interpretations of values in choropleth maps can depend on inferences about the minimum and maximum values in a colour legend (Schloss, 2019). Schloss et al. (2019) found that a map’s background colour influenced judgements about whether plotted values were large or small (quantity), whereas this study found that legends’ limits influenced judgements about *how* large or small plotted values were (absolute magnitude).
 
-**This study also accords with the observation that interpretations of values in choropleth maps can depend on inferences about the minimum and maximum values in a colour legend (Schloss, 2019). Schloss et al. (2019) found that a map’s background colour influenced judgements about whether plotted values were large or small (quantity), whereas this study found that legends’ limits influenced judgements about *how* large or small plotted values were (absolute magnitude).**
+## Relationship to Study 1
 
-### Relationship to Study 1
-
-The first study in this thesis demonstrated that axis limits affect interpretation of magnitude in dot plots. This second study demonstrates that these findings generalise to a different type of data visualisation: choropleth maps. These results build upon the first study’s observations by demonstrating that the numerical context accompanying data points influences interpretations even when the physical characteristics of the plotted values do not change. This also accords with the first study’s finding that judgements were primarily informed by the relative numerical positions of plotted values, as opposed to their absolute physical positions. Other contributions include demonstrating this bias occurs when manipulating only one axis limit and when using a horizontal (rather than vertical) colour legend.
+The first study in this thesis demonstrated that axis limits affect interpretation of magnitude in dot plots. This second study demonstrates that these findings generalise to a different type of data visualisation: choropleth maps. These results build upon the first study’s observations by demonstrating that the numerical context accompanying data points influences interpretations even when the physical characteristics of the plotted values do not change. This also accords with the first study’s finding that judgements were primarily informed by the relative numerical positions of plotted values, as opposed to their absolute physical positions. Other contributions include demonstrating that this bias occurs when manipulating only one axis limit and when using a horizontal (rather than vertical) colour legend.
 
 ## The Next Study
 
-**The empirical research conducted so far in this thesis has demonstrated that interpretations of magnitude are influenced by the context in which plotted values are presented. This thesis has not yet explored denominator values, which are another relevant aspect of context for magnitude judgements. Knowledge of a denominator is relevant to judging absolute frequencies. For example, when evaluating a business expense, awareness of the total available budget can provide perspective on the amount spent. Including denominator values in axes is another way of conveying relevant values that do not appear in plotted data. Therefore, the third and final investigation in this thesis explores how such contextual information informs interpretations about magnitude in data visualisations.** 
+The empirical research conducted in this thesis thus far has demonstrated that interpretations of magnitude are influenced by the numerical context in which plotted values are presented. This thesis has not yet explored denominator values, which are another relevant aspect of context for magnitude judgements. Knowledge of a denominator is relevant to judging absolute frequencies. For example, when evaluating a business expense, awareness of the total available budget can provide perspective on the magnitude of the amount spent. Including denominator values in axes is another example of conveying relevant values that do not appear in plotted data. Therefore, the third and final investigation in this thesis explores how such contextual information informs interpretations of magnitude in bar charts.
 
-### Pilot Study
-
-1 para:
-original 2afc:
-what was the study
-why did it stop
-what did it show
-how did this inform next experiment
-
-67 participants
-32 Experimental trials showed the same value
-16 fillers showed differnet values to make task harder
-Attention check questions also encouraged parrticipatns to pay attnetion/
-
-Concern that this wasn’t sensitive enough. When faced with two alternative designs, the design choice would be too salient, drawing attention. 
-
-### Refinements to Pilot: The New Study
-
-DV: ratings again.
-
-Denominators and graphical vs. textual cues.
-One of the main caveats with this Study 2 was the use of standardised units. I suggest that there is a striking effect due to lack of any other context. 
-There seems to be a big difference between effect sizes in E1 and E2 - how much is the chart design affecting judgements?
-
-
+This investigation can also assist in understanding how awareness of a dataset’s characteristics may affect the influence of visualisation design choices on interpretation. The first study in this thesis observed a relatively small bias in the interpretation of probability values in familiar scenarios. The second study in this thesis observed a relatively large bias in the interpretation of ambiguous pollution measurements. The third and final study in this thesis contains a manipulation of participants’ knowledge about plotted datasets. This provides insight into the knowledge of the numerical context behind plotted data, can affect magnitude judgements, in addition to graphical cues.
