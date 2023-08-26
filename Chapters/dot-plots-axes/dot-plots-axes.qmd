@@ -40,6 +40,7 @@ library(insight)
 library(kableExtra)
 library(effectsize)
 library(qwraps2)
+library(emmeans)
 
 set.seed(45789) # seed for random number generation
 ```
@@ -532,29 +533,6 @@ Likert scales express granularity at the level of ordinal data. They record whet
 Selection of model random effects structures was automated using the *buildmer* package in R (version 2.3, [@voeten_buildmer_2022]). The maximal random effects structure included random intercepts for participants and scenarios, plus corresponding slopes for the position variable [@barr_random_2013]. *buildmer* initially identified the most complex model which could successfully converge. It subsequently removed terms which did not contribute substantially to explaining variance in ratings.
 
 ```{r}
-#| label: E2-c
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
-
-# E2 chance (magnitude) rating model
-E2_c <- buildclmm(chance_slider.response ~ pos*ori +
-                        (1 + pos*ori | participant) +
-                        (1 + pos*ori | item_no),
-                  buildmerControl = buildmerControl(include = "pos:ori"),
-                  data = E2_tidy)
-```
-
-```{r}
-#| label: E2-c-cmpr
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
-
-# E2 chance (magnitude) rating model without fixed effect
-E2_c_cmpr <- clmm(comparison(E2_c),
-             data = E2_tidy)
-```
-
-```{r}
 #| label: E2-cl
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
@@ -562,10 +540,6 @@ E2_c_cmpr <- clmm(comparison(E2_c),
 # generate E3 chance (magnitude) rating model with literacy as additional fixed effect
 E2_cl <- clmm(add.terms(formula(E2_c), "literacy"),
               data = E2_tidy)
-```
-
-```{r}
-knitr::knit_exit()
 ```
 
 #### Results
@@ -648,7 +622,7 @@ L1
 
 ```{r}
 #| label: E1-c
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # E1 chance (magnitude) rating model
@@ -660,7 +634,7 @@ E1_c <- buildclmm(chance_slider.response ~ condition +
 
 ```{r}
 #| label: E1-c-cmpr
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # E1 chance (magnitude) rating model without fixed effect
@@ -697,7 +671,7 @@ This model included random intercepts for each participant and each scenario.
 
 ```{r}
 #| label: E1-s
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # E1 severity rating model
@@ -709,7 +683,7 @@ E1_s <- buildclmm(severity_slider.response ~ condition +
 
 ```{r}
 #| label: E1-s-cmpr
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # E1 severity rating model without fixed effect
@@ -744,7 +718,7 @@ This model employed random intercepts for each scenario, plus random intercepts 
 
 ```{r}
 #| label: E1-cl
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # generate E1 chance (magnitude) rating model with literacy as additional fixed effect
@@ -754,7 +728,7 @@ E1_cl <- clmm(add.terms(formula(E1_c), "literacy"),
 
 ```{r}
 #| label: E1-sl
-#| eval: false
+#| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
 # generate E1 severity rating model with literacy as additional fixed effect
@@ -1009,7 +983,7 @@ L2
 ```
 
 ```{r}
-#| label: E2-c-no
+#| label: E2-c
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
@@ -1022,7 +996,7 @@ E2_c <- buildclmm(chance_slider.response ~ pos*ori +
 ```
 
 ```{r}
-#| label: E2-c-cmpr-no
+#| label: E2-c-cmpr
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
 
@@ -1050,7 +1024,7 @@ add_header_above(kable(random_str(E2_c), "latex"), "E2_c")
 
 @fig-E2-c plots the distribution of participants' ratings of data points' magnitudes, for data points presented at high and low physical positions, in charts with conventional axis orientations and inverted axis orientations.
 
-A likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(e2_c.df)`) = `r printnum(e2_c.LR)`, p `r printp(e2_c.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(e2_c.statistic))`, p `r printp(e2_c.p.value, add_equals = TRUE)`).
+A likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(E2_c.df)`) = `r printnum(E2_c.LR)`, p `r printp(E2_c.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(E2_c.statistic))`, p `r printp(E2_c.p.value, add_equals = TRUE)`).
 
 The odds ratio associated with this interaction is `r printnum(exp(E2_c.estimate))` (`r print_confint(exp(E2_c.CI))`). This is equivalent to a Cohen's d value of `r printnum(oddsratio_to_d(exp(E2_c.estimate)))`.
 
@@ -1062,6 +1036,10 @@ This model employed random intercepts and by-position slopes for each scenario. 
 E2_c_emm <- emmeans(E2_c@model, pairwise ~ pos * ori, adjust = 'sidak') 
   
 get_contrasts(E2_c_emm, condition = "ori")
+```
+
+```{r}
+knitr::knit_exit()
 ```
 
 Pairwise comparisons (with Sidak adjustment) reveal that the effect of position in charts with conventional y-axis orientations (E1) was replicated (z = `r printnum(r2_c_contrast.c.z.ratio)`, p `r printp(r2_c_contrast.c.p.value, add_equals = TRUE)`). Data points' magnitudes were rated as greater when they were presented at high physical positions, compared to when they were presented at low physical positions. There was no significant difference between magnitude ratings for data points plotted at different positions when inverted axes were used (z = `r printnum(r2_c_contrast.i.z.ratio)`, p `r printp(r2_c_contrast.i.p.value, add_equals = TRUE)`). Therefore, we observe a different pattern of results when an inverted axis is used, compared to when a conventional axis is used. This suggests that differences in ratings for data points at different absolute positions in physical space are not due to simple associations between vertical position and magnitude.
