@@ -1,0 +1,512 @@
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+ggsave("c2.png")
+# create my theme
+my_theme <- function() {
+theme_minimal(base_size = 12) +
+theme(plot.background = element_rect(fill = "white"),
+panel.border = element_rect(fill = "NA", linewidth = 0),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank(),
+axis.title.y = element_text(size = 12, face = "bold"),
+axis.text.y = element_text(size = 12, colour = "black", face = "bold"),
+plot.title = element_text(face = "bold"),
+aspect.ratio = 1.5,
+)
+}
+# generate example data
+x <- c('A','B','C')
+y <- c(38, 38.2, 37.8)
+df <- as_tibble(cbind(x, y)) %>%
+mutate_at(vars("y"), as.numeric)
+data_mean <- 38
+# dataframe with four possible combinations of conditions
+id <- expand_grid(c("hi", "lo"), c("conventional", "inverted"))
+create_plot <- function(pos, orientation){
+# set upper and lower limits around the population mean of the data, depending on conditions
+lower_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean - 1.5,
+pos == "hi" & orientation == "conventional" ~ data_mean - 8.5,
+pos == "lo" & orientation == "inverted" ~ data_mean - 8.5,
+pos == "hi" & orientation == "inverted" ~ data_mean - 1.5)
+upper_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean + 8.5,
+pos == "hi" & orientation == "conventional" ~ data_mean + 1.5,
+pos == "lo" & orientation == "inverted" ~ data_mean + 1.5,
+pos == "hi" & orientation == "inverted" ~ data_mean + 8.5)
+# set the values for other variables
+# y_order = the order for the two y-axis value labels (bottom, top)
+y_order <- case_when(orientation == "conventional" ~ c(lower_lim, upper_lim),
+orientation == "inverted" ~ c(upper_lim, lower_lim))
+# axis_transform = reverse axis or not
+axis_transform <- case_when(orientation == "conventional" ~ "identity",
+orientation == "inverted" ~ "reverse")
+# background colour
+fill_colour <- case_when(orientation == "conventional" ~ "white",
+orientation == "inverted" ~ "grey")
+# opacity of dividing line
+divider_alpha <- case_when(orientation == "conventional" ~ 0,
+orientation == "inverted" ~ 0)
+# text which states whether values are higher or lower than implied alternatives
+comparison_text <- case_when(pos == "lo" & orientation == "conventional" ~ "LOW",
+pos == "hi" & orientation == "conventional" ~ "HIGH",
+pos == "lo" & orientation == "inverted" ~ "HIGH",
+pos == "hi" & orientation == "inverted" ~ "LOW")
+# position of comparison text in between data points and farthest limits
+text_pos <- min(upper_lim, lower_lim) +
+(max(upper_lim, lower_lim) - min(upper_lim, lower_lim))/2
+# start and end points for direction arrow at the side
+arrow_start <- lower_lim +2.5
+arrow_end <- upper_lim -2.5
+# create the plot
+g <- df %>% ggplot(aes(x = x,
+y = y)) +
+geom_point(size = 4) +
+ylab("") +
+coord_cartesian(ylim = y_order,
+xlim = c(0.5, 3.5),
+clip = "off",
+expand = FALSE) +
+geom_segment(aes(x = -0.21, xend = -0.21, # specifying the vertical arrow
+y = arrow_start,
+yend = arrow_end),
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+ggsave("c2.png")
+# create my theme
+my_theme <- function() {
+theme_minimal(base_size = 12) +
+theme(#plot.background = element_rect(fill = "white"),
+panel.border = element_rect(fill = "NA", linewidth = 0),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank(),
+axis.title.y = element_text(size = 12, face = "bold"),
+axis.text.y = element_text(size = 12, colour = "black", face = "bold"),
+plot.title = element_text(face = "bold"),
+aspect.ratio = 1.5,
+)
+}
+# generate example data
+x <- c('A','B','C')
+y <- c(38, 38.2, 37.8)
+df <- as_tibble(cbind(x, y)) %>%
+mutate_at(vars("y"), as.numeric)
+data_mean <- 38
+# dataframe with four possible combinations of conditions
+id <- expand_grid(c("hi", "lo"), c("conventional", "inverted"))
+create_plot <- function(pos, orientation){
+# set upper and lower limits around the population mean of the data, depending on conditions
+lower_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean - 1.5,
+pos == "hi" & orientation == "conventional" ~ data_mean - 8.5,
+pos == "lo" & orientation == "inverted" ~ data_mean - 8.5,
+pos == "hi" & orientation == "inverted" ~ data_mean - 1.5)
+upper_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean + 8.5,
+pos == "hi" & orientation == "conventional" ~ data_mean + 1.5,
+pos == "lo" & orientation == "inverted" ~ data_mean + 1.5,
+pos == "hi" & orientation == "inverted" ~ data_mean + 8.5)
+# set the values for other variables
+# y_order = the order for the two y-axis value labels (bottom, top)
+y_order <- case_when(orientation == "conventional" ~ c(lower_lim, upper_lim),
+orientation == "inverted" ~ c(upper_lim, lower_lim))
+# axis_transform = reverse axis or not
+axis_transform <- case_when(orientation == "conventional" ~ "identity",
+orientation == "inverted" ~ "reverse")
+# background colour
+fill_colour <- case_when(orientation == "conventional" ~ "white",
+orientation == "inverted" ~ "grey")
+# opacity of dividing line
+divider_alpha <- case_when(orientation == "conventional" ~ 0,
+orientation == "inverted" ~ 0)
+# text which states whether values are higher or lower than implied alternatives
+comparison_text <- case_when(pos == "lo" & orientation == "conventional" ~ "LOW",
+pos == "hi" & orientation == "conventional" ~ "HIGH",
+pos == "lo" & orientation == "inverted" ~ "HIGH",
+pos == "hi" & orientation == "inverted" ~ "LOW")
+# position of comparison text in between data points and farthest limits
+text_pos <- min(upper_lim, lower_lim) +
+(max(upper_lim, lower_lim) - min(upper_lim, lower_lim))/2
+# start and end points for direction arrow at the side
+arrow_start <- lower_lim +2.5
+arrow_end <- upper_lim -2.5
+# create the plot
+g <- df %>% ggplot(aes(x = x,
+y = y)) +
+geom_point(size = 4) +
+ylab("") +
+coord_cartesian(ylim = y_order,
+xlim = c(0.5, 3.5),
+clip = "off",
+expand = FALSE) +
+geom_segment(aes(x = -0.21, xend = -0.21, # specifying the vertical arrow
+y = arrow_start,
+yend = arrow_end),
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+ggsave("c2.png")
+# create my theme
+my_theme <- function() {
+theme_minimal(base_size = 12) +
+theme(plot.background = element_rect(fill = "white"),
+panel.border = element_rect(fill = NA, linewidth = 1),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank(),
+axis.title.y = element_text(size = 12, face = "bold"),
+axis.text.y = element_text(size = 12, colour = "black", face = "bold"),
+plot.title = element_text(face = "bold"),
+aspect.ratio = 1.5,
+)
+}
+# generate example data
+x <- c('A','B','C')
+y <- c(38, 38.2, 37.8)
+df <- as_tibble(cbind(x, y)) %>%
+mutate_at(vars("y"), as.numeric)
+data_mean <- 38
+# dataframe with four possible combinations of conditions
+id <- expand_grid(c("hi", "lo"), c("conventional", "inverted"))
+create_plot <- function(pos, orientation){
+# set upper and lower limits around the population mean of the data, depending on conditions
+lower_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean - 1.5,
+pos == "hi" & orientation == "conventional" ~ data_mean - 8.5,
+pos == "lo" & orientation == "inverted" ~ data_mean - 8.5,
+pos == "hi" & orientation == "inverted" ~ data_mean - 1.5)
+upper_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean + 8.5,
+pos == "hi" & orientation == "conventional" ~ data_mean + 1.5,
+pos == "lo" & orientation == "inverted" ~ data_mean + 1.5,
+pos == "hi" & orientation == "inverted" ~ data_mean + 8.5)
+# set the values for other variables
+# y_order = the order for the two y-axis value labels (bottom, top)
+y_order <- case_when(orientation == "conventional" ~ c(lower_lim, upper_lim),
+orientation == "inverted" ~ c(upper_lim, lower_lim))
+# axis_transform = reverse axis or not
+axis_transform <- case_when(orientation == "conventional" ~ "identity",
+orientation == "inverted" ~ "reverse")
+# background colour
+fill_colour <- case_when(orientation == "conventional" ~ "white",
+orientation == "inverted" ~ "grey")
+# opacity of dividing line
+divider_alpha <- case_when(orientation == "conventional" ~ 0,
+orientation == "inverted" ~ 0)
+# text which states whether values are higher or lower than implied alternatives
+comparison_text <- case_when(pos == "lo" & orientation == "conventional" ~ "LOW",
+pos == "hi" & orientation == "conventional" ~ "HIGH",
+pos == "lo" & orientation == "inverted" ~ "HIGH",
+pos == "hi" & orientation == "inverted" ~ "LOW")
+# position of comparison text in between data points and farthest limits
+text_pos <- min(upper_lim, lower_lim) +
+(max(upper_lim, lower_lim) - min(upper_lim, lower_lim))/2
+# start and end points for direction arrow at the side
+arrow_start <- lower_lim +2.5
+arrow_end <- upper_lim -2.5
+# create the plot
+g <- df %>% ggplot(aes(x = x,
+y = y)) +
+geom_point(size = 4) +
+ylab("") +
+coord_cartesian(ylim = y_order,
+xlim = c(0.5, 3.5),
+clip = "off",
+expand = FALSE) +
+geom_segment(aes(x = -0.21, xend = -0.21, # specifying the vertical arrow
+y = arrow_start,
+yend = arrow_end),
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+# create my theme
+my_theme <- function() {
+theme_minimal(base_size = 12) +
+theme(
+panel.border = element_rect(fill = NA, linewidth = 1),
+plot.background = element_rect(fill = "white"),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank(),
+axis.title.y = element_text(size = 12, face = "bold"),
+axis.text.y = element_text(size = 12, colour = "black", face = "bold"),
+plot.title = element_text(face = "bold"),
+aspect.ratio = 1.5,
+)
+}
+# generate example data
+x <- c('A','B','C')
+y <- c(38, 38.2, 37.8)
+df <- as_tibble(cbind(x, y)) %>%
+mutate_at(vars("y"), as.numeric)
+data_mean <- 38
+# dataframe with four possible combinations of conditions
+id <- expand_grid(c("hi", "lo"), c("conventional", "inverted"))
+create_plot <- function(pos, orientation){
+# set upper and lower limits around the population mean of the data, depending on conditions
+lower_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean - 1.5,
+pos == "hi" & orientation == "conventional" ~ data_mean - 8.5,
+pos == "lo" & orientation == "inverted" ~ data_mean - 8.5,
+pos == "hi" & orientation == "inverted" ~ data_mean - 1.5)
+upper_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean + 8.5,
+pos == "hi" & orientation == "conventional" ~ data_mean + 1.5,
+pos == "lo" & orientation == "inverted" ~ data_mean + 1.5,
+pos == "hi" & orientation == "inverted" ~ data_mean + 8.5)
+# set the values for other variables
+# y_order = the order for the two y-axis value labels (bottom, top)
+y_order <- case_when(orientation == "conventional" ~ c(lower_lim, upper_lim),
+orientation == "inverted" ~ c(upper_lim, lower_lim))
+# axis_transform = reverse axis or not
+axis_transform <- case_when(orientation == "conventional" ~ "identity",
+orientation == "inverted" ~ "reverse")
+# background colour
+fill_colour <- case_when(orientation == "conventional" ~ "white",
+orientation == "inverted" ~ "grey")
+# opacity of dividing line
+divider_alpha <- case_when(orientation == "conventional" ~ 0,
+orientation == "inverted" ~ 0)
+# text which states whether values are higher or lower than implied alternatives
+comparison_text <- case_when(pos == "lo" & orientation == "conventional" ~ "LOW",
+pos == "hi" & orientation == "conventional" ~ "HIGH",
+pos == "lo" & orientation == "inverted" ~ "HIGH",
+pos == "hi" & orientation == "inverted" ~ "LOW")
+# position of comparison text in between data points and farthest limits
+text_pos <- min(upper_lim, lower_lim) +
+(max(upper_lim, lower_lim) - min(upper_lim, lower_lim))/2
+# start and end points for direction arrow at the side
+arrow_start <- lower_lim +2.5
+arrow_end <- upper_lim -2.5
+# create the plot
+g <- df %>% ggplot(aes(x = x,
+y = y)) +
+geom_point(size = 4) +
+ylab("") +
+coord_cartesian(ylim = y_order,
+xlim = c(0.5, 3.5),
+clip = "off",
+expand = FALSE) +
+geom_segment(aes(x = -0.21, xend = -0.21, # specifying the vertical arrow
+y = arrow_start,
+yend = arrow_end),
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+c
+c1
+# create my theme
+my_theme <- function() {
+theme_minimal(base_size = 12) +
+theme(plot.background = element_rect(fill = "white", linewidth = 0),
+panel.border = element_rect(fill = NA, linewidth = 1),
+panel.grid.minor = element_blank(),
+panel.grid.major = element_blank(),
+axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank(),
+axis.title.y = element_text(size = 12, face = "bold"),
+axis.text.y = element_text(size = 12, colour = "black", face = "bold"),
+plot.title = element_text(face = "bold"),
+aspect.ratio = 1.5,
+)
+}
+# generate example data
+x <- c('A','B','C')
+y <- c(38, 38.2, 37.8)
+df <- as_tibble(cbind(x, y)) %>%
+mutate_at(vars("y"), as.numeric)
+data_mean <- 38
+# dataframe with four possible combinations of conditions
+id <- expand_grid(c("hi", "lo"), c("conventional", "inverted"))
+create_plot <- function(pos, orientation){
+# set upper and lower limits around the population mean of the data, depending on conditions
+lower_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean - 1.5,
+pos == "hi" & orientation == "conventional" ~ data_mean - 8.5,
+pos == "lo" & orientation == "inverted" ~ data_mean - 8.5,
+pos == "hi" & orientation == "inverted" ~ data_mean - 1.5)
+upper_lim <- case_when(pos == "lo" & orientation == "conventional" ~ data_mean + 8.5,
+pos == "hi" & orientation == "conventional" ~ data_mean + 1.5,
+pos == "lo" & orientation == "inverted" ~ data_mean + 1.5,
+pos == "hi" & orientation == "inverted" ~ data_mean + 8.5)
+# set the values for other variables
+# y_order = the order for the two y-axis value labels (bottom, top)
+y_order <- case_when(orientation == "conventional" ~ c(lower_lim, upper_lim),
+orientation == "inverted" ~ c(upper_lim, lower_lim))
+# axis_transform = reverse axis or not
+axis_transform <- case_when(orientation == "conventional" ~ "identity",
+orientation == "inverted" ~ "reverse")
+# background colour
+fill_colour <- case_when(orientation == "conventional" ~ "white",
+orientation == "inverted" ~ "grey")
+# opacity of dividing line
+divider_alpha <- case_when(orientation == "conventional" ~ 0,
+orientation == "inverted" ~ 0)
+# text which states whether values are higher or lower than implied alternatives
+comparison_text <- case_when(pos == "lo" & orientation == "conventional" ~ "LOW",
+pos == "hi" & orientation == "conventional" ~ "HIGH",
+pos == "lo" & orientation == "inverted" ~ "HIGH",
+pos == "hi" & orientation == "inverted" ~ "LOW")
+# position of comparison text in between data points and farthest limits
+text_pos <- min(upper_lim, lower_lim) +
+(max(upper_lim, lower_lim) - min(upper_lim, lower_lim))/2
+# start and end points for direction arrow at the side
+arrow_start <- lower_lim +2.5
+arrow_end <- upper_lim -2.5
+# create the plot
+g <- df %>% ggplot(aes(x = x,
+y = y)) +
+geom_point(size = 4) +
+ylab("") +
+coord_cartesian(ylim = y_order,
+xlim = c(0.5, 3.5),
+clip = "off",
+expand = FALSE) +
+geom_segment(aes(x = -0.21, xend = -0.21, # specifying the vertical arrow
+y = arrow_start,
+yend = arrow_end),
+arrow = arrow(length = unit(0.3,"cm")),
+linewidth = 1, colour = "black") +
+geom_segment(aes(x = -1, xend = -1,
+y = -Inf,
+yend = Inf), alpha = divider_alpha, size = 1) +
+scale_y_continuous(breaks = seq(lower_lim + 1.5, # breaks where the y-axis labels will be
+upper_lim - 1.5,
+by = 7),
+labels = c(),
+trans = axis_transform) + # y-axis labels
+my_theme()
+assign(value = g, envir = .GlobalEnv, paste0("g",
+substr(pos, 1, 1),
+substr(orientation, 1, 1)))
+}
+# run the above function for every combination of conditions
+invisible(do.call(mapply, c(create_plot, unname(id))))
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+ggsave("c2.png")
+c1
+c1+ c2
+c1 | c2
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'A: Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c1
+c2
+c2 <- ghi + labs(title = 'B: Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+c2
+# add all four plots together, with addition y-axis labels
+c1 <- ghc + labs(title = 'Conventional', subtitle = 'Axis Orientation') + glc + plot_layout(ncol=1)
+ggsave("c1.png")
+c2 <- ghi + labs(title = 'Inverted', subtitle = 'Axis Orientation') + gli + plot_layout(ncol=1)
+ggsave("c2.png")
+c1
+library(ordinal)
+version(ordinal)
+print_confint(rev(1/exp(c(3, 4))))
+library(papaja)
+print_confint(rev(1/exp(c(3, 4))))
+print_confint(rev(1/exp(c(95))))
+print_confint(rev(1/exp(c(95, 96))))
+print_confint(rev(exp(c(95, 96))))
+E1_c.CI
+?print_confint
+sessionInfo
+sessionInfo()
+version
