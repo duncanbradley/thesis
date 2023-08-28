@@ -24,7 +24,7 @@ Rensink (2021) presents recommendations for generating useful research findings.
 
 There are a multitude of variables that can be manipulated to gain insight into visualisations. Criticisms are sometimes levelled at studies with particularly high or low levels of experimental control. However, researchers must strike an appropriate balance between ecological validity and precision (Abdul-Rahman et al., 2020). Choosing suitable tasks for participants requires a similar trade-off (Suh et al., 2022).
 
-Vision sciences offer a variety of paradigms for assessing various aspects of human performance in visualisation tasks. For example, experiments may evaluate accuracy (by comparing responses to a correct answer), precision (by quantifying variability in responses), or processing speed (by measuring reaction times, Elliott et al., 2020). However, chosen methods must be appropriate for a research question. Whereas methods from vision-sciences are typically concerned with performance in low-level perceptual tasks, other research focuses on decision-making (Padilla et al., 2018) or *message*-level interpretations (Pandey et al., 2015). The latter concerns broad assessments of data, such as whether a difference is large or small, rather than the ability to extract specific values.
+Vision sciences offer a variety of paradigms for assessing various aspects of human performance in visualisation tasks. For example, experiments may evaluate accuracy (by comparing responses to a correct answer), precision (by quantifying variability in responses), or processing speed (by measuring reaction times, Elliott et al., 2020). However, chosen methods must be appropriate for a research question. Whereas methods from vision-sciences are typically concerned with performance in low-level perceptual tasks, other research focuses on decision-making (Padilla et al., 2018) or *message*-level interpretations (Pandey et al., 2015). The latter concerns broad assessments of data, such as whether a difference is large or small, rather than the ability to extract specific values. This is also referred to as *gist* (Reyna and Brainerd, 1991).
 
 ## Perceptual Precision in Data Visualisations
 
@@ -84,7 +84,7 @@ Data visualisation design has the potential to impact subjective judgements of m
 
 In bar charts displaying data on individuals affected by a risk, perceived likelihood decreased when the total population at risk was emphasised using shaded bars, rather than blank space (Stone et al., 2017). In bar charts violating the convention of mapping higher values to higher positions, participants frequently misinterpreted magnitudes (Okan et al., 2012). This was due to difficulty in rejecting first impressions, particularly for participants with low data visualisation literacy. Other work combining judgements of values’ magnitudes with judgements of relative differences has limited examination of the former (Okan et al., 2018). Visualisations that facilitate comprehension of relative differences may fail to effectively communicate the absolute magnitudes of values depicted, illustrating a potential trade-off in design (Reyna et al., 2008).
 
-One study has specifically focused on how axis ranges may inform impressions of absolute magnitude. Sandman et al. (1994) manipulated risk ladders, where individual probabilities are presented on vertical scales incorporating a range of probability values. Changing this range alters the position of a plotted value. Perceived threat (a composite measure made up of perceived likelihood, danger, reported concern and fear) was higher when the risk appeared near to the top of the ladder, compared to near the bottom. However, the position of plotted values did not completely dictate magnitude judgements. A numerically higher risk plotted at the same position near the top of the ladder generated higher ratings. There was also mixed evidence regarding the effects on intentions to spend money mitigating the risk. Confidence in the robustness of these findings is limited by various factors including use of a single trial per participant, a single scenario, a composite measure obscuring pure magnitude ratings, and a confounding variable of the risk ladder’s range.
+One study has specifically focused on how axis ranges may inform impressions of absolute magnitude. Sandman et al. (1994) manipulated risk ladders, where individual probabilities are presented on vertical scales incorporating a range of probability values. Changing this range alters the position of a plotted value. Perceived threat (a composite measure made up of perceived likelihood, danger, reported concern and fear) was higher when the risk appeared near to the top of the ladder, compared to near the bottom. This is akin to framing effects described in the psychology literature (Tversky and Kahneman, 1981). However, the position of plotted values did not completely dictate magnitude judgements. A numerically higher risk plotted at the same position near the top of the ladder generated higher ratings. There was also mixed evidence regarding the effects on intentions to spend money mitigating the risk. Confidence in the robustness of these findings is limited by various factors including use of a single trial per participant, a single scenario, a composite measure obscuring pure magnitude ratings, and a confounding variable of the risk ladder’s range.
 
 Comparing linear and logarithmic risk ladders, Freeman et al. (2021) did not replicate Sandman et al.’s (1994) main finding. However, in addition to a graphical cue to magnitude, they used risk ladders which employed additional symbolic number cues in their titles, labels, and accompanying descriptions. A broken scale may also have reduced the degree to which inferences were based on the value’s physical position. Therefore, participants’ judgements may not have been based purely on the appearance of visualisations.
 
@@ -113,3 +113,41 @@ A Brief History of Data Visualization (Friendly, 2008)
 The history of data visualisation teaches us about the persuasive power of visualisations, rather than the principles of good design.
 Discussion of historical data visualisations is commonplace in lay literature on this topic.
 Shows the importance of studying data visualisations (they are a powerful tool), without actually revealing *why* they are so powerful.
+
+## Defaults
+
+Defaults can be powerful, sometimes they might not be altered becuase of a lack of understanding (Shah and Kesan, 2006)
+
+Demonstrated how alternatives to defaults can result in better performance (Witt, 2019)
+Produce evidence showing how MS Excel’s bar chart truncation can be inappropriate (Yang et al., 2021)
+
+Default settings can be problematic when using visualisation for exploratory analysis, by concealing relevant features in datasets. Lack of awareness can make defaults persist. Defaults settings are disproportionately/execessively/particuarly influential. In histograms, data are classified into ‘bins’ using algorithms; the default using in R and D3 assumes normally-distributed data, resulting inappropraite displays for other distributions. Similarly, with density plots, R’s default makes the same assumption, resulting in excessive smoothing in the display. The characteristics of the dataset are important for ensuring that the data are represetned appropriately, but tools’ defaults tend to be agnostic towards these characterstics. In R and Tableau, dot plots by default employ dots that with no translucency, which *can* cause overplotting, making it hard to perceive density. Unquestioning use of defaults is the issue. Demonstrated that rejecting defaults can improve performance for certain tasks.Even when other options are available, defaults are likely to exert a strong influence, through stagnation (Correll et al., 2019). 
+
+Common default setting is the rainbow colourmap (Padilla et al., 2017). Alternative palettes have been implemented as defaults in some tools (Moreland, 2009). There may be some benefits to rainbow colourmap (Padilla et al., 2017, Ware et al., 2023). Some tools have changed default colour palletes to avoid issues in perception (Reda and Szafir, 2021).
+
+Rejecting default colour assignement in favour of those choices which conform to semantic colour-assocations, facilitates performance (Lin et al., 2013). 
+
+Researchers have suggested that their findings could lead to appropriate defaults (Heer and Bostock, 2010, Xiong et al., 2021).
+Acknowledge that good defaults would lead to better designs (Correll and Heer, 2017, Kerns and Wilmer, 2021).
+
+It’s not always the case that defaults are wrong, but without available evidence, it’s hard to know. Explored redenant encoding, which is a default technique in MS Excel. There were different opinions on redundant encoding, some suggest unncessary and distracting, others suggesting it’s helpful. Found that it does improve performance (Nothelfer et al., 2017).
+
+## History
+
+Case studies of historical visualisations such as Snow’s cholera map can how novel visusaliastion technqiques can make valuable contrbutions (van Wijk, 2005).
+Static visualisations better than Hans Rosling’s animations, but animations more popular (Robertson, 2008). Robertson, G., Fernandez, R., Fisher, D., Lee, B. and Stasko, J. (2008) Effectiveness of animation in trend visualization. IEEE Transactions on Visualization and Computer Graphics 14(6): 1325–1332.
+
+Friendly (2006)
+Kosara and Mackinlay (2013)
+
+Narration can improve comprehension, but elicit issues with trustworthiness, doesn’t affect memory - Obie et al. (2019)
+Some of Rosling’s techniques may cause biases (Anderson et al., 2021; Hong et al., 2021).
+
+
+Kosara (2016) notes that the collection of often-discussed historical visualisations is small, because there are only a few available. 
+
+
+
+
+
+
