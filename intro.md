@@ -104,17 +104,21 @@ Chapter 5 presents a pair of experiments which investigate the role of contextua
 
 Finally, Chapter 6 presents a synthesis of this empirical work, alongside a discussion of implications and future directions.
 
-## New
+—————————————————————————————————————————————————————————
 
-It is important to remember that data visualisations are created using tools. There is huge choice of tools, options within the tools, and they allow users to create visualisations very quickly. However, the speed means that the tools can take a lot of shortcuts in terms of design, they don’t always represent data is the best way by default. Data visualisation research can be useful for showing the consequences of default settings. 
+## Data Visualisation Types
 
-Heralding centuries old designs by virtue of the fact that they are famous is a testament to the rhetorical power of visualisations, but no guarantee that they communicate data effectively.
-A Brief History of Data Visualization (Friendly, 2008)
-The history of data visualisation teaches us about the persuasive power of visualisations, rather than the principles of good design.
-Discussion of historical data visualisations is commonplace in lay literature on this topic.
-Shows the importance of studying data visualisations (they are a powerful tool), without actually revealing *why* they are so powerful.
+**Developing data visualisations for any given dataset involves a range of options regarding *which* visualisations to choose. Even before considering more nuanced designed choices, the format of a visualisation is an important consideration. This can also be considered a design choice. There is no exhaustive list, but I will outline some common ones here. Wilkinson - a system for formally defining visualisations, through understanding the different characteristics - not just encoding types, but coordinate systems, etc. It’s a theoretical contribution. expresses a visualisation as  the correspondence between variables in a dataset and visual properties. Has been influential in the development of ggplot2 (layering), Stata, VegaLite (interaction), D3/observable, Tableau.**
+
+Bars - for example - 
+Line - for example, a time series on 
+Pie  - for example, proportion of xxx
+Colour - for example, a choropleth map may show spatial variation. 
+how can I introduce this - encodings? 
 
 ## Defaults
+
+It is important to remember that data visualisations are created using tools. There is huge choice of tools, options within the tools, and they allow users to create visualisations very quickly. However, the speed means that the tools can take a lot of shortcuts in terms of design, they don’t always represent data is the best way by default. Data visualisation research can be useful for showing the consequences of default settings. 
 
 Defaults can be powerful, sometimes they might not be altered becuase of a lack of understanding (Shah and Kesan, 2006)
 
@@ -132,19 +136,21 @@ Acknowledge that good defaults would lead to better designs (Correll and Heer, 2
 
 It’s not always the case that defaults are wrong, but without available evidence, it’s hard to know. Explored redenant encoding, which is a default technique in MS Excel. There were different opinions on redundant encoding, some suggest unncessary and distracting, others suggesting it’s helpful. Found that it does improve performance (Nothelfer et al., 2017).
 
+**The *process* by which data visualisations are created is an important issue to understand in this area. Developments in software have made it easier to make visualisations and widened the range of visualisations it is possible to produce. Almost all visualisation tools offer some capacity for customisation, which is why design choices are important to consider. As stated previously, there is not only one way to represent a dataset. Instead, various choices are left to the designer, whose judgements ultimately affect the end-product generated. The range of options available, and the presence of defaults, are important aspects of software with a strong influence.**
+
 ## History
 
-Case studies of historical visualisations such as Snow’s cholera map can how novel visusaliastion technqiques can make valuable contrbutions (van Wijk, 2005).
-Static visualisations better than Hans Rosling’s animations, but animations more popular (Robertson, 2008). Robertson, G., Fernandez, R., Fisher, D., Lee, B. and Stasko, J. (2008) Effectiveness of animation in trend visualization. IEEE Transactions on Visualization and Computer Graphics 14(6): 1325–1332.
+**The course of data visualisations in history follows the course of scientific insight, warfare, and social issues. Throughout history, data visualisations have been used in pursuit of scientific progress, and to gain insight. For example, they were used to plot the movements of planets, and the understand the transmission of disease, and reveal civil rights issues. Particularly famous examples have not just coincided with scientific findings, but have left their mark on history through their role in major discoveries, which illustrates the power that data visualisations can have.** Case studies of historical visualisations can illustrate how novel visusaliastion technqiques can make valuable contrbutions (van Wijk, 2005). **Two particularly famous examples include Jon Snow’s cholera map, and Florence Nightingale’s coxcomb plot. None of Nightingale, Snow or Minard, actually used their visualisations to analyse, but to present and persuade (Kosara and Mackinlay, 2013).**
 
-Friendly (2006)
-Kosara and Mackinlay (2013)
+**However, as Kosara et al. (2016) notes, this history is also rather sparse. Modern approaches reveal the range of approaches to data visualisation, with Simon Scarr’s detail infographic on the Iraq war contrasting with Ed Hawkins’ powerfully simple climate stripes.**
 
-Narration can improve comprehension, but elicit issues with trustworthiness, doesn’t affect memory - Obie et al. (2019)
-Some of Rosling’s techniques may cause biases (Anderson et al., 2021; Hong et al., 2021).
+**It is obvious that these ‘classic’ designs were effective, since they were influential at the time. However, speculating about why they were effective isn’t particularly helpful. We don’t really gain much *insight* from case studies, even if they demonstrate the influentual power. Historical examples illustrate that visualisations can be valuable, but not *why* they can are valuable. This shows the importance of studying data visualisations from a scientific perspective. This is testament to the rhetorical power of visualisations, but no guarantee that they communicate data effectively. The history of data visualisation teaches us about the persuasive power of visualisations, rather than the principles of good design. An example of this is Hans Rosling’s presentations, which used animated data visualisations to show developments in global health.**
 
+Narration can improve comprehension, but elicit issues with trustworthiness, doesn’t affect memory - Obie et al. (2019) Some of Rosling’s techniques may cause biases (Anderson et al., 2021; Hong et al., 2021). Much like the charts he presented, Rosling was animated, his enthuasim and dynamic manner may contribute to the popularity. Still lots to be explored about what does and doesn’t work - this is a good starting point, but no enough to build a theory of effective storytelling (Kosara and Mackinlay, 2013). Static visualisations better than Hans Rosling’s animations, but animations more popular (Robertson, 2008). Robertson, G., Fernandez, R., Fisher, D., Lee, B. and Stasko, J. (2008) Effectiveness of animation in trend visualization. IEEE Transactions on Visualization and Computer Graphics 14(6): 1325–1332. **There’s no doubt Rosling’s communication skills, pioneering multimodal techniques, or efforts to make data visualisations acceptable. For this he must be commended, but good insight into data visualisation needs to go deeper.**  
 
-Kosara (2016) notes that the collection of often-discussed historical visualisations is small, because there are only a few available. 
+**Although the history of data visualisation goes back before Playfair, he was the original creator of many of the most common formats used today. including bar charts, line charts and pie charts. The 1800s was a time for innovation in techniques - first learning how to represent large datasets graphically. Not everything was effective - another cholera map made before Snow’s didn’t manage to reveal the cause of the illness. Nightingale revealed that unsanitary conditions in hospital were a bigger threat than the war itself. Bertin’s approach was a formalisation of graphical elements. Recent innovations have produced visualisations with interactive or dynamic elements (Friendly, 2006), but the need for simple visualisations has not disappeared.**
+
+**It’s clear in the academic literature that Tufte is very influential, but his work is really that of a critic - pointing out what he believes are good and bad designs - rather than evidence-based recommendations, hence why his views are so heavily debated.**
 
 
 
