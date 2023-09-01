@@ -108,7 +108,30 @@ Finally, Chapter 6 presents a synthesis of this empirical work, alongside a disc
 
 ## Data Visualisation Types
 
-Developing data visualisations for any given dataset involves a range of options regarding *which* visualisations to choose. There is no one way to present a dataset. Even before considering more nuanced designed choices, the format of a visualisation is an important consideration. This can also be considered a design choice. There is no exhaustive list, but I will outline some common ones here. Wilkinson - a system for formally defining visualisations, through understanding the different characteristics - not just encoding types, but coordinate systems, etc. It’s a theoretical contribution. expresses a visualisation as  the correspondence between variables in a dataset and visual properties. Has been influential in the development of ggplot2 (layering), Stata, VegaLite (interaction), D3/observable, Tableau.
+Developing data visualisations for any given dataset involves a range of options regarding *which* visualisations to choose. There is no one way to present a dataset. Even before considering more nuanced designed choices, the format of a visualisation is an important consideration. This can also be considered a design choice. There is no exhaustive list, but I will outline some common ones here.  - 
+This has been influential in the development of Protovis (Stolte et al., 2002), which became Tableau, ggplot2 (Wickham, 2010), D3 (Bostock et al., 2011), Vega-Lite (Satyanarayan et al., 2017). Several tools have been influenced by the grammar of graphics and have extended these ideas.
+
+Wilkinson (1999)
+Major contribution is that statistics could be described through a grammar rather than choosing a named example from a finite list.
+A system for formally defining visualisations
+Expressing the components of a visualisation
+Coherently describing the specification behind a visualisation
+Construction
+through understanding the different characteristics - in a comprehensive manner - not just encoding types, but coordinate systems, etc.
+Involves a set of components that make up a visualisation
+Flexible - recognising how minor changes don’t need an entire restructuring - e.g. bar chart to line chart. - can describe a wide range
+expresses a visualisation as  the correspondence between variables in a dataset and visual properties. 
+Modular structure - components are combined
+Efficiently charaterise visualisations, including historical examples. 
+System that can reflect the underlying structure of a visualiastion
+Not a taxonomy - goes beyond charts to think about ‘graphics’. A charting library does not possess the same type of structure.
+Describes the interaction between components
+Reveals the common ground between different types of charts (Wilkinson, 2012)
+aesthetic features draws upon Bertin’s work (1967)
+general theory draws upon Bertin’s system (1967)
+aesthetic features are what transform a set of number into something that can be perceived.
+Six components:
+The most obvious one is aesthetic attributes (e.g., size, shape, hue, transparency), but also involves guides (e.g., legends and axes), coordinate system (polar vs. cartesian), and transformations which are performed on the variables themselves (e.g. ranking) or on scales (e.g. logarithm).
 
 Bars - for example - 
 Line - for example, a time series on 
@@ -130,9 +153,9 @@ Although the above research exposes issues with some default settings, they are 
 
 Throughout history, data visualisations have provided insights on the dominant topics of the day, from science and healthcare to civil rights and warfare. Identifying the first use of visualistion is impossible, but it is clear that humans have used graphic forms to display numerical information for millennia. For example, on a clay tablet dating from 3100-3000 BC, circles and semicircles represent the quantities of the beer rations which were used to pay workers (MacGregor, 2010). Other early visualisations include geographical maps and astronomical diagrams plotting the movements of the planets. The 18th Century saw the development of many common formats used today, such as bar charts, line charts, and pie charts, all of which are typically credited to William Playfair (Friendly, 2006). However, the late 19th Century has been described as ‘The Golden Age of Statistical Graphics’ (Friendly, 2006, pg. 13), generating innovations in the representation of large datasets.
 
-In 1855, John Snow produced a map showing the spatial distribution of cholera deaths in an area of London by displaying a dot at the location where each victim had lived. Deaths clustered near a contaminated water pump substantiated the claim that infected water sources spread this disease (Friendly, 2006). This revealed how data visualisations can demonstrate previously overlooked patterns and relationships. In 1857, Florence Nightingale visualised fatalities in the Crimean war, using a format known as a ‘coxcomb’ or ‘rose diagram’ (). Each month’s death toll was represented by the size of a segment projecting from the chart’s centre point (). Crucially, the use of colour to distinguish between different causes of death revealed that unsanitary conditions in hospitals were a bigger threat to life than the battlefield (). This convinced the British Government to reform…, demonstrating the persuasive power of data visualisation. In 1861, Charles Joseph Minard plotted Napoleon’s Russian invasion and subsequent retreat with an increasingly diminishing army. Part map, part flow diagram, and part line chart, it is a paragon of information density, representing six variables in a single graphic (Tufte, 1983).
+In 1855, John Snow produced a map showing the spatial distribution of cholera deaths in an area of London by displaying a mark at the location where each victim had lived. Deaths clustered near a contaminated water pump substantiated the claim that infected water sources spread this disease (Friendly, 2006). This revealed how data visualisations can demonstrate previously overlooked patterns and relationships. In 1857, Florence Nightingale visualised fatalities in the Crimean war, using a format known as a ‘coxcomb’ or ‘rose diagram’ (). Each month’s death toll was represented by the size of a segment projecting from the chart’s centre point (). Crucially, the use of colour to distinguish between different causes of death revealed that unsanitary conditions in hospitals were a bigger threat to life than the battlefield (). This convinced the British Government to reform…, demonstrating the persuasive power of data visualisation. In 1861, Charles Joseph Minard plotted Napoleon’s Russian invasion and subsequent retreat with an increasingly diminishing army. Part map, part flow diagram, and part line chart, it is a paragon of information density, representing six variables in a single graphic (Tufte, 1983).
 
-Although the above visualisations may appear to reveal major findings for the first time, none of Snow, Nightingale, or Minard used these visualisations to perform their initial analysis. Instead, these visualisations were used for the purposes of persuasion and storytelling (Kosara and Mackinlay, 2013). This is a testament to effectively of data visualisations as rhetorical devices, rather than analytical tools. Furthermore, historically significant data visualisations have not always achieved the recognition and response they sought at the time. W.E.B. Du Bois’ data visualisation exhibit on the oppression and development of Black Americans won prizes and medals at the 1900 Paris Exposition, but was ignored by the mainstream American press ().
+Although the above visualisations may appear to reveal major findings for the first time, none of Snow, Nightingale, or Minard used these visualisations to perform their initial analysis. Instead, these visualisations were used for the purposes of persuasion and storytelling (Kosara and Mackinlay, 2013). This is a testament to effectively of data visualisations as rhetorical devices, rather than analytical tools. Furthermore, historically significant data visualisations have not always achieved the recognition and response they sought at the time. W.E.B. Du Bois’ data visualisation exhibit on the oppression and development of Black Americans won prizes and medals at the 1900 Paris Exposition (Du Bois, 1900), but was generally overlooked by the mainstream American press (Forrest, 2018).
 
 It is necessary to acknowledge that the history of data visualistion is rather sparse, and to recognise *contemporary* work in this discipline (Kosara, 2016). Recent innovations in software have generated visualisations with interactive or dynamic elements (Friendly, 2006), but straightforward static visualisations have not disappeared. Indeed, one particularly succesful case is the powerfully simple ‘warming stripes’ visualisation (Ed Hawkins). This design uses coloured stripes to display average global temperature from 1850 to the present, highlighting the rapid increase in recent years using increasingly darker reds. By eschewing date labels, text, and a colour legend, only the essential elements remain. Accordingly, this visualisation has been reproduced in various unlikely settings for a data visualisation (e.g., music festivals), and has earnt a reputation as a recognisable symbol of the climate emergency.
 
@@ -145,3 +168,58 @@ David J. Spiegelhalter. Surgical Audit: Statistical Lessons from Nightingale and
 left their mark on history through their role in major discoveries
 
 It’s clear in the academic literature that Tufte is very influential, but his work is really that of a critic - pointing out what he believes are good and bad designs - rather than evidence-based recommendations, hence why his views are so heavily debated.
+
+Schwabish - 2022 - data ink ratio is often criticised.
+
+Graphical integrity
+Lie factor
+Data density index - number of numbers plotted per square inch
+Chartjunk - data -ink ratio
+Perceptual distortion - also discussed in Wainer
+
+It encourages an intuition-based perspective. Without tufts training in statistical, there is a danger that conclusions may be wrong
+
+Wainer highlights a paper with very low Data density - suggesting that prose would work just as well - in fact, I would argue that this is the most memorable example in the paper. 
+
+In Tufte’s view, “Lie factors greater than 1.05 or less than 0.95 indicate substantial distortion far beyond minor inaccuracies in plotting.”
+
+Arbitrary rules about the use of tables over graphs, based on the number of observations (see Spence and Lewandowsky, 1991). But this experiment shows that for all but the simplest proportion judgement tasks, graphs are more effective. Also, Tufte doesn’t like pie charts, but this exerpeiment shows that they can be effective.
+
+Stock and Behrens - midgap plots one of Tufte’s designs - which use empty space for interquartile range, result in inaccurate impressions. Tufte suggests maximally efficient designs ‘within reason’ - vague - empirical research can demonstrate specifically what is and isn’t reasonable.
+
+Tversky (1997) suggests that the inclusion of redundant features can minimise error, aesthetic preferences drive demand for minimalism
+
+Feldman Stewart - no empirical foundation for Tufte’s guidance. Data ink ratio doesn’t take into account human process (Charbris and Kosslyn)
+
+Data ink - Gillan & Richman (1994) - minimalist versions of bar charts harder to interpret - sometimes minimising data ink is good, but sometimes not - more nuance needed. 
+
+van Wijk (2005) - tufte’s recommendations can be seen as useful, but quantitative guidelines might be more valuable. 
+
+examples of chartjunk from Wilkinson (2005): “3D bar charts, pseudorealism, and pictographs”
+
+Wilkinson (2005) - Tufte has been commended for his graphics, but minimalist design doesn’t correspond to physhological theory
+
+Kosslyn (1985) - Tufte’s recommendation to keep only the essential data ink is vague and easily prone to misuse - axis labels are required to interpret numerical values and differences between values. 
+
+Tufte may be right on the basic principles of design (proportional correspondence), but unhelpful when it comes to design choices. 
+
+Tufte proposes innovative solutions for removing extraneous elements, such as gridlines. Big contribution is the notion that representations of numbers can be distorted without being directly illegal. The notion of *lie* factor drives home the point that such a technique is in practice deceptive. 
+
+He has many well-founded ideas, but in attempting to distill them down to such basic principles, a lot of his own nuance is lost and misunderstanding is generated. 
+
+ Tufte’s work was backed up by a suite of examples, and therefore his principles might describe common features of various successful visualiastions, but not necessary apply as a definitive rule for all visualisations (Kindlmann and Scheidegger)
+
+Kennedy et al. (2016) - note the poential rhetorical rhetorical contributions of minimalist designs - giving the effect of a simple, unbiased message.
+
+Tufte (2001) has advocated against unnecessary markings, labelling them ‘chart-junk’. Testing this classification, Bateman et al. (2010) compared minimalistic charts to vivid cartoon-like graphics with significant embellishments (Figure 4). There were no differences in immediate interpretation accuracy or short-term (5 minute) recall. Recall after 2-3 weeks was also better for embellished charts than for minimalistic charts. This suggests that more complex charts are not necessarily more difficult to understand. 
+
+
+mixed evidence for the harm caused by 3D bars - Shah and Hoeffner - 
+
+Tufte’s ideas about how to diagnose *susbtantial* distortion are based on speculation (<95% >105% ) - Beattie and Jones
+
+Peebles and Cheng (2003) - some of the graphs he recommended don’t always result in the best performance. 
+
+Use of rhetorical devices is seen as anthitehical to tufte’s approach (Heyer et al., 2020)
+
+O. Inbar, N. Tractinsky, and J. Meyer. Minimalism in information visualization: Attitudes towards maximizing the data-ink ratio. In Proceedings of the 14th European Conference on Cognitive Ergonomics: Invent! Explore!, ECCE ’07, pp. 185–188. ACM, New York, NY, USA, 2007. doi: 10.1145/1362550.1362587
