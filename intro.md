@@ -14,7 +14,9 @@ This thesis examines one specific aspect of viewers’ interpretations of data v
 
 ## The Quality of Evidence on Data Visualisations
 
-Regrettably, our understanding of how people interpret data visualisations (and subsequent guidance) is built on shaky foundations. Some received wisdom has not been empirically tested at all, other claims have been discredited or confirmed only recently (Kosara, 2016). Consequently, it is not always clear where evidence ends and opinion starts; intuition and unsubstantiated statements make for “visualisation folklore” (Correll, 2022, pg. 3). For example, there is mixed evidence regarding the harm caused by ‘chart junk’ (i.e., visual embellishments, Franconeri et al. 2021). However, its deprecation is superficially attractive, appealing to aesthetic judgements and ‘common sense’, so it persists (Kosara, 2016). Rigorous data visualisation research is required to fill gaps in knowledge and generate a reliable evidence-base.
+Our understanding of how people interpret data visualisations (and subsequent guidance) is built on shaky foundations. Some received wisdom has not been empirically tested at all, other claims have been discredited or confirmed only recently (Kosara, 2016). Consequently, it is not always clear where evidence ends and opinion starts; intuition and unsubstantiated statements make for “visualisation folklore” (Correll, 2022, pg. 3). 
+
+
 
 Visualisation research takes many forms. Studies on data visualisation have employed a range of techniques, including controlled experiments, usability tests, interviews, observations, and case studies, and have focused variously on perception, cognition, exploratory data analysis, and user experience (Lam et al., 2011). Experimental psychology studies on data visualisation are particularly valuable because they generate fundamental evidence on *how* visualisations are interpreted. Conversely, research focused on visualisation design which fails to consider human interpretation does not produce the same type of generalisable knowledge. Inadequate best practice recommendations indicate insufficient understanding of psychological mechanisms. However, progress can be slow, since theories about cognitive and perceptual processes are built through cumulative work (Chen et al., 2020). Psychological research confers benefits in the form of related empirical work, alongside established methods and theories (Correll, 2022; Rensink, 2021).
 
@@ -163,63 +165,29 @@ It is necessary to acknowledge that the history of data visualistion is rather s
 
 There is no guarantee that a well-received visualisation unanimously employs effective practices. Hans Rosling’s presentations (), which used animated visualisations of global health data, illustrate this. Research conducted subsequently reveals variation in the value of his different techniques. These hugely popular presentations included verbal explanations of complex animated graphics, delivered with enthusiasm and a dynamic stage presence. Empirical research using Rosling’s talks as stimuli demonstrates that his narration facilitates comprehension of data visualisations (Obie et al., 2019). However, the same study found that it has no effect on memory and can elicit concerns about trustworthiness. Another study found that ~*equivalent*~ static versions of the animated data visualisations improved understanding, but the animated versions were more popular (Robertson et al., 2008). Furthermore, these designs also employed variable dot sizes in scatterplots, which can lead to perceptual biases (Anderson et al., 2021; Hong et al., 2021). With so many variables involved in these talks, more research is required to understand the components of effective storytelling with data visualisations (Kosara and Mackinlay, 2013). Rosling’s contributions, in particular his pioneering use of narrative visualisation and his concern for intelligibility, should not be overlooked. Despite this, insight into the effectiveness of specific visualisation practices is best acquired through systematic study. 
 
-Robertson, G., Fernandez, R., Fisher, D., Lee, B. and Stasko, J. (2008) Effectiveness of animation in trend visualization. IEEE Transactions on Visualization and Computer Graphics 14(6): 1325–1332. 
-David J. Spiegelhalter. Surgical Audit: Statistical Lessons from Nightingale and Codman. Journal of the Royal Statistical Society. Series A (Statistics in Society), 162(1):45–58, 1999.
 left their mark on history through their role in major discoveries
 
-It’s clear in the academic literature that Tufte is very influential, but his work is really that of a critic - pointing out what he believes are good and bad designs - rather than evidence-based recommendations, hence why his views are so heavily debated.
+## Tufte
 
-Schwabish - 2022 - data ink ratio is often criticised.
+**Statistician Edward Tufte is a source of widely-cited advice on the appropriate design of data visualisations, which is articulated in popular books such as *The Visual Display of Quantitative Information* (Tufte, 1986). One famous contribution is the ‘lie-factor’, which attempts to quantify the degree of misrepresentation in charts that distort data. For example, plotting values using two dimensional images exaggerates differences between values, because perceived size is determined by an image’s entire *area*, not just its *height*. Consequently, in a visualisation that appears to show a decrease of 42 percentage points, dividing by real numerical decrease of 15 percentage points, generates a lie-factor of 2.8, compared to an ideal score of 1. However, Tufte’s criteria proposed for diagnosing *substantial* distortion (less than 0.95 or more than 1.05) are based on speculation, rather than scientific evidence (Beattie and Jones, 2002). In similarly arbitrary guidance, Tufte suggests that a dataset of 20 or fewer observations should be presented in a table, rather than a data visualisation. However, a subsequent empirical experiment revealed that pie charts elicited more accurate responses than tables for proportion judgements involving only three observations (Spence and Lewandowsky, 1991).**
 
-Graphical integrity
-Lie factor
-Data density index - number of numbers plotted per square inch
-Chartjunk - data -ink ratio
-Perceptual distortion - also discussed in Wainer
+**Tufte also advocated for minimalism in the design of data visualisations. His recommendation to maximise the ‘data-ink ratio’ involves maximising the proportion of ink (i.e., pixels) used to depict the data itself and minimising inessential elements. However, this notion is vague and prone to excessive simplicity. Redundant features can serve to minimise error (Tversky, 1997), with ‘redundant’ tick marks on axes required for accurately extracting numerical values (Kosslyn, 1985). The qualifier “within reason” (Tufte, 1986, pg. 96) is an imprecise addition to this guidance, but empirical research can identify where extreme sparseness unnecessarily biases interpretations (Stock and Behrens, 1991, Gillan and Richman, 1994).**
 
-It encourages an intuition-based perspective. Without tufts training in statistical, there is a danger that conclusions may be wrong
+**Consistent with his minimalistic approach, Tufte’s recommendation to eliminate ‘chartjunk’ involves avoiding the use of distracting visual embellishments, which range from excessive gridlines to artistic decoration. However, there is mixed evidence regarding the harm caused by chartjunk (Franconeri et al. 2021).** , However, its deprecation is superficially attractive, appealing to aesthetic judgements and ‘common sense’, so it persists (Kosara, 2016). 
+
+However, its deprecation is superficially attractive, appealing to aesthetic judgements and ‘common sense’, so it persists (Kosara, 2016). 
+
+# Commentary
+
+**Tufte’s critics argue that his recommendations for minimalistic designs do not account for human cognitive processing (Wilkinson, 2005; Chabris and Kosslyn, 2005). He has been criticised for failing to support his claims with empirical evidence (Feldman-Stewart et al., 2000).** Instead, his work was backed up by a suite of examples. Therefore his principles might describe common features of various successful visualisations, but not necessary apply as a definitive rule for all visualisations (Kindlmann and Scheidegger). **Rigorous data visualisation research is required to fill gaps in knowledge and generate a reliable evidence-base.**
 
 Wainer highlights a paper with very low Data density - suggesting that prose would work just as well - in fact, I would argue that this is the most memorable example in the paper. 
 
-In Tufte’s view, “Lie factors greater than 1.05 or less than 0.95 indicate substantial distortion far beyond minor inaccuracies in plotting.”
-
-Arbitrary rules about the use of tables over graphs, based on the number of observations (see Spence and Lewandowsky, 1991). But this experiment shows that for all but the simplest proportion judgement tasks, graphs are more effective. Also, Tufte doesn’t like pie charts, but this exerpeiment shows that they can be effective.
-
-Stock and Behrens - midgap plots one of Tufte’s designs - which use empty space for interquartile range, result in inaccurate impressions. Tufte suggests maximally efficient designs ‘within reason’ - vague - empirical research can demonstrate specifically what is and isn’t reasonable.
-
-Tversky (1997) suggests that the inclusion of redundant features can minimise error, aesthetic preferences drive demand for minimalism
-
-Feldman Stewart - no empirical foundation for Tufte’s guidance. Data ink ratio doesn’t take into account human process (Charbris and Kosslyn)
-
-Data ink - Gillan & Richman (1994) - minimalist versions of bar charts harder to interpret - sometimes minimising data ink is good, but sometimes not - more nuance needed. 
-
-van Wijk (2005) - tufte’s recommendations can be seen as useful, but quantitative guidelines might be more valuable. 
-
-examples of chartjunk from Wilkinson (2005): “3D bar charts, pseudorealism, and pictographs”
-
-Wilkinson (2005) - Tufte has been commended for his graphics, but minimalist design doesn’t correspond to physhological theory
-
-Kosslyn (1985) - Tufte’s recommendation to keep only the essential data ink is vague and easily prone to misuse - axis labels are required to interpret numerical values and differences between values. 
-
-Tufte may be right on the basic principles of design (proportional correspondence), but unhelpful when it comes to design choices. 
-
-Tufte proposes innovative solutions for removing extraneous elements, such as gridlines. Big contribution is the notion that representations of numbers can be distorted without being directly illegal. The notion of *lie* factor drives home the point that such a technique is in practice deceptive. 
-
-He has many well-founded ideas, but in attempting to distill them down to such basic principles, a lot of his own nuance is lost and misunderstanding is generated. 
-
- Tufte’s work was backed up by a suite of examples, and therefore his principles might describe common features of various successful visualiastions, but not necessary apply as a definitive rule for all visualisations (Kindlmann and Scheidegger)
-
 Kennedy et al. (2016) - note the poential rhetorical rhetorical contributions of minimalist designs - giving the effect of a simple, unbiased message.
-
-Tufte (2001) has advocated against unnecessary markings, labelling them ‘chart-junk’. Testing this classification, Bateman et al. (2010) compared minimalistic charts to vivid cartoon-like graphics with significant embellishments (Figure 4). There were no differences in immediate interpretation accuracy or short-term (5 minute) recall. Recall after 2-3 weeks was also better for embellished charts than for minimalistic charts. This suggests that more complex charts are not necessarily more difficult to understand. 
-
-
+van Wijk (2005) - tufte’s recommendations can be seen as useful, but quantitative guidelines might be more valuable. 
+examples of chartjunk from Wilkinson (2005): “3D bar charts, pseudorealism, and pictographs”
 mixed evidence for the harm caused by 3D bars - Shah and Hoeffner - 
-
-Tufte’s ideas about how to diagnose *susbtantial* distortion are based on speculation (<95% >105% ) - Beattie and Jones
-
 Peebles and Cheng (2003) - some of the graphs he recommended don’t always result in the best performance. 
-
-Use of rhetorical devices is seen as anthitehical to tufte’s approach (Heyer et al., 2020)
+Use of rhetorical devices is seen as anthetical to tufte’s approach (Heyer et al., 2020)
 
 O. Inbar, N. Tractinsky, and J. Meyer. Minimalism in information visualization: Attitudes towards maximizing the data-ink ratio. In Proceedings of the 14th European Conference on Cognitive Ergonomics: Invent! Explore!, ECCE ’07, pp. 185–188. ACM, New York, NY, USA, 2007. doi: 10.1145/1362550.1362587
