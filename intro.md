@@ -16,13 +16,13 @@ This thesis examines one specific aspect of viewers’ interpretations of data v
 
 Our understanding of how people interpret data visualisations (and subsequent guidance) is built on shaky foundations. Some received wisdom has not been empirically tested at all, other claims have been discredited or confirmed only recently (Kosara, 2016). Consequently, it is not always clear where evidence ends and opinion starts; intuition and unsubstantiated statements make for “visualisation folklore” (Correll, 2022, pg. 3). 
 
-Statistician Edward Tufte is a source of widely-cited advice on the design of data visualisations, which is articulated in popular books such as *The Visual Display of Quantitative Information* (Tufte, 1986). One famous contribution is the ‘lie-factor’, which attempts to quantify the degree of misrepresentation in charts that distort data. For example, plotting values using two dimensional images exaggerates differences between values, because perceived size is determined by an image’s entire *area*, not just its *height*. Consequently, in a visualisation that appears to show a decrease of 42 percentage points, dividing by real numerical decrease of 15 percentage points, generates a lie-factor of 2.8, compared to an ideal score of 1. However, Tufte’s criteria proposed for diagnosing *substantial* distortion (less than 0.95 or more than 1.05) are based on speculation, rather than scientific evidence (Beattie and Jones, 2002). In similarly arbitrary guidance, Tufte suggests that a dataset of 20 or fewer observations should be presented in a table, rather than a data visualisation. However, a subsequent empirical experiment revealed that pie charts elicited more accurate responses than tables for proportion judgements involving only three observations (Spence and Lewandowsky, 1991).
+Statistician Edward Tufte is a source of widely-cited advice on the design of data visualisations, which he articulates in popular books such as *The Visual Display of Quantitative Information* (Tufte, 1986). One famous contribution is the ‘lie-factor’, which attempts to quantify the degree of misrepresentation in charts that distort data. For example, plotting values using two dimensional images exaggerates differences between values, because perceived size is determined by an image’s entire *area*, not just its *height*. Consequently, in a visualisation that appears to show a decrease of 42 percentage points, dividing by real numerical decrease of 15 percentage points, generates a lie-factor of 2.8, compared to an ideal score of 1. However, Tufte’s criteria proposed for diagnosing *substantial* distortion (less than 0.95 or more than 1.05) are based on speculation, rather than scientific evidence (Beattie and Jones, 2002). In similarly arbitrary guidance, Tufte suggests that a dataset of 20 or fewer observations should be presented in a table, rather than a data visualisation. However, a subsequent empirical experiment revealed that pie charts elicited more accurate responses than tables for proportion judgements involving only three observations (Spence and Lewandowsky, 1991).
 
-Tufte also advocated for minimalism in the design of data visualisations. His recommendation to maximise the ‘data-ink ratio’ involves maximising the proportion of ink (i.e., pixels) used to depict the data itself and minimising inessential elements. However, this notion is vague and prone to excessive simplicity. Redundant features can serve to minimise error (Tversky, 1997), with ‘redundant’ tick marks on axes required for accurately extracting numerical values (Kosslyn, 1985). The qualifier “within reason” (Tufte, 1986, pg. 96) is an imprecise addition to this guidance, but empirical research can identify where extreme sparseness unnecessarily biases interpretations (Stock and Behrens, 1991, Gillan and Richman, 1994).
+Tufte also advocated for minimalism in the design of data visualisations. His recommendation to maximise the ‘data-ink ratio’ involves maximising the proportion of ink (i.e., pixels) used to depict the data itself and minimising inessential elements (Tufte, 1986). However, this notion is vague and prone to excessive simplicity. Redundant features can serve to minimise error (Tversky, 1997), with ‘redundant’ tick marks on axes required for accurately extracting numerical values (Kosslyn, 1985). The qualifier “within reason” (Tufte, 1986, pg. 96) is an imprecise addition to this guidance, but empirical research can identify where extreme sparseness unnecessarily biases interpretations (Stock and Behrens, 1991, Gillan and Richman, 1994).
 
-Consistent with his minimalistic approach, Tufte’s recommendation to eliminate ‘chartjunk’ involves avoiding the use of distracting visual embellishments, which range from excessive gridlines to artistic decoration. However, there is mixed evidence regarding the harm caused by chartjunk (Franconeri et al. 2021). However, condemning ‘chartjunk’ remains popular, not just on aesthetic grounds, but also due to the rhetorical qualities of minimalist designs, which imply a straightforward, unbiased presentation of data (Kosara, 2016; Kennedy et al., 2016).
+Consistent with his minimalistic approach, Tufte’s recommendation to eliminate ‘chartjunk’ involves avoiding the use of distracting visual embellishments, which range from excessive gridlines to artistic decoration (Tufte, 1986). However, there is mixed evidence regarding the harm caused by chartjunk (Franconeri et al. 2021). However, condemning ‘chartjunk’ remains popular, not just on aesthetic grounds, but also due to the rhetorical qualities of minimalist designs, which imply a straightforward, unbiased presentation of data (Kosara, 2016; Kennedy et al., 2016).
 
-Researchers argue that Tufte’s recommendations for minimalistic designs do not account for human cognitive processing (Wilkinson, 2005; Chabris and Kosslyn, 2005).  Furthermore, he has been criticised for failing to support his claims with empirical evidence (Feldman-Stewart et al., 2000). Instead, his guidance is underpinned by a large collection of example visualisations taken from various sources. Therefore, Tufte’s principles might assist in describing common features of successful visualisations, rather than serving as definitive rules (Kindlmann and Scheidegger, 2014). Rigorous data visualisation research is required to fill gaps in knowledge and generate a reliable evidence-base.
+Researchers argue that Tufte’s recommendations for minimalistic designs do not account for human cognitive processing (Wilkinson, 2005; Chabris and Kosslyn, 2005).  Furthermore, he has been criticised for failing to support his claims with empirical evidence (Feldman-Stewart et al., 2000). Instead, his guidance is underpinned by a large collection of example visualisations taken from various sources. Therefore, Tufte’s principles might assist in describing common features of some successful visualisations, rather than serving as definitive rules (Kindlmann and Scheidegger, 2014). Rigorous data visualisation research is required to fill gaps in knowledge and generate a reliable evidence-base.
 
 ## Robust Data Visualisation Research
 
@@ -118,36 +118,26 @@ Finally, Chapter 6 presents a synthesis of this empirical work, alongside a disc
 
 ## Data Visualisation Types
 
-Developing data visualisations for any given dataset involves a range of options regarding *which* visualisations to choose. There is no one way to present a dataset. Even before considering more nuanced designed choices, the format of a visualisation is an important consideration. This can also be considered a design choice. There is no exhaustive list, but I will outline some common ones here.  - 
-This has been influential in the development of Protovis (Stolte et al., 2002), which became Tableau, ggplot2 (Wickham, 2010), D3 (Bostock et al., 2011), Vega-Lite (Satyanarayan et al., 2017). Several tools have been influenced by the grammar of graphics and have extended these ideas.
+There is no *one* way to represent a dataset visually. Developing a data visualisation involves making a large number of design choices, which can culminate in vastly different results. Chart ‘types’ (e.g., bar chart, pie chart, line chart) offer an easy way to categorise the broad format of a visualisation. However, these categorisations do not reflect the way that data visualisations function, both in terms of how they are constructed and how they are interpreted. The ‘Grammar of Graphics’ (Wilkinson, 1999) offers an alternative approach. This a system for formally defining visualisations in terms of their underlying structure. As a *grammar*, rather than a taxonomy, it was developed in order to express the *composition* of any data visualisation through six components (Wilkinson, 2005). *Elements* describe both the *aesthetic attributes* which visually encode values (e.g., position, size, hue, transparency), and the *geometries* which represent those values (e.g., point, line). *Coordinate systems* describe the canvas used for representing values. For example, Cartestian coordinates use the recognisable vertical and horizontal dimensions associated with bar charts, polar coordinates use the circular mapping associated with pie charts, map projections use a cartographic mapping associated with world maps. The other components of the Grammar of Graphics are the *data* used, *variable transformations* (e.g., mean, sum, rank), *scale transformations* (e.g., linear scale, logarithmic scale) and guides (e.g., axes, colour legends). 
 
-Wilkinson (1999)
-Major contribution is that statistics could be described through a grammar rather than choosing a named example from a finite list.
-A system for formally defining visualisations
-Expressing the components of a visualisation
-Coherently describing the specification behind a visualisation
+This system allows for efficient and consistent characterisation of different visualisation formats. For example, bar charts and dot plots both use the same aesthetic attribute (position) to encode values, but differ in their geometry (bar versus dot). 
+
+Specification
+Composition
 Construction
-through understanding the different characteristics - in a comprehensive manner - not just encoding types, but coordinate systems, etc.
-Involves a set of components that make up a visualisation
-Flexible - recognising how minor changes don’t need an entire restructuring - e.g. bar chart to line chart. - can describe a wide range
-expresses a visualisation as  the correspondence between variables in a dataset and visual properties. 
-Modular structure - components are combined
-Efficiently charaterise visualisations, including historical examples. 
-System that can reflect the underlying structure of a visualiastion
-Not a taxonomy - goes beyond charts to think about ‘graphics’. A charting library does not possess the same type of structure.
-Describes the interaction between components
-Reveals the common ground between different types of charts (Wilkinson, 2012)
-aesthetic features draws upon Bertin’s work (1967)
-general theory draws upon Bertin’s system (1967)
-aesthetic features are what transform a set of number into something that can be perceived.
-Six components:
-The most obvious one is aesthetic attributes (e.g., size, shape, hue, transparency), but also involves guides (e.g., legends and axes), coordinate system (polar vs. cartesian), and transformations which are performed on the variables themselves (e.g. ranking) or on scales (e.g. logarithm).
 
 Bars - for example - 
-Line - for example, a time series on 
+Dot plot - for example, a time series on 
 Pie  - for example, proportion of xxx
 Colour - for example, a choropleth map may show spatial variation. 
-how can I introduce this - encodings? 
+
+The components are combined in a modular manner. 
+Flexible - recognising how minor changes don’t need an entire restructuring - e.g. bar chart to line chart. - can describe a wide range
+Reveals the common ground between different types of charts (Wilkinson, 2012)
+
+
+
+This has been influential in the development of Protovis (Stolte et al., 2002), which became Tableau, ggplot2 (Wickham, 2010), D3 (Bostock et al., 2011), Vega-Lite (Satyanarayan et al., 2017). Several tools have been influenced by the grammar of graphics and have extended these ideas.
 
 ## Defaults
 
@@ -172,5 +162,4 @@ It is necessary to acknowledge that the history of data visualistion is rather s
 ~*When considering famous data visualisations, both historical and contemporary, it is important not to be distracted by their notoriety/prestige/reputation, not to develop a false sense of insight, not to take what is not provided.*~ The effectiveness of these designs is undeniable, given their demonstrable influence. However, whilst these examples illustrate that visualisations *can* be extremely effective, case studies alone do not provide insight into *why* they are effective. The history of data visualisation reveals the power of visualisations in communication, rather than the principles of good design. Speculation about potential positive attributes is not a reliable source of knowledge. This illustrates the importance of studying data visualisations from a scientific perspective.
 
 There is no guarantee that a well-received visualisation unanimously employs effective practices. Hans Rosling’s presentations (), which used animated visualisations of global health data, illustrate this. Research conducted subsequently reveals variation in the value of his different techniques. These hugely popular presentations included verbal explanations of complex animated graphics, delivered with enthusiasm and a dynamic stage presence. Empirical research using Rosling’s talks as stimuli demonstrates that his narration facilitates comprehension of data visualisations (Obie et al., 2019). However, the same study found that it has no effect on memory and can elicit concerns about trustworthiness. Another study found that ~*equivalent*~ static versions of the animated data visualisations improved understanding, but the animated versions were more popular (Robertson et al., 2008). Furthermore, these designs also employed variable dot sizes in scatterplots, which can lead to perceptual biases (Anderson et al., 2021; Hong et al., 2021). With so many variables involved in these talks, more research is required to understand the components of effective storytelling with data visualisations (Kosara and Mackinlay, 2013). Rosling’s contributions, in particular his pioneering use of narrative visualisation and his concern for intelligibility, should not be overlooked. Despite this, insight into the effectiveness of specific visualisation practices is best acquired through systematic study. 
-
 
