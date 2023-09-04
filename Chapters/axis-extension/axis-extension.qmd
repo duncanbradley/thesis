@@ -28,6 +28,7 @@ library(patchwork)
 library(insight)
 library(knitr)
 library(magick)
+library(ggridges)
 set.seed(45789)
 ```
 
@@ -375,9 +376,33 @@ We conducted analysis using R [@r_core_team_r_2022] (version 4.2.1). Linear mixe
 #| fig-cap: The distribution of visual analogue scale ratings in response to default and extended axis limits. Each circle represents a participant's response to an individual bar chart.
 e1 %>%
   ggplot(aes(x = slider.response, y = cond)) +
-  geom_jitter(width = 0,
-              height = 0.2,
-              alpha = 0.1) +
+  geom_density_ridges(scale = 0.5, 
+                      colour = "grey", 
+                      alpha = 0,
+                      jittered_points = T,
+                      position = position_raincloud(height = 0.2),
+                      point_alpha = 0.15,
+                      point_colour = "grey"
+                      ) +
+    stat_binline(binwidth=0.015, 
+                 scale = 0.7, 
+                 alpha = 1,
+                 fill = "grey",
+                 lwd = 5)  +
+  geom_boxplot(outlier.shape=NA,
+                 width = 0.08,
+                 colour = "white",
+                 fill = "white",
+                 alpha = 0,
+                 lwd = 1,
+                 position = position_nudge(y=-.15)) +
+      geom_boxplot(outlier.shape=NA,
+                 width = 0.08,
+                 colour = "black",
+                 fill = "white",
+                 alpha = 0.7,
+                 lwd = 0.5,
+                 position = position_nudge(y=-.15)) +
   scale_y_discrete(breaks = c("extend", "default"),
                    labels = c("Extended\nAxis Limit", "Default\nAxis Limit")) + 
   labs(title = "Experiment 1",
@@ -512,10 +537,43 @@ denom_labs <- c("Denominator Present in Text",
 names(denom_labs) <- c("pres", "abs")
 
 e2 %>%
-  ggplot(aes(x = mag_slider.response, y = axis)) +
-  geom_jitter(width = 0,
-              height = 0.2,
-              alpha = 0.1) +
+  ggplot(aes(x = mag_slider.response, 
+             y = axis)) +
+    geom_density_ridges(scale = 0.2,
+                      colour = "green", 
+                      alpha = 1,
+                      jittered_points = T,
+                      position = position_raincloud(height = 0.2),
+                      point_alpha = 0.1,
+                      point_colour = "grey"
+                      ) +
+  #geom_density_ridges(aes(height = stat(density)),
+  #                    stat = "density",
+  #                    scale = 0.2,
+  #                    colour = "red", 
+  #                    fill = "blue",
+  #                    alpha = 0,
+  #                    ) +
+  #geom_density() +
+  #stat_binline(binwidth=0.03, 
+  #             scale = 0.7, 
+  #             alpha = 1,
+  #             fill = "grey",
+  #             lwd = 5)  +
+  geom_boxplot(outlier.shape=NA,
+                 width = 0.08,
+                 colour = "white",
+                 fill = "white",
+                 alpha = 0,
+                 lwd = 1,
+                 position = position_nudge(y=-.15)) +
+      geom_boxplot(outlier.shape=NA,
+                 width = 0.03,
+                 colour = "black",
+                 fill = "white",
+                 alpha = 0.7,
+                 lwd = 0.5,
+                 position = position_nudge(y=-.15)) +
   scale_y_discrete(limits = c("extend", "default"),
                    labels = c("Extended\nAxis Limit", "Default\nAxis Limit")) + 
   labs(title = "Experiment 2 - Magnitude Ratings",
@@ -527,7 +585,7 @@ e2 %>%
     minor_breaks = c()) + 
   facet_wrap(vars(denominator), ncol = 1, labeller = labeller(denominator = denom_labs)) +
   theme_minimal(base_size = 16) +
-  theme(aspect.ratio = 0.45)
+  theme(aspect.ratio = 0.6)
 ```
 
 ```{r}
