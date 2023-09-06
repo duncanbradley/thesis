@@ -37,6 +37,7 @@ book:
     Through experimental research, this thesis reveals how the framing of values within axes informs judgements of their absolute magnitudes. 
     The results provide insight into the cognitive processing of magnitude in data visualisations, wherein context shapes viewers’ inferences. 
     This illustrates how inevitable subjectivity in data visualisation design can influence a data visualisation’s appearance and its message.
+    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
   chapters:
     - index.qmd
     - reproducibility.md
