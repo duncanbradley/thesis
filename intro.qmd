@@ -20,17 +20,33 @@ library(patchwork)
 
 ## Introduction
 
-When communicating with words, metaphors help convey ideas. When communicating with numbers, data visualisations perform a similar role. For example, a list of numbers can allude to an upwards trend, but representing those numbers *as* visual phenomena facilitates comprehension.
+### Introduction
 
-Whilst metaphors are evocative, data visualisations afford *precision*. Thus, in a line chart plotting an upward trend, the pattern depicted corresponds to the *exact* nature of the increase. The human visual system's sensitivity to this systematic depiction makes data visualisation a powerful tool: presenting a different pattern would elicit a different mental representation.
+Data visualisations help people make sense of numbers. Whilst a list of numbers may allude to an upwards trend, presenting those numbers *as* visual phenomena can aid interpretation. A data visualisation systematically depicts the precise numerical values, facilitating mental processing of this information. 
 
-Broadly, data visualisations facilitate mental processing of numerical information. As *external* representations of data, they reduce perceptual and cognitive burdens in interpretation (Scaife and Rogers, 1996). Data visualisations provide efficiency and clarity, which supports pattern-recognition and reasoning.
+As *external* representations of data, visualisations reduce perceptual and cognitive burdens in interpretation (Scaife and Rogers, 1996). By imparting efficiency and clarity, they support pattern-recognition and reasoning. However, a single dataset can be depicted in numerous ways, and different designs can vary widely in their effectiveness (Franconeri et al., 2021). Thus, data visualisation’s strength can also be its vulnerability. Outsourcing cognitive processes to a graphical depiction leaves a viewer at the mercy of the chosen method of visual representation. Thus, understanding successful design is crucial.
 
-However, a single dataset may be depicted in numerous ways, and can vary widely in their effectiveness (Franconeri et al., 2021). Thus, data visualisation's strength can also be its vulnerability. Outsourcing cognitive processes to a graphical depiction leaves a viewer at the mercy of the chosen method of visual representation. Thus, understanding successful design is crucial.
+The effectiveness of data visualisations can be defined in many ways, encompassing their various objectives, which include informing, persuading, engaging and promoting retention (Bertini et al., 2020). However, in general, successful data visualisations will convey pertinent information in a visually- and cognitively-comprehensible manner (Macklinay, 1986; van Wijk, 2005). Failing to meet these criteria risks misleading viewers, which is antithetical to the purpose of data visualisation. Therefore, knowledge of human factors in visualisation is vital for ensuring charts, graphs, and maps achieve their potential.
 
-The effectiveness of data visualisations can be defined in many ways, encompassing their various objectives, which include informing, persuading, engaging and promoting memorability (Bertini et al., 2020). However, in general, successful data visualisations will convey pertinent information in a visually- and cognitively-comprehensible manner (Macklinay, 1986; van Wijk, 2005). Failing to meet these criteria risks misleading viewers, which is antithetical to the purpose of data visualisation. Understanding human factors in visualisation is therefore crucial for ensuring charts, graphs, and maps achieve their potential.
+### Research Motivation
 
-This thesis examines one specific aspect of viewers' interpretations of data visualisations: how large or small the numbers are. The aim of this work is to demonstrate that data visualisation design affects mental representation of numbers' magnitudes. Through six empirical experiments, I contribute to knowledge on the cognitive mechanisms involved in forming judgements about magnitude in data visualisations. In this chapter, I review related research to provide context for the empirical work conducted in this project, before outlining the structure of the thesis itself.
+Interpreting data in any medium does not involve simply observing numerical values, but rather identifying patterns and making *inferences* about the data. For example, one may notice that values are decreasing rapidly, or that there is substantial variability in the dataset, or that some data is missing. One may also make inferences about how large or small values are. This is an important aspect of understanding data, because the same numerical value can be considered large or small depending on its context.
+
+The BBC radio programme *More or Less*, which examines statistics reported in the news and elsewhere, often addresses this issue. Some figures may instinctively seem large, particularly if they are composed of many digits. However, asking the question ‘Is it a big number?’ considers whether this initial impression is appropriate. For example, the total weight of plastic waste produced by a particular industry may appear large, but may be small when compared to other industries. Alternatively, the total number of people experiencing side effects after a drug may be exactly what it is expected. Context is still required to determine that the first impression was sensible. Although simple, understanding magnitude is crucial for understanding numbers in every situation. 
+
+What about in data visualisations? A tool for conveying information and helping people make sense of numbers. 
+As tools for communicating , what impressions do they usually give?
+How would you design to convey a particuar message?
+Can we make them better at convey magnitude>?
+
+### Aim and Research Questions
+
+### Overview of the Thesis
+
+This thesis examines one specific aspect of viewers’ interpretations of data visualisations: how large or small the numbers are. The aim of this work is to demonstrate that data visualisation design affects mental representation of numbers’ magnitudes. Through six empirical experiments, I contribute to knowledge on the cognitive mechanisms involved in forming judgements about magnitude in data visualisations. In this chapter, I review related research to provide context for the empirical work conducted in this project, before outlining the structure of the thesis itself.
+
+### Contributions
+
 
 ## A Brief History of Data Visualisation
 
