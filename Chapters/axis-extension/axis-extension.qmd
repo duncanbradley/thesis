@@ -29,6 +29,7 @@ library(insight)
 library(knitr)
 library(magick)
 library(ggridges)
+library(report)
 set.seed(45789)
 ```
 
@@ -279,6 +280,20 @@ print_es <- function(x) {ifelse(x<.01, "< .01", paste("=", printnum(x)))}
 ```
 
 ```{r}
+#| label: print-formula
+print_formula <- function(model){
+  model %>%
+    format_formula() %>%
+    str_replace_all(c("formula: " = "",
+                      "mag_slider.response" = "magnitude_rating", 
+                      "con_slider.response" = "confidence_rating",
+                      "slider.response" = "magnitude_rating", 
+                      "cond" = "axis_limit", 
+                      "axis" = "axis_limit"))
+}
+```
+
+```{r}
 #| label: gender-proportions
 gender_e1 <- e1 %>%
     distinct(participant, .keep_all = TRUE) %>% 
@@ -458,6 +473,22 @@ summary_extract(e1_mag_l)
 
 Accounting for differences in data visualisation literacy did not change the significant effect of axis limits: F(`r printnum(e1_mag_l_cond_NumDF)`, `r printnum(e1_mag_l_cond_DenDF)`) = `r printnum(e1_mag_l_cond_F.value)`, p `r printp(e1_mag_l_cond_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_l_cond_Eta2_partial)`.
 
+```{r}
+#| label: e1-lint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e1_mag_lint <- buildmer(slider.response ~ cond*literacy +
+                     (1 + cond | participant) + 
+                     (1 + cond*literacy | item_no),
+                   data = e1)
+
+emtrends(e1_mag_lint, pairwise ~ cond, var = "literacy")
+
+emmip(e1_mag_lint, cond ~ literacy, cov.reduce = range) 
+```
+
+
 ### Discussion
 
 This experiment explored the consequences of including a graphical cue to a denominator value using bar charts' axes. We observed that plotted values' magnitudes were interpreted as smaller when a default axis limit was used, compared to an axis limit equal to the dataset's denominator value. Therefore, assessments of data were biased by the presence or absence of numerical context in bar charts.
@@ -622,7 +653,7 @@ Pairwise comparisons produced using {emmeans} [@lenth_emmeans_2021] revealed tha
 random_str(e2_mag)
 ```
 
-This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information.
+This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information. The model formula was as follows: `r print_formula(e2_mag)`.
 
 ```{r}
 #| label: fig-e2-mag-int
@@ -671,6 +702,24 @@ summary_extract(e2_mag_l)
 ```
 
 Accounting for differences in data visualisation literacy did not change the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`., the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`) or the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`).
+
+
+```{r}
+#| label: e2-mag-lint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_mag_lint <- buildmer(mag_slider.response ~ axis*denominator*literacy +
+                     (1 + axis*denominator | participant) + 
+                     (1 + axis*denominator*literacy | item_no),
+                   data = e2)
+
+emtrends(e2_mag_lint, pairwise ~ axis:denominator, var = "literacy")
+
+emmip(e2_mag_lint, axis:denominator ~ literacy, cov.reduce = range) 
+
+```
+
 
 #### Confidence Ratings
 
