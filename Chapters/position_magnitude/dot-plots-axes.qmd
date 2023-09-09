@@ -737,6 +737,38 @@ summary_extract(E1_sl, "condition1")
 
 We also generated two additional models, to test whether or not the above results could be explained by differences in data visualisation literacy. These models were identical to the above models except for the inclusion of participants' subjective data visualisation literacy scores as an additional fixed effect. Adjusting for participants' data visualisation literacy scores did not eliminate the effects of data points' positions on ratings of the magnitude of data points themselves (z = `r printnum(abs(E1_cl.statistic))`, p `r printp(E1_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_cl.estimate))`, `r print_confint(exp(E1_cl.CI))`) or severity of consequences (z = `r printnum(abs(E1_sl.statistic))`, p `r printp(E1_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_sl.estimate))`, `r print_confint(exp(E1_sl.CI))`).
 
+```{r}
+#| label: E1-clint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# 
+E1_clint <- buildclmm(chance_slider.response ~ condition*literacy + 
+                    (1 + condition | participant) +
+                    (1 + condition*literacy | item_no),
+                  data = E1_tidy)
+
+emtrends(E1_clint, pairwise ~ condition, var = "literacy")
+
+emmip(E1_clint, condition ~ literacy, cov.reduce = range)
+```
+
+```{r}
+#| label: E1-slint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# 
+E1_slint <- buildclmm(severity_slider.response ~ condition*literacy + 
+                    (1 + condition | participant) +
+                    (1 + condition*literacy | item_no),
+                  data = E1_tidy)
+
+emtrends(E1_slint, pairwise ~ condition, var = "literacy")
+
+emmip(E1_slint, condition ~ literacy, cov.reduce = range)
+```
+
 #### Discussion
 
 This experiment demonstrates that axis limits, which determine the position of plotted values, influence inferences about data points' magnitudes. Participants rated *the same values* as greater when these values were plotted at high positions, compared to low positions. Even though the charts only displayed data on the chance of negative outcomes occurring, ratings of severity of consequences were also greater when data points were presented at high positions. Accounting for differences in participants' data visualisation literacy did not alter the pattern of results.
@@ -1121,6 +1153,39 @@ summary_extract(E2_sl, "ori1:pos1")
 
 Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E2_cl.statistic))`, p `r printp(E2_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_cl.estimate))`, `r print_confint(rev(1/exp(E2_cl.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E2_sl.statistic))`, p `r printp(E2_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_sl.estimate))`, `r print_confint(rev(1/exp(E2_sl.CI)), conf.int = 0.95)`.
 
+```{r}
+#| label: E2-clint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# 
+E2_clint <- buildclmm(chance_slider.response ~ pos*ori*literacy +
+                        (1 + pos*ori | participant) +
+                        (1 + pos*ori*literacy | item_no),
+                  data = E2_tidy)
+
+emtrends(E2_clint, pairwise ~ pos:ori, var = "literacy")
+
+emmip(E2_clint, pos:ori ~ literacy, cov.reduce = range)
+```
+
+```{r}
+#| label: E2-slint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+# 
+E2_slint <- buildclmm(severity_slider.response ~ pos*ori*literacy +
+                        (1 + pos*ori | participant) +
+                        (1 + pos*ori*literacy | item_no),
+                  data = E2_tidy)
+
+emtrends(E2_slint, pairwise ~ pos:ori, var = "literacy")
+
+emmip(E2_slint, pos:ori ~ literacy, cov.reduce = range)
+```
+
+
 #### Discussion
 
 In E1, when using conventional charts only, we found that displaying data within different axis limits affected magnitude judgements. However, it was unclear whether judgements were based on data points' absolute physical positions, or their relative positions within axis limits, because both would generate similar interpretations. Therefore, in E2, for half of trials, we reversed the mapping of values in physical space, so these two aspects would imply different magnitudes for a given value. [**Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Accounting for differences in participants' data visualisation literacy did not alter the pattern of results.**]{.underline}
@@ -1343,6 +1408,36 @@ summary_extract(E3_sl, "condition1")
 ```
 
 Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E3_cl.statistic))`, p `r printp(E3_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_cl.estimate))`, `r print_confint(rev(1/exp(E3_cl.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E3_sl.statistic))`, p `r printp(E3_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_sl.estimate))`, `r print_confint(rev(1/exp(E3_sl.CI)), conf.int = 0.95)`).
+
+```{r}
+#| label: E3-clint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+E3_clint <- buildclmm(chance_slider.response ~ condition*literacy + 
+                    (1 + condition | participant) +
+                    (1 + condition*literacy | item_no),
+                  data = E3_tidy)
+
+emtrends(E3_clint, pairwise ~ condition, var = "literacy")
+
+emmip(E3_clint, condition ~ literacy, cov.reduce = range)
+```
+
+```{r}
+#| label: E3-slint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+E3_slint <- buildclmm(severity_slider.response ~ condition*literacy + 
+                    (1 + condition | participant) +
+                    (1 + condition*literacy | item_no),
+                  data = E3_tidy)
+
+emtrends(E3_slint, pairwise ~ condition, var = "literacy")
+
+emmip(E3_slint, condition ~ literacy, cov.reduce = range)
+```
 
 #### Discussion
 

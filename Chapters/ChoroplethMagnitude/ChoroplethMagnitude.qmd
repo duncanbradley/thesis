@@ -6,7 +6,7 @@ knitr:
     cache_comments: false
     
 params: 
-  eval_models: false
+  eval_models: true
   
 format:
   docx:
@@ -657,6 +657,18 @@ anova_results(test_int_lit, full_int_lit)
 
 Adding participants' data visualisation literacy as an additional fixed effect did not remove the significant effect of colour legend range: $\chi^2$(`r in_paren(test_range_lit.Df)`) = `r printnum(test_range_lit.Chi)`, p `r printp(test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.range)`. This indicates that differences in data visualisation literacy cannot explain this effect. The numerical label manipulation remained non-significant when accounting for literacy ($\chi^2$(`r in_paren(test_label_lit.Df)`) = `r printnum(test_label_lit.Chi)`, p `r printp(test_label_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.label)`). The interaction remained non-significant when accounting for literacy ($\chi^2$(`r in_paren(test_int_lit.Df)`) = `r printnum(test_int_lit.Chi)`, p `r printp(test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_int_lit.eta.range_label)`). These models employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range.
 
+```{r}
+#| label: part1-lint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+full_lint <- buildmer(slider.response ~ range * label * literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label*literacy | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label * literacy'),
+                       data = passed)
+```
+
+
 ### Part 2: All Participants (N = 165)
 
 #### Colour Legend Ranges and Numerical Labels
@@ -832,6 +844,17 @@ anova_results(both_test_int_lit, both_full_int_lit)
 ```
 
 The same pattern of results was observed when accounting for differences in data visualisation literacy. There was a significant effect of colour legend range ($\chi^2$(`r in_paren(both_test_range_lit.Df)`) = `r printnum(both_test_range_lit.Chi)`, p `r printp(both_test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main_lit.eta.range)`) and no effect of numerical label presence ($\chi^2$(`r in_paren(both_test_label_lit.Df)`) = `r printnum(both_test_label_lit.Chi)`, p `r printp(both_test_label_lit.p, add_equals = TRUE)`), $\eta_p^2$ `r print_es(both_full_main_lit.eta.label)`. The interaction between colour legend range and numerical label presence remained: $\chi^2$(`r in_paren(both_test_int_lit.Df)`) = `r printnum(both_test_int_lit.Chi)`, p `r printp(both_test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_int_lit.eta.range_label)`. These models employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range.
+
+```{r}
+#| label: part2-lint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+both_full_lint <- buildmer(slider.response ~ range * label * literacy +
+                         (1 + range*label | participant) +
+                         (1 + range*label*literacy | item_no),
+                       buildmerControl=list(                         include='slider.response ~ range * label * literacy'),
+                       data = both)
+```
 
 ### Exploratory Analysis
 

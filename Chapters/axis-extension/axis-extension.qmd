@@ -488,7 +488,6 @@ emtrends(e1_mag_lint, pairwise ~ cond, var = "literacy")
 emmip(e1_mag_lint, cond ~ literacy, cov.reduce = range) 
 ```
 
-
 ### Discussion
 
 This experiment explored the consequences of including a graphical cue to a denominator value using bar charts' axes. We observed that plotted values' magnitudes were interpreted as smaller when a default axis limit was used, compared to an axis limit equal to the dataset's denominator value. Therefore, assessments of data were biased by the presence or absence of numerical context in bar charts.
@@ -703,7 +702,6 @@ summary_extract(e2_mag_l)
 
 Accounting for differences in data visualisation literacy did not change the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`., the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`) or the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`).
 
-
 ```{r}
 #| label: e2-mag-lint
 #| eval: !expr params$eval_models
@@ -719,7 +717,6 @@ emtrends(e2_mag_lint, pairwise ~ axis:denominator, var = "literacy")
 emmip(e2_mag_lint, axis:denominator ~ literacy, cov.reduce = range) 
 
 ```
-
 
 #### Confidence Ratings
 
@@ -837,6 +834,21 @@ summary_extract(e2_con_l)
 ```
 
 Accounting for differences in data visualisation literacy did not change the pattern of results. There was a main effect associated with axis limits (F(`r printnum(e2_con_l_axis_NumDF)`, `r printnum(e2_con_l_axis_DenDF)`) = `r printnum(e2_con_l_axis_F.value)`, p `r printp(e2_con_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_axis_Eta2_partial)`) and a main effect associated with denominator information (F(`r printnum(e2_con_l_denominator_NumDF)`, `r printnum(e2_con_l_denominator_DenDF)`) = `r printnum(e2_con_l_denominator_F.value)`, p `r printp(e2_con_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_l_denominator_axis_NumDF)`, `r printnum(e2_con_l_denominator_axis_DenDF)`) = `r printnum(e2_con_l_denominator_axis_F.value)`, p `r printp(e2_con_l_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_axis_Eta2_partial)`.
+
+```{r}
+#| label: e2-con-lint
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
+
+e2_con_lint <- buildmer(con_slider.response ~ axis*denominator*literacy +
+                     (1 + axis*denominator | participant) + 
+                     (1 + axis*denominator*literacy | item_no),
+                   data = e2)
+
+emtrends(e2_con_lint, pairwise ~ axis:denominator, var = "literacy")
+
+emmip(e2_con_lint, axis:denominator ~ literacy, cov.reduce = range) 
+```
 
 ### Discussion
 
