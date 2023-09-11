@@ -45,7 +45,7 @@ library(qwraps2)
 
 ```{r}
 #| label: lazyload-cache
-if (!params$eval_models){ lazyload_cache_dir("ChoroplethMagnitude_cache/pdf") }
+if (!params$eval_models){ lazyload_cache_dir("ChoroplethMagnitude_cache/docx") }
 ```
 
 ```{r}

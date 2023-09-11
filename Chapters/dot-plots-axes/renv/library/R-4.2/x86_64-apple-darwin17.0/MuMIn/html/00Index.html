@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Multi-Model Inference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Multi-Model Inference
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;MuMIn&rsquo; version 1.47.5</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../demo">Code demos</a>.  Use <a href="../../utils/help/demo">demo()</a> to run them.</li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="MuMIn-package.html">MuMIn-package</a></td>
+<td>Multi-model inference</td></tr>
+<tr><td style="width: 25%;"><a href="AICc.html">AICc</a></td>
+<td>Second-order Akaike Information Criterion</td></tr>
+<tr><td style="width: 25%;"><a href="merge.model.selection.html">append.model.selection</a></td>
+<td>Combine model selection tables</td></tr>
+<tr><td style="width: 25%;"><a href="arm.glm.html">arm.glm</a></td>
+<td>Adaptive Regression by Mixing</td></tr>
+<tr><td style="width: 25%;"><a href="arm.glm.html">armWeights</a></td>
+<td>Adaptive Regression by Mixing</td></tr>
+<tr><td style="width: 25%;"><a href="data-Beetle.html">Beetle</a></td>
+<td>Flour beetle mortality data</td></tr>
+<tr><td style="width: 25%;"><a href="std.coef.html">beta.weights</a></td>
+<td>Standardized model coefficients</td></tr>
+<tr><td style="width: 25%;"><a href="BGweights.html">BGWeights</a></td>
+<td>Bates-Granger minimal variance model weights</td></tr>
+<tr><td style="width: 25%;"><a href="bootWeights.html">bootWeights</a></td>
+<td>Bootstrap model weights</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">CAICF</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="data-Cement.html">Cement</a></td>
+<td>Cement hardening data</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coeffs</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="coefplot.html">coefplot</a></td>
+<td>Plot model coefficients</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coefTable</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coefTable.averaging</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coefTable.default</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coefTable.gee</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">coefTable.lme</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="cos2weights.html">cos2Weights</a></td>
+<td>Cos-squared model weights</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">Cp</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="dredge.html">dc</a></td>
+<td>Automated model selection</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">DIC</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="dredge.html">dredge</a></td>
+<td>Automated model selection</td></tr>
+<tr><td style="width: 25%;"><a href="manip-formula.html">expand.formula</a></td>
+<td>Manipulate model formulas</td></tr>
+<tr><td style="width: 25%;"><a href="exprApply.html">exprApply</a></td>
+<td>Apply a function to calls inside an expression</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">gamm-wrapper</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="get.models.html">get.models</a></td>
+<td>Retrieve models from selection table</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">get.response</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">getAllTerms</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">getAllTerms.terms</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">get_call</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="data-GPA.html">GPA</a></td>
+<td>Grade Point Average data</td></tr>
+<tr><td style="width: 25%;"><a href="subset.model.selection.html">has</a></td>
+<td>Subsetting model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">IC</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">ICOMP</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="sumofweights.html">importance</a></td>
+<td>Per-variable sum of model weights</td></tr>
+<tr><td style="width: 25%;"><a href="jackknifeWeights.html">jackknifeWeights</a></td>
+<td>Jackknifed model weights</td></tr>
+<tr><td style="width: 25%;"><a href="loo.html">loo</a></td>
+<td>Leave-one-out cross-validation</td></tr>
+<tr><td style="width: 25%;"><a href="loo.html">loo.default</a></td>
+<td>Leave-one-out cross-validation</td></tr>
+<tr><td style="width: 25%;"><a href="loo.html">loo.lm</a></td>
+<td>Leave-one-out cross-validation</td></tr>
+<tr><td style="width: 25%;"><a href="ICs.html">Mallows' Cp</a></td>
+<td>Various information criteria</td></tr>
+<tr><td style="width: 25%;"><a href="merge.model.selection.html">merge.model.selection</a></td>
+<td>Combine model selection tables</td></tr>
+<tr><td style="width: 25%;"><a href="model.sel.html">mod.sel</a></td>
+<td>model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="model.avg.html">model.avg</a></td>
+<td>Model averaging</td></tr>
+<tr><td style="width: 25%;"><a href="model.avg.html">model.avg.default</a></td>
+<td>Model averaging</td></tr>
+<tr><td style="width: 25%;"><a href="model.avg.html">model.avg.model.selection</a></td>
+<td>Model averaging</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">model.names</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="model.sel.html">model.sel</a></td>
+<td>model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="model.sel.html">model.sel.default</a></td>
+<td>model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="model.sel.html">model.sel.model.selection</a></td>
+<td>model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="model.selection.object.html">model.selection.object</a></td>
+<td>Description of Model Selection Objects</td></tr>
+<tr><td style="width: 25%;"><a href="MuMIn-package.html">MuMIn</a></td>
+<td>Multi-model inference</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">MuMIn-gamm</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">MuMIn-model-utils</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="supported-classes.html">MuMIn-models</a></td>
+<td>List of supported models</td></tr>
+<tr><td style="width: 25%;"><a href="nested.html">nested</a></td>
+<td>Identify nested models</td></tr>
+<tr><td style="width: 25%;"><a href="r.squaredLR.html">null.fit</a></td>
+<td>Likelihood-ratio based pseudo-R-squared</td></tr>
+<tr><td style="width: 25%;"><a href="par.avg.html">par.avg</a></td>
+<td>Parameter averaging</td></tr>
+<tr><td style="width: 25%;"><a href="std.coef.html">partial.sd</a></td>
+<td>Standardized model coefficients</td></tr>
+<tr><td style="width: 25%;"><a href="pdredge.html">pdredge</a></td>
+<td>Automated model selection using parallel computation</td></tr>
+<tr><td style="width: 25%;"><a href="get.models.html">pget.models</a></td>
+<td>Retrieve models from selection table</td></tr>
+<tr><td style="width: 25%;"><a href="coefplot.html">plot.averaging</a></td>
+<td>Plot model coefficients</td></tr>
+<tr><td style="width: 25%;"><a href="plot.model.selection.html">plot.model.selection</a></td>
+<td>Visualize model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="predict.averaging.html">predict.averaging</a></td>
+<td>Predict method for averaged models</td></tr>
+<tr><td style="width: 25%;"><a href="model.avg.html">print.averaging</a></td>
+<td>Model averaging</td></tr>
+<tr><td style="width: 25%;"><a href="dredge.html">print.model.selection</a></td>
+<td>Automated model selection</td></tr>
+<tr><td style="width: 25%;"><a href="QAIC.html">QAIC</a></td>
+<td>Quasi AIC or AICc</td></tr>
+<tr><td style="width: 25%;"><a href="QAIC.html">QAICc</a></td>
+<td>Quasi AIC or AICc</td></tr>
+<tr><td style="width: 25%;"><a href="QIC.html">QIC</a></td>
+<td>QIC and quasi-Likelihood for GEE</td></tr>
+<tr><td style="width: 25%;"><a href="QIC.html">QICu</a></td>
+<td>QIC and quasi-Likelihood for GEE</td></tr>
+<tr><td style="width: 25%;"><a href="QIC.html">quasiLik</a></td>
+<td>QIC and quasi-Likelihood for GEE</td></tr>
+<tr><td style="width: 25%;"><a href="r.squaredGLMM.html">r.squaredGLMM</a></td>
+<td>Pseudo-R-squared for Generalized Mixed-Effect models</td></tr>
+<tr><td style="width: 25%;"><a href="r.squaredGLMM.html">r.squaredGLMM.merMod</a></td>
+<td>Pseudo-R-squared for Generalized Mixed-Effect models</td></tr>
+<tr><td style="width: 25%;"><a href="r.squaredLR.html">r.squaredLR</a></td>
+<td>Likelihood-ratio based pseudo-R-squared</td></tr>
+<tr><td style="width: 25%;"><a href="merge.model.selection.html">rbind.model.selection</a></td>
+<td>Combine model selection tables</td></tr>
+<tr><td style="width: 25%;"><a href="manip-formula.html">simplify.formula</a></td>
+<td>Manipulate model formulas</td></tr>
+<tr><td style="width: 25%;"><a href="stackingWeights.html">stackingWeights</a></td>
+<td>Stacking model weights</td></tr>
+<tr><td style="width: 25%;"><a href="std.coef.html">std.coef</a></td>
+<td>Standardized model coefficients</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdize</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdize.data.frame</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdize.default</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdize.formula</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdize.logical</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="stdize.html">stdizeFit</a></td>
+<td>Standardize data</td></tr>
+<tr><td style="width: 25%;"><a href="subset.model.selection.html">subset.model.selection</a></td>
+<td>Subsetting model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="sumofweights.html">sum.of.weights</a></td>
+<td>Per-variable sum of model weights</td></tr>
+<tr><td style="width: 25%;"><a href="sumofweights.html">sw</a></td>
+<td>Per-variable sum of model weights</td></tr>
+<tr><td style="width: 25%;"><a href="model-utils.html">tTable</a></td>
+<td>Model utility functions</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">uGamm</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">updateable</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="updateable.html">updateable2</a></td>
+<td>Make a function return updateable result</td></tr>
+<tr><td style="width: 25%;"><a href="dredge.html">V</a></td>
+<td>Automated model selection</td></tr>
+<tr><td style="width: 25%;"><a href="Weights.html">Weights</a></td>
+<td>Akaike weights</td></tr>
+<tr><td style="width: 25%;"><a href="Weights.html">Weights&lt;-</a></td>
+<td>Akaike weights</td></tr>
+<tr><td style="width: 25%;"><a href="subset.model.selection.html">[.model.selection</a></td>
+<td>Subsetting model selection table</td></tr>
+<tr><td style="width: 25%;"><a href="subset.model.selection.html">[[.model.selection</a></td>
+<td>Subsetting model selection table</td></tr>
+</table>
+</div></body></html>

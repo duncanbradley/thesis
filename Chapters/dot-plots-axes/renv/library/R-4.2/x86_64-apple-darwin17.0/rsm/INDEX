@@ -1,0 +1,17 @@
+ChemReact               Chemical Reaction Data
+FO                      Response-surface model components
+bbd                     Generate a Box-Behnken design
+ccd                     Generate central-composite designs and
+                        associated building blocks
+ccd.pick                Find a good central-composite design
+codata                  Automobile emissions data
+coded.data              Functions for coded data
+contour.lm              Surface plot(s) of a fitted linear model
+djoin                   Join designs together into a blocked design
+heli                    Paper Helicopter Data
+model.data              Reconstruct data from a linear model
+rsm                     Response-surface regression
+rsm-package             Response-surface analysis
+steepest                Steepest-ascent methods for response surfaces
+varfcn                  Display the scaled variance function for a
+                        design

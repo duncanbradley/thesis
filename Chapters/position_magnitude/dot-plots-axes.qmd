@@ -746,11 +746,12 @@ We also generated two additional models, to test whether or not the above result
 E1_clint <- buildclmm(chance_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
                     (1 + condition*literacy | item_no),
-                  data = E1_tidy)
+                  buildmerControl=list(                         include='chance_slider.response ~ condition*literacy'), 
+                    data = E1_tidy)
 
-emtrends(E1_clint, pairwise ~ condition, var = "literacy")
+emtrends(E1_clint@model, pairwise ~ condition, var = "literacy")
 
-emmip(E1_clint, condition ~ literacy, cov.reduce = range)
+emmip(E1_clint@model, condition ~ literacy, cov.reduce = range)
 ```
 
 ```{r}
@@ -762,11 +763,12 @@ emmip(E1_clint, condition ~ literacy, cov.reduce = range)
 E1_slint <- buildclmm(severity_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
                     (1 + condition*literacy | item_no),
-                  data = E1_tidy)
+                 buildmerControl=list(                         include='severity_slider.response ~ condition*literacy'), 
+                     data = E1_tidy)
 
-emtrends(E1_slint, pairwise ~ condition, var = "literacy")
+emtrends(E1_slint@model, pairwise ~ condition, var = "literacy")
 
-emmip(E1_slint, condition ~ literacy, cov.reduce = range)
+emmip(E1_slint@model, condition ~ literacy, cov.reduce = range)
 ```
 
 #### Discussion
@@ -1155,34 +1157,38 @@ Adjusting for participants' data visualisation literacy scores did not change th
 
 ```{r}
 #| label: E2-clint
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
+#| eval: true
+#| cache: true
+
 
 # 
 E2_clint <- buildclmm(chance_slider.response ~ pos*ori*literacy +
                         (1 + pos*ori | participant) +
                         (1 + pos*ori*literacy | item_no),
-                  data = E2_tidy)
+                  buildmerControl=list(                         include='chance_slider.response ~ pos*ori*literacy'), 
+                      data = E2_tidy)
 
-emtrends(E2_clint, pairwise ~ pos:ori, var = "literacy")
+emtrends(E2_clint@model, pairwise ~ pos:ori, var = "literacy")
 
-emmip(E2_clint, pos:ori ~ literacy, cov.reduce = range)
+emmip(E2_clint@model, pos:ori ~ literacy, cov.reduce = range)
 ```
 
 ```{r}
 #| label: E2-slint
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
+#| eval: true
+#| cache: true
+
 
 # 
 E2_slint <- buildclmm(severity_slider.response ~ pos*ori*literacy +
                         (1 + pos*ori | participant) +
                         (1 + pos*ori*literacy | item_no),
-                  data = E2_tidy)
+                  buildmerControl=list(                         include='severity_slider.response ~ pos*ori*literacy'), 
+                      data = E2_tidy)
 
-emtrends(E2_slint, pairwise ~ pos:ori, var = "literacy")
+emtrends(E2_slint@model, pairwise ~ pos:ori, var = "literacy")
 
-emmip(E2_slint, pos:ori ~ literacy, cov.reduce = range)
+emmip(E2_slint@model, pos:ori ~ literacy, cov.reduce = range)
 ```
 
 
@@ -1411,32 +1417,34 @@ Adjusting for participants' data visualisation literacy scores did not change th
 
 ```{r}
 #| label: E3-clint
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
+#| eval: true
+#| cache: true
 
 E3_clint <- buildclmm(chance_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
                     (1 + condition*literacy | item_no),
-                  data = E3_tidy)
+                  buildmerControl=list(                         include='chance_slider.response ~ condition*literacy'), 
+                    data = E3_tidy)
 
-emtrends(E3_clint, pairwise ~ condition, var = "literacy")
+emtrends(E3_clint@model, pairwise ~ condition, var = "literacy")
 
-emmip(E3_clint, condition ~ literacy, cov.reduce = range)
+emmip(E3_clint@model, condition ~ literacy, cov.reduce = range)
 ```
 
 ```{r}
 #| label: E3-slint
-#| eval: !expr params$eval_models
-#| cache: !expr params$eval_models
+#| eval: true
+#| cache: true
 
 E3_slint <- buildclmm(severity_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
                     (1 + condition*literacy | item_no),
-                  data = E3_tidy)
+                  buildmerControl=list(                         include='severity_slider.response ~ condition*literacy'), 
+                    data = E3_tidy)
 
-emtrends(E3_slint, pairwise ~ condition, var = "literacy")
+emtrends(E3_slint@model, pairwise ~ condition, var = "literacy")
 
-emmip(E3_slint, condition ~ literacy, cov.reduce = range)
+emmip(E3_slint@model, condition ~ literacy, cov.reduce = range)
 ```
 
 #### Discussion

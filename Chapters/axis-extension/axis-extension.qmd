@@ -3,7 +3,7 @@ title: "Axis Limits and Denominator Information Influence Magnitude Ratings in B
 editor: visual
 
 params: 
-  eval_models: false
+  eval_models: true
     
 execute:
   echo: false
@@ -481,11 +481,12 @@ Accounting for differences in data visualisation literacy did not change the sig
 e1_mag_lint <- buildmer(slider.response ~ cond*literacy +
                      (1 + cond | participant) + 
                      (1 + cond*literacy | item_no),
+                     buildmerControl=list(                         include='slider.response ~ cond*literacy'),
                    data = e1)
 
-emtrends(e1_mag_lint, pairwise ~ cond, var = "literacy")
+emtrends(e1_mag_lint@model, pairwise ~ cond, var = "literacy")
 
-emmip(e1_mag_lint, cond ~ literacy, cov.reduce = range) 
+emmip(e1_mag_lint@model, cond ~ literacy, cov.reduce = range) 
 ```
 
 ### Discussion
@@ -710,11 +711,12 @@ Accounting for differences in data visualisation literacy did not change the sig
 e2_mag_lint <- buildmer(mag_slider.response ~ axis*denominator*literacy +
                      (1 + axis*denominator | participant) + 
                      (1 + axis*denominator*literacy | item_no),
-                   data = e2)
+                   buildmerControl=list(                         include='mag_slider.response ~ axis*denominator*literacy'),
+                     data = e2)
 
-emtrends(e2_mag_lint, pairwise ~ axis:denominator, var = "literacy")
+emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy")
 
-emmip(e2_mag_lint, axis:denominator ~ literacy, cov.reduce = range) 
+emmip(e2_mag_lint@model, axis:denominator ~ literacy, cov.reduce = range) 
 
 ```
 
@@ -843,11 +845,12 @@ Accounting for differences in data visualisation literacy did not change the pat
 e2_con_lint <- buildmer(con_slider.response ~ axis*denominator*literacy +
                      (1 + axis*denominator | participant) + 
                      (1 + axis*denominator*literacy | item_no),
-                   data = e2)
+                   buildmerControl=list(                         include='con_slider.response ~ axis*denominator*literacy'),
+                     data = e2)
 
-emtrends(e2_con_lint, pairwise ~ axis:denominator, var = "literacy")
+emtrends(e2_con_lint@model, pairwise ~ axis:denominator, var = "literacy")
 
-emmip(e2_con_lint, axis:denominator ~ literacy, cov.reduce = range) 
+emmip(e2_con_lint@model, axis:denominator ~ literacy, cov.reduce = range) 
 ```
 
 ### Discussion
