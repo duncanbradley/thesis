@@ -1,28 +1,42 @@
-# Computational Methodology
+# Experimental and Computational Methodology
 
-In the following section, I will discuss how this approach *influences* the way that I am generating knowledge
-By setting out this, I am being transparent about the fact that this is *one* approach, and that other approaches could generate a different type of knowledge
-I use this as an opportunity to reflect on the fact that the decisions I have taken have are not neutral - they impose a particular perspective
-A method inevitably gives us a narrow view on something rather than giving us the full picture
-Provide explicit recognition that there are implications of my approach that I have *chosen
+The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with no single approach to generating knowledge (Correll et al., 2022). In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and justification for my choices. In addition, by explicitly discussing these decisions, I recognise that they inevitably influence my findings. It is necessary to acknowledge that this methodology is one of many, each carrying their own implications. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
 
 ## Experimental Psychology
 
-necessarily contrived stimuli
+Choosing a method is about the match between the research question and the most suitable type of data. 
+
+Lam et al., (2012) - wide range of methods used in visualisation research, including *controlled experiments*. Acknowledge that in order to control for differences in existing knowledge, use of abstract topics/data, which reduces ecological validity, 
+
+
+necessarily contrived stimuli and task can give a *postmodern* flavour, where the task and stimuli and mindset of the experiment doesn’t necessarily reflect the reality under investigation (Mayrhofer et al., 2021). An experiment is a contstructed, stimulated version of reality. Responses are not the same as the cognitive processes of interest. 
 Necessary trade-off between insight/scope/precision/ecological validity
-Online studies
-Lam et al., (2012)
-Kosara (2016) - framework
-Abdul-Rahman et al. (2020)
-Chen et al. (2020)
-Correll et al. (2022)
-Suh et al., (2021)
-Rensink (2021)
-Correll (2019) ethical dimensions
-positivist
 
-but bias isn’t bad
+Kosara (2016) - systematic study useful to cover more ground
+Abdul-Rahman et al. (2020) - lots of cross-over between experimental psychology and visualiastion - the contributions to visualisation research have been well-documented. There is an inherent link between visualisation and psychology - so discovering the causal relationships behind cognitive processes and visualisation is valuable.  
+Chen et al. (2020) - hypothesis-driven work. Not confirmed or denied through a single study - long term view, becuase the focus is on generalisable knowledge about psychology. 
+Leary (1980) - psychology went from just studying behaviour, to studying cognition. Experimental methods make the study of mind and brain a science. 
+Barbosa et al. (2021) - Experiments provide valuable insight into cognitive processes. The value of simplicity, such that only the crucial variables are manipulated in order to address the research question. Overly complex designs can produce rich data, but require appropriate analysis tecniques and can increase the chance of false positives. ‘Nuisance factors’ which reduce experimental control can be avoided by using artificial stimuli. 
+Mayrhofer et al. (2021) - A scientific, positivist approach underlies experimental psychology. 
 
+Systematic empirical study by expressing everything in numerical terms, quantitative hypothesis testing. 
+
+The purpose of the experiment is to test for causal associations between factors of interest and outcomes of interest.
+Whilst the actual causation cannot be directly observed, controlling for all other factor permits the researcher to attribute the change in an outcome to whatever was manipulated. 
+Operationalisation
+
+Evaluate the influence of each variable by exploring it in isolation
+Most variables kept the same
+
+Rodd (2019) - Online research offers wider range of participants, and large numbers, 
+
+Fully scripting an experiment and collecting all relevant data provides a computational record of the entire process of data collection. 
+
+Standardised way of delivering instructions, 
+
+Barbosa et al. (2021) - contains references for scientific approaches
+
+-22 
 ## Analysis Methodology
 
 becuase of the type of data i’m collecting, analysis is necessary 
@@ -116,3 +130,5 @@ In experimental psychology, sharing stimuli and experiment scripts is another im
 This chapter has discussed ~*how a lack of reproducibility in published research can reduce credibility, and has revealed how various approaches can increase reproducibility*~. At the heart of these recommendations is the need to comprehensively share resources and embrace technological solutions. Making research code and raw data openly available helps an opaque analysis process to become transparent. When an entire paper’s results can be fully reproduced by an independent third party, they can be thoroughly verified.
 
 For each empirical study in this thesis, I share raw data alongside code packaged in a dynamic document. This provides transparency, illustrating exactly how the study’s findings were generated. In addition, creating Docker containers for each study allows the analyses to be reproduced in their original computational environment. This comprehensive approach is uncommon in research on data visualisation, therefore this work serves as an example of how research in this field may be made more reproducible.
+
+Transparent about epistemological approach.
