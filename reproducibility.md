@@ -1,42 +1,21 @@
 # Experimental and Computational Methodology
 
-The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with no single approach to generating knowledge (Correll et al., 2022). In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and justification for my choices. In addition, by explicitly discussing these decisions, I recognise that they inevitably influence my findings. It is necessary to acknowledge that this methodology is one of many, each carrying their own implications. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
+The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with multiple approaches for generating knowledge (Correll et al., 2022). In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and justification for my choices. In addition, by explicitly discussing these decisions, I recognise that they inevitably influence my findings. It is necessary to acknowledge that this methodology is one of many, each carrying their own implications. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
 
 ## Experimental Psychology
 
-Choosing a method is about the match between the research question and the most suitable type of data. 
+Selecting a research method involves considering the most suitable type of data for addressing the research question. To understand how data visualisation design choices affect interpretations of absolute magnitude, testing hypotheses using controlled experiments is highly appropriate. This allows for systematic measurement of viewers’ judgements and isolates the graphical features of interest from extraneous features. Controlling for the influence of other variables helps establish a causal link between the manipulation and cognition (Barbosa et al., 2021). Experimental methods are well-established in visualisation research for generating robust empirical evidence on the effects of design choices (Abdul-Rahman et al., 2019). 
 
-Lam et al., (2012) - wide range of methods used in visualisation research, including *controlled experiments*. Acknowledge that in order to control for differences in existing knowledge, use of abstract topics/data, which reduces ecological validity, 
+The purpose of psychological studies on data visualisation is to understand viewers’ interpretations. However, latent variables cannot be interrogated directly, and must be ‘operationalised’ to enable analysis. That is, interpretations of the magnitude of numerical values are captured through measurable responses which correspond to underlying mental representations. Thus, experimental methods rely on dependent variables which faithfully reflect actual cognition. Designing experiments also requires compromise between ecological validity (the degree to which the experiment reflects a realistic scenario) and experimental control (the degree to which the researcher dictates aspects of the experiment). In this thesis, I have strived for realism where possible, but have prioritised experimental control in order to ensure the robustness of findings. In visualisation research in particular, it is often necessary to control for differences in participants’ knowledge by presenting artificial or abstract data (Lam et al., 2012). Whilst qualitative studies (e.g., in-depth interviews), may produce richer data than experiments, they do not provide the precision required to systematically evaulate biases in interpretation. 
 
+All experiments in this thesis were conducted online using Prolific.co, a website for recruiting research participants. This provided access to a diverse group of participants, which contrasts with the relative homogeniety of a student population. Furthermore, online experiments provide the ability to easily collect data from a large number of participants, which reduces the chance of generating false positives during analysis. In addition to using large participant samples, employing multiple trials per condition helps establish robust effects which are not vulnerable to the particular characteristics a single trial. Similarly, generating generalisable knowledge about mental processing of visualisations often requires multiple experiments. A single experiment is typically not sufficient for an understanding of cognitive factors in interpretation (Chen et al., 2020). 
 
-necessarily contrived stimuli and task can give a *postmodern* flavour, where the task and stimuli and mindset of the experiment doesn’t necessarily reflect the reality under investigation (Mayrhofer et al., 2021). An experiment is a contstructed, stimulated version of reality. Responses are not the same as the cognitive processes of interest. 
-Necessary trade-off between insight/scope/precision/ecological validity
+This is a largely positivist approach; concerned with verifiable results which can be generalised beyond the experiment to describe a set of general principles of cognition. 
 
-Kosara (2016) - systematic study useful to cover more ground
-Abdul-Rahman et al. (2020) - lots of cross-over between experimental psychology and visualiastion - the contributions to visualisation research have been well-documented. There is an inherent link between visualisation and psychology - so discovering the causal relationships behind cognitive processes and visualisation is valuable.  
-Chen et al. (2020) - hypothesis-driven work. Not confirmed or denied through a single study - long term view, becuase the focus is on generalisable knowledge about psychology. 
-Leary (1980) - psychology went from just studying behaviour, to studying cognition. Experimental methods make the study of mind and brain a science. 
-Barbosa et al. (2021) - Experiments provide valuable insight into cognitive processes. The value of simplicity, such that only the crucial variables are manipulated in order to address the research question. Overly complex designs can produce rich data, but require appropriate analysis tecniques and can increase the chance of false positives. ‘Nuisance factors’ which reduce experimental control can be avoided by using artificial stimuli. 
-Mayrhofer et al. (2021) - A scientific, positivist approach underlies experimental psychology. 
+However, there is also arguably a *postmodern* quality to highly controlled experiments (Mayrhofer et al., 2021). 
 
-Systematic empirical study by expressing everything in numerical terms, quantitative hypothesis testing. 
+That is, an experiment with contrived tasks and stimuli does not precisely reflect the reality under investigation . It is important to recognise that a psychological experiment is a constructed, stimulated version of reality, and responses are not the same as the cognitive processes of interest. The findings are no less valid but must be considered appropriately. 
 
-The purpose of the experiment is to test for causal associations between factors of interest and outcomes of interest.
-Whilst the actual causation cannot be directly observed, controlling for all other factor permits the researcher to attribute the change in an outcome to whatever was manipulated. 
-Operationalisation
-
-Evaluate the influence of each variable by exploring it in isolation
-Most variables kept the same
-
-Rodd (2019) - Online research offers wider range of participants, and large numbers, 
-
-Fully scripting an experiment and collecting all relevant data provides a computational record of the entire process of data collection. 
-
-Standardised way of delivering instructions, 
-
-Barbosa et al. (2021) - contains references for scientific approaches
-
--22 
 ## Analysis Methodology
 
 becuase of the type of data i’m collecting, analysis is necessary 
@@ -44,8 +23,6 @@ statistical modelling - Barr
 buildmer
 
 ## Reproducibility
-
-Reproducibility also fits in with this quantitative, positivist approach. 
 
 In recent years, the typical model for conducting and publishing scientific research has been intensely scrutinised. This has prompted serious concern about whether reported findings can be trusted. For example, Ioannidis (2005) estimated that published research may consist of more falsehoods than true assertions. Researchers also report that in Psychology, many studies are not equipped to generate reliable results (Fraley and Vazire, 2014) and the literature is afflicted with a high rate of false-positive findings (Simmons et al., 2011). A large-scale project performing replications of psychology experiments revealed that the evidence for many established conclusions was not as strong as initially reported (Open Science Collaboration, 2015). A survey of over 1500 researchers found widespread perception that science was facing a ‘crisis’ (Baker, 2016). However, this recognition also has provoked concerted efforts to address these problems in research, through the Open Science movement (Cruwell et al., 2019).
 
