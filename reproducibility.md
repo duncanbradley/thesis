@@ -10,17 +10,19 @@ The purpose of psychological studies on data visualisation is to understand view
 
 All experiments in this thesis were conducted online using Prolific.co, a website for recruiting research participants. This provided access to a diverse group of participants, which contrasts with the relative homogeniety of a student population. Furthermore, online experiments provide the ability to easily collect data from a large number of participants, which reduces the chance of generating false positives during analysis. In addition to using large participant samples, employing multiple trials per condition helps establish robust effects which are not vulnerable to the particular characteristics a single trial. Similarly, generating generalisable knowledge about mental processing of visualisations often requires multiple experiments. A single experiment is typically not sufficient for an understanding of cognitive factors in interpretation (Chen et al., 2020). 
 
-This is a largely positivist approach; concerned with verifiable results which can be generalised beyond the experiment to describe a set of general principles of cognition. 
-
-However, there is also arguably a *postmodern* quality to highly controlled experiments (Mayrhofer et al., 2021). 
-
-That is, an experiment with contrived tasks and stimuli does not precisely reflect the reality under investigation . It is important to recognise that a psychological experiment is a constructed, stimulated version of reality, and responses are not the same as the cognitive processes of interest. The findings are no less valid but must be considered appropriately. 
+This is a largely positivist approach, concerned with verifiable results which can be generalised beyond the experiment to describe a cognitive mechanism. However, there is also arguably a *postmodern* quality to highly controlled experiments (Mayrhofer et al., 2021). That is, a controlled experiment can be considered a constructed, stimulated setting, with contrived tasks and stimuli that do not precisely reflect the ‘reality’ under investigation (i.e., spontaneous judgements of authentic data visualisations). Recognising this does not invalidate conclusions from experimental studies, but requires that generalisation of results is treated with caution. 
 
 ## Analysis Methodology
 
-becuase of the type of data i’m collecting, analysis is necessary 
-statistical modelling - Barr
-buildmer
+Large quantative datasets from controlled experiments require appropriate statistical analysis. 
+Judd 2017 - 
+Singmann and kellen (2019) - 
+Meteyard and Davis (2020) - 
+modelling - Barr vs. Bates
+buildmer as a solution to this debate
+
+Effect sizes to indiciate the size of the effect - not just binary signicance - Wilkinson (1999) - ref in Gross and Müller (2023)
+
 
 ## Reproducibility
 
