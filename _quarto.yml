@@ -13,7 +13,7 @@ book:
     Data visualisations can convey many different features of a dataset. 
     One such feature is the absolute magnitude of plotted values: how large or small they are. 
     This thesis investigates cognitive mechanisms involved in judging absolute magnitude in data visualisations, revealing the effects of design choices on interpretation. 
-    Three experimental studies explore participants’ subjective judgements of magnitude in a variety of visualisation formats.
+    Three sets of experiments explore participants’ subjective judgements of magnitude in a variety of visualisation formats.
     
     The first set of experiments in this thesis (three experiments) explores the role of axis limits in informing magnitude judgements. 
     Manipulating axis limits in dot plots causes the same data points to appear near the top or bottom of the visualisation. 
@@ -40,8 +40,9 @@ book:
     Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
   chapters:
     - index.qmd
+    - intro.qmd
     - reproducibility.md
-    - Chapters/dot-plots-axes/dot-plots-axes.qmd
+    - Chapters/position_magnitude/dot-plots-axes.qmd
     - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
     - Chapters/axis-extension/axis-extension.qmd
     - conclusion.md
