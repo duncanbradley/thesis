@@ -55,43 +55,7 @@ This work does not suggest that conveying absolute magnitude will be appropriate
 
 Eliciting judgements using rating scales is an established method for measuring interpretations of visualisations (see Correll et al. 2020, Witt, 2019, Yang et al. 2021, Pandey et al. 2015,  Stone et al. 2017, 2018, Okan et al. 2018, Okan et al. 2020, Sandman et al. 1994). The measures used in this thesis sought to ensure that participants’ responses reflected message-level interpretations. Therefore, all scales captured ratings pertaining to the information presented, not simply the graphical elements. However, future work employing decision-making measures would complement this work. First, this would provide insight into how the use of axis limits in conveying magnitude influences *behaviour*. Second, this would more effectively illustrate the strength of effects observed. Measuring responses in terms of well-defined units (e.g., monetary value) can capture the magnitude of bias in a more concrete manner. Other experiments in the field offer inspiration for effective and comprehensible decision-making tasks (e.g., Kale et al. 2020, Bancilhon et al., 2019). 
 
-———————————————————————————————————————————————————————————————————
-
-Future work could also investigate further the different cues to context in interpretations of absolute magnitude. This would provide a more detailed account of the cognitive mechanisms. 
-
-When people are aware of the entire possible range of values, what are the relative contributions of numerical and comparative cues?
-Possible: Even when they are aware, you are showing them placement within the entire possible range 
-Plausible: This is framing based on an externally defined plausibility. 
-Both provide graphical cues, but the first is much more of a numeric assessment, the second much more of a comparative cue.
-To what extent do the absolute numbers matter, and to what extent are plausible values taken to represent the context?
-The existing studies do not directly examine this issue.
-
-maybe this is all just about plausible values…
-really need to work out the difference between numerically and comparatively 
-let’s say a value appears 30% of the way up the graph because of the denominator
-a value could also appear 30% of the way up becuase of plausible values. 
-Is there a difference?
-in familiar measuremenets and relative frequencies - because these are where they would have knowledge about plausible values.
-How much is the range of plausible values recognised as a cue, compared to the total possible range?
-But if it’s not absolute frequencies then could you even have the entire range of possible values.
-
-Is the point about whether they bring their own conceptions about plausible values? 
-
-Firstly, numerical vs. graphical context one approach to investigating this question would involve testing multiple different axis ranges whilst maintaining the approximate physical positions of data points. This would reveal whether interpretations of magnitude are directly proportional to the range of numerical values on an axis. 
-
-Secondly, the work presented in this thesis investigates axes which display a range of plausible values (dot plots, choropleth maps) and also axes which display the entire range of possible values (bar charts). Directly comparing these similar but distinct cues would reveal… 
-
-Secondly, 
-
-~*rewrite*~ Future work could also investigate the contribution of numerical context when plotting information about familiar measurements and relative frequencies. One approach to investigating this question would involve testing multiple different axis ranges whilst maintaining the approximate physical positions of data points. This would reveal whether interpretations of magnitude are directly proportional to the range of numerical values on an axis. 
-
-*By incorporating a denominator, an axis presents the entire range of possible values, rather than a range of plausible values. Viewers’ inferences about magnitude may differ in these two cases. Denominators may increase awareness of whether plotted values are ~numerically~ high or low, whereas plausible values may increase awareness of whether plotted values are ~comparatively~ high or low, in the context of other relevant magnitudes. Alternatively, viewers may not be sensitive to this difference.*
-
-Different types of magnitude judgements
-
-———————————————————————————————————————————————————————————————————
-
-Furthermore, this thesis focuses on how axis limits inform magnitude judgements, but many other factors may also influence interpretations, from numerical units to prior beliefs. A comprehensive account of the cognitive processing of magnitude in data visualisations will also need to consider additional biases and cognitive mechanisms.
+Future work could also investigate further different cues to context in interpretations of absolute magnitude, to provide a more detailed account of the cognitive mechanisms. There are two subtly different ways in which an axis could influence judgements, which have not been fully distinguished in this thesis. The first cue is the numerical position of a data point on an axis, such that a data point may apear *numerically* large or small. The second cue is the physical location of a data point on an axis, such that a data point may appear *comparatively* large or small. Further experiments could measure the relative contributions of these two cues by manipulating the numerical range of an axis whilst maintaining the approximate physical locations of data points. Experiments could also compare axes which are restricted to plausible values with those displaying the entire range of possible values. These investigations would reveal the degree to which an axis provides context by implying a relevant range of numerical values, versus a purely visual cue. The second experiment in this thesis investigated the role of numerical labels in interpretations of absolute magnitude, and found that these were not used as a cue to magnitude. However, presenting data with unfamilar units prevented participants from considering numerical values in a typical manner. Thus, addressing this question would require presentation of familiar data. Further experiments on the roles of numerical and visual cues would be an important contribution to the understanding of cognitive processing of absolute magnitude in data visualisations. Furthermore, this thesis focuses on how axis limits inform magnitude judgements, but many other factors may also influence interpretations, from numerical units to prior beliefs. A comprehensive account of the cognitive processing of magnitude in data visualisations will also need to consider additional biases and cognitive mechanisms.
 
 An algebraic approach to visualisation design suggests that material changes in data should be reflected accordingly in a visualisation (Kindlmann and Scheidegger, 2014). However, this capacity requires the ability to convey material changes in the *specific aspect* of a dataset of interest. For example, a design supporting comprehension of relative differences may be poorly suited to conveying other messages. This thesis demonstrates that conventional data visualisation formats present an opportunity for communicating an often-overlooked aspect of a dataset: absolute magnitude. Just as adjusting axis limits influences interpretations about absolute magnitude, other design choices may help convey other messages. Graphical cues to other under-explored features of data, such as noise or numerosity, would benefit from future investigation. Developing an understanding of cognitive processes involved in interpreting these features would inform effective design. 
 
