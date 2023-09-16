@@ -1,4 +1,4 @@
-# Postscript to Chapter 5
+# Postscript to Chapter 4 {.unnumbered}
 
 ## Overview
 
@@ -23,9 +23,3 @@ This study also accords with the observation that interpretations of values in c
 ## Relationship to the Study in Chapter 3
 
 The first study in this thesis demonstrated that axis limits affect interpretation of magnitude in dot plots. This second study demonstrates that these findings generalise to a different type of data visualisation: choropleth maps. These results build upon the first study’s observations by demonstrating that the numerical context accompanying data points influences interpretations even when the physical characteristics of the plotted values do not change. This also accords with the first study’s finding that judgements were primarily informed by the relative numerical positions of plotted values, as opposed to their absolute physical positions. Other contributions include demonstrating that this bias occurs when manipulating only one axis limit and when using a horizontal (rather than vertical) colour legend.
-
-## The Research Question for the Next Study
-
-The empirical research conducted in this thesis thus far has demonstrated that interpretations of magnitude are influenced by the numerical context in which plotted values are presented. However, this thesis has not yet explored denominator values, which are another relevant aspect of context for magnitude judgements. Knowledge of a denominator is relevant to judging absolute frequencies. For example, when evaluating a business expense, awareness of the total available budget can provide perspective on the magnitude of the amount spent. Including denominator values in axes is another example of conveying relevant values that do not appear in plotted data. Therefore, the third and final investigation in this thesis explores how this type of contextual information informs interpretations of magnitude in bar charts.
-
-This final study can also assist in understanding how the influence of visualisation design choices on a viewer’s interpretation is affected by their awareness of a dataset’s characteristics. The first study in this thesis observed a relatively small bias in the interpretation of probability values in familiar scenarios. The second study in this thesis observed a relatively large bias in the interpretation of ambiguous pollution measurements. The third and final study in this thesis contains a manipulation of participants’ knowledge about plotted datasets. This provides insight into how knowledge of the numerical context behind plotted data can affect magnitude judgements, in addition to graphical cues.
