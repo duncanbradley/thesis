@@ -6,12 +6,7 @@ Data visualisations can illuminate many aspects of a dataset, from correlations 
 
 ## Research Objectives
 
-The aim of this thesis was to investigate how data visualisation design influences interpretations of the absolute magnitudes of values. This investigation focused on viewers’ *gist*-level representations of data, rather than their comprehension of specific values. I conducted a series of experiments demonstrating that judgements about magnitude are informed by the relative positions of values within axis limits. These studies revealed that graphical cues to context play a role in the processing of how large or small values are.
-
-The objective was to have
-~*various visualisation formats*~
-~*defaults*~
-*~different types of data - relative frequences, absolute frequencies, percentages ~*
+The aim of this thesis was to investigate interpretations of absolute magnitudes in data visualisations. Specifically, this work sought to understand how *axis limits* may inform these judgements, with a focus on viewers’ *gist*-level representations of data, rather than their apprehension of precise values. The experiments were designed to provide insight into the cognitive mechanisms involved in assessing magnitude, exploring how various aspects of presentation which affect the processing of this information (e.g., axis orientation, colour encoding, accompanying information). Exploring various visualisation formats and various types of data yields generalisable findings. In addition, examining conventions and default settings contextualises this work within current design practices.
 
 ## Main Findings
 
@@ -25,7 +20,7 @@ The study in Chapter 5 manipulated axis limits in bar charts. This manipulation 
 
 The stimuli used in these studies reveal different approaches to conveying magnitude using axis limits. *Absolute frequencies* plotted in bar charts (Chapter 3) were associated with denominators, so upper axis limits were intrinsically linked to datasets. Conversely, *measurements* plotted in choropleth maps (Chapter 2) upper axis limits were not determined by denominator values. The *relative frequencies* plotted as percentages in dot plots (Chapter 1) could not be less than 0 or more than 100, so axis limits were subject to logical constraints. Therefore, designers must also consider the type of data at hand when identifying suitable axis limits for data visualisations. What constitutes *context* is not uniform.
 
-Overall, this work provides consistent evidence of the influence of *framing effects* on magnitude judgements in data visualisations. Axes served as a frame of reference biasing the interpretation of numbers, thus mental representation of information was influenced by its presentation (Tversky and Kahneman, 1981; Kahneman, 1992). Furthermore, according to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021). 
+Overall, this work provides consistent evidence of the influence of *framing effects* on magnitude judgements in data visualisations. Axes served as a frame of reference biasing the interpretation of numbers, thus mental representation of information was influenced by its presentation (Tversky and Kahneman, 1981; Kahneman, 1992). Furthermore, according to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).
 
 ### Data Visualisation Literacy
 
