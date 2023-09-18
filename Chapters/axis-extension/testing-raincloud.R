@@ -44,7 +44,7 @@ e2 %>%
                      minor_breaks = c()) + 
   facet_wrap(vars(denominator), ncol = 1, labeller = labeller(denominator = denom_labs)) +
   theme_minimal(base_size = 10) +
-  theme(aspect.ratio = 0.6)
+  theme(aspect.ratio = 0.3)
 
 e1 %>%
   ggplot(aes(x = slider.response, 
