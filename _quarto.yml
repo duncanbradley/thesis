@@ -40,11 +40,17 @@ book:
     Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
   chapters:
     - index.qmd
-    - intro.qmd
+    - literature.qmd
     - reproducibility.md
+    - Chapters/preface1.md
     - Chapters/position_magnitude/dot-plots-axes.qmd
+    - Chapters/postscript1.md
+    - Chapters/preface2.md
     - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+    - Chapters/postscript2.md
+    - Chapters/preface3.md
     - Chapters/axis-extension/axis-extension.qmd
+    - Chapters/postscript3.md
     - conclusion.md
     - references.qmd
 
