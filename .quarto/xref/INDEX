@@ -26,5 +26,32 @@
   },
   "introduction.md": {
     "introduction.html": "ec06b767"
+  },
+  "reproducibility.md": {
+    "reproducibility.html": "2c995f8e"
+  },
+  "related_work.md": {
+    "related_work.html": "1a2cdb70"
+  },
+  "conclusion.md": {
+    "conclusion.html": "2aa61fcf"
+  },
+  "intro.md": {
+    "intro.html": "dec47ee4"
+  },
+  "axis-extension/axis-extension.qmd": {
+    "axis-extension.html": "b15876ed"
+  },
+  "Chapters/axis-extension/axis-extension.qmd": {
+    "axis-extension.html": "f80028e8"
+  },
+  "Chapters/dot-plots-axes/dot-plots-axes.qmd": {
+    "dot-plots-axes.html": "8fdf32ec"
+  },
+  "Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd": {
+    "ChoroplethMagnitude.html": "734e898a"
+  },
+  "Chapters/position_magnitude/dot-plots-axes.qmd": {
+    "dot-plots-axes.html": "af8a2c4a"
   }
 }
