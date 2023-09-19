@@ -1,7 +1,3 @@
----
-bibliography: axis-extension.bib
----
-
 ## General Discussion
 
 Axis limits can be easily manipulated in common data visualisation software, in order to include a visual cue to denominator information. However, these defaults are based on plotted data only, so often omit denominator information. We demonstrate that plotted values' magnitudes were interpreted as smaller for bar charts with axes that extended to the denominator value, rather than those employing default axis settings. The influence of axis limits was particularly large when no denominator information was included in the text accompanying a chart. This provides insight into the cognitive process involved in magnitude judgements, indicating that denominator information is an important aspect in interpreting plotted values in bar charts.

@@ -4,7 +4,7 @@ title: "Magnitude Judgements Are Influenced by Data Points’ Relative Positions
 format: pdf
 
 params: 
-  eval_models: true
+  eval_models: false
 
 knitr:
   opts_chunk: 
@@ -1194,7 +1194,7 @@ emmip(E2_slint@model, pos:ori ~ literacy, cov.reduce = range)
 
 #### Discussion
 
-In E1, when using conventional charts only, we found that displaying data within different axis limits affected magnitude judgements. However, it was unclear whether judgements were based on data points' absolute physical positions, or their relative positions within axis limits, because both would generate similar interpretations. Therefore, in E2, for half of trials, we reversed the mapping of values in physical space, so these two aspects would imply different magnitudes for a given value. [**Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Accounting for differences in participants' data visualisation literacy did not alter the pattern of results.**]{.underline}
+In E1, when using conventional charts only, we found that displaying data within different axis limits affected magnitude judgements. However, it was unclear whether judgements were based on data points' absolute physical positions, or their relative positions within axis limits, because both would generate similar interpretations. Therefore, in E2, for half of trials, we reversed the mapping of values in physical space, so these two aspects would imply different magnitudes for a given value. *Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Accounting for differences in participants' data visualisation literacy did not alter the pattern of results.*
 
 In E2, we replicated the primary finding from E1. In charts with conventional axis orientations, the same data points elicited different magnitude judgements when presented at different positions. These differences were consistent with magnitudes implied by data points' absolute physical positions *and* their relative positions within axis limits. However, in charts with inverted axis orientations, we did not observe the same pattern. Therefore, we can conclude that the interpreting the magnitude of data points presented at distinct physical positions depends on how axes are oriented.
 
@@ -1459,7 +1459,7 @@ Given the use of data visualisation for reliable communication of numerical info
 
 We manipulated the axis limits accompanying plotted data, which affected the numerical context in which data appeared *and* the physical positions of data points.
 
-[**Mention 2x2 here**]{.underline}
+*Mention 2x2 here*
 
 Although a 2x2 experiment produced ambiguous results regarding interpretation of magnitude in charts with inverted y-axes, a followup
 

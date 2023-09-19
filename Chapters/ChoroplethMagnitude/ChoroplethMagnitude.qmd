@@ -6,7 +6,7 @@ knitr:
     cache_comments: false
     
 params: 
-  eval_models: true
+  eval_models: false
   
 format:
   docx:
@@ -21,7 +21,6 @@ execute:
   include: false
     
 bibliography: ChoroplethMagnitude.bib 
-link_citations: true
 ---
 
 ```{r}

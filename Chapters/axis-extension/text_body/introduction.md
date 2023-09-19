@@ -1,7 +1,3 @@
----
-bibliography: axis-extension.bib
----
-
 ## Introduction
 
 The question 'Is it a big number?' is often raised on the BBC radio programme *More or Less* when probing eye-catching statistics. A figure of several million pounds may initially seem large, but may represent a small proportion of total government spending. Awareness of a denominator value can influence judgement of a number's magnitude. In data visualisation, this contextual information can be displayed by extending an axis to accommodate the denominator value. However, this approach is infrequently used, since typical default axis settings are based on plotted data only. In this study, we investigate how these axis limits affect interpretations of how large or small plotted values are.
