@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Duncan Bradley">
+<meta name="author" content="Harvey Schneider">
+<meta name="author" content="Caroline Jay">
+<meta name="author" content="Andrew J. Stewart">
+
+<title>An Investigation Into the Cognitive Processing of Magnitude in Data Visualisations - 4&nbsp; Axis Limits and Denominator Information Influence Magnitude Ratings in Bar Charts</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../conclusion.html" rel="next">
+<link href="../reproducibility.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Axis Limits and Denominator Information Influence Magnitude Ratings in Bar Charts</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">An Investigation Into the Cognitive Processing of Magnitude in Data Visualisations</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reproducibility.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reproducibility</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../axis-extension/axis-extension.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Axis Limits and Denominator Information Influence Magnitude Ratings in Bar Charts</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conclusion.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract"><span class="toc-section-number">5</span>  Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="toc-section-number">6</span>  Introduction</a>
+  <ul class="collapse">
+  <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work"><span class="toc-section-number">6.1</span>  Related Work</a></li>
+  <li><a href="#bibliography-2" id="toc-bibliography-2" class="nav-link" data-scroll-target="#bibliography-2">References</a></li>
+  </ul></li>
+  <li><a href="#experiment-1" id="toc-experiment-1" class="nav-link" data-scroll-target="#experiment-1"><span class="toc-section-number">7</span>  Experiment 1</a>
+  <ul class="collapse">
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1"><span class="toc-section-number">7.1</span>  Introduction</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method"><span class="toc-section-number">7.2</span>  Method</a>
+  <ul class="collapse">
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="toc-section-number">7.2.1</span>  Materials</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design"><span class="toc-section-number">7.2.2</span>  Design</a></li>
+  <li><a href="#participants" id="toc-participants" class="nav-link" data-scroll-target="#participants"><span class="toc-section-number">7.2.3</span>  Participants</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure"><span class="toc-section-number">7.2.4</span>  Procedure</a></li>
+  </ul></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="toc-section-number">7.3</span>  Analysis</a>
+  <ul class="collapse">
+  <li><a href="#magnitude-ratings" id="toc-magnitude-ratings" class="nav-link" data-scroll-target="#magnitude-ratings"><span class="toc-section-number">7.3.1</span>  Magnitude Ratings</a></li>
+  <li><a href="#magnitude-ratings-and-data-visualisation-literacy" id="toc-magnitude-ratings-and-data-visualisation-literacy" class="nav-link" data-scroll-target="#magnitude-ratings-and-data-visualisation-literacy"><span class="toc-section-number">7.3.2</span>  Magnitude Ratings and Data Visualisation Literacy</a></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="toc-section-number">7.4</span>  Discussion</a></li>
+  <li><a href="#bibliography-3" id="toc-bibliography-3" class="nav-link" data-scroll-target="#bibliography-3">References</a></li>
+  </ul></li>
+  <li><a href="#experiment-2" id="toc-experiment-2" class="nav-link" data-scroll-target="#experiment-2"><span class="toc-section-number">8</span>  Experiment 2</a>
+  <ul class="collapse">
+  <li><a href="#introduction-2" id="toc-introduction-2" class="nav-link" data-scroll-target="#introduction-2"><span class="toc-section-number">8.1</span>  Introduction</a></li>
+  <li><a href="#method-1" id="toc-method-1" class="nav-link" data-scroll-target="#method-1"><span class="toc-section-number">8.2</span>  Method</a>
+  <ul class="collapse">
+  <li><a href="#materials-1" id="toc-materials-1" class="nav-link" data-scroll-target="#materials-1"><span class="toc-section-number">8.2.1</span>  Materials</a></li>
+  <li><a href="#design-1" id="toc-design-1" class="nav-link" data-scroll-target="#design-1"><span class="toc-section-number">8.2.2</span>  Design</a></li>
+  <li><a href="#participants-1" id="toc-participants-1" class="nav-link" data-scroll-target="#participants-1"><span class="toc-section-number">8.2.3</span>  Participants</a></li>
+  <li><a href="#procedure-1" id="toc-procedure-1" class="nav-link" data-scroll-target="#procedure-1"><span class="toc-section-number">8.2.4</span>  Procedure</a></li>
+  </ul></li>
+  <li><a href="#analysis-1" id="toc-analysis-1" class="nav-link" data-scroll-target="#analysis-1"><span class="toc-section-number">8.3</span>  Analysis</a>
+  <ul class="collapse">
+  <li><a href="#magnitude-ratings-1" id="toc-magnitude-ratings-1" class="nav-link" data-scroll-target="#magnitude-ratings-1"><span class="toc-section-number">8.3.1</span>  Magnitude Ratings</a></li>
+  <li><a href="#magnitude-ratings-and-data-visualisation-literacy-1" id="toc-magnitude-ratings-and-data-visualisation-literacy-1" class="nav-link" data-scroll-target="#magnitude-ratings-and-data-visualisation-literacy-1"><span class="toc-section-number">8.3.2</span>  Magnitude Ratings and Data Visualisation Literacy</a></li>
+  <li><a href="#confidence-ratings" id="toc-confidence-ratings" class="nav-link" data-scroll-target="#confidence-ratings"><span class="toc-section-number">8.3.3</span>  Confidence Ratings</a></li>
+  <li><a href="#confidence-ratings-and-data-visualisation-literacy" id="toc-confidence-ratings-and-data-visualisation-literacy" class="nav-link" data-scroll-target="#confidence-ratings-and-data-visualisation-literacy"><span class="toc-section-number">8.3.4</span>  Confidence Ratings and Data Visualisation Literacy</a></li>
+  </ul></li>
+  <li><a href="#discussion-1" id="toc-discussion-1" class="nav-link" data-scroll-target="#discussion-1"><span class="toc-section-number">8.4</span>  Discussion</a></li>
+  <li><a href="#bibliography-4" id="toc-bibliography-4" class="nav-link" data-scroll-target="#bibliography-4">References</a></li>
+  </ul></li>
+  <li><a href="#general-discussion" id="toc-general-discussion" class="nav-link" data-scroll-target="#general-discussion"><span class="toc-section-number">9</span>  General Discussion</a>
+  <ul class="collapse">
+  <li><a href="#relationship-to-prior-work" id="toc-relationship-to-prior-work" class="nav-link" data-scroll-target="#relationship-to-prior-work"><span class="toc-section-number">9.1</span>  Relationship to Prior Work</a></li>
+  <li><a href="#implications" id="toc-implications" class="nav-link" data-scroll-target="#implications"><span class="toc-section-number">9.2</span>  Implications</a></li>
+  <li><a href="#limitations-and-future-work" id="toc-limitations-and-future-work" class="nav-link" data-scroll-target="#limitations-and-future-work"><span class="toc-section-number">9.3</span>  Limitations and Future Work</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="toc-section-number">9.4</span>  Conclusion</a></li>
+  <li><a href="#bibliography-5" id="toc-bibliography-5" class="nav-link" data-scroll-target="#bibliography-5">References</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">10</span>  References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Axis Limits and Denominator Information Influence Magnitude Ratings in Bar Charts</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Duncan Bradley </p>
+             <p>Harvey Schneider </p>
+             <p>Caroline Jay </p>
+             <p>Andrew J. Stewart </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="abstract" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Abstract</h1>
+<p>Consider a statistic corresponding to the number of public transport users in a particular town. Gauging whether this number is large or small requires awareness of the total population (the denominator). In data visualisations, an axis extended beyond plotted values can act as a graphical cue to a denominator value, but default axis upper limits (e.g., in ggplot2) are typically based on the highest plotted value. In two experiments (combined N = 350), we explore the influence of default and extended axes on interpretations of the magnitude in bar charts. We also investigate the influence of accompanying denominator information on participants’ assessments. We observe that values plotted using default axes were rated as higher, compared to values plotted using extended axes. The absence of denominator information amplifies the effect of axis limits on judgements. This demonstrates that axes which incorporate denominator values influence interpretations of presented data. Whereas prior work has often focused on judgements of the <em>differences between values</em>, this work contributes to an understanding of how the magnitudes of <em>the values themselves</em> are interpreted by viewers. We also discuss implications for effective design, which involve considering both axis limits and accompanying contextual information.</p>
+</section>
+<section id="introduction" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Introduction</h1>
+<p>The question ‘Is it a big number?’ is often raised on the BBC radio programme <em>More or Less</em> when probing eye-catching statistics. A figure of several million pounds may initially seem large, but may represent a small proportion of total government spending. Awareness of a denominator value can influence judgement of a number’s magnitude. In data visualisation, this contextual information can be displayed by extending an axis to accommodate the denominator value. However, this approach is infrequently used, since typical default axis settings are based on plotted data only. In this study, we investigate how these axis limits affect interpretations of how large or small plotted values are.</p>
+<section id="overview" class="level4" data-number="6.0.0.1">
+<h4 data-number="6.0.0.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">6.0.0.1</span> Overview</h4>
+<p>Across two experiments, we investigate the interpretation of magnitudes in bar charts. We plotted fictitious datasets which contained multiple observations, all with the same denominator values. In the first experiment, we displayed charts with default axes which terminated just above plotted values, or axes which extended to the denominator value specified in accompanying text. Participants rated values’ magnitudes as higher when default axes were used, compared to extended axes. In the second experiment, we manipulated the axis limits, as before, and also the presence of the denominator information in accompanying text. Variation in responses to the two difference axis settings was starker when denominator information was not supplied. This indicates that this information influences the biasing effect of a chart’s appearance.</p>
+</section>
+<section id="related-work" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="related-work"><span class="header-section-number">6.1</span> Related Work</h2>
+<p>A wealth of research demonstrates biases in the interpretation of numbers. A survival rate elicits different judgements of a disease compared to its corresponding mortality rate <span class="citation" data-cites="tversky_framing_1981">(<a href="../references.html#ref-tversky_framing_1981" role="doc-biblioref">Tversky and Kahneman, 1981</a>)</span>, the fat content of a meat product elicits different judgements of the meat compared to its corresponding lean content <span class="citation" data-cites="levin_associative_1987">(<a href="../references.html#ref-levin_associative_1987" role="doc-biblioref">Levin, 1987</a>)</span>. The units used to express the same values (e.g., months vs.&nbsp;years) affect comparisons <span class="citation" data-cites="burson_six_2009 monga_years_2012">(<a href="../references.html#ref-burson_six_2009" role="doc-biblioref">Burson et al., 2009</a>; <a href="../references.html#ref-monga_years_2012" role="doc-biblioref">Monga and Bagchi, 2012</a>)</span> and also interpretations of precision and accuracy <span class="citation" data-cites="zhang_how_2012">(<a href="../references.html#ref-zhang_how_2012" role="doc-biblioref">Zhang and Schwarz, 2012</a>)</span>.</p>
+<p>Various biases in magnitude judgements reveal the importance of accounting for numerical context. Base rate neglect describes difficulty acknowledging population-level characteristics when making judgements about a sample <span class="citation" data-cites="cosmides_are_1996">(<a href="../references.html#ref-cosmides_are_1996" role="doc-biblioref">Cosmides and Tooby, 1996</a>)</span>. Format neglect describes a bias against incorporating set size information when judging percentage formats (top 20%) and numerical formats (top 10, <span class="citation" data-cites="sevilla_format_2018">(<a href="../references.html#ref-sevilla_format_2018" role="doc-biblioref">Sevilla et al., 2018</a>)</span>). Denominator neglect occurs in judgements which overweight numerator information at the expense of denominator information <span class="citation" data-cites="reyna_numeracy_2008">(<a href="../references.html#ref-reyna_numeracy_2008" role="doc-biblioref">Reyna and Brainerd, 2008</a>)</span>. The latter also leads (in part) to large percentages of a small number appearing greater than the <em>numerically equivalent</em> smaller percentages of a larger number <span class="citation" data-cites="li_big_2013">(<a href="../references.html#ref-li_big_2013" role="doc-biblioref">Li and Chapman, 2013</a>)</span>. The general mechanism responsible for these biases is a failure to properly acknowledge numerical context.</p>
+<p>Visualisations can help combat biases. Denominator information becomes visually available when icon arrays present both focal outcomes (e.g., number deceased) <em>and also</em> alternative outcomes (e.g., number survived). Research suggests that the combined array acts as a visual cue to the denominator (e.g., total number at risk), facilitating reasoning. For example, including alternative outcomes in an icon array, and therefore displaying denominator information, reduces denominator neglect, increasing comprehension of relative risk <span class="citation" data-cites="garcia-retamero_who_2010">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>)</span>. Icon arrays displaying both types of outcome are particularly helpful for understanding datasets with unequal denominators, and for individuals with high graph literacy <span class="citation" data-cites="okan_individual_2012">(<a href="../references.html#ref-okan_individual_2012" role="doc-biblioref">Okan et al., 2012</a>)</span>. However, these effects are largest when depicting small probabilities <span class="citation" data-cites="okan_probability_2020">(<a href="../references.html#ref-okan_probability_2020" role="doc-biblioref">Okan et al., 2020</a>)</span>.</p>
+<p>Stacked bar charts function similarly to icon arrays: lower bars represent the focal outcome, upper bar represent the alternative outcome, and their combination represents the denominator. Like icon arrays, stacked bar charts lessen the influence of denominator neglect <span class="citation" data-cites="stone_foregroundbackground_2003">(<a href="../references.html#ref-stone_foregroundbackground_2003" role="doc-biblioref">Stone et al., 2003</a>)</span>. However, denominator information can be displayed in bar charts without using additional stacked bars representing alternative outcomes. Extending an axis to incorporate the denominator value also communicates relevant numerical context. In this case, the blank space between the bars for focal outcomes and the upper axis limit corresponds to the alternative outcomes. Research has demonstrated that bar charts representing alternative outcomes using blank space increase perceptions of risk likelihood compared to those representing alternative outcomes using stacked bars <span class="citation" data-cites="stone_designing_2017">(<a href="../references.html#ref-stone_designing_2017" role="doc-biblioref">Stone et al., 2017</a>)</span>. This research did not examine how presenting <em>denominator information</em> influences interpretation, since identical axis limits were employed across conditions.</p>
+<p>Directly manipulating bar charts’ upper axis limits provides insight into use of this source of denominator information. Bar charts with axes which extended to the denominator value produce more accurate estimates of changes in risk <span class="citation" data-cites="garcia-retamero_who_2010">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>)</span>. This design also elicits decreased ratings of risk perception <span class="citation" data-cites="okan_designing_2018">(<a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span>, though numerical labels reduce this effect. In both studies, accompanying text included the denominator value. These studies demonstrate that extending axes to incorporate denominator values influences interpretation of risk. However, they do not provide specific evidence on how interpretations of <em>plotted values’ magnitudes</em> are affected. <span class="citation" data-cites="garcia-retamero_who_2010">Garcia-Retamero and Galesic (<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">2010</a>)</span> measured risk understanding: how faithfully participants represented the exact numbers displayed. Only assessing comprehension fails to capture individuals’ <em>impressions</em> of plotted information <span class="citation" data-cites="feldman-stewart_further_2007">(<a href="../references.html#ref-feldman-stewart_further_2007" role="doc-biblioref">Feldman-Stewart et al., 2007</a>)</span>. Understanding the ‘gist’ obtained from a visualisation is crucial since this takes precedence over ‘verbatim’ information when making decisions <span class="citation" data-cites="reyna_theory_2008">(<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>. <span class="citation" data-cites="reyna_theory_2008">Reyna (<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">2008</a>)</span> argues that assessing gist requires consideration of how plotted values’ magnitudes are interpreted, since plotted values’ relative differences are only one aspect of a dataset conveyed by a visualisation. Indeed, <span class="citation" data-cites="okan_designing_2018">Okan et al. (<a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">2018</a>)</span> collected magnitude ratings, yet these cannot be examined in isolation, since they were assimilated into a combined measure of perceived risk, along with ratings of the degree of <em>difference between</em> plotted values. Outside the risk communication literature, a substantial body of research has demonstrated that judgements of the difference between values change as a function of axis range <span class="citation" data-cites="pandey_how_2015 witt_graph_2019 correll_truncating_2020 yang_truncating_2021">(<a href="../references.html#ref-correll_truncating_2020" role="doc-biblioref">Correll et al., 2020</a>; <a href="../references.html#ref-pandey_how_2015" role="doc-biblioref">Pandey et al., 2015</a>; <a href="../references.html#ref-witt_graph_2019" role="doc-biblioref">Witt, 2019</a>; <a href="../references.html#ref-yang_truncating_2021" role="doc-biblioref">Yang et al., 2021</a>)</span>. In spite of this, research has neglected the effects of axis range on judgements of the magnitude of <em>the values themselves</em>. This is the focus of experiments presented in this work.</p>
+<p>Various accounts have sought to explain the consequences of including denominator information in visualisations. Depicting denominators may facilitate understanding of part-to-whole relationships, diminishing class-inclusion errors associated with denominator neglect <span class="citation" data-cites="reyna_theory_2008">(<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>. This argument is consistent with Fuzzy Trace Theory, which also predicts the influence of physical attributes in gist representations, such that the appearance of short bars in charts with extended axes may contribute to smaller magnitude judgements <span class="citation" data-cites="reyna_theory_2008">(<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>. Additionally, <span class="citation" data-cites="stone_salience_2018">(<a href="../references.html#ref-stone_salience_2018" role="doc-biblioref">Stone et al., 2018</a>)</span> suggest facilitation of proportional reasoning may be largely responsible for observed effects. Increasing the salience of the denominator in text fails to affect judgements, yet a graphical representation effectively communicates the true scale of the denominator, helping put numerators into perspective.</p>
+<p>Prior work on extending axes, discussed above, did not disclose methods for determining axis limits in charts without denominators. The values used as upper limits appear to be arbitrary. In the present study, we increase ecological validity by employing default axis limits from {ggplot2} <span class="citation" data-cites="wickham_ggplot2_2016">(<a href="../references.html#ref-wickham_ggplot2_2016" role="doc-biblioref">Wickham, 2016</a>)</span>, a popular visualisation tool used in the R programming environment. Furthermore, previous studies’ statistical power and generalisability have been limited by the use of one <span class="citation" data-cites="okan_designing_2018">(<a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span> or two <span class="citation" data-cites="garcia-retamero_who_2010">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>)</span> trials per participant. Our experiments explore a range of scenarios (32 experimental trials per participant). The data presented are also unrelated to risk judgements, the domain of this prior work.</p>
+<section id="open-research-statement" class="level4" data-number="6.1.0.1">
+<h4 data-number="6.1.0.1" class="anchored" data-anchor-id="open-research-statement"><span class="header-section-number">6.1.0.1</span> Open Research Statement</h4>
+<p>Data, analysis code, and pre-registrations are available at osf.io/854uc/.</p>
+</section>
+</section>
+<section id="bibliography-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography-2">References</h2>
+<div id="refs-2" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-burson_six_2009" class="csl-entry" role="doc-biblioentry">
+Burson KA, Larrick RP, Lynch JG. 2009. Six of <span>One</span>, <span>Half</span> <span>Dozen</span> of the <span>Other</span>: <span>Expanding</span> and <span>Contracting</span> <span>Numerical</span> <span>Dimensions</span> <span>Produces</span> <span>Preference</span> <span>Reversals</span>. <em>Psychological Science</em> <strong>20</strong>:1074–1078. doi:<a href="https://doi.org/10.1111/j.1467-9280.2009.02394.x">10.1111/j.1467-9280.2009.02394.x</a>
+</div>
+<div id="ref-correll_truncating_2020" class="csl-entry" role="doc-biblioentry">
+Correll M, Bertini E, Franconeri S. 2020. Truncating the <span>Y</span>-<span>Axis</span>: <span>Threat</span> or <span>Menace</span>?Proceedings of the 2020 <span>CHI</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span>. Honolulu HI USA: ACM. pp. 1–12. doi:<a href="https://doi.org/10.1145/3313831.3376222">10.1145/3313831.3376222</a>
+</div>
+<div id="ref-cosmides_are_1996" class="csl-entry" role="doc-biblioentry">
+Cosmides L, Tooby J. 1996. Are humans good intuitive statisticians after all? <span>Rethinking</span> some conclusions from the literature on judgment under uncertainty. <em>Cognition</em> <strong>58</strong>:1–73. doi:<a href="https://doi.org/10.1016/0010-0277(95)00664-8">10.1016/0010-0277(95)00664-8</a>
+</div>
+<div id="ref-feldman-stewart_further_2007" class="csl-entry" role="doc-biblioentry">
+Feldman-Stewart D, Brundage MD, Zotov V. 2007. Further <span>Insight</span> into the <span>Perception</span> of <span>Quantitative</span> <span>Information</span>: <span>Judgments</span> of <span>Gist</span> in <span>Treatment</span> <span>Decisions</span>. <em>Medical Decision Making</em> <strong>27</strong>:34–43. doi:<a href="https://doi.org/10.1177/0272989X06297101">10.1177/0272989X06297101</a>
+</div>
+<div id="ref-garcia-retamero_who_2010" class="csl-entry" role="doc-biblioentry">
+Garcia-Retamero R, Galesic M. 2010. Who profits from visual aids: <span>Overcoming</span> challenges in people’s understanding of risks. <em>Social Science &amp; Medicine</em> <strong>70</strong>:1019–1025. doi:<a href="https://doi.org/10.1016/j.socscimed.2009.11.031">10.1016/j.socscimed.2009.11.031</a>
+</div>
+<div id="ref-levin_associative_1987" class="csl-entry" role="doc-biblioentry">
+Levin IP. 1987. Associative effects of information framing. <em>Bulletin of the Psychonomic Society</em> <strong>25</strong>:85–86. doi:<a href="https://doi.org/10.3758/BF03330291">10.3758/BF03330291</a>
+</div>
+<div id="ref-li_big_2013" class="csl-entry" role="doc-biblioentry">
+Li M, Chapman GB. 2013. A big fish or a small pond? <span>Framing</span> effects in percentages. <em>Organizational Behavior and Human Decision Processes</em> <strong>122</strong>:190–199. doi:<a href="https://doi.org/10.1016/j.obhdp.2013.07.003">10.1016/j.obhdp.2013.07.003</a>
+</div>
+<div id="ref-monga_years_2012" class="csl-entry" role="doc-biblioentry">
+Monga A, Bagchi R. 2012. Years, <span>Months</span>, and <span>Days</span> versus 1, 12, and 365: <span>The</span> <span>Influence</span> of <span>Units</span> versus <span>Numbers</span>. <em>Journal of Consumer Research</em> <strong>39</strong>:185–198. doi:<a href="https://doi.org/10.1086/662039">10.1086/662039</a>
+</div>
+<div id="ref-okan_individual_2012" class="csl-entry" role="doc-biblioentry">
+Okan Y, Garcia-Retamero R, Cokely ET, Maldonado A. 2012. Individual <span>Differences</span> in <span>Graph</span> <span>Literacy</span>: <span>Overcoming</span> <span>Denominator</span> <span>Neglect</span> in <span>Risk</span> <span>Comprehension</span>. <em>Journal of Behavioral Decision Making</em> <strong>25</strong>:390–401. doi:<a href="https://doi.org/10.1002/bdm.751">10.1002/bdm.751</a>
+</div>
+<div id="ref-okan_designing_2018" class="csl-entry" role="doc-biblioentry">
+Okan Y, Stone ER, Bruine De Bruin W. 2018. Designing <span>Graphs</span> that <span>Promote</span> <span>Both</span> <span>Risk</span> <span>Understanding</span> and <span>Behavior</span> <span>Change</span>: <span>Graphs</span> <span>Promoting</span> <span>Risk</span> <span>Understanding</span> and <span>Behavior</span> <span>Change</span>. <em>Risk Analysis</em> <strong>38</strong>:929–946. doi:<a href="https://doi.org/10.1111/risa.12895">10.1111/risa.12895</a>
+</div>
+<div id="ref-okan_probability_2020" class="csl-entry" role="doc-biblioentry">
+Okan Y, Stone ER, Parillo J, Bruine de Bruin W, Parker AM. 2020. Probability <span>Size</span> <span>Matters</span>: <span>The</span> <span>Effect</span> of <span>Foreground</span>‐<span>Only</span> versus <span>Foreground</span>+<span>Background</span> <span>Graphs</span> on <span>Risk</span> <span>Aversion</span> <span>Diminishes</span> with <span>Larger</span> <span>Probabilities</span>. <em>Risk Analysis</em> <strong>40</strong>:771–788. doi:<a href="https://doi.org/10.1111/risa.13431">10.1111/risa.13431</a>
+</div>
+<div id="ref-pandey_how_2015" class="csl-entry" role="doc-biblioentry">
+Pandey AV, Rall K, Satterthwaite ML, Nov O, Bertini E. 2015. How <span>Deceptive</span> are <span>Deceptive</span> <span>Visualizations</span>?: <span>An</span> <span>Empirical</span> <span>Analysis</span> of <span>Common</span> <span>Distortion</span> <span>Techniques</span>Proceedings of the 33rd <span>Annual</span> <span>ACM</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span> - <span>CHI</span> ’15. Seoul, Republic of Korea: ACM Press. pp. 1469–1478. doi:<a href="https://doi.org/10.1145/2702123.2702608">10.1145/2702123.2702608</a>
+</div>
+<div id="ref-reyna_theory_2008" class="csl-entry" role="doc-biblioentry">
+Reyna VF. 2008. A <span>Theory</span> of <span>Medical</span> <span>Decision</span> <span>Making</span> and <span>Health</span>: <span>Fuzzy</span> <span>Trace</span> <span>Theory</span>. <em>Medical Decision Making</em> <strong>28</strong>:850–865. doi:<a href="https://doi.org/10.1177/0272989X08327066">10.1177/0272989X08327066</a>
+</div>
+<div id="ref-reyna_numeracy_2008" class="csl-entry" role="doc-biblioentry">
+Reyna VF, Brainerd CJ. 2008. Numeracy, ratio bias, and denominator neglect in judgments of risk and probability. <em>Learning and Individual Differences</em> <strong>18</strong>:89–107. doi:<a href="https://doi.org/10.1016/j.lindif.2007.03.011">10.1016/j.lindif.2007.03.011</a>
+</div>
+<div id="ref-sevilla_format_2018" class="csl-entry" role="doc-biblioentry">
+Sevilla J, Isaac MS, Bagchi R. 2018. Format <span>Neglect</span>: <span>How</span> the <span>Use</span> of <span>Numerical</span> <span>Versus</span> <span>Percentage</span> <span>Rank</span> <span>Claims</span> <span>Influences</span> <span>Consumer</span> <span>Judgments</span>. <em>Journal of Marketing</em> <strong>82</strong>:150–164. doi:<a href="https://doi.org/10.1177/0022242918805455">10.1177/0022242918805455</a>
+</div>
+<div id="ref-stone_designing_2017" class="csl-entry" role="doc-biblioentry">
+Stone ER, Bruin W, Wilkins AM, Boker EM, MacDonald Gibson J. 2017. Designing <span>Graphs</span> to <span>Communicate</span> <span>Risks</span>: <span>Understanding</span> <span>How</span> the <span>Choice</span> of <span>Graphical</span> <span>Format</span> <span>Influences</span> <span>Decision</span> <span>Making</span>. <em>Risk Analysis</em> <strong>37</strong>:612–628. doi:<a href="https://doi.org/10.1111/risa.12660">10.1111/risa.12660</a>
+</div>
+<div id="ref-stone_salience_2018" class="csl-entry" role="doc-biblioentry">
+Stone ER, Reeder EC, Parillo J, Long C, Walb L. 2018. Salience <span>Versus</span> <span>Proportional</span> <span>Reasoning</span>: <span>Rethinking</span> the <span>Mechanism</span> <span>Behind</span> <span>Graphical</span> <span>Display</span> <span>Effects</span>: <span>Proportional</span> <span>Reasoning</span>. <em>Journal of Behavioral Decision Making</em> <strong>31</strong>:473–486. doi:<a href="https://doi.org/10.1002/bdm.2051">10.1002/bdm.2051</a>
+</div>
+<div id="ref-stone_foregroundbackground_2003" class="csl-entry" role="doc-biblioentry">
+Stone ER, Sieck WR, Bull BE, Frank Yates J, Parks SC, Rush CJ. 2003. Foreground:background salience: <span>Explaining</span> the effects of graphical displays on risk avoidance. <em>Organizational Behavior and Human Decision Processes</em> <strong>90</strong>:19–36. doi:<a href="https://doi.org/10.1016/S0749-5978(03)00003-7">10.1016/S0749-5978(03)00003-7</a>
+</div>
+<div id="ref-tversky_framing_1981" class="csl-entry" role="doc-biblioentry">
+Tversky A, Kahneman D. 1981. The <span>Framing</span> of <span>Decisions</span> and the <span>Psychology</span> of <span>Choice</span>. <em>Science</em> <strong>211</strong>:453–458. doi:<a href="https://doi.org/10.1126/science.7455683">10.1126/science.7455683</a>
+</div>
+<div id="ref-wickham_ggplot2_2016" class="csl-entry" role="doc-biblioentry">
+Wickham H. 2016. ggplot2. New York, NY: Springer Science+Business Media, LLC.
+</div>
+<div id="ref-witt_graph_2019" class="csl-entry" role="doc-biblioentry">
+Witt JK. 2019. Graph <span>Construction</span>: <span>An</span> <span>Empirical</span> <span>Investigation</span> on <span>Setting</span> the <span>Range</span> of the <span>Y</span>-<span>Axis</span>. <em>Meta-Psychology</em> <strong>2</strong>:1–20. doi:<a href="https://doi.org/10.15626/MP.2018.895">10.15626/MP.2018.895</a>
+</div>
+<div id="ref-yang_truncating_2021" class="csl-entry" role="doc-biblioentry">
+Yang BW, Vargas Restrepo C, Stanley ML, Marsh EJ. 2021. Truncating <span>Bar</span> <span>Graphs</span> <span>Persistently</span> <span>Misleads</span> <span>Viewers</span>. <em>Journal of Applied Research in Memory and Cognition</em> S2211368120300978. doi:<a href="https://doi.org/10.1016/j.jarmac.2020.10.002">10.1016/j.jarmac.2020.10.002</a>
+</div>
+<div id="ref-zhang_how_2012" class="csl-entry" role="doc-biblioentry">
+Zhang YC, Schwarz N. 2012. How and <span>Why</span> 1 <span>Year</span> <span>Differs</span> from 365 <span>Days</span>: <span>A</span> <span>Conversational</span> <span>Logic</span> <span>Analysis</span> of <span>Inferences</span> from the <span>Granularity</span> of <span>Quantitative</span> <span>Expressions</span>. <em>Journal of Consumer Research</em> <strong>39</strong>:248–259. doi:<a href="https://doi.org/10.1086/662612">10.1086/662612</a>
+</div>
+</div>
+</section>
+</section>
+<section id="experiment-1" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Experiment 1</h1>
+<section id="introduction-1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction-1"><span class="header-section-number">7.1</span> Introduction</h2>
+<p>This experiment investigates the influence of axis limits on interpretations of plotted values’ magnitude. Participants viewed bar charts with default axes, or axes which extended to a denominator value well above the bars. Comparing participants’ interpretations captures the influence of displaying the same data with and without numerical context.</p>
+</section>
+<section id="method" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="method"><span class="header-section-number">7.2</span> Method</h2>
+<section id="materials" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="materials"><span class="header-section-number">7.2.1</span> Materials</h3>
+<p>We developed 40 scenarios about fictitious studies. Each study evaluated a specific outcome across five categories (e.g., the number of items produced without defects, for five manufacturing methods). The denominator (e.g., total number of items produced) was identical for each category.</p>
+<p>We generated bar charts in R <span class="citation" data-cites="r_core_team_r_2022">(<a href="../references.html#ref-r_core_team_r_2022" role="doc-biblioref">R Core Team, 2022</a>)</span> using {ggplot2} (version 4.1.2), {tidyverse} (version 1.3.1) and {ggh4x} (version 0.2.1). The two versions of each chart displayed the same five values, but employed different y-axis limits. Denominator values (400, 500, or 600) were used to generate datasets: data were sampled from normal distribution with a mean equal to either 20% or 40% of a given denominator value, and a standard deviation equal to 1% of the denominator value.</p>
+<p>For charts with extended axes, the denominator value was used as the y-axis upper limit. The other charts used a y-axis upper limit which was dictated by ggplot2’s default axis settings. These settings automatically identify a set of convenient breaks for each dataset, then slightly extend the plot area, adding an additional 5% of the axis range. In both conditions, a smaller expansion factor of 1% was applied to the lower axis limit, in order to eliminate visible space below the 0 baseline. <a href="#fig-example-charts">Figure&nbsp;<span>7.1</span></a> shows example charts for both conditions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-example-charts" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-example-charts-1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: Example charts for Experiment 1. The same data appears in both charts. Accompanying text explained what the values represented: <em>‘The graph shows, for each manufacturing method, how many of the items were free from defects’</em>. The chart with the default axes (left) employs an upper limit determined by ggplot2. The chart with the extended axes (right) employs an upper limit equal to the dataset’s denominator value.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>For the majority of datasets generated, the default settings produced charts where the highest gridline did not exceed the tallest bar. For consistency, when the opposite situation occurred, we used a different random seed to generate an alternative dataset for both conditions. 10% of datasets used were generated using this method.</p>
+<p>In experimental trials (32 total), plotted values consisted of relatively small proportions of the dataset’s denominator value (roughly 20% or 40%). To introduce variety and encourage attention, eight filler trials showed plotted values which were roughly 90% of the corresponding denominator value. Denominators for filler trials were selected so that numerical labels on the y-axis would approximately resemble either extended or default bar charts from experimental trials.</p>
+<p>We included six attention check trials to assess participants’ engagement with the task. These trials were similar to experimental and filler trials, consisting of text, a bar chart, a question and a visual analogue scale. However, participants were instructed to ignore the bar chart and provide a specified response on the visual analogue scale.</p>
+</section>
+<section id="design" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="design"><span class="header-section-number">7.2.2</span> Design</h3>
+<p>We employed a within-participants design: participants viewed 16 different charts in each of the two conditions (32 experimental trials total). The correspondence between scenarios and conditions was counterbalanced using two lists. However, all participants saw the same versions of the eight filler items and six attention check items. There were a total of 46 trials, which were presented in a random order.</p>
+</section>
+<section id="participants" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="participants"><span class="header-section-number">7.2.3</span> Participants</h3>
+<p>Participants were recruited using Prolific.co. The experiment was advertised to fluent English speakers with normal-or-corrected to normal vision, who had previously participated in at least 100 studies on the site.</p>
+<p>Data were returned by 157 participants. Per pre-registered exclusion criteria, seven participants’ submissions were rejected because they answered more than one of six attention check questions incorrectly. Participants whose submissions were accepted received £3.50.</p>
+<p>The final sample consisted of 150 participants (57.33% male, 39.33% female, 3.33% non-binary). Mean age was 33.18 years (<em>SD</em> = 12.93). The mean data visualisation literacy score was 21.35 (<em>SD</em> = 4.73), out of a maximum of 30.</p>
+<p>This experiment was approved by the University of Manchester’s Division of Neuroscience and Experimental Psychology Ethics Committee (ethics code: 2022-11115-24245).</p>
+</section>
+<section id="procedure" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="procedure"><span class="header-section-number">7.2.4</span> Procedure</h3>
+<p>We programmed the experiment using PsychoPy (version 2022.1.4, <span class="citation" data-cites="peirce_psychopy2_2019">(<a href="../references.html#ref-peirce_psychopy2_2019" role="doc-biblioref">Peirce et al., 2019</a>)</span>). Participants were instructed to carry out the experiment using a laptop or desktop computer (not a mobile phone or tablet). After providing informed consent, participants completed a demographic questionnaire and Garcia-Retamero et al.’s <span class="citation" data-cites="garcia-retamero_measuring_2016">(<a href="../references.html#ref-garcia-retamero_measuring_2016" role="doc-biblioref">Garcia-Retamero et al., 2016</a>)</span> five-item subjective data visualisation literacy scale.</p>
+<p>Participants were asked to imagine they were a researcher tasked with determining the outcome of experiments and surveys. They were instructed to make an overall assessment of all data presented in a graph after studying the text, graph, and question. All questions asked about plotted values’ magnitudes (e.g., ‘How successful were the manufacturing methods?’), with participants responding on visual analogue scales with anchors at the extremes (e.g., ‘very unsuccessful’, ‘very successful’). <a href="#fig-e1-trial">Figure&nbsp;<span>7.2</span></a> shows an example trial.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-e1-trial" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/trial_e1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: An example trial from Experiment 1, showing a bar chart with a default axis limit.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Participants were permitted to move the response marker as many times as they liked before proceeding to the next trial, but could not return to previous trials. The response scale’s granularity was altered for each attention check item, such that participants could only respond at the extremes or the middle of the scale. Finally, participants were informed that all data presented was fictitious and were given the option to provide comments on the experiment and describe any strategies used. Average completion time was 19.2 minutes.</p>
+</section>
+</section>
+<section id="analysis" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">7.3</span> Analysis</h2>
+<p>We conducted analysis using R <span class="citation" data-cites="r_core_team_r_2022">(<a href="../references.html#ref-r_core_team_r_2022" role="doc-biblioref">R Core Team, 2022</a>)</span> (version 4.2.1). Linear mixed models were built using {lme4} <span class="citation" data-cites="bates_fitting_2015">(<a href="../references.html#ref-bates_fitting_2015" role="doc-biblioref">Bates et al., 2015</a>)</span>. Each model was based on a maximal model with by-participant and by-item random effects <span class="citation" data-cites="barr_random_2013">(<a href="../references.html#ref-barr_random_2013" role="doc-biblioref">Barr et al., 2013</a>)</span>, and {buildmer} <span class="citation" data-cites="voeten_buildmer_2022">(<a href="../references.html#ref-voeten_buildmer_2022" role="doc-biblioref">Voeten, 2022</a>)</span> was used to identify the final random effects structure, ensuring convergence and removing terms not significantly contributing to explaining variance.</p>
+<section id="magnitude-ratings" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="magnitude-ratings"><span class="header-section-number">7.3.1</span> Magnitude Ratings</h3>
+<p><a href="#fig-e1-mag">Figure&nbsp;<span>7.3</span></a> shows the distribution of ratings for charts with default axes and extended axes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-e1-mag" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-e1-mag-1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.3: The distribution of visual analogue scale ratings in response to default and extended axis limits. Each circle represents a participant’s response to an individual bar chart.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Linear mixed-effects modelling revealed that participants awarded higher ratings to charts with default axes, compared to charts with extended axes: F(1, 152.54) = 44.90, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.23.</p>
+<p>This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item.</p>
+</section>
+<section id="magnitude-ratings-and-data-visualisation-literacy" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="magnitude-ratings-and-data-visualisation-literacy"><span class="header-section-number">7.3.2</span> Magnitude Ratings and Data Visualisation Literacy</h3>
+<p>Accounting for differences in data visualisation literacy did not change the significant effect of axis limits: F(1, 152.57) = 44.95, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.23.</p>
+</section>
+</section>
+<section id="discussion" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="discussion"><span class="header-section-number">7.4</span> Discussion</h2>
+<p>This experiment explored the consequences of including a graphical cue to a denominator value using bar charts’ axes. We observed that plotted values’ magnitudes were interpreted as smaller when a default axis limit was used, compared to an axis limit equal to the dataset’s denominator value. Therefore, assessments of data were biased by the presence or absence of numerical context in bar charts.</p>
+<p>Denominator information informs magnitude judgements. In bar charts with extended axes, denominator information was available through the accompanying text and through axes. Comparison with bar charts employing default axes, where denominator information was <em>only</em> available through text, reveals the contribution of the graphical cue to the denominator value. Inconsistency in the differences between conditions illustrates variation in interpretation. The relative similarity of lower magnitude ratings across conditions indicates some attention to denominator information in the absence of a graphical cue. However, some extreme high magnitude ratings suggest that the appearance of tall bars carried the implication of large values. These ratings may indicate a failure to account for denominator information in the absence of a graphical cue. We investigate the role of denominator information further in Experiment 2.</p>
+</section>
+<section id="bibliography-3" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography-3">References</h2>
+<div id="refs-3" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-barr_random_2013" class="csl-entry" role="doc-biblioentry">
+Barr DJ, Levy R, Scheepers C, Tily HJ. 2013. Random effects structure for confirmatory hypothesis testing: <span>Keep</span> it maximal. <em>Journal of Memory and Language</em> <strong>68</strong>:255–278. doi:<a href="https://doi.org/10.1016/j.jml.2012.11.001">10.1016/j.jml.2012.11.001</a>
+</div>
+<div id="ref-bates_fitting_2015" class="csl-entry" role="doc-biblioentry">
+Bates D, Mächler M, Bolker B, Walker S. 2015. Fitting <span>Linear</span> <span>Mixed</span>-<span>Effects</span> <span>Models</span> <span>Using</span> <strong>lme4</strong>. <em>Journal of Statistical Software</em> <strong>67</strong>. doi:<a href="https://doi.org/10.18637/jss.v067.i01">10.18637/jss.v067.i01</a>
+</div>
+<div id="ref-garcia-retamero_measuring_2016" class="csl-entry" role="doc-biblioentry">
+Garcia-Retamero R, Cokely ET, Ghazal S, Joeris A. 2016. Measuring <span>Graph</span> <span>Literacy</span> without a <span>Test</span>: <span>A</span> <span>Brief</span> <span>Subjective</span> <span>Assessment</span>. <em>Medical Decision Making</em> <strong>36</strong>:854–867. doi:<a href="https://doi.org/10.1177/0272989X16655334">10.1177/0272989X16655334</a>
+</div>
+<div id="ref-peirce_psychopy2_2019" class="csl-entry" role="doc-biblioentry">
+Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. 2019. <span>PsychoPy2</span>: <span>Experiments</span> in behavior made easy. <em>Behavior Research Methods</em> <strong>51</strong>:195–203. doi:<a href="https://doi.org/10.3758/s13428-018-01193-y">10.3758/s13428-018-01193-y</a>
+</div>
+<div id="ref-r_core_team_r_2022" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2022. <a href="https://www.R-project.org/">R: <span>A</span> <span>Language</span> and <span>Environment</span> for <span>Statistical</span> <span>Computing</span></a>.
+</div>
+<div id="ref-voeten_buildmer_2022" class="csl-entry" role="doc-biblioentry">
+Voeten CC. 2022. <a href="https://CRAN.R-project.org/package=buildmer">Buildmer: <span>Stepwise</span> <span>Elimination</span> and <span>Term</span> <span>Reordering</span> for <span>Mixed</span>-<span>Effects</span></a>.
+</div>
+</div>
+</section>
+</section>
+<section id="experiment-2" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Experiment 2</h1>
+<section id="introduction-2" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction-2"><span class="header-section-number">8.1</span> Introduction</h2>
+<p>Experiment 1 found differences in interpretations of data presented using different axes limits. Overall, plotted data were associated with lower magnitudes when presenting using axes which extended to a denominator value. Compared to bar charts with extended axes, charts with no graphical cue to a denominator value elicited a wider variety of responses. This variety appears to reflect differences in how the denominator information supplied in accompanying text is used in magnitude judgements. This raises questions about how text, including denominator information, might influence the interpretation of different chart designs.</p>
+<p>By manipulating the presence of denominator information in accompanying text, in addition to manipulating axis limits, we investigate how these textual and graphical cues inform assessments of data. This allows us to understand how different chart designs are interpreted with and without additional numerical context. This 2x2 design also allows us to determine whether we can replicate the findings from Experiment 1 and also gives us the opportunity to explore whether ratings in the absence of denominator information correspond to the previously observed pattern of extreme ratings.</p>
+<p>This second experiment requires minor adaptations to materials and procedure. First, there is a risk that highly ambiguous trials without denominator information supplied in text will elicit unreliable random ratings. Therefore, we collect additional confidence ratings to directly index this aspect of participants’ evaluations. This provides a more comprehensive view of participants’ cognitive states and interpretations. Second, when denominators are not supplied in text, participants may use denominator values supplied in previous trials to inform their judgements. A limited range of denominators (as in Experiment 1) would artificially diminish uncertainty regarding possible values, inhibiting authentic, spontaneous judgements. Therefore, we expand the range of denominator values in Experiment 2. Third, increasing the number of fillers (which depict relatively high magnitudes) to match the number of experimental items (which depict relatively low magnitudes) will avoid priming effects by ensuring high and low magnitudes seem equally plausible.</p>
+</section>
+<section id="method-1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="method-1"><span class="header-section-number">8.2</span> Method</h2>
+<section id="materials-1" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="materials-1"><span class="header-section-number">8.2.1</span> Materials</h3>
+<p>We generated bar charts in R using {ggplot2} (version 4.2.1), {tidyverse} (version 1.3.2) and {ggh4x} (version 0.2.3).</p>
+<p>Bar charts were generated using the same method as in Experiment 1. We used the same scenarios from Experiment 1, and generated 24 new scenarios for use as additional filler items, thus employing 32 experimental items and 32 filler items. To increase variation across datasets, we employed a wider range of denominators (200, 400, 600, and 800) meaning the plotted values differed from Experiment 1.</p>
+<p>We added the word ‘surveyed’ or ‘assessed’ to the accompanying text for seven items where the absence of a denominator may have implied that data were collected for the entire population under study. For example, where the study concerned data collected in five towns, the final sentence read ‘The graph shows, for each town, how many people <em>surveyed</em> used public transport regularly’, to avoid the implication that the denominator was equal to an entire town’s population. This ensured that the inclusion of denominator values was equally informative across all scenarios.</p>
+<p>16% of datasets used were re-generated to ensure that the highest gridline of a default axis did not exceed the highest plotted value.</p>
+</section>
+<section id="design-1" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="design-1"><span class="header-section-number">8.2.2</span> Design</h3>
+<p>We employed a within-participants 2x2 Latin-squared design with two factors: axis limits (default vs.&nbsp;extended) and denominator information (present vs.&nbsp;absent). Participants viewed 8 different charts for each combination of conditions (32 experimental trials total). The correspondence between scenarios and conditions was counterbalanced using four lists. However, all participants saw the same versions of the 32 filler items and six attention check items.</p>
+</section>
+<section id="participants-1" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="participants-1"><span class="header-section-number">8.2.3</span> Participants</h3>
+<p>Participants were recruited using Prolific.co, using the same inclusion criteria as Experiment 1. Additionally, the experiment was not advertised to individuals who completed Experiment 1.</p>
+<p>Data were returned by 208 participants. Per pre-registered exclusion criteria, eight participants’ submissions were rejected because they answered more than one of six attention check questions incorrectly. Participants whose submissions were accepted received £5.00.</p>
+<p>The final sample consisted of 200 participants (60.00% male, 38.00% female, 1.00% non-binary, 0.50% other, 0.50% prefer not to say). Mean age was 33.17 years (<em>SD</em> = 10.34)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The mean data visualisation literacy score was 21.72 (<em>SD</em> = 4.84), out of a maximum of 30.</p>
+<p>This experiment was approved by the University of Manchester’s Division of Neuroscience and Experimental Psychology Ethics Committee (ethics code: 2023-11115-28428).</p>
+</section>
+<section id="procedure-1" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="procedure-1"><span class="header-section-number">8.2.4</span> Procedure</h3>
+<p>The procedure was identical to Experiment 1, except for the addition of a confidence rating, where participants were asked ‘How confident are you in your response?’. The anchors on the response scale were ‘Not very confident’ and ‘Very confident’. <a href="#fig-e2-trial">Figure&nbsp;<span>8.1</span></a> shows an example trial.</p>
+<p>For attention check items, participants were asked to provide a specific response on the magnitude rating scale, and a random response on the confidence rating scale.</p>
+<p>Average completion time was 29.3 minutes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-e2-trial" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/trial_e2.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: An example trial from Experiment 2, showing a bar chart with an extended axis limit. Note the presence of an additional confidence rating scale.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analysis-1" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="analysis-1"><span class="header-section-number">8.3</span> Analysis</h2>
+<section id="magnitude-ratings-1" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="magnitude-ratings-1"><span class="header-section-number">8.3.1</span> Magnitude Ratings</h3>
+<p><a href="#fig-e2-mag">Figure&nbsp;<span>8.2</span></a> shows the distribution of magnitude ratings for charts with default axes and extended axes, where denominators were absent from text, and where they were present.</p>
+<div class="cell" data-fig.asp="1">
+<div class="cell-output-display">
+<div id="fig-e2-mag" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-e2-mag-1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.2: The distribution of visual analogue scale ratings in response to default and extended axis limits, shown separately for trials where denominator values were absent from accompanying text (top), and trials where denominator values were present in accompanying text (bottom). Each circle represents a participant’s response to an individual bar chart.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A mixed effects model revealed that charts with default axes elicited higher ratings compared to charts with extended axes (F(1, 198.22) = 311.45, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.61) and charts not accompanied by a denominator in text elicited higher ratings than those accompanied by a denominator (F(1, 82.23) = 380.50, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.82).</p>
+<p>Crucially, there was also a significant interaction between axis limits and denominator information: F(1, 5,741.16) = 1,540.86, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.21. <a href="#fig-e2-mag-int">Figure&nbsp;<span>8.3</span></a> plots this interaction.</p>
+<p>Pairwise comparisons produced using {emmeans} <span class="citation" data-cites="lenth_emmeans_2021">(<a href="../references.html#ref-lenth_emmeans_2021" role="doc-biblioref">Lenth, 2021</a>)</span> revealed that charts with extended and default axes were rated differently when the denominator was present, replicating the effect from Experiment 1 (z = -9.19, p &lt; .001), and also when the denominator was absent (z = -25.35, p &lt; .001). Therefore, the interaction indicates that the magnitude of influence exerted by a bar chart’s axis varied according to whether the denominator was present or absent.</p>
+<p>This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-e2-mag-int" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-e2-mag-int-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.3: The interaction between axis limits and denominator information, for magnitude ratings. Estimated marginal means are generated by the linear mixed model used in analysis. Translucent bars show 95% confidence intervals.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="magnitude-ratings-and-data-visualisation-literacy-1" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="magnitude-ratings-and-data-visualisation-literacy-1"><span class="header-section-number">8.3.2</span> Magnitude Ratings and Data Visualisation Literacy</h3>
+<p>Accounting for differences in data visualisation literacy did not change the significant interaction: F(1, 5,741.14) = 1,540.85, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.21., the main effect of axis limits (F(1, 198.24) = 311.46, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.61) or the main effect of denominator information (F(1, 82.29) = 380.60, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.82).</p>
+</section>
+<section id="confidence-ratings" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="confidence-ratings"><span class="header-section-number">8.3.3</span> Confidence Ratings</h3>
+<div class="cell" data-fig.asp="1">
+<div class="cell-output-display">
+<div id="fig-e2-con" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-e2-con-1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.4: The distribution of confidence ratings in response to default and extended axis limits, shown separately for trials where denominator values were absent from accompanying text (top), and trials where denominator values were present in accompanying text (bottom). Each circle represents a participant’s response to an individual bar chart.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-e2-con">Figure&nbsp;<span>8.4</span></a> shows the distribution of confidence ratings for charts with default axes and extended axes, where denominators were absent from text, and where they were present.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-e2-con-int" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="axis-extension_files/figure-html/fig-e2-con-int-1.png" class="img-fluid figure-img" width="600"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.5: The interaction between axis limits and denominator information, for confidence ratings. Estimated marginal means are generated by the linear mixed model used in analysis. Translucent bars show 95% confidence intervals.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A mixed effects model revealed a main effect associated with axis limits (F(1, 199.00) = 5.97, p = .015, partial <span class="math inline">\(\eta^2\)</span> = 0.03), a main effect associated with denominator information (F(1, 198.99) = 184.93, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.48) and an interaction F(1, 5,799.00) = 27.74, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> &lt; .01. This interaction consisted of a difference between extended and default charts when the denominator was absent from text (z = -4.69, p &lt; .001), but no difference between charts when the denominator was present (z = 0.42, p = .988). However, it is clear from <a href="#fig-e2-con-int">Figure&nbsp;<span>8.5</span></a>, as well as the partial <span class="math inline">\(\eta^2\)</span> values, that the effect sizes associated with axis limits and the interaction are trivial.</p>
+</section>
+<section id="confidence-ratings-and-data-visualisation-literacy" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="confidence-ratings-and-data-visualisation-literacy"><span class="header-section-number">8.3.4</span> Confidence Ratings and Data Visualisation Literacy</h3>
+<p>Accounting for differences in data visualisation literacy did not change the pattern of results. There was a main effect associated with axis limits (F(1, 199.01) = 5.97, p = .015, partial <span class="math inline">\(\eta^2\)</span> = 0.03) and a main effect associated with denominator information (F(1, 198.99) = 184.93, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> = 0.48) and an interaction F(1, 5,798.99) = 27.74, p &lt; .001, partial <span class="math inline">\(\eta^2\)</span> &lt; .01.</p>
+</section>
+</section>
+<section id="discussion-1" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="discussion-1"><span class="header-section-number">8.4</span> Discussion</h2>
+<p>This experiment manipulated bar charts’ axis limits and the presence of denominator values in accompanying text. The results demonstrate that values presented in charts with default axis limits are associated with higher magnitude judgements than charts with extended axes, in both the presence and absence of denominator information. However, the absence of denominator information amplifies this bias. These results also suggest that extreme high magnitude ratings for default charts in the presence of a denominator value may be driven by a failure to incorporate that value into reasoning. Finally, confidence in judgements is reliably affected by the inclusion of denominator information in text.</p>
+</section>
+<section id="bibliography-4" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography-4">References</h2>
+<div id="refs-4" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-lenth_emmeans_2021" class="csl-entry" role="doc-biblioentry">
+Lenth RV. 2021. <a href="https://CRAN.R-project.org/package=emmeans">Emmeans: <span>Estimated</span> <span>Marginal</span> <span>Means</span>, aka <span>Least</span>-<span>Squares</span> <span>Means</span></a>.
+</div>
+</div>
+</section>
+</section>
+<section id="general-discussion" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> General Discussion</h1>
+<p>Axis limits can be easily manipulated in common data visualisation software, in order to include a visual cue to denominator information. However, these defaults are based on plotted data only, so often omit denominator information. We demonstrate that plotted values’ magnitudes were interpreted as smaller for bar charts with axes that extended to the denominator value, rather than those employing default axis settings. The influence of axis limits was particularly large when no denominator information was included in the text accompanying a chart. This provides insight into the cognitive process involved in magnitude judgements, indicating that denominator information is an important aspect in interpreting plotted values in bar charts.</p>
+<p>In Experiment 1, we identified a framing effect, wherein charts with axes that accommodated a denominator value elicited smaller magnitude judgements compared to charts with default axes. In both conditions, the denominator was explicitly presented in the text. Additionally, some extreme responses in the default condition appeared to represent a disregard for denominator information. Given the apparent importance of this information, we conducted another experiment in order to examine the denominator’s role in the cognitive processing of magnitude. We examined how interpretations were affected by the absence of denominator information, thus capturing how this information was incorporated differently across chart designs.</p>
+<p>Experiment 2 makes several additional contributions. First, it replicated the main effect from Experiment 1. That is, we observed a propensity to interpret magnitudes as smaller when values were shown with an extended axis, rather than a default axis. Second, it illustrates the impact of including the denominator in accompanying text. This cue affects viewers’ interpretations differently depending on whether a chart’s axis also incorporates the same value. Without denominator information in text, the magnitude of values plotted using default axes can be ambiguous. Accordingly, drastically higher ratings in the absence of denominator information illustrate the denominator’s role in reducing ambiguity. Interpretation of values plotted using extended axes was affected to a lesser extent by the denominator’s absence. Thus, the impact of a bar chart’s axis is greater when not accompanied by a denominator. This suggests axis limits facilitate recognition of denominator information when interpreting magnitudes.</p>
+<p>Third, Experiment 2 replicated the pattern of responses observed in Experiment 1 for charts with default axes and accompanying denominator information. This pattern consists of a small number of higher magnitude ratings, in contrast to the general tendency for lower magnitude ratings. <a href="#fig-e2-mag">Figure&nbsp;<span>8.2</span></a> reveals a close resemblance between the distribution of these higher ratings and the overall distribution of ratings for default charts <em>without</em> accompanying denominator information. This suggests that these extreme ratings may share a cause. Unusually high responses in the presence of denominator information likely result from failure to account for the denominator and a subsequent reliance on the chart’s appearance. The analogous responses to charts without accompanying denominators (Experiment 2) can be considered an experimentally-induced instance of the same effect.</p>
+<p>Fourth, additional ratings collected in Experiment 2 provide insight into participants’ confidence. Although analysis of these ratings indicated a main effect of axis limits and an interaction between denominator information and axis limits, the minuscule effect sizes cast doubt over the practical significance of these effects. In spite of this, absence of a denominator clearly lowered confidence. This suggests that participants were hesitant to form magnitude judgements based solely on a bar chart’s appearance. Inclusion of a denominator value in text was preferred regardless of graphical cues to context.</p>
+<section id="relationship-to-prior-work" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="relationship-to-prior-work"><span class="header-section-number">9.1</span> Relationship to Prior Work</h2>
+<p>Our focus on judgements of values’ magnitudes is noteworthy because the vast majority of related work has explored participants’ judgements of <em>differences between</em> values <span class="citation" data-cites="okan_individual_2012 okan_probability_2020 okan_designing_2018 stone_foregroundbackground_2003 stone_salience_2018 garcia-retamero_who_2010 yang_truncating_2021 witt_graph_2019 correll_truncating_2020">(<a href="../references.html#ref-correll_truncating_2020" role="doc-biblioref">Correll et al., 2020</a>; <a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>; <a href="../references.html#ref-okan_probability_2020" role="doc-biblioref">Okan et al., 2020</a>, <a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">2018</a>, <a href="../references.html#ref-okan_individual_2012" role="doc-biblioref">2012</a>; <a href="../references.html#ref-stone_salience_2018" role="doc-biblioref">Stone et al., 2018</a>, <a href="../references.html#ref-stone_foregroundbackground_2003" role="doc-biblioref">2003</a>; <a href="../references.html#ref-witt_graph_2019" role="doc-biblioref">Witt, 2019</a>; <a href="../references.html#ref-yang_truncating_2021" role="doc-biblioref">Yang et al., 2021</a>)</span>. Responses to questions about values’ magnitudes have often been obscured through inclusion in composite measures <span class="citation" data-cites="okan_designing_2018">(e.g., <a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span>, or have been collected to assess comprehension, rather than interpretation <span class="citation" data-cites="garcia-retamero_who_2010">(e.g., <a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>)</span>. As <span class="citation" data-cites="stone_effects_2015">Stone et al. (<a href="../references.html#ref-stone_effects_2015" role="doc-biblioref">2015</a>)</span> discuss, failing to consider interpretations of values’ magnitudes reflects two issues. First, neglecting values’ magnitudes overlooks a relevant aspect of numerical information. Second, neglecting participants’ <em>interpretations</em> limits insight into decision-making, which is not simply governed by accurate retrieval of information <span class="citation" data-cites="reyna_theory_2008">(see <a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>.</p>
+<p>Whereas much prior research has been limited to interpretation of risk information <span class="citation" data-cites="garcia-retamero_who_2010 okan_individual_2012 okan_probability_2020 okan_designing_2018 stone_foregroundbackground_2003 stone_salience_2018 stone_designing_2017 stone_effects_2015">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>; <a href="../references.html#ref-okan_probability_2020" role="doc-biblioref">Okan et al., 2020</a>, <a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">2018</a>, <a href="../references.html#ref-okan_individual_2012" role="doc-biblioref">2012</a>; <a href="../references.html#ref-stone_salience_2018" role="doc-biblioref">Stone et al., 2018</a>, <a href="../references.html#ref-stone_designing_2017" role="doc-biblioref">2017</a>, <a href="../references.html#ref-stone_effects_2015" role="doc-biblioref">2015</a>, <a href="../references.html#ref-stone_foregroundbackground_2003" role="doc-biblioref">2003</a>)</span>, we demonstrate that biases in interpretation extend to a wide range of non-risk scenarios. This provides confidence that these findings are widely applicable, and using <em>multiple</em> trials per participant enhances statistical power. When generating charts that do not include denominator values, previous experiments <span class="citation" data-cites="garcia-retamero_who_2010 okan_designing_2018">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>; <a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span> appear to have employed abritary axis limits. By employing axis limits based on {ggplot2}’s default settings, our materials reflect a common practice, enhancing our experiment’s ecological validity.</p>
+<p>We contribute to a large body of evidence illustrating biases in the interpretation of numerical information, specifically <em>framing effects</em> <span class="citation" data-cites="tversky_framing_1981">(<a href="../references.html#ref-tversky_framing_1981" role="doc-biblioref">Tversky and Kahneman, 1981</a>)</span>. Our results are consistent with research demonstrating that manipulating bar charts’ axis limits influences interpretation of plotted values <span class="citation" data-cites="garcia-retamero_who_2010 okan_designing_2018">(<a href="../references.html#ref-garcia-retamero_who_2010" role="doc-biblioref">Garcia-Retamero and Galesic, 2010</a>; <a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span>. Furthermore, <span class="citation" data-cites="okan_designing_2018">Okan et al. (<a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">2018</a>)</span> found that participants’ perceptions of risk were influenced more by bar charts’ axis limits when labels containing numerators and denominators were excluded. Similarly, we observed that interpretations of magnitude were influenced more by bar charts’ axis limits when denominator values were omitted from accompanying text.</p>
+<p>A previous study exploring interpretation of magnitude in bar charts observed different responses according to whether stacked bars or blank space conveyed alternative outcomes <span class="citation" data-cites="stone_designing_2017">(<a href="../references.html#ref-stone_designing_2017" role="doc-biblioref">Stone et al., 2017</a>)</span>. We demonstrate that manipulating the amount of blank space above bars can elicit different magnitude judgements, without plotting alternative outcomes explicitly. Earlier work investigating (in)consistency in the formats used to display numerators and denominators is also relevant. <span class="citation" data-cites="stone_effects_2015">Stone et al. (<a href="../references.html#ref-stone_effects_2015" role="doc-biblioref">2015</a>)</span> found that displaying a value using icons, accompanied by a denominator in text, increased impressions of that value’s magnitude, compared to when both the value and denominator were presented in text. We too found higher ratings when values displayed using bars were only accompanied by a denominator in text, compared to when a corresponding graphical cue to the denominator value was also present.</p>
+<p>According to Fuzzy Trace Theory, different interpretations can arise due to different gist-level representations, despite accurate comprehension of presented values <span class="citation" data-cites="reyna_theory_2008">(<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>. Therefore, access to denominator information in accompanying text did not prevent our chart designs influencing judgements. Encoding of gist is reported to be influenced by the appearance of graphical elements <span class="citation" data-cites="reyna_theory_2008">(<a href="../references.html#ref-reyna_theory_2008" role="doc-biblioref">Reyna, 2008</a>)</span>. This suggests that the taller bars in our default axis conditions were responsible for impressions of greater magnitude, compared to shorter bars in our extended axis conditions. That charts with extended axes elicited lower magnitude ratings is also consistent with Stone et al.’s <span class="citation" data-cites="stone_salience_2018">(<a href="../references.html#ref-stone_salience_2018" role="doc-biblioref">2018</a>)</span> proportional reasoning account, which suggests that part-to-whole displays facilitate processing of a larger numerical context.</p>
+<p>We did not find evidence that data visualisation literacy affected our results. This is contrary to the finding that data visualisation literacy predicted the efficacy of using icon arrays to reduce denominator neglect <span class="citation" data-cites="okan_individual_2012">(<a href="../references.html#ref-okan_individual_2012" role="doc-biblioref">Okan et al., 2012</a>)</span>. However, this is consistent with the finding that the impact of manipulations like ours (axis range, numerical labels) are independent of data visualisation literacy <span class="citation" data-cites="okan_designing_2018">(<a href="../references.html#ref-okan_designing_2018" role="doc-biblioref">Okan et al., 2018</a>)</span>. This measure may capture whether people have sufficient ability to extract information from a visualisation, rather than predicting the degree to which they will be influenced by subtler design choices <span class="citation" data-cites="yang_truncating_2021">(<a href="../references.html#ref-yang_truncating_2021" role="doc-biblioref">Yang et al., 2021</a>)</span>. Numeracy is associated with decreased sensitivity to framing effects <span class="citation" data-cites="peters_numeracy_2006">(<a href="../references.html#ref-peters_numeracy_2006" role="doc-biblioref">Peters et al., 2006</a>)</span>, so this may be a better candidate for understanding individual differences in response to visualisation design.</p>
+</section>
+<section id="implications" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="implications"><span class="header-section-number">9.2</span> Implications</h2>
+<p>When conveying values’ magnitudes, both axis limits and accompanying text warrant consideration from data visualisation designers. A bar chart produced using default settings is not equivalent to a bar chart with an axis that incorporates a denominator value. Extending an axis in this manner increases consistency in judgements and may provide insurance against individuals who fail to account for accompanying denominator information. Similarly, where constraints prevent inclusion of a denominator value in text, an extended axis should facilitate viewers’ recognition of this numerical context. We observed that confidence ratings were consistently high in the absence of a denominator in text, despite use of an extended axis. Explicitly providing denominator values in text, regardless of graphical cues, would therefore promote viewers’ confidence in their judgements.</p>
+<p>It is also worth considering situations which may accentuate the observed bias. High cognitive load exacerbates the numerosity bias <span class="citation" data-cites="pelham_easy_1994">(<a href="../references.html#ref-pelham_easy_1994" role="doc-biblioref">Pelham et al., 1994</a>)</span>, therefore may also interfere with magnitude judgements. Even when denominator information is supplied in text, high cognitive load could prevent this information from informing interpretations. This would likely increase reliance on bar charts’ appearances, like in Experiment 2. Additionally, assuming that an audience has knowledge of a dataset’s denominator may increase biases in individuals who are unfamiliar with the topic.</p>
+</section>
+<section id="limitations-and-future-work" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="limitations-and-future-work"><span class="header-section-number">9.3</span> Limitations and Future Work</h2>
+<p>This work is concerned with visualisations intended to convey plotted values’ magnitudes. However, design considerations will differ when conveying <em>differences</em> between values. In this case, axis ranges should be determined by the magnitude of the differences <span class="citation" data-cites="correll_truncating_2020 witt_graph_2019 yang_truncating_2021">(<a href="../references.html#ref-correll_truncating_2020" role="doc-biblioref">Correll et al., 2020</a>; <a href="../references.html#ref-witt_graph_2019" role="doc-biblioref">Witt, 2019</a>; <a href="../references.html#ref-yang_truncating_2021" role="doc-biblioref">Yang et al., 2021</a>)</span>. Consequently, our recommendations are not relevant for all communicative scenarios. However, maintaining awareness of the implication of plotted values’ magnitudes may help avoid misinterpretation of data, even if this type of judgement is not a primary concern.</p>
+<p>Our experiments apply best to controlled scenarios, such as surveys and experiments where all plotted values share the same denominator. These findings may also extend to datasets with unequal denominators, if bars are used to depict proportions or percentages, permitting use of a single meaningful axis limit. However, this design will not be suitable for plotting other types of dataset. We also acknowledge that proportions are not the only factor influencing magnitude judgements: subject matter is also likely to inform assessments. For example, bars clearly depicting one or two hours spent on administrative tasks within a 35-hour work week will still elicit some differences of opinion regarding whether these values are high or low.</p>
+<p>All materials were produced using {ggplot2}. Therefore, our conclusions about default axis limits only pertain to bar charts created using this package’s settings, though we expect other visualisation libraries’ default settings to elicit similar responses, due to similarity in their behaviour. For uniformity in our materials, we only employed default charts where the highest gridline was positioned below the highest value, since this was the most common visual arrangement. We did not examine the minority of cases where the highest gridline exceeds the highest value. Whether this influences magnitude judgements could be explored in future experiments. In addition, future work should employ decision-making tasks to quantify the impact of axis limits on applied judgements.</p>
+</section>
+<section id="conclusion" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">9.4</span> Conclusion</h2>
+<p>In two experiments, we generated evidence on the effects of default and extended axis limits, illustrating the influential role of denominators in gauging magnitude. We provide insight into the cognitive processes involved in interpreting plotted values’ magnitudes in bar charts and offer recommendations for facilitating judgements. Framing effects demonstrate the power of presentation choices on the interpretation of numbers.</p>
+</section>
+<section id="bibliography-5" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="bibliography-5">References</h2>
+<div id="refs-5" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-correll_truncating_2020" class="csl-entry" role="doc-biblioentry">
+Correll M, Bertini E, Franconeri S. 2020. Truncating the <span>Y</span>-<span>Axis</span>: <span>Threat</span> or <span>Menace</span>?Proceedings of the 2020 <span>CHI</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span>. Honolulu HI USA: ACM. pp. 1–12. doi:<a href="https://doi.org/10.1145/3313831.3376222">10.1145/3313831.3376222</a>
+</div>
+<div id="ref-garcia-retamero_who_2010" class="csl-entry" role="doc-biblioentry">
+Garcia-Retamero R, Galesic M. 2010. Who profits from visual aids: <span>Overcoming</span> challenges in people’s understanding of risks. <em>Social Science &amp; Medicine</em> <strong>70</strong>:1019–1025. doi:<a href="https://doi.org/10.1016/j.socscimed.2009.11.031">10.1016/j.socscimed.2009.11.031</a>
+</div>
+<div id="ref-okan_individual_2012" class="csl-entry" role="doc-biblioentry">
+Okan Y, Garcia-Retamero R, Cokely ET, Maldonado A. 2012. Individual <span>Differences</span> in <span>Graph</span> <span>Literacy</span>: <span>Overcoming</span> <span>Denominator</span> <span>Neglect</span> in <span>Risk</span> <span>Comprehension</span>. <em>Journal of Behavioral Decision Making</em> <strong>25</strong>:390–401. doi:<a href="https://doi.org/10.1002/bdm.751">10.1002/bdm.751</a>
+</div>
+<div id="ref-okan_designing_2018" class="csl-entry" role="doc-biblioentry">
+Okan Y, Stone ER, Bruine De Bruin W. 2018. Designing <span>Graphs</span> that <span>Promote</span> <span>Both</span> <span>Risk</span> <span>Understanding</span> and <span>Behavior</span> <span>Change</span>: <span>Graphs</span> <span>Promoting</span> <span>Risk</span> <span>Understanding</span> and <span>Behavior</span> <span>Change</span>. <em>Risk Analysis</em> <strong>38</strong>:929–946. doi:<a href="https://doi.org/10.1111/risa.12895">10.1111/risa.12895</a>
+</div>
+<div id="ref-okan_probability_2020" class="csl-entry" role="doc-biblioentry">
+Okan Y, Stone ER, Parillo J, Bruine de Bruin W, Parker AM. 2020. Probability <span>Size</span> <span>Matters</span>: <span>The</span> <span>Effect</span> of <span>Foreground</span>‐<span>Only</span> versus <span>Foreground</span>+<span>Background</span> <span>Graphs</span> on <span>Risk</span> <span>Aversion</span> <span>Diminishes</span> with <span>Larger</span> <span>Probabilities</span>. <em>Risk Analysis</em> <strong>40</strong>:771–788. doi:<a href="https://doi.org/10.1111/risa.13431">10.1111/risa.13431</a>
+</div>
+<div id="ref-pelham_easy_1994" class="csl-entry" role="doc-biblioentry">
+Pelham BW, Sumarta TT, Myaskovsky L. 1994. The <span>Easy</span> <span>Path</span> <span>From</span> <span>Many</span> <span>To</span> <span>Much</span>: The <span>Numerosity</span> <span>Heuristic</span>. <em>Cognitive Psychology</em> <strong>26</strong>:103–133. doi:<a href="https://doi.org/10.1006/cogp.1994.1004">10.1006/cogp.1994.1004</a>
+</div>
+<div id="ref-peters_numeracy_2006" class="csl-entry" role="doc-biblioentry">
+Peters E, Västfjäll D, Slovic P, Mertz CK, Mazzocco K, Dickert S. 2006. Numeracy and <span>Decision</span> <span>Making</span> <strong>17</strong>.
+</div>
+<div id="ref-reyna_theory_2008" class="csl-entry" role="doc-biblioentry">
+Reyna VF. 2008. A <span>Theory</span> of <span>Medical</span> <span>Decision</span> <span>Making</span> and <span>Health</span>: <span>Fuzzy</span> <span>Trace</span> <span>Theory</span>. <em>Medical Decision Making</em> <strong>28</strong>:850–865. doi:<a href="https://doi.org/10.1177/0272989X08327066">10.1177/0272989X08327066</a>
+</div>
+<div id="ref-stone_designing_2017" class="csl-entry" role="doc-biblioentry">
+Stone ER, Bruin W, Wilkins AM, Boker EM, MacDonald Gibson J. 2017. Designing <span>Graphs</span> to <span>Communicate</span> <span>Risks</span>: <span>Understanding</span> <span>How</span> the <span>Choice</span> of <span>Graphical</span> <span>Format</span> <span>Influences</span> <span>Decision</span> <span>Making</span>. <em>Risk Analysis</em> <strong>37</strong>:612–628. doi:<a href="https://doi.org/10.1111/risa.12660">10.1111/risa.12660</a>
+</div>
+<div id="ref-stone_effects_2015" class="csl-entry" role="doc-biblioentry">
+Stone ER, Gabard AR, Groves AE, Lipkus IM. 2015. Effects of <span>Numerical</span> <span>Versus</span> <span>Foreground</span>-<span>Only</span> <span>Icon</span> <span>Displays</span> on <span>Understanding</span> of <span>Risk</span> <span>Magnitudes</span>. <em>Journal of Health Communication</em> <strong>20</strong>:1230–1241. doi:<a href="https://doi.org/10.1080/10810730.2015.1018594">10.1080/10810730.2015.1018594</a>
+</div>
+<div id="ref-stone_salience_2018" class="csl-entry" role="doc-biblioentry">
+Stone ER, Reeder EC, Parillo J, Long C, Walb L. 2018. Salience <span>Versus</span> <span>Proportional</span> <span>Reasoning</span>: <span>Rethinking</span> the <span>Mechanism</span> <span>Behind</span> <span>Graphical</span> <span>Display</span> <span>Effects</span>: <span>Proportional</span> <span>Reasoning</span>. <em>Journal of Behavioral Decision Making</em> <strong>31</strong>:473–486. doi:<a href="https://doi.org/10.1002/bdm.2051">10.1002/bdm.2051</a>
+</div>
+<div id="ref-stone_foregroundbackground_2003" class="csl-entry" role="doc-biblioentry">
+Stone ER, Sieck WR, Bull BE, Frank Yates J, Parks SC, Rush CJ. 2003. Foreground:background salience: <span>Explaining</span> the effects of graphical displays on risk avoidance. <em>Organizational Behavior and Human Decision Processes</em> <strong>90</strong>:19–36. doi:<a href="https://doi.org/10.1016/S0749-5978(03)00003-7">10.1016/S0749-5978(03)00003-7</a>
+</div>
+<div id="ref-tversky_framing_1981" class="csl-entry" role="doc-biblioentry">
+Tversky A, Kahneman D. 1981. The <span>Framing</span> of <span>Decisions</span> and the <span>Psychology</span> of <span>Choice</span>. <em>Science</em> <strong>211</strong>:453–458. doi:<a href="https://doi.org/10.1126/science.7455683">10.1126/science.7455683</a>
+</div>
+<div id="ref-witt_graph_2019" class="csl-entry" role="doc-biblioentry">
+Witt JK. 2019. Graph <span>Construction</span>: <span>An</span> <span>Empirical</span> <span>Investigation</span> on <span>Setting</span> the <span>Range</span> of the <span>Y</span>-<span>Axis</span>. <em>Meta-Psychology</em> <strong>2</strong>:1–20. doi:<a href="https://doi.org/10.15626/MP.2018.895">10.15626/MP.2018.895</a>
+</div>
+<div id="ref-yang_truncating_2021" class="csl-entry" role="doc-biblioentry">
+Yang BW, Vargas Restrepo C, Stanley ML, Marsh EJ. 2021. Truncating <span>Bar</span> <span>Graphs</span> <span>Persistently</span> <span>Misleads</span> <span>Viewers</span>. <em>Journal of Applied Research in Memory and Cognition</em> S2211368120300978. doi:<a href="https://doi.org/10.1016/j.jarmac.2020.10.002">10.1016/j.jarmac.2020.10.002</a>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> References</h1>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Age data was unavailable for 2 participants<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../reproducibility.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Reproducibility</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../conclusion.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
