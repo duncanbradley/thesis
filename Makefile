@@ -8,3 +8,6 @@ html:
 
 docx:
 	quarto render --to docx --output-dir docx
+
+
+# -B flag to force render if file already exists
