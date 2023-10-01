@@ -52,7 +52,7 @@ book:
     - Chapters/axis-extension/axis-extension.qmd
     - Chapters/postscript3.md
     - conclusion.md
-    - references.qmd
+#    - references.qmd
 
 thesis:
   #supervisor:
@@ -69,10 +69,13 @@ thesis:
 filters:
   - section-bibliographies
 reference-section-title: References
-citeproc: false
+citeproc: true
 
-bibliography: references.bib
-csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/elife.csl"
+bibliography: 
+  - Chapters/position_magnitude/dot-plots-axes.bib
+  - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.bib
+  - Chapters/axis-extension/axis-extension.bib
+csl: "elife.csl"
 citation_package: biblatex
 
 #format:
@@ -88,6 +91,8 @@ format:
     linkcolor: blue
     toclinkcolor: black
     toc-depth: 3
+    lof: true
+    lot: true
   docx:
     output-dir: docx
     toc: true
