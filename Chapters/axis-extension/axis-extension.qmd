@@ -958,5 +958,3 @@ All materials were produced using {ggplot2}. Therefore, our conclusions about de
 ### Conclusion
 
 In two experiments, we generated evidence on the effects of default and extended axis limits, illustrating the influential role of denominators in gauging magnitude. We provide insight into the cognitive processes involved in interpreting plotted values' magnitudes in bar charts and offer recommendations for facilitating judgements. Framing effects demonstrate the power of presentation choices on the interpretation of numbers.
-
-## References
