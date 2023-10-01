@@ -15,13 +15,34 @@ This is a largely positivist approach, concerned with verifiable results which c
 ## Analysis Methodology
 
 Large quantative datasets from controlled experiments require appropriate statistical analysis. 
-Judd 2017 - 
-Singmann and kellen (2019) - 
-Meteyard and Davis (2020) - 
-modelling - Barr vs. Bates
+
+Judd 2017 - The objective of conducting statistical analysis on such datasets is to determine whether there is an overall difference between responses to two conditions. A typical F1 ANOVA does account for the fact that participants provide a source of variability - the degree of uncertainty associated with the overall difference. The variability is used to determine whether the obersved difference is sufficiently large. I.e. generalising across participants. But in these experiments (like many experiments), we’re not just interested in accounting for that variability, instead, we want to account for variability in stimuli too - in order to test whether the effect generalises across different scenarios. Affects inferential statistical tests by not taking into account the variability. Failures to replicate results with differnet stimuli might be due to the failure to account for these in original statistical analysis. 
+
+
+Judd (2017) - supports Barr’s maximal recommendations. 
+
+Singmann and Kellen (2019) - accounting for random effects helps with the indepence assumption. Better parameter estimates decreased likelihood of false positives. Accounts for dependencies between data points. Random effects allow you to examine the effect at the population level, not just the sample level. Maximal random effects structures theoretically do the best job of reflecting the characteristics of the dataset. 
+
+Type 1 errors more likely when variability in a random effect not accounted for (Judd et al., 2012).  
+
+Meteyard and Davis (2020) - importance of reporting model structures, for example by specifiying the model formula. 
+
 buildmer as a solution to this debate
 
-Effect sizes to indiciate the size of the effect - Wilkinson and Task Force on Statistical Inference(1999).
+Barr et al., (2013) - increase statistical power without inflating Type 1 error. Choose model structures that reflect the design of the experiment. 
+
+Bates et al. (2018) - it is importance to recognise the limitations of these models. Necessary to strike a balance between complexity and simplicity. The challenging nature of estimating parameters for random effects means that the estimates can’t always be trusted - it’s unrealistic/over-ambitious. Larger sample sizes make it easier to produce reliable complex models. Overfitting should not be encouraged, can produce degenerate models. 
+Rather than always trying to fit the most complex model, ensure that the stucture is supported by the data. Otherwise, modelling random effects might not provide anything useful in terms of the modelling of fixed effects. 
+
+But it’s hard to decide exactly when modelling a random effect is worthwhile and when it’s not. This is why builmer is useful. 
+
+Barr is about fitting for the design, Bates is about fitting for the data. 
+
+The process of selecting appropriate statistical model specifications can be opaque, involving random effects, convergence issues, and additional parameters. In the interest of transparency, consistency, and statistical rigour, I use the *buildmer* package (Voeten, 2022) to automatically determine appropriate statistical model structures. This provides a reproducible account of the steps preceding identification of each statistical model employed in analysis, reducing human error and documenting a process as well as its outcome (Rule et al., 2019). As this package is available CRAN (Comprehensible R Archive Network), its source code is archived and transparent.
+
+Difference between random and fixed factors
+
+Effect sizes to indiciate the size of the effect - Wilkinson and Task Force on Statistical Inference (1999).
 
 ## Reproducibility
 
@@ -92,8 +113,6 @@ The following describes the different aspects of reproducibility for the subsequ
 ### Data, Code, and Dynamic Documents
 
 For each study, raw data is provided. The only pre-processing of this data was the essential removal of sensitive information (transparently documented in corresponding scripts). All subsequent processing, from data cleaning to data wrangling, is included in a Quarto dynamic document (Allaire, et al., 2022), which also includes all data analysis, visualisation, and accompanying text. Therefore, consistent with the principles of literate programming, textual descriptions are presented in conjunction with corresponding code (Sandve et al., 2013).
-
-The process of selecting appropriate statistical model specifications can be opaque, involving random effects, convergence issues, and additional parameters. In the interest of transparency, consistency, and statistical rigour, I use the *buildmer* package (Voeten, 2022) to automatically determine appropriate statistical model structures. This provides a reproducible account of the steps preceding identification of each statistical model employed in analysis, reducing human error and documenting a process as well as its outcome (Rule et al., 2019). As this package is available CRAN (Comprehensible R Archive Network), its source code is archived and transparent.
 
 ### Docker Containers
 
