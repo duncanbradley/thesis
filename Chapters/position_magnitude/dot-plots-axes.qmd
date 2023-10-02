@@ -366,6 +366,7 @@ Further evidence of truncation effects, provided by @yang_truncating_2021 improv
 #| out-width: "300px"
 #| out-height: "210px"
 #| fig-asp: 0.7
+#| fig-scap: A reproduction of a bar chart from the New York Times.
 #| fig-cap: A reproduction of a bar chart from the New York Times. The y-axis limit is defined by the largest possible value, rather than the largest observed value, thus the magnitude of plotted values appears particularly small.
 #| fig-alt: "A bar chart with the title 'Number of Black members of the U.S. Senate'. The y-axis ranges from 0 to 100, and the x-axis ranges from 1789 to 2022. Bars representing Black senators are mostly absent, with small bars representing a single Black senator appearing sporadicly in the late 1800s, late 1900s and early 2000s, before increasing around 2013, yet still occupying only 4% of the total at their peak. Source: Office of the Historian, History, Art & Archives, U.S. House of Representatives."
 
@@ -453,6 +454,7 @@ For each dataset, we generated three values from a normal distribution. Populati
 #| out-width: "300px"
 #| out-height: "180px"
 #| fig-asp: 0.6
+#| fig-scap: Example charts, taken from Experiment 1.
 #| fig-cap: Example charts, taken from Experiment 1. The *high physical position* condition (left) presents data points near the top of the chart; the *low physical position* condition (right) presents the same data points near the bottom of the chart.
 #| fig-alt: Two dot plots, where plotted data points are repsented by small black circles. In the left dot plot, the y-axis ranges from 61.5% to 71.5%, thus the three data points, which are around the 70% point, appear near the top of the axis. In the right chart, the y-axis ranges from 68.5% to 78.5%, thus the same three data points appear near the bottom of the axis. Each y-axis is labelled 'Chance (%)', accompanied by an upwards arrow. 
 
@@ -484,6 +486,7 @@ Before exiting the experiment, participants were informed that all presented dat
 #| out-width: "320px"
 #| out-height: "200px"
 #| fig-asp: 0.625
+#| fig-scap: An example trial, taken from Experiment 1.
 #| fig-cap: "An example trial, taken from Experiment 1. Participants provided two ratings in each trial: the chance of an event occurring (magnitude rating), and the severity of consequences."
 #| fig-alt: "A screenshot of an example trial. The title is 'Heavy Rainfall' and the introductory text reads 'You are going on a camping trip next week. The graph below shows the chance of heavy rainfall for three randomly selected days next week'. The graph shows three data points located at high physical positions on the axis. Alongside this, text reads 'If you camp on one of these days... What is the chance you experience heavy rainfall?; What is the severity of consequences if you experience heavy rainfall?'. Below the first question is a 7-point Likert scale with anchors 'Very unlikely' and 'Very likely' at the extremes, below the second question is a 7-point Likert scale with anchors 'Very mild' and 'Very severe'."
 
@@ -582,6 +585,7 @@ likert_plot <- function(df) {
 #| out-width: "340px"
 #| out-height: "119px"
 #| fig-asp: 0.35
+#| fig-scap: The distribution of Likert scale ratings of data points' magnitudes.
 #| fig-cap: The distribution of Likert scale ratings of data points' magnitudes. The width of each response option represents the proportion of ratings recorded for that option. Note that data points presented at high physical positions (top) elicited a larger proportion of ratings on the right-hand side (representing greater magnitudes), compared to data points at low physical positions (bottom), which elicited a larger proportion of ratings on the left-hand side (representing smaller magnitudes).
 #| fig-alt: "A horizontal stacked bar chart, showing the responses at each Likert scale category for data points presented at high and low physical positions. The title reads 'Experiment 1: Ratings of Data Points' Magnitudes'. The label 'Very unlikely' appears on the far left, and the label 'Very likely' appears on the far right. For the 'high' condition, there are a greater proportion of responses at the 'Very likely' end of the scale. For the 'low' condition, there are a greater proportion of responses at the 'Very unlikely' end of the scale."
 
@@ -799,6 +803,7 @@ Previous research suggests that charts with inverted axes can be prone to misint
 #| out-width: "340px"
 #| out-height: "238px"
 #| fig-asp: 0.7
+#| fig-scap: Rationale for Experiment 2: distinguishing the roles of absolute and relative position.
 #| fig-cap: "Rationale for Experiment 2: distinguishing the roles of absolute and relative position. In charts with conventional axis orientations (left column), there is congruence between data points’ physical positions and their relative numerical positions in the chart. In charts with inverted axis orientations (right column), there is incongruence between data points’ physical positions and their relative numerical positions in the chart. This allows us to test whether physical positions or relative numerical positions influence magnitude judgements."
 #| fig-alt: "A 2x2 grid of dot plots. Where data points are plotted at a high physical position, using a conventional axis, the label reads 'Plotted values have HIGH relative position'. Where data points are plotted at a low physical position, using a conventional axis, the label reads 'Plotted values have LOW relative position'. Where data points are plotted at a high physical position, using an inverted axis, the label reads 'Plotted values have LOW relative position'. Where data points are plotted at a low physical position, using an inverted axis, the label reads 'Plotted values have HIGH relative position'."
 
@@ -1261,6 +1266,7 @@ Data were returned by 161 participants. Ten participants' submissions were rejec
 #| out-width: "340px"
 #| out-height: "119px"
 #| fig-asp: 0.35
+#| fig-scap: The distribution of Likert scale ratings of data points' magnitudes.
 #| fig-cap: The distribution of Likert scale ratings of data points' magnitudes. The width of each response option represents the proportion of ratings recorded for that option. Note that data points presented at high physical positions (top) elicited a larger proportion of ratings on the left-hand side (representing *smaller* magnitudes), compared to data points at low physical positions (bottom), which elicited a larger proportion of ratings on the right-hand side (representing *larger* magnitudes).
 #| fig-alt: "A horizontal stacked bar chart, showing the responses at each Likert scale category for data points presented at high and low physical positions. The title reads 'Experiment 2 (Inverted Axes): Ratings of Data Points' Magnitudes'. The label 'Very unlikely' appears on the far left, and the label 'Very likely' appears on the far right. For the 'high' condition, there are a greater proportion of responses at the 'Very unlikely' end of the scale. For the 'low' condition, there are a greater proportion of responses at the 'Very likely' end of the scale."
 
