@@ -13,11 +13,8 @@ contributes:
         - "partials/before-body.tex"
       toc: false
       toc-depth: 3
-      lot: true
-      lof: true
       include-before-body: 
         - partials/definitions.tex
-        - partials/before-body.tex
       include-in-header: 
         - partials/in-header.tex
       geometry: 

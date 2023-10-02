@@ -91,8 +91,9 @@ format:
     linkcolor: blue
     toclinkcolor: black
     toc-depth: 3
-    lof: true
-    lot: true
+    include-in-header: 
+      text: |
+        \usepackage{tocbibind}
   docx:
     output-dir: docx
     toc: true
