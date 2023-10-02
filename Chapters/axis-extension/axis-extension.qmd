@@ -365,6 +365,7 @@ For charts with extended axes, the denominator value was used as the y-axis uppe
 #| include: true
 #| out-width: "600px"
 #| fig-cap: "Example charts for Experiment 1. The same data appears in both charts. Accompanying text explained what the values represented: _'The graph shows, for each manufacturing method, how many of the items were free from defects'_. The chart with the default axes (left) employs an upper limit determined by ggplot2. The chart with the extended axes (right) employs an upper limit equal to the dataset's denominator value."
+#| fig-scap: "Example charts for Experiment 1."
 img1 <- image_read("images/E14trunc.png")
 img2 <- image_read("images/E14full.png")
 image_append(c(img1, img2))
