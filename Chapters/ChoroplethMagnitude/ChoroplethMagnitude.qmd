@@ -319,6 +319,7 @@ Indeed, choropleth maps displaying overall magnitudes have been used in practice
 ```{r}
 #| label: fig-DFP-example
 #| include: true
+#| fig-scap: A choropleth map displaying data from an analysis of state-level public support for a federal ban on abortion in the U.S.
 #| fig-cap: A choropleth map displaying data from an analysis of state-level public support for a federal ban on abortion in the U.S [@fischer_federal_2021]. The colour legend employs a diverging blue-red colour palette, with white in the centre, showing the full range of possible values. The 30% point is marked with a dotted line and labelled to indicate that no state exceeds this level of support. Reproduced with permission.
 #| fig-alt: A choropleth map of the U.S. with the title 'There is not a single state where support for a federal ban on abortion has more than 30 percent support among the public'. The colour legend employs a diverging blue-red colour palette, with white in the centre, showing the full range of possible values. Each state is coloured one of several shades of light blue. The 30 percent point is marked with a dotted line and labelled to indicate that no state exceeds this level of support.
 knitr::include_graphics("examples/dfp.png")
@@ -392,6 +393,7 @@ In each trial, we independently manipulated two aspects of the choropleth map. W
 #| label: fig-example-stimuli
 #| include: true
 #| fig-height: 5
+#| fig-scap: "Example stimuli: six choropleth maps showing fictitious pollution data."
 #| fig-cap: "Example stimuli: six choropleth maps showing fictitious pollution data. Four colour legends are displayed below each map, but only one colour legend accompanied the map in each trial. Colour legends with extended ranges have a maximum value equal to double the maximum plotted value (top row: 400; bottom row: 1800). Colour legends with truncated ranges have a maximum value equal to the maximum plotted value in the map (top row: 200; bottom row: 900). During the experiment, all six colour scales were used in conjunction with all maximum values."
 #| fig-alt: "A 3x2 grid of choropleth map visualisations, in six different colours. Each has four colour legends below. The colour legends below the maps in the left column terminate with the same shade of colour as the darkest geographical region. The colour legends below the maps in the right column terminate with a much darker shade of colour. Each colour legend is shown with and without numerical labels."
 img1 <- ggplot() + background_image(image_read("examples/supermap_top.png")) + coord_fixed(ratio = 1041/2787)
@@ -472,6 +474,7 @@ The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 20
 ```{r}
 #| label: fig-example-trial
 #| include: true
+#| fig-scap: An example of a single experiment trial
 #| fig-cap: An example of a single experiment trial, showing a choropleth map with a truncated colour legend, plus a response marker on the visual analogue scale.
 knitr::include_graphics("examples/example-trial.png")
 ```
@@ -742,6 +745,7 @@ There was a significant interaction between colour legend range and numerical la
 #| include: true
 #| fig-height: 5
 #| fig-width: 6
+#| fig-scap: Mean urgency ratings showing the interaction between colour legend range and numerical label presence, displayed separately for the different samples of participants.
 #| fig-cap: Mean urgency ratings showing the interaction between colour legend range and numerical label presence, displayed separately for the different samples of participants. Error bars show 95% confidence intervals around the means.
 ##| fig-alt = "A visualisation with eight horizontal axes. The #top four are labelled 'Satisfied Attention Check Criteria (N = #100)'. Of these, the top two are labelled 'Truncated Upper #Bound'. These have means and error bars close to the right hand #side of the axis, with the 'Labels Absent' condition very #slightly further to the right than the 'Labels Present' #condition. The means and error bars for both 'Extended Upper #Bound' conditions are near the centre of the axis. This entire #pattern of error bars in the top four axes is replicated below, #in the bottom four axes labelled 'All Participants (N = 165)'"
 # creating a named vector for range facet labels
