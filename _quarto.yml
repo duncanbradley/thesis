@@ -63,7 +63,7 @@ thesis:
   group: School of Health Sciences
   faculty: Faculty of Biology, Medicine and Health
   copyright: "Frontmatter/copyright.tex"
-  declaration: "Frontmatter/declaration.tex"
+#  declaration: "Frontmatter/declaration.tex"
   acknowledgements: "Frontmatter/acknowledgements.tex"
 
 filters:

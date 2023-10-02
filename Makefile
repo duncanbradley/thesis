@@ -1,7 +1,7 @@
 all: pdf html docx
 
 pdf:
-	quarto render --to pdf --output-dir pdf
+	quarto render --to quarto-thesis-pdf --output-dir pdf
 
 html:
 	quarto render --to html --output-dir html
