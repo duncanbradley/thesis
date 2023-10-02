@@ -1,6 +1,5 @@
-/.quarto/*
+.quarto/
 .Rhistory
 .DS_Store
 .Rproj.user
-.quarto/*
-pdf/*
+pdf/
