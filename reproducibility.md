@@ -1,8 +1,8 @@
-# Experimental and Computational Methodology
+# Experimental, Analytical, and Computational Methodology
 
 The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with multiple approaches for generating knowledge (Correll et al., 2022). In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and justification for my choices. In addition, by explicitly discussing these decisions, I recognise that they inevitably influence my findings. It is necessary to acknowledge that this methodology is one of many, each carrying their own implications. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
 
-## Experimental Psychology
+## Experimental Methodology
 
 Selecting a research method involves considering the most suitable type of data for addressing the research question. To understand how data visualisation design choices affect interpretations of absolute magnitude, testing hypotheses using controlled experiments is highly appropriate. This allows for systematic measurement of viewers’ judgements and isolates the graphical features of interest from extraneous features. Controlling for the influence of other variables helps establish a causal link between the manipulation and cognition (Barbosa et al., 2021). Experimental methods are well-established in visualisation research for generating robust empirical evidence on the effects of design choices (Abdul-Rahman et al., 2019). 
 
@@ -12,37 +12,31 @@ All experiments in this thesis were conducted online using Prolific.co, a websit
 
 This is a largely positivist approach, concerned with verifiable results which can be generalised beyond the experiment to describe a cognitive mechanism. However, there is also arguably a *postmodern* quality to highly controlled experiments (Mayrhofer et al., 2021). That is, a controlled experiment can be considered a constructed, stimulated setting, with contrived tasks and stimuli that do not precisely reflect the ‘reality’ under investigation (i.e., spontaneous judgements of authentic data visualisations). Recognising this does not invalidate conclusions from experimental studies, but requires that generalisation of results is treated with caution. 
 
-## Analysis Methodology
+## Analytical Methodology
 
-Large quantative datasets from controlled experiments require appropriate statistical analysis. 
+### Linear Mixed-Effects Models
 
-Judd 2017 - The objective of conducting statistical analysis on such datasets is to determine whether there is an overall difference between responses to two conditions. A typical F1 ANOVA does account for the fact that participants provide a source of variability - the degree of uncertainty associated with the overall difference. The variability is used to determine whether the obersved difference is sufficiently large. I.e. generalising across participants. But in these experiments (like many experiments), we’re not just interested in accounting for that variability, instead, we want to account for variability in stimuli too - in order to test whether the effect generalises across different scenarios. Affects inferential statistical tests by not taking into account the variability. Failures to replicate results with differnet stimuli might be due to the failure to account for these in original statistical analysis. 
+Large quantative datasets from controlled experiments require appropriate statistical analysis. Determining whether an experimental manipulation has affected participants’ interpretations involves examining variability between different experimental conditions against the background other variability in the dataset. Linear mixed-effects modelling offers a powerful and reliable solution, and is used throughout this thesis.
 
+### Fixed Effects and Random Effects
 
-Judd (2017) - supports Barr’s maximal recommendations. 
+A central aspect of mixed-effects modelling is the distinction between fixed effects and random effects. Independent variables of interest are modelled as *fixed effects*; their influence on the dependent variable is the primary focus of an analysis. Other sources of variability are modelled as *random effects* in order to generate a more comprehensive model of a dataset. For a variable manipulated in an experiment, each relevant level is present in a dataset, so this variable should be modelled as a fixed effect. However, typically, only a sample of possible participants or possible stimuli are present in a dataset, so these variables should be modelled as random effects. At a minimum, specifiying a random effect involves modelling *intercepts*: the average response at each level of the random effect (i.e., a separate baseline for each individual participant or experimental stimulus). Additionally, researchers may model *slopes*: the effect of the independent variable at each level of the random effect (i.e., the difference between conditions for each individual participant or experimental stimulus). Thus, modelling random intercepts *and* random slopes attempts to capture more variability in a dataset than modelling random intercepts alone.
 
-Singmann and Kellen (2019) - accounting for random effects helps with the indepence assumption. Better parameter estimates decreased likelihood of false positives. Accounts for dependencies between data points. Random effects allow you to examine the effect at the population level, not just the sample level. Maximal random effects structures theoretically do the best job of reflecting the characteristics of the dataset. 
+### Benefits of Mixed-Effects Models
 
-Type 1 errors more likely when variability in a random effect not accounted for (Judd et al., 2012).  
+Modelling random effects is beneficial as a means of testing the *generalisability* of an fixed effect: whether it is robust when differences across participants and experimental stimuli are taken into account. For example, including random effects for experimental stimuli can improve prediction of whether the results will replicate when different stimuli are used (Judd, 2017). Furthermore, it is appropriate to recognise the dependencies between data points associated with the same participant, or the same experimental item, rather than incorrectly treating them as independent observations. Compared to simpler models, better parameter estimates in mixed-effects models decrease the likelihood of generating false positives (Singmann and Kellen, 2019).
 
-Meteyard and Davis (2020) - importance of reporting model structures, for example by specifiying the model formula. 
+### Approaches to Model Construction
 
-buildmer as a solution to this debate
+Barr et al. (2013) argue that researchers should construct ‘maximal’ models which reflect the full complexity of their experimental design. Therefore, in a fully-crossed design where there are observations at each level of the fixed effect for each participant and each experimental stimulus, researchers should employ random intercepts and slopes for participants and experimental stimuli. Barr et al. (2013) suggest that modelling all possible random effects increases statistical power without inflating Type 1 error. However, Bates et al. (2018) argue for a different approach, which acknowledges that building complex mixed-effects models is a complex process, and not all datasets are sufficiently rich to support such computations. Estimating a large number of parameters using a small number of observations can result in ‘overfitting’: the resulting estimates are not always reliable. Thus, maximal model structures can be over-ambitious. Including all possible random effects terms does not necessarily improve the modelling of fixed effects.
 
-Barr et al., (2013) - increase statistical power without inflating Type 1 error. Choose model structures that reflect the design of the experiment. 
+### An Automated Approach
 
-Bates et al. (2018) - it is importance to recognise the limitations of these models. Necessary to strike a balance between complexity and simplicity. The challenging nature of estimating parameters for random effects means that the estimates can’t always be trusted - it’s unrealistic/over-ambitious. Larger sample sizes make it easier to produce reliable complex models. Overfitting should not be encouraged, can produce degenerate models. 
-Rather than always trying to fit the most complex model, ensure that the stucture is supported by the data. Otherwise, modelling random effects might not provide anything useful in terms of the modelling of fixed effects. 
+Whereas Barr et al.’s (2013) recommendations for specifying random effects structures are primarily informed by the experimental design, Bates et al.’s (2018) recommendations are primarily informed by the dataset. The approach to model construction used in this thesis is influenced by both positions, and attempts to balance simplicity and explanatory power. An additional constraint is model convergence, which refers to the process of generating a solution when building a model. In this thesis, models are constructured using a two-stage process which is automated using the buildmer package in R (Voeten, 2022). First, this software attempts to build the maximal model and identify the most complex random effects structure which results in successful model convergence. Second, the software simplifies the model structure by removing random effects terms which do not contribute significiantly to explaining variance in the dataset. This seeks to maximise the variability captured by the model whilst minimising the *redundant* random effects terms which may results in unreliable parameter estimates. Furthermore, using a computational process provides a consitent, rigorous, and transparent approach to model construction. A reproducible account of the steps preceding identification of each statistical model reduces the chance of human error and documents the process as well as its outcome (Rule et al., 2019). 
 
-But it’s hard to decide exactly when modelling a random effect is worthwhile and when it’s not. This is why builmer is useful. 
+### Reporting Analyses
 
-Barr is about fitting for the design, Bates is about fitting for the data. 
-
-The process of selecting appropriate statistical model specifications can be opaque, involving random effects, convergence issues, and additional parameters. In the interest of transparency, consistency, and statistical rigour, I use the *buildmer* package (Voeten, 2022) to automatically determine appropriate statistical model structures. This provides a reproducible account of the steps preceding identification of each statistical model employed in analysis, reducing human error and documenting a process as well as its outcome (Rule et al., 2019). As this package is available CRAN (Comprehensible R Archive Network), its source code is archived and transparent.
-
-Difference between random and fixed factors
-
-Effect sizes to indiciate the size of the effect - Wilkinson and Task Force on Statistical Inference (1999).
+In addition to the constructuion of robust statistical models, the *reporting* of statistical analyses is another important consideration. Statistically significant results concerning differences between experimental conditions do not indicate how *substantial* differences are, so I report effect sizes in addition to p-values and test statistics (Wilkinson and Task Force on Statistical Inference, 1999). Following recommendations for mixed-effects modelling, I also report model structures alongside results, for transparency (Meteyard and Davis, 2020).
 
 ## Reproducibility
 
