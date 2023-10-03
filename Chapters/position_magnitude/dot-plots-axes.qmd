@@ -803,7 +803,7 @@ Previous research suggests that charts with inverted axes can be prone to misint
 #| out-width: "340px"
 #| out-height: "238px"
 #| fig-asp: 0.7
-#| fig-scap: Rationale for Experiment 2: distinguishing the roles of absolute and relative position.
+#| fig-scap: "Rationale for Experiment 2: distinguishing the roles of absolute and relative position."
 #| fig-cap: "Rationale for Experiment 2: distinguishing the roles of absolute and relative position. In charts with conventional axis orientations (left column), there is congruence between data points’ physical positions and their relative numerical positions in the chart. In charts with inverted axis orientations (right column), there is incongruence between data points’ physical positions and their relative numerical positions in the chart. This allows us to test whether physical positions or relative numerical positions influence magnitude judgements."
 #| fig-alt: "A 2x2 grid of dot plots. Where data points are plotted at a high physical position, using a conventional axis, the label reads 'Plotted values have HIGH relative position'. Where data points are plotted at a low physical position, using a conventional axis, the label reads 'Plotted values have LOW relative position'. Where data points are plotted at a high physical position, using an inverted axis, the label reads 'Plotted values have LOW relative position'. Where data points are plotted at a low physical position, using an inverted axis, the label reads 'Plotted values have HIGH relative position'."
 
