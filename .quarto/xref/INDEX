@@ -53,5 +53,26 @@
   },
   "Chapters/position_magnitude/dot-plots-axes.qmd": {
     "dot-plots-axes.html": "af8a2c4a"
+  },
+  "literature.qmd": {
+    "literature.html": "6ea43888"
+  },
+  "Chapters/preface1.md": {
+    "preface1.html": "59f8ae19"
+  },
+  "Chapters/postscript1.md": {
+    "postscript1.html": "7cc33e6d"
+  },
+  "Chapters/preface2.md": {
+    "preface2.html": "26f7f7ba"
+  },
+  "Chapters/postscript2.md": {
+    "postscript2.html": "41a15c15"
+  },
+  "Chapters/preface3.md": {
+    "preface3.html": "7ebf6fe4"
+  },
+  "Chapters/postscript3.md": {
+    "postscript3.html": "dae08bbf"
   }
 }
