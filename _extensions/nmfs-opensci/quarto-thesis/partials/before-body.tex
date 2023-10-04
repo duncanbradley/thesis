@@ -7,34 +7,62 @@
 %----------------------------------------------------------------------------------------
 
 \begin{titlepage}
+\null\vskip1cm%
 \begin{center}
-
-\HRule \\[0.4cm] % Horizontal line
+\null\vskip1cm%
+%\HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-\HRule \\[1.5cm] % Horizontal line
-
+%\HRule \\[1.5cm] % Horizontal line
 \vfill
-
-\large \textit{A thesis submitted to}\\
-\univname\\
-\large \textit{for the degree of}\\
+\large \text{A thesis submitted to} \univname \text{ for the degree of}\\
 \degreename\\ % University requirement text
-\textit{in the}\\
-\facname\\
-
+\text{in the} \facname\\
 \vfill
-
-{\large 2023}\\
-
-\vfill
-
-$if(author)$
-{\large \authorname}\\
+{\large \bfseries 2023}\\
+\vskip1cm$if(author)$
+{\large \bfseries \authorname}\\
 $endif$
- 
+\vfill
+{\large \groupname}\\
 \vfill
 \end{center}
 \end{titlepage}
+
+% $--	LIST OF CONTENTS/FIGURES/TABLES PAGES
+
+\begingroup
+\hypersetup{linkcolor=$if(toclinkcolor)$$toclinkcolor$$else$black$endif$}
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	WORD COUNT
+%----------------------------------------------------------------------------------------
+$if(wordcount)$
+
+\begin{wordcount}
+$wordcount$
+\end{wordcount}
+
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+$if(abstract)$
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+$abstract$
+\end{abstract}
+
+$endif$
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
@@ -50,36 +78,25 @@ $endif$
 
 \end{declaration}
 
-\cleardoublepage
+%\cleardoublepage
 $endif$
 
-$if(thesis.quotation)$
+
 %----------------------------------------------------------------------------------------
-%	QUOTATION PAGE
+%	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
-
-\vspace*{0.2\textheight}
-
-$if(thesis.quotation.text)$
-\noindent``{\itshape $thesis.quotation.text$}''\bigbreak
-
-\hfill $thesis.quotation.attribution$
+$if(thesis.copyright)$
+\begin{copyright}
+\addchaptertocentry{\copyrightname} % Add the copyright to the table of contents
+$if(thesis.copyright.text)$
+$thesis.copyright.text$
 $else$
-\input{``$thesis.quotation$''}
+\input{"$thesis.copyright$"}
 $endif$
 
-$endif$
+\end{copyright}
 
-$if(abstract)$
-%----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE
-%----------------------------------------------------------------------------------------
-
-\begin{abstract}
-\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-$abstract$
-\end{abstract}
-
+%\cleardoublepage
 $endif$
 
 $if(thesis.acknowledgements)$
@@ -98,53 +115,55 @@ $endif$
 
 $endif$
 
-% $--	LIST OF CONTENTS/FIGURES/TABLES PAGES
-
-\begingroup
-\hypersetup{linkcolor=$if(toclinkcolor)$$toclinkcolor$$else$black$endif$}
-
-\tableofcontents % Prints the main table of contents
-
-\listoffigures % Prints the list of figures
-
-\listoftables % Prints the list of tables
-
-\endgroup
-
-
-$if(thesis.abbreviations)$
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
+$if(thesis.abbreviations)$
 
 \input{"$thesis.abbreviations$"}
 
 $endif$
 
-$if(thesis.constants)$
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
 %----------------------------------------------------------------------------------------
+$if(thesis.constants)$
 
 \input{"$thesis.constants$"}
 
 $endif$
 
-$if(thesis.symbols)$
 %----------------------------------------------------------------------------------------
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
+$if(thesis.symbols)$
 
 \input{"$thesis.symbols$"}
 
 $endif$
 
-$if(thesis.dedication)$
 %----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
+$if(thesis.dedication)$
 
 \dedicatory{\input{"$thesis.dedication$"}} 
+
+$endif$
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+$if(thesis.quotation)$
+\vspace*{0.2\textheight}
+
+$if(thesis.quotation.text)$
+\noindent``{\itshape $thesis.quotation.text$}''\bigbreak
+
+\hfill $thesis.quotation.attribution$
+$else$
+\input{``$thesis.quotation$''}
+$endif$
 
 $endif$
 
