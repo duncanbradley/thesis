@@ -6,17 +6,21 @@ The knowledge generated in a research project is necessarily shaped by the metho
 
 Selecting a research method involves considering the most suitable type of data for addressing the research question. To understand how data visualisation design choices affect interpretations of absolute magnitude, testing hypotheses using controlled experiments is highly appropriate. This allows for systematic measurement of viewers’ judgements and isolates the graphical features of interest from extraneous features. Controlling for the influence of other variables helps establish a causal link between the manipulation and cognition (Barbosa et al., 2021). Experimental methods are well-established in visualisation research for generating robust empirical evidence on the effects of design choices (Abdul-Rahman et al., 2019). 
 
+### Experimental Design and Ecological Validity
+
 The purpose of psychological studies on data visualisation is to understand viewers’ interpretations. However, latent variables cannot be interrogated directly, and must be ‘operationalised’ to enable analysis. That is, interpretations of the magnitude of numerical values are captured through measurable responses which correspond to underlying mental representations. Thus, experimental methods rely on dependent variables which faithfully reflect actual cognition. Designing experiments also requires compromise between ecological validity (the degree to which the experiment reflects a realistic scenario) and experimental control (the degree to which the researcher dictates aspects of the experiment). In this thesis, I have strived for realism where possible, but have prioritised experimental control in order to ensure the robustness of findings. In visualisation research in particular, it is often necessary to control for differences in participants’ knowledge by presenting artificial or abstract data (Lam et al., 2012). Whilst qualitative studies (e.g., in-depth interviews), may produce richer data than experiments, they do not provide the precision required to systematically evaulate biases in interpretation. 
 
-All experiments in this thesis were conducted online using Prolific.co, a website for recruiting research participants. This provided access to a diverse group of participants, which contrasts with the relative homogeniety of a student population. Furthermore, online experiments provide the ability to easily collect data from a large number of participants, which reduces the chance of generating false positives during analysis. In addition to using large participant samples, employing multiple trials per condition helps establish robust effects which are not vulnerable to the particular characteristics a single trial. Similarly, generating generalisable knowledge about mental processing of visualisations often requires multiple experiments. A single experiment is typically not sufficient for an understanding of cognitive factors in interpretation (Chen et al., 2020). 
-
 This is a largely positivist approach, concerned with verifiable results which can be generalised beyond the experiment to describe a cognitive mechanism. However, there is also arguably a *postmodern* quality to highly controlled experiments (Mayrhofer et al., 2021). That is, a controlled experiment can be considered a constructed, stimulated setting, with contrived tasks and stimuli that do not precisely reflect the ‘reality’ under investigation (i.e., spontaneous judgements of authentic data visualisations). Recognising this does not invalidate conclusions from experimental studies, but requires that generalisation of results is treated with caution. 
+
+### Sample Size and Generalisability
+
+All experiments in this thesis were conducted online using Prolific.co, a website for recruiting research participants. This provided access to a diverse group of participants, which contrasts with the relative homogeniety of a student population. Furthermore, online experiments provide the ability to easily collect data from a large number of participants, which reduces the chance of generating false positives during analysis. In addition to using large participant samples, employing multiple trials per condition helps establish robust effects which are not vulnerable to the particular characteristics a single trial. Similarly, generating generalisable knowledge about mental processing of visualisations often requires multiple experiments. A single experiment is typically not sufficient for an understanding of cognitive factors in interpretation (Chen et al., 2020). 
 
 ## Analytical Methodology
 
 ### Linear Mixed-Effects Models
 
-Large quantative datasets from controlled experiments require appropriate statistical analysis. Determining whether an experimental manipulation has affected participants’ interpretations involves examining variability between different experimental conditions against the background other variability in the dataset. Linear mixed-effects modelling offers a powerful and reliable solution, and is used throughout this thesis.
+Large quantative datasets from controlled experiments require appropriate statistical analysis. Determining whether an experimental manipulation has affected participants’ interpretations involves examining variability between different experimental conditions against the background other variability in the dataset. Linear mixed-effects modelling offers a powerful and reliable solution, and is used throughout this thesis. Much like my experimental methodology, this reflects a positivist approach, wherein conclusions are supported by mathematical verification.
 
 ### Fixed Effects and Random Effects
 
@@ -111,6 +115,8 @@ For each study, raw data is provided. The only pre-processing of this data was t
 ### Docker Containers
 
 Capturing dependencies requires reproduction of the computational environment used (Boettiger, 2015). Each study in this thesis is associated with a Dockerfile, which can be used to build a Docker container with the appropriate R version and package versions used during analysis. Employing Rocker images provides an Integrated Development Environment (RStudio), and speeds up construction of the Docker image. In each container, an entire manuscript can be generated from scratch. The Dockerfiles also provide important project metadata in a human- and machine-readable format (Leipzig et al., 2015).   
+
+`An example of a Dockerfile can go here`
 
 ### Experiment Resources
 
