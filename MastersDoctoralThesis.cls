@@ -20,6 +20,7 @@
 % LPPL v1.3c (http://www.latex-project.org/lppl)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified by Duncan Bradley
 
 %----------------------------------------------------------------------------------------
 %	CLASS DEFINITION AND PARAMETERS
@@ -421,10 +422,31 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 %----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE DESIGN
+%----------------------------------------------------------------------------------------
+
+\newcommand{\copyrightname}{Copyright}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\copyrightname}{Copyright}
+
+\ifbool{consistentlayout}{
+	\DeclareDocumentEnvironment{copyright}{}{
+		\tttypeout{\copyrightname}
+		\addchap*{\copyrightname}
+		}{}%
+}{
+	\DeclareDocumentEnvironment{copyright}{}{
+		\checktoopen
+		\tttypeout{\copyrightname}
+		\thispagestyle{plain}
+		\begin{flushleft}{\huge\copyrightname\par}\end{flushleft}
+	}{}
+}
+
+%----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\newcommand{\authorshipname}{Declaration of Authorship}
+\newcommand{\authorshipname}{Declaration}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
 \providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
 
