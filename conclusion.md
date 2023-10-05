@@ -22,12 +22,7 @@ The stimuli used in these studies reveal different approaches to conveying magni
 
 ## Relationship to Prior Work
 
-Not contributions - but how can explanations of phenomena in previous studies be tied to current work. I find X, other studies find X. 
-Fits with work on cognitive biases - interpretations are not just about extracting values but subjective judgements too.
-Kindlmann and Scheidegger - Affordances in assessing magnitude if there is some numerical context. Ziekiewicz and Kosara - metaphors. 
-Like work on axis truncation - the physical appearance of values influences judgements. Values interpreted relative to axis limits - the axis limits used as the context which informs judgements. Like Witt, Correll - proprotionate, considered response.
-Adds to prior work on absolute magnitude, joining Sandman. Against Freeman 
-Like Sandman, axis ranges influenced, but did not consistently dictate judgemennts 
+Overall, this work contributes to a large body of cognitive biases which affect the interpretation of data visualisations (Dimara et al., 2020). In particular, it accords with other work which reports that axis limits inform subjective judgements of the magnitude of difference between values (Pandey, Witt, Correll, Yang, Stone). Observing that axis limits inform subjective judgements of *absolute* magnitude, accord with Sandman et al.’s (1994) findings, but not Freeman et al.’s (2020) findings, where prominent symbolic number annotations and broken axes may have reduced reliance on graphical cues to magnitude. Use of axis limits as a graphical cue can be considered an example of an *affordance* (Kindlmann and Schneidegger) in the design of visualisations for conveying absolute magnitude, by encouraging inferences based on values’ relative positions. 
 
 Overall, this work provides consistent evidence of the influence of *framing effects* on magnitude judgements in data visualisations. Axes served as a frame of reference biasing the interpretation of numbers, thus mental representation of information was influenced by its presentation (Tversky and Kahneman, 1981; Kahneman, 1992). Furthermore, according to models of graph comprehension (Pinker, Carpenter and Shah), visual patterns are encoded prior to comprehension of numerical values and contextualisation of information. Therefore, first impressions elicited by a data visualisation may prejudice overall interpretations (Pandey et al. 2015; Yang et al. 2021).
 
