@@ -19,7 +19,7 @@ library(mapproj)
 library(patchwork) 
 library(knitr)
 ```
-
+## Placeholder
 ## A Brief History of Data Visualisation
 
 Throughout history, data visualisations have provided insights on the dominant topics of the day, from science and healthcare to civil rights and warfare. Identifying the first use of data visualisation is impossible, but it is clear that humans have used graphic forms to display numerical information for millennia. For example, on a clay tablet dating from 3100-3000 BC, circles and semicircles represent the quantities of the beer rations which were used to pay workers (MacGregor, 2010). Other early visualisations include geographical maps and astronomical diagrams plotting the movements of the planets. The 18th Century saw the development of many common formats used today, such as bar charts, line charts, and pie charts, all of which are typically credited to William Playfair (Friendly, 2006). However, the late 19th Century has been described as 'The Golden Age of Statistical Graphics' (Friendly, 2006, pg. 13), generating innovations in the representation of large datasets.
@@ -236,7 +236,8 @@ baseplot_noise <- noisedata %>%
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   ) +
-  labs(x = NULL, y = NULL)
+  labs(x = NULL, y = NULL) +
+  coord_fixed(ratio = 2)
 
 noise_line <- baseplot_noise +
   geom_vline(xintercept = seq(1, 276, 23),
@@ -276,8 +277,8 @@ cartesian_theme <- function() {
                  axis.line.y = element_line(colour = 'black', 
                                             linewidth = 1, 
                                             linetype='solid'),
-        plot.margin = margin(1,1,1,1, "cm"))
-}
+        plot.margin = margin(1,1,1,1, "cm")) 
+  }
 
 within_bar <- wb %>%
   ggplot(aes(x = x, y = y)) +
@@ -286,7 +287,8 @@ within_bar <- wb %>%
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
   geom_point(aes(x = "B", y = 60), size = 4,
-             colour = "darkgrey")
+             colour = "darkgrey") +
+  coord_fixed(ratio = 0.1)
 
 within_CI <- wb %>%
   ggplot(aes(x = x, y = y)) +
@@ -299,7 +301,8 @@ within_CI <- wb %>%
   geom_errorbar(aes(x = "B"), 
                 ymin = 70, ymax = 90,
                 width = 0.5,
-                linewidth = 1)
+                linewidth = 1) +
+  coord_fixed(ratio = 0.1)
 
 outside_bar <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -308,7 +311,8 @@ outside_bar <- ob %>%
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
   geom_point(aes(x = "B", y = 60), size = 4,
-             colour = "darkgrey")
+             colour = "darkgrey") +
+  coord_fixed(ratio = 0.1)
 
 outside_CI <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -321,7 +325,8 @@ outside_CI <- ob %>%
   geom_errorbar(aes(x = "B"), 
                 ymin = 30, ymax = 50,
                 width = 0.5,
-                linewidth = 1)
+                linewidth = 1) +
+  coord_fixed(ratio = 0.1)
 
 within_bar + outside_bar + within_CI + outside_CI +
 plot_layout(nrow = 1,
@@ -353,35 +358,37 @@ baseplot <- mydf %>%
    ggplot(aes(x = cats, y = vals, group = 1)) +
    labs(x = NULL, y = NULL) +
    theme_minimal(base_size = 12) +
-   theme(panel.grid.major.x = element_blank())
+   theme(panel.grid.major.x = element_blank(),
+         plot.caption=element_text(hjust=0.5))
+
  
 line_trunc <- baseplot + 
   coord_cartesian(ylim = c(46, 54), 
                 xlim = c(0.5, 2.5),
                 expand = F) +
   geom_path(linewidth = 1) +
-  labs(caption = 'Truncated Line Chart')
+  labs(caption = 'Truncated\nLine Chart')
 
 bar_trunc <- baseplot + 
   coord_cartesian(ylim = c(46, 54), 
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_col(width = 0.3) +
-  labs(caption = 'Truncated Bar Chart')
+  geom_col(width = 0.3, fill = "black") +
+  labs(caption = 'Truncated\nBar Chart')
 
 line_full <- baseplot + 
   coord_cartesian(ylim = c(0, 100),
                   xlim = c(0.5, 2.5),
                   expand = F) +
   geom_path(linewidth = 1) +
-  labs(caption = 'Non-Truncated Line Chart')
+  labs(caption = 'Non-Truncated\nLine Chart')
 
 bar_full <- baseplot + 
   coord_cartesian(ylim = c(0, 100),
                   xlim = c(0.5, 2.5),
                   expand = F) +
-  geom_col(width = 0.3) +
-  labs(caption = 'Non-Truncated Bar Chart')
+  geom_col(width = 0.3, fill = "black") +
+  labs(caption = 'Non-Truncated\nBar Chart')
 
 line_trunc + line_full + bar_trunc + bar_full +
   plot_layout(nrow = 1) 
