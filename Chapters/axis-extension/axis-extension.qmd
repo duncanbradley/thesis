@@ -182,7 +182,6 @@ anova_results <- function(test_model, full_model) {
 
 ```{r}
 #| label: summary-extract-function
-
 # this function extracts test statistics and p values from model summaries
 summary_extract <- function(model) {
   
@@ -520,11 +519,52 @@ emmip(e1_mag_lint@model, cond ~ literacy, cov.reduce = range)
 ```
 
 ```{r}
+#| label: e1-mag-statistics
+# extract test statistics
 summary_extract(e1_mag_l)
-summary_extract(e2_mag_lint)
+summary_extract(e1_mag_lint)
+
+emtrends(e1_mag_lint@model, "cond", var = "literacy") %>% 
+  as_tibble() %>% 
+  group_split(cond) %>% map(~ {
+    vals <- as.list(.x)
+    names(vals) <- paste0("e1_mag_lint", 
+                          "_", 
+                          .x$cond, 
+                          "_", 
+                          names(vals))
+    list2env(vals, envir = globalenv())
+})
 ```
 
 Accounting for differences in data visualisation literacy did not change the significant effect of axis limits: F(`r printnum(e1_mag_l_cond_NumDF)`, `r printnum(e1_mag_l_cond_DenDF)`) = `r printnum(e1_mag_l_cond_F.value)`, p `r printp(e1_mag_l_cond_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_l_cond_Eta2_partial)`.
+
+However, there was an interaction between data visualisation literacy and axis limits: F(`r printnum(e1_mag_lint_cond_literacy_NumDF)`, `r printnum(e1_mag_lint_cond_literacy_DenDF)`) = `r printnum(e1_mag_lint_cond_literacy_F.value)`, p `r printp(e1_mag_lint_cond_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_lint_cond_literacy_Eta2_partial)`. A one unit increase in data visualisation literacy reduced magnitude ratings for default charts by `printnum(e1_mag_lint_default_literacy.trend)`, but reduced magnitude ratings for extended charts by `printnum(e1_mag_lint_extend_literacy.trend)`.
+
+```{r}
+emmip(e1_mag_lint@model, cond ~ literacy, cov.reduce = range) 
+
+my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
+
+emmip(e1_mag_lint@model, cond ~ literacy, cov.reduce = range, CIs = T, 
+      dotarg = list(shape = "circle", size = 2), 
+      linearg = list(linetype = "solid", lwd = 1.5),
+      CIarg = list(lwd = 3, alpha = 0.5)) +
+  scale_color_manual(limits = c('default', 'extend'), 
+                       labels = c('Default', 'Extended'),
+                   values = my_palette) +
+  scale_y_continuous(limits = c(1,2), 
+                     breaks = c(1,2), 
+                     minor_breaks = seq(1,2,0.2),
+                     labels = c('Very low\nmagnitude', 
+                                'Very high\nmagnitude')) + 
+  labs(color = "Axis Limit",
+       y = "Magnitude Rating",
+       x = "Data Visualisation Literacy",
+       title = "Experiment 1 - Data Visualisation Literacy Interaction",
+       subtitle =  "Estimated Marginal Means") + 
+  theme_minimal(base_size = 10)
+```
 
 ### Discussion
 
@@ -698,23 +738,23 @@ This model employed by-participant and by-item random effects. For each particip
 
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
-emmip(e2_mag@model, denominator ~ axis, CIs = T, 
+emmip(e2_mag@model, axis ~ denominator, CIs = T, 
       dotarg = list(shape = "circle", size = 2), 
       linearg = list(linetype = "solid", lwd = 1.5),
       CIarg = list(lwd = 3, alpha = 0.5)) +
-  scale_color_manual(limits = c('abs', 'pres'), 
-                   labels = c('Absent from text', 'Present in text'),
+  scale_x_discrete(limits = c('pres', 'abs'), 
+                   labels = c('Present in text', 'Absent from text')) +
+  scale_color_manual(limits = c('default', 'extend'), 
+                       labels = c('Default', 'Extended'),
                    values = my_palette) +
-  scale_x_discrete(limits = c('extend', 'default'), 
-                       labels = c('Extended', 'Default')) +
   scale_y_continuous(limits = c(1,2), 
                      breaks = c(1,2), 
                      minor_breaks = seq(1,2,0.2),
                      labels = c('Very low\nmagnitude', 
                                 'Very high\nmagnitude')) + 
-  labs(x = "Axis Limit",
+  labs(color = "Axis Limit",
        y = "Magnitude Rating",
-       color = "Denominator in Text",
+       x = "Denominator in Text",
        title = "Experiment 2 - Magnitude Ratings",
        subtitle =  "Estimated Marginal Means") + 
   theme_minimal(base_size = 10)
@@ -733,12 +773,6 @@ e2_mag_l <- lmer(add.terms(formula(e2_mag),
 ```
 
 ```{r}
-summary_extract(e2_mag_l)
-```
-
-Accounting for differences in data visualisation literacy did not change the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`., the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`) or the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`).
-
-```{r}
 #| label: e2-mag-lint
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
@@ -753,6 +787,57 @@ emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy")
 
 emmip(e2_mag_lint@model, axis:denominator ~ literacy, cov.reduce = range) 
 
+```
+
+```{r}
+#| label: e2-mag-statistics
+summary_extract(e2_mag_l)
+summary_extract(e2_mag_lint)
+
+emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy")$emtrends %>%
+  as_tibble() %>% 
+  mutate(comb = paste0(axis, denominator)) %>%
+  group_split(comb) %>% map(~ {
+    vals <- as.list(.x)
+    names(vals) <- paste0("e2_mag_lint", 
+                          "_", 
+                          .x$comb, 
+                          "_", 
+                          names(vals))
+    list2env(vals, envir = globalenv())
+})
+```
+
+Accounting for differences in data visualisation literacy did not change the the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`), the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`), or the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`.
+
+An exploratory analysis revealed that there was no interaction between data visualisation literacy and axis limits (F(`r printnum(e2_mag_lint_axis_literacy_NumDF)`, `r printnum(e2_mag_lint_axis_literacy_DenDF)`) = `r printnum(e2_mag_lint_axis_literacy_F.value)`, p `r printp(e2_mag_lint_axis_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_axis_literacy_Eta2_partial)`), however there was an interaction between data visualisation literacy and denominator information (F(`r printnum(e2_mag_lint_denominator_literacy_NumDF)`, `r printnum(e2_mag_lint_denominator_literacy_DenDF)`) = `r printnum(e2_mag_lint_denominator_literacy_F.value)`, p `r printp(e2_mag_lint_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_denominator_literacy_Eta2_partial)`).
+
+There was also a significant three-way interaction between data visualisation literacy, axis limits, and denominator information: F(`r printnum(e2_mag_lint_axis_denominator_literacy_NumDF)`, `r printnum(e2_mag_lint_axis_denominator_literacy_DenDF)`) = `r printnum(e2_mag_lint_axis_denominator_literacy_F.value)`, p `r printp(e2_mag_lint_axis_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_axis_denominator_literacy_Eta2_partial)`. When denominator information was *present*, a one unit increase in data visualisation literacy *changed* magnitude ratings for default charts by `printnum(e2_mag_lint_defaultpres_literacy.trend)`, but *changed* magnitude ratings for extended charts by `printnum(e2_mag_lint_extendpres_literacy.trend)`. When denominator information was *absent*, a one unit increase in data visualisation literacy *changed* magnitude ratings for default charts by `printnum(e2_mag_lint_defaultabs_literacy.trend)`, but *changed* magnitude ratings for extended charts by `printnum(e2_mag_lint_extendabs_literacy.trend)`.
+
+```{r}
+denom_labs <- c("Denominator Present in Text", 
+                 "Denominator Absent from Text")
+names(denom_labs) <- c("pres", "abs")
+
+emmip(e2_mag_lint@model, axis ~ literacy | denominator, cov.reduce = range, CIs = T, 
+      dotarg = list(shape = "circle", size = 2), 
+      linearg = list(linetype = "solid", lwd = 1.5),
+      CIarg = list(lwd = 3, alpha = 0.5)) +
+  scale_color_manual(limits = c('default', 'extend'), 
+                       labels = c('Default', 'Extended'),
+                   values = my_palette) +
+  scale_y_continuous(limits = c(1,2), 
+                     breaks = c(1,2), 
+                     minor_breaks = seq(1,2,0.2),
+                     labels = c('Very low\nmagnitude', 
+                                'Very high\nmagnitude')) + 
+  labs(color = "Axis Limit",
+       y = "Magnitude Rating",
+       x = "Data Visualisation Literacy",
+       title = "Experiment 2 - Data Visualisation Literacy Interactions",
+       subtitle =  "Estimated Marginal Means") + 
+  theme_minimal(base_size = 10) +
+  facet_wrap(vars(denominator), labeller = labeller(denominator = denom_labs))
 ```
 
 #### Confidence Ratings
@@ -874,7 +959,7 @@ emmip(e2_con@model, denominator ~ axis,
        color = "Denominator in Text",
        title = "Experiment 2 - Confidence Ratings",
        subtitle =  "Estimated Marginal Means") + 
-  theme_minimal(base_size = 10)
+  theme_minimal(base_size = 10) 
 ```
 
 ```{r}
@@ -903,12 +988,6 @@ e2_con_l <- lmer(add.terms(formula(e2_con),
 ```
 
 ```{r}
-summary_extract(e2_con_l)
-```
-
-Accounting for differences in data visualisation literacy did not change the pattern of results. There was a main effect associated with axis limits (F(`r printnum(e2_con_l_axis_NumDF)`, `r printnum(e2_con_l_axis_DenDF)`) = `r printnum(e2_con_l_axis_F.value)`, p `r printp(e2_con_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_axis_Eta2_partial)`) and a main effect associated with denominator information (F(`r printnum(e2_con_l_denominator_NumDF)`, `r printnum(e2_con_l_denominator_DenDF)`) = `r printnum(e2_con_l_denominator_F.value)`, p `r printp(e2_con_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_l_denominator_axis_NumDF)`, `r printnum(e2_con_l_denominator_axis_DenDF)`) = `r printnum(e2_con_l_denominator_axis_F.value)`, p `r printp(e2_con_l_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_axis_Eta2_partial)`.
-
-```{r}
 #| label: e2-con-lint
 #| eval: !expr params$eval_models
 #| cache: !expr params$eval_models
@@ -923,6 +1002,16 @@ emtrends(e2_con_lint@model, pairwise ~ axis:denominator, var = "literacy")
 
 emmip(e2_con_lint@model, axis:denominator ~ literacy, cov.reduce = range) 
 ```
+
+```{r}
+#| label: e2-con-statistics
+summary_extract(e2_con_l)
+summary_extract(e2_con_lint)
+```
+
+Accounting for differences in data visualisation literacy did not change the pattern of results. There was a main effect associated with axis limits (F(`r printnum(e2_con_l_axis_NumDF)`, `r printnum(e2_con_l_axis_DenDF)`) = `r printnum(e2_con_l_axis_F.value)`, p `r printp(e2_con_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_axis_Eta2_partial)`) and a main effect associated with denominator information (F(`r printnum(e2_con_l_denominator_NumDF)`, `r printnum(e2_con_l_denominator_DenDF)`) = `r printnum(e2_con_l_denominator_F.value)`, p `r printp(e2_con_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_l_denominator_axis_NumDF)`, `r printnum(e2_con_l_denominator_axis_DenDF)`) = `r printnum(e2_con_l_denominator_axis_F.value)`, p `r printp(e2_con_l_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_l_denominator_axis_Eta2_partial)`.
+
+An exploratory analysis revealed that there was no interaction between data visualisation literacy and axis limits (F(`r printnum(e2_con_lint_axis_literacy_NumDF)`, `r printnum(e2_con_lint_axis_literacy_DenDF)`) = `r printnum(e2_con_lint_axis_literacy_F.value)`, p `r printp(e2_con_lint_axis_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_lint_axis_literacy_Eta2_partial)`), no interaction between data visualisation literacy and denominator information (F(`r printnum(e2_con_lint_denominator_literacy_NumDF)`, `r printnum(e2_con_lint_denominator_literacy_DenDF)`) = `r printnum(e2_con_lint_denominator_literacy_F.value)`, p `r printp(e2_con_lint_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_lint_denominator_literacy_Eta2_partial)`), and no three-way interaction between data visualisation literacy, axis limits, and denominator information (F(`r printnum(e2_con_lint_axis_denominator_literacy_NumDF)`, `r printnum(e2_con_lint_axis_denominator_literacy_DenDF)`) = `r printnum(e2_con_lint_axis_denominator_literacy_F.value)`, p `r printp(e2_con_lint_axis_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_lint_axis_denominator_literacy_Eta2_partial)`).
 
 ### Discussion
 
