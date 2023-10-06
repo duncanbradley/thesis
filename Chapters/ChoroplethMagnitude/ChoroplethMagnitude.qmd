@@ -281,6 +281,39 @@ anova_results <- function(test_model, full_model) {
 ```
 
 ```{r}
+#| label: summary-extract-function
+
+# this function extracts test statistics and p values from model summaries
+summary_extract <- function(model) {
+  
+  model_name <- deparse(substitute(model))
+  
+  if (class(model) == "buildmer") model <- model@model
+  
+  es <- eta_squared(anova(model), partial = TRUE) 
+
+  model %>% 
+    anova() %>%
+    as_tibble(rownames = "term", 
+              .name_repair = make.names) %>%
+    rename("p" = "Pr..F.") %>%
+    inner_join(es, by = join_by("term" == "Parameter")) %>%
+    mutate(term = str_replace_all(term, ":", "_")) %>%
+    group_split(term) %>%
+    map(~ {
+      vals <- as.list(.x)
+      names(vals) <- paste0(model_name, 
+                            "_", 
+                            .x$term, 
+                            "_", 
+                            names(vals))
+      list2env(vals, envir = globalenv())
+    })
+  
+}
+```
+
+```{r}
 #| label: random-str-function
 # this function creates a table which displays the random effects structure (intercepts and slopes) for a given model
 random_str <- function(model) {
@@ -672,6 +705,11 @@ full_lint <- buildmer(slider.response ~ range * label * literacy +
                        data = passed)
 ```
 
+```{r}
+summary_extract(full_lint)
+```
+
+An exploratory analysis can examine whether data visualisation literacy *interacts with* the experimental manipulations. This analysis reveals that there was no interaction between data visualisation literacy and colour legend range: F(`r printnum(full_lint_range_literacy_NumDF`), `r printnum(full_lint_range_literacy_DenDF)`) = `r printnum(full_lint_range_literacy_F.value)`, p `r printp(full_lint_range_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(full_lint_range_literacy_Eta2_partial)`. There was no interaction between data visualisation literacy and the presence of numerical labels: F(`r printnum(full_lint_label_literacy_NumDF`), `r printnum(full_lint_label_literacy_DenDF)`) = `r printnum(full_lint_label_literacy_F.value)`, p `r printp(full_lint_label_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(full_lint_label_literacy_Eta2_partial)`. There was also no three-way-interaction between data visualisation literacy, colour legend range, and the presence of numerical labels: F(`r printnum(full_lint_range_label_literacy_NumDF`), `r printnum(full_lint_range_label_literacy_DenDF)`) = `r printnum(full_lint_range_label_literacy_F.value)`, p `r printp(full_lint_range_label_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(full_lint_range_label_literacy_Eta2_partial)`. These results indicates that the effect of the experimental manipulations did not differ as a function of participants' data visualisation literacy levels. These models employed...
 
 ### Part 2: All Participants (N = 165)
 
@@ -861,7 +899,13 @@ both_full_lint <- buildmer(slider.response ~ range * label * literacy +
                        data = both)
 ```
 
-### Exploratory Analysis
+```{r}
+summary_extract(both_full_lint)
+```
+
+An exploratory analysis reveals that there was no interaction between data visualisation literacy and colour legend range: F(`r printnum(both_full_lint_range_literacy_NumDF`), `r printnum(both_full_lint_range_literacy_DenDF)`) = `r printnum(both_full_lint_range_literacy_F.value)`, p `r printp(both_full_lint_range_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(both_full_lint_range_literacy_Eta2_partial)`. There was no interaction between data visualisation literacy and the presence of numerical labels: F(`r printnum(both_full_lint_label_literacy_NumDF`), `r printnum(both_full_lint_label_literacy_DenDF)`) = `r printnum(both_full_lint_label_literacy_F.value)`, p `r printp(both_full_lint_label_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(both_full_lint_label_literacy_Eta2_partial)`. There was also no three-way-interaction between data visualisation literacy, colour legend range, and the presence of numerical labels: F(`r printnum(both_full_lint_range_label_literacy_NumDF`), `r printnum(both_full_lint_range_label_literacy_DenDF)`) = `r printnum(both_full_lint_range_label_literacy_F.value)`, p `r printp(both_full_lint_range_label_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(both_full_lint_range_label_literacy_Eta2_partial)`. These results indicates that the effect of the experimental manipulations did not differ as a function of participants' data visualisation literacy levels. These models employed...
+
+### Further Exploratory Analysis
 
 Our pre-registered analysis did not detect an effect of the presence of numerical values on urgency ratings. However, a more fine-grained analysis can explore the role of numerical labels with greater sensitivity. This exploratory analysis examines whether urgency ratings are influenced by the actual numerical values displayed. We systematically varied the maximum value displayed in each map, which ranged from 200 to 900. Other plotted values were defined in relation to this value: between 10 and 30 units less than the maximum value. Modelling the effect of different maximum values on ratings will reveal whether judgements were informed by the numerical values displayed.
 
@@ -932,10 +976,12 @@ add_header_above(kable(random_str(full_main), "latex"), "full_main")
 add_header_above(kable(random_str(full_int), "latex"), "full_int")
 add_header_above(kable(random_str(full_main_lit), "latex"), "full_main_lit")
 add_header_above(kable(random_str(full_int_lit), "latex"), "full_int_lit")
+add_header_above(kable(random_str(full_lint), "latex"), "full_lint")
 add_header_above(kable(random_str(both_full_main), "latex"), "both_full_main")
 add_header_above(kable(random_str(both_full_int), "latex"), "both_full_int")
 add_header_above(kable(random_str(both_full_main_lit), "latex"), "both_full_main_lit")
 add_header_above(kable(random_str(both_full_int_lit), "latex"), "both_full_int_lit")
+add_header_above(kable(random_str(both_full_lint), "latex"), "both_full_lint")
 add_header_above(kable(random_str(full_max_value_pres1), "latex"), "full_max_value_pres1")
 add_header_above(kable(random_str(full_max_value_abs1), "latex"), "full_max_value_abs1")
 add_header_above(kable(random_str(full_max_value_int1), "latex"), "full_max_value_int1")
