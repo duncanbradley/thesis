@@ -157,33 +157,7 @@ contrasts(E3_tidy$condition) <- matrix(c(.5, -.5))
 ```{r}
 #| label: comparison-function
 
-# this function takes a model and creates a nested model with one fixed effects term removed, for anova comparison
-# the default is to remove the last fixed effects term
-# but a particular term can be specified use 'remove = '
-comparison <- function(model, remove = NULL) {
-  
-  form <- formula(model)
-  
-  reducefixed <- function(form) {
-    
-    fixedfx <- 
-      remove.terms(form,"placeholder") %>% # generate full formula (expand '*')
-      nobars() # get formula for fixed effects only
-    
-    fixedterms <-  
-      terms.formula(fixedfx) %>% # get terms for fixed effects
-      attr("term.labels") # get character vector of fixed effects terms
-    
-    out <- remove.terms(fixedfx, tail(fixedterms, n=1))
-    
-    # remove will only take a single character string, not a character vector
-    if(!is.null(remove))
-      out <- remove.terms(fixedfx, remove)
-    
-    return(out)
-  }
-  
-  getrandom <- function(form) {
+getrandom <- function(form) {
     
     parens <- function(x) {paste0("(",x,")")}
     onlyBars <- function(form) {
@@ -196,8 +170,8 @@ comparison <- function(model, remove = NULL) {
     
     out <- onlyBars(form)
     return(out)
-  }
-  
+}
+
   merge.formula <- function(form1, form2, ...){
     # adapted from https://stevencarlislewalker.wordpress.com/2012/08/06/merging-combining-adding-together-two-formula-objects-in-r/
     
@@ -221,6 +195,32 @@ comparison <- function(model, remove = NULL) {
     # set the environment of the formula (i.e. where should
     # R look for variables when data aren't specified?)
     #environment(out) <- parent.frame()
+    return(out)
+  }
+  
+# this function takes a model and creates a nested model with one fixed effects term removed, for anova comparison
+# the default is to remove the last fixed effects term
+# but a particular term can be specified use 'remove = '
+comparison <- function(model, remove = NULL) {
+  
+  form <- formula(model)
+  
+  reducefixed <- function(form) {
+    
+    fixedfx <- 
+      remove.terms(form,"placeholder") %>% # generate full formula (expand '*')
+      nobars() # get formula for fixed effects only
+    
+    fixedterms <-  
+      terms.formula(fixedfx) %>% # get terms for fixed effects
+      attr("term.labels") # get character vector of fixed effects terms
+    
+    out <- remove.terms(fixedfx, tail(fixedterms, n=1))
+    
+    # remove will only take a single character string, not a character vector
+    if(!is.null(remove))
+      out <- remove.terms(fixedfx, remove)
+    
     return(out)
   }
   

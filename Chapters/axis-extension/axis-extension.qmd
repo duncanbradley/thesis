@@ -283,21 +283,36 @@ print_es <- function(x) {ifelse(x<.01, "< .01", paste("=", printnum(x)))}
 
 ```{r}
 #| label: print-formula
+# Unfortunately, simplify.formula() ignores the common ordering for mixed effects models where fixed effects come first and random effects afterwards.
+# This is solved by simplifying the fixed and random effects separately, then combining them.
+
 print_formula <- function(model){
-  model %>%
-    formula() %>%
-    # these convert it to a character string again 
-    # need to convert it back to a formula
-#    str_replace_all(c("mag_slider.response" = #"magnitude_rating", 
-#                      "con_slider.response" = #"confidence_rating",
-#                      "slider.response" = #"magnitude_rating", 
-#                      "cond" = "axis_limit", 
-#                      "axis" = "axis_limit")) %>%
-    simplify.formula()
-  # need to add brackets back in
-  # put a bracket before each '1'
-  # and after each 'participant/item'
-  # and change order - before or after brackets - whichever is easiest
+
+# simplify fixed effects only 
+fixfx <- formula(model) %>% 
+  nobars() %>%
+  simplify.formula()
+
+# simplify random effects only
+ranfx <- formula(model) %>% 
+  getrandom() %>%
+  simplify.formula() %>%
+
+# combine fixed and random effects
+# convert to a string in order to replace terms
+# and add brackets to random effects
+# then convert back to a formula
+merge.formula(fx, rx) %>%
+  format_formula() %>%
+  str_replace_all(c("mag_slider.response" = "magnitude_rating", 
+                      "con_slider.response" = "confidence_rating",
+                      "slider.response" = "magnitude_rating", 
+                      "cond" = "axis_limit", 
+                      "axis" = "axis_limit",
+                    '1' = '(1',
+                  '(participant|item_no)' =  '\\1)',
+                  'formula: ' = '')) %>%
+  formula()
 }
 ```
 
