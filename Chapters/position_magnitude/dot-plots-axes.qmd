@@ -277,7 +277,11 @@ summary_extract <- function(model, key_term) {
 
     assign(value = one_row %>% pull(param),
            envir = .GlobalEnv,
-           paste0(model_name, ".", param))
+           paste0(model_name, 
+                  ".", 
+                str_c(unlist(str_extract_all("pos1:ori1:literacy", "\\b\\w")), collapse = ""),
+                ".",
+                  param))
     }
 
     lapply(params, get_cols)
@@ -732,11 +736,17 @@ E1_sl <- clmm(add.terms(formula(E1_s), "literacy"),
 ```{r}
 #| label: E1-lit-summary
 
-# summary output for E1 chance (magnitude) rating model with literacy
+# summary output for E1 chance (magnitude) rating model with literacy covariate
 summary_extract(E1_cl, "condition1")
 
-# summary output for E1 severity rating model with literacy
+# summary output for E1 severity rating model with literacy covariate
 summary_extract(E1_sl, "condition1")
+
+# summary output for E1 chance (magnitude) rating model with literacy interaction
+summary_extract(E1_clint, "condition1")
+
+# summary output for E1 severity rating model with literacy interation
+summary_extract(E1_slint, "condition1")
 ```
 
 We also generated two additional models, to test whether or not the above results could be explained by differences in data visualisation literacy. These models were identical to the above models except for the inclusion of participants' subjective data visualisation literacy scores as an additional fixed effect. Adjusting for participants' data visualisation literacy scores did not eliminate the effects of data points' positions on ratings of the magnitude of data points themselves (z = `r printnum(abs(E1_cl.statistic))`, p `r printp(E1_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_cl.estimate))`, `r print_confint(exp(E1_cl.CI))`) or severity of consequences (z = `r printnum(abs(E1_sl.statistic))`, p `r printp(E1_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_sl.estimate))`, `r print_confint(exp(E1_sl.CI))`).
@@ -774,6 +784,11 @@ emtrends(E1_slint@model, pairwise ~ condition, var = "literacy")
 
 emmip(E1_slint@model, condition ~ literacy, cov.reduce = range)
 ```
+
+Additional models explored the *interaction between* literacy and physical position. For magnitude ratings, there was a significant interaction: 
+
+However, there was an interaction between data visualisation literacy and axis limits: F(`r printnum(e1_mag_lint_cond_literacy_NumDF)`, `r printnum(e1_mag_lint_cond_literacy_DenDF)`) = `r printnum(e1_mag_lint_cond_literacy_F.value)`, p `r printp(e1_mag_lint_cond_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_lint_cond_literacy_Eta2_partial)`. A one unit increase in data visualisation literacy reduced magnitude ratings for default charts by `r printnum(abs(e1_mag_lint_default_literacy.trend)`), but reduced magnitude ratings for extended charts by `r printnum(abs(e1_mag_lint_extend_literacy.trend))`.
+
 
 #### Discussion
 
