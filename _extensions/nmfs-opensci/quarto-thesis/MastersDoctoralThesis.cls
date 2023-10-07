@@ -226,7 +226,7 @@
 \NewDocumentCommand{\keywords}{m}{\newcommand{\keywordnames}{#1}}
 
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
-	\if@openright\cleardoublepage\else\clearpage\fi
+	\if@openright\clearpage\else\clearpage\fi
 	\ifdef{\phantomsection}{\phantomsection}{}% The \phantomsection command is necessary for hyperref to jump to the correct page
 }
 
@@ -289,7 +289,7 @@ incompatible\MessageBreak with this class}{The pagesyles are defined
 KOMA-script documentation for details.}]{fancyhdr}
 
 
-\newcommand{\blank@p@gestyle}{empty}
+\newcommand{\blank@p@gestyle}{plain}
 \newcommand{\chapter@p@gestyle}{plain}
 \NewDocumentCommand{\blankpagestyle}{ m }{%
 	\ClassWarning{\classname}{\string\blankpagestyle\space is

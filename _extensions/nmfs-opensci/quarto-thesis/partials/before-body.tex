@@ -1,3 +1,4 @@
+\mainmatter
 %\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
@@ -18,11 +19,11 @@
 \degreename\\ % University requirement text
 \text{in the} \facname\\
 \vfill
-{\large \bfseries 2023}\\
-\vskip1cm$if(author)$
-{\large \bfseries \authorname}\\
+{\LARGE \bfseries 2023}\\
+\vfill$if(author)$
+{\Large \bfseries \authorname}\\
 $endif$
-\vfill
+\vskip5mm
 {\large \groupname}\\
 \vfill
 \end{center}
@@ -34,6 +35,8 @@ $endif$
 \hypersetup{linkcolor=$if(toclinkcolor)$$toclinkcolor$$else$black$endif$}
 
 \tableofcontents % Prints the main table of contents
+\null\vskip1cm%
+\text{Word Count: }
 
 \listoffigures % Prints the list of figures
 
@@ -171,6 +174,6 @@ $endif$
 %	THESIS CONTENT - CHAPTERS
 %----------------------------------------------------------------------------------------
 
-\mainmatter % Begin numeric (1,2,3...) page numbering
+%\mainmatter % Begin numeric (1,2,3...) page numbering
 
-\pagestyle{thesis} % Return the page headers back to the "thesis" style
+\pagestyle{plain} % Return the page headers back to the "thesis" style
