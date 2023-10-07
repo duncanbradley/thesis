@@ -279,17 +279,27 @@ summary_extract <- function(model, key_term) {
            envir = .GlobalEnv,
            paste0(model_name, 
                   ".", 
-                str_c(unlist(str_extract_all("pos1:ori1:literacy", "\\b\\w")), collapse = ""),
-                ".",
+                  str_c(unlist(
+                    str_extract_all(
+                      key_term,
+                      "\\b\\w")),
+                    collapse = ""),
+                  ".",
                   param))
     }
 
     lapply(params, get_cols)
     
-    
     assign(value = confint(model)[key_term,],
            envir = .GlobalEnv,
-           paste0(model_name, ".CI"))
+           paste0(model_name,
+                  ".", 
+                  str_c(unlist(
+                    str_extract_all(
+                      key_term,
+                      "\\b\\w")),
+                    collapse = ""),
+                  ".CI"))
 
 }
 ```
@@ -367,8 +377,7 @@ Further evidence of truncation effects, provided by @yang_truncating_2021 improv
 ```{r}
 #| label: fig-senators-chart
 #| include: true
-#| out-width: "300px"
-#| out-height: "210px"
+#| out-width: "500px"
 #| fig-asp: 0.7
 #| fig-scap: A reproduction of a bar chart from the New York Times.
 #| fig-cap: A reproduction of a bar chart from the New York Times. The y-axis limit is defined by the largest possible value, rather than the largest observed value, thus the magnitude of plotted values appears particularly small.
@@ -455,8 +464,7 @@ For each dataset, we generated three values from a normal distribution. Populati
 ```{r}
 #| label: fig-example-charts
 #| include: true
-#| out-width: "300px"
-#| out-height: "180px"
+#| out-width: "500px"
 #| fig-asp: 0.6
 #| fig-scap: Example charts, taken from Experiment 1.
 #| fig-cap: Example charts, taken from Experiment 1. The *high physical position* condition (left) presents data points near the top of the chart; the *low physical position* condition (right) presents the same data points near the bottom of the chart.
@@ -487,8 +495,7 @@ Before exiting the experiment, participants were informed that all presented dat
 ```{r}
 #| label: fig-example-trial
 #| include: true
-#| out-width: "320px"
-#| out-height: "200px"
+#| out-width: "500px"
 #| fig-asp: 0.625
 #| fig-scap: An example trial, taken from Experiment 1.
 #| fig-cap: "An example trial, taken from Experiment 1. Participants provided two ratings in each trial: the chance of an event occurring (magnitude rating), and the severity of consequences."
@@ -569,11 +576,11 @@ likert_plot <- function(df) {
                                 "\"Very\nlikely\""), 
                        breaks = c(0, n_obs),
                        position = "top") +
-    theme_minimal(base_size = 18) +
+    theme_minimal(base_size = 10) +
     theme(axis.text.x = element_text(face = "italic"),
           legend.position = "none",
           panel.grid = element_blank(),
-          plot.title = element_text(size=18, hjust = 0.5)) +
+          plot.title = element_text(hjust = 0.5)) +
     coord_fixed(ratio = n_obs/15, 
                 ylim = c(0.5, 2.5), 
                 xlim = c(0, n_obs+n_obs/10),
@@ -586,8 +593,7 @@ likert_plot <- function(df) {
 ```{r}
 #| label: fig-E1-c
 #| include: true
-#| out-width: "340px"
-#| out-height: "119px"
+#| out-width: "500px"
 #| fig-asp: 0.35
 #| fig-scap: The distribution of Likert scale ratings of data points' magnitudes.
 #| fig-cap: The distribution of Likert scale ratings of data points' magnitudes. The width of each response option represents the proportion of ratings recorded for that option. Note that data points presented at high physical positions (top) elicited a larger proportion of ratings on the right-hand side (representing greater magnitudes), compared to data points at low physical positions (bottom), which elicited a larger proportion of ratings on the left-hand side (representing smaller magnitudes).
@@ -596,7 +602,7 @@ likert_plot <- function(df) {
 # create Likert plot for E1 data - chance (magnitude) ratings
 L1 <- likert_plot(E1_tidy) +
   annotate("segment", x=400, y=3.2, xend=2700, yend=3.2,
-           arrow=arrow(ends = "both", type = "closed", length = unit(10, "pt"))) +
+           arrow=arrow(ends = "both", type = "closed", length = unit(7, "pt"))) +
   labs(title = "Experiment 1:\nRatings of Data Points' Magnitudes")
 
 E1_prop <- E1_tidy %>%
@@ -611,7 +617,7 @@ L1 <- L1 + geom_text(
   data=E1_prop,
   aes(x=freq, label=(perc), group=condition),
   position = position_stack(reverse = TRUE, vjust = 0.5),
-  color="black", size=3.5
+  color="black", size=2.8
 )
 
 L1
@@ -658,9 +664,9 @@ add_header_above(kable(random_str(E1_c), "latex"), "E1_c")
 
 @fig-E1-c plots the distribution of participants' ratings of data points' magnitudes, showing that values presented at high physical positions elicited a greater proportion of responses at the higher end of the rating scale than values presented at low physical positions.
 
-A likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include physical position as a fixed effect ($\chi^2$(`r in_paren(E1_c.df)`) = `r printnum(E1_c.LR)`, p `r printp(E1_c.p, add_equals = TRUE)`). Data points' magnitudes were rated as greater when those data points were presented at high physical positions, compared to when the same data points were presented at low physical positions (z = `r printnum(abs(E1_c.statistic))`, p `r printp(E1_c.p.value, add_equals = TRUE)`).
+A likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include physical position as a fixed effect ($\chi^2$(`r in_paren(E1_c.df)`) = `r printnum(E1_c.LR)`, p `r printp(E1_c.p, add_equals = TRUE)`). Data points' magnitudes were rated as greater when those data points were presented at high physical positions, compared to when the same data points were presented at low physical positions (z = `r printnum(abs(E1_c.c.statistic))`, p `r printp(E1_c.c.p.value, add_equals = TRUE)`).
 
-The odds ratio for the difference between conditions is `r printnum(exp(E1_c.estimate))` (`r print_confint(exp(E1_c.CI))`). Participants were `r printnum(exp(E1_c.estimate))` times more likely to respond with a higher magnitude rating to data points presented at high positions than data points presented at low positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E1_c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E1_c.estimate))))` effect size.
+The odds ratio for the difference between conditions is `r printnum(exp(E1_c.c.estimate))` (`r print_confint(exp(E1_c.c.CI))`). Participants were `r printnum(exp(E1_c.c.estimate))` times more likely to respond with a higher magnitude rating to data points presented at high positions than data points presented at low positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E1_c.c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E1_c.c.estimate))))` effect size.
 
 This model included random intercepts for each participant and each scenario.
 
@@ -705,9 +711,9 @@ summary_extract(E1_s, "condition1")
 add_header_above(kable(random_str(E1_s), "latex"), "E1_s")
 ```
 
-For ratings of the severity of consequences, a likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include condition as a fixed effect: ($\chi^2$(`r in_paren(E1_s.df)`) = `r printnum(E1_s.LR)`, p `r printp(E1_s.p, add_equals = TRUE)`). The severity of consequences was rated as greater when data points representing the chance of an event occurring were presented at high physical positions, compared to when the same data points were presented at low physical positions (z = `r printnum(abs(E1_s.statistic))`, p `r printp(E1_s.p.value, add_equals = TRUE)`).
+For ratings of the severity of consequences, a likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include condition as a fixed effect: ($\chi^2$(`r in_paren(E1_s.df)`) = `r printnum(E1_s.LR)`, p `r printp(E1_s.p, add_equals = TRUE)`). The severity of consequences was rated as greater when data points representing the chance of an event occurring were presented at high physical positions, compared to when the same data points were presented at low physical positions (z = `r printnum(abs(E1_s.c.statistic))`, p `r printp(E1_s.c.p.value, add_equals = TRUE)`).
 
-The odds ratio for the difference between conditions is `r printnum(exp(E1_s.estimate))`, `r print_confint(exp(E1_s.CI))`. Participants were `r printnum(exp(E1_s.estimate))` times more likely to respond with a higher severity rating to data points presented at high positions than data points presented at low positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E1_s.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E1_s.estimate))))` effect size.
+The odds ratio for the difference between conditions is `r printnum(exp(E1_s.c.estimate))`, `r print_confint(exp(E1_s.c.CI))`. Participants were `r printnum(exp(E1_s.c.estimate))` times more likely to respond with a higher severity rating to data points presented at high positions than data points presented at low positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E1_s.c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E1_s.c.estimate))))` effect size.
 
 This model employed random intercepts for each scenario, plus random intercepts and slopes for each participant. The slopes modelled, for each participant, the average difference between responses to data presented at different positions (henceforth referred to as *by-position slopes*).
 
@@ -732,24 +738,6 @@ E1_cl <- clmm(add.terms(formula(E1_c), "literacy"),
 E1_sl <- clmm(add.terms(formula(E1_s), "literacy"),
               data = E1_tidy)
 ```
-
-```{r}
-#| label: E1-lit-summary
-
-# summary output for E1 chance (magnitude) rating model with literacy covariate
-summary_extract(E1_cl, "condition1")
-
-# summary output for E1 severity rating model with literacy covariate
-summary_extract(E1_sl, "condition1")
-
-# summary output for E1 chance (magnitude) rating model with literacy interaction
-summary_extract(E1_clint, "condition1")
-
-# summary output for E1 severity rating model with literacy interation
-summary_extract(E1_slint, "condition1")
-```
-
-We also generated two additional models, to test whether or not the above results could be explained by differences in data visualisation literacy. These models were identical to the above models except for the inclusion of participants' subjective data visualisation literacy scores as an additional fixed effect. Adjusting for participants' data visualisation literacy scores did not eliminate the effects of data points' positions on ratings of the magnitude of data points themselves (z = `r printnum(abs(E1_cl.statistic))`, p `r printp(E1_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_cl.estimate))`, `r print_confint(exp(E1_cl.CI))`) or severity of consequences (z = `r printnum(abs(E1_sl.statistic))`, p `r printp(E1_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_sl.estimate))`, `r print_confint(exp(E1_sl.CI))`).
 
 ```{r}
 #| label: E1-clint
@@ -785,10 +773,41 @@ emtrends(E1_slint@model, pairwise ~ condition, var = "literacy")
 emmip(E1_slint@model, condition ~ literacy, cov.reduce = range)
 ```
 
+```{r}
+#| label: E1-lit-summary
+
+# summary output for E1 chance (magnitude) rating model with literacy covariate
+summary_extract(E1_cl, "condition1")
+
+# summary output for E1 severity rating model with literacy covariate
+summary_extract(E1_sl, "condition1")
+
+# summary output for E1 chance (magnitude) rating model with literacy interaction
+summary_extract(E1_clint, "condition1")
+
+# summary output for E1 severity rating model with literacy interation
+summary_extract(E1_slint, "condition1")
+
+emtrends(E1_clint@model, "condition", var = "literacy") %>% 
+  as_tibble() %>% 
+  group_split(condition) %>% map(~ {
+    vals <- as.list(.x)
+    names(vals) <- paste0("E1_clint", 
+                          "_", 
+                          .x$condition, 
+                          "_", 
+                          names(vals))
+    list2env(vals, envir = globalenv())
+})
+```
+
+We also generated two additional models, to test whether or not the above results could be explained by differences in data visualisation literacy. These models were identical to the above models except for the inclusion of participants' subjective data visualisation literacy scores as an additional fixed effect. Adjusting for participants' data visualisation literacy scores did not eliminate the effects of data points' positions on ratings of the magnitude of data points themselves (z = `r printnum(abs(E1_cl.c.statistic))`, p `r printp(E1_cl.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_cl.c.estimate))`, `r print_confint(exp(E1_cl.c.CI))`) or severity of consequences (z = `r printnum(abs(E1_sl.c.statistic))`, p `r printp(E1_sl.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_sl.c.estimate))`, `r print_confint(exp(E1_sl.c.CI))`).
+
 Additional models explored the *interaction between* literacy and physical position. For magnitude ratings, there was a significant interaction: 
 
-However, there was an interaction between data visualisation literacy and axis limits: F(`r printnum(e1_mag_lint_cond_literacy_NumDF)`, `r printnum(e1_mag_lint_cond_literacy_DenDF)`) = `r printnum(e1_mag_lint_cond_literacy_F.value)`, p `r printp(e1_mag_lint_cond_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_lint_cond_literacy_Eta2_partial)`. A one unit increase in data visualisation literacy reduced magnitude ratings for default charts by `r printnum(abs(e1_mag_lint_default_literacy.trend)`), but reduced magnitude ratings for extended charts by `r printnum(abs(e1_mag_lint_extend_literacy.trend))`.
+For magnitude ratings, there was an interaction between data visualisation literacy and axis limits: (z = `r printnum(abs(E1_clint.c.statistic))`, p `r printp(E1_clint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_clint.c.estimate))`, `r print_confint(exp(E1_clint.c.CI))`). A one unit increase in data visualisation literacy increased magnitude ratings for charts with high physical position by `r printnum(abs(E1_clint_hi_literacy.trend))`), but increased magnitude ratings for charts with low physical position `r printnum(abs(E1_clint_lo_literacy.trend))`.
 
+Severity of consequences (z = `r printnum(abs(E1_slint.c.statistic))`, p `r printp(E1_slint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_slint.c.estimate))`, `r print_confint(exp(E1_slint.c.CI))`).
 
 #### Discussion
 
@@ -815,8 +834,7 @@ Previous research suggests that charts with inverted axes can be prone to misint
 ```{r}
 #| label: fig-rationale
 #| include: true
-#| out-width: "340px"
-#| out-height: "238px"
+#| out-width: "500px"
 #| fig-asp: 0.7
 #| fig-scap: "Rationale for Experiment 2: distinguishing the roles of absolute and relative position."
 #| fig-cap: "Rationale for Experiment 2: distinguishing the roles of absolute and relative position. In charts with conventional axis orientations (left column), there is congruence between data points’ physical positions and their relative numerical positions in the chart. In charts with inverted axis orientations (right column), there is incongruence between data points’ physical positions and their relative numerical positions in the chart. This allows us to test whether physical positions or relative numerical positions influence magnitude judgements."
@@ -824,7 +842,7 @@ Previous research suggests that charts with inverted axes can be prone to misint
 
 # visualising the similarities/differences between absolute and relative position in conventional and inverted charts
 
-include_graphics("images/fig-rationale-1.png")
+include_graphics("images/fig-rationale-1.pdf")
 
 # create my theme
 # my_theme <- function() {
@@ -997,15 +1015,14 @@ Data were returned by 129 participants. Per pre-registered exclusion criteria, f
 #| label: fig-E2-c
 #| include: true
 #| message: false
-#| out-width: "340px"
-#| out-height: "280px"
-#| fig-asp: 0.35
+#| out-width: "500px"
+#| fig-asp: 0.5
 #| fig.cap: "Participants rated the chance of each negative event occurring on a 7-point Likert scale. The distribution of ratings, ranging from \"Very unlikely\" (far left, dark green) to \"Very likely\" (far right, red) is shown separately for each combination of the levels of each condition (axis orientation: conventional, inverted; data points' physical position: high, low). Note that the pattern of responses to data presented at different positions in the Conventional Axis condition appears to be the opposite to the pattern for Inverted Axis condition. When charts used conventional axes, greater magnitude ratings were more common for data presented at high physical positions, whereas when charts used inverted axes, greater magnitude ratings were more common for data presented at low physical positions."
 
 # create likert plot for E2 data - chance (magnitude) ratings
 L2 <- likert_plot(E2_tidy) + facet_wrap(~ ori, ncol = 1, labeller = labeller(ori = str_to_title)) +
-  geom_segment(x=100, y=4.4, xend=650, yend=4.4,
-               arrow=arrow(ends = "both", type = "closed", length = unit(10, "pt")), data = E2_tidy %>% slice_head(n = 1)) +
+  geom_segment(x=100, y=3.8, xend=650, yend=3.8,
+               arrow=arrow(ends = "both", type = "closed", length = unit(7, "pt")), data = E2_tidy %>% slice_head(n = 1)) +
   labs(title = "Experiment 2:\nRatings of Data Points' Magnitudes")
 
 r2_prop <- E2_tidy %>%
@@ -1019,7 +1036,7 @@ L2 <- L2 + geom_text(
   data=r2_prop,
   aes(x=freq, label=(perc)),
   position = position_stack(reverse = TRUE, vjust = 0.5),
-  color="black", size=3.5
+  color="black", size=2.8
 )
 
 L2
@@ -1067,9 +1084,9 @@ add_header_above(kable(random_str(E2_c), "latex"), "E2_c")
 
 @fig-E2-c plots the distribution of participants' ratings of data points' magnitudes, for data points presented at high and low physical positions, in charts with conventional axis orientations and inverted axis orientations.
 
-A likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(E2_c.df)`) = `r printnum(E2_c.LR)`, p `r printp(E2_c.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(E2_c.statistic))`, p `r printp(E2_c.p.value, add_equals = TRUE)`).
+A likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(E2_c.df)`) = `r printnum(E2_c.LR)`, p `r printp(E2_c.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(E2_c.po.statistic))`, p `r printp(E2_c.po.p.value, add_equals = TRUE)`).
 
-The odds ratio associated with this interaction is `r printnum(exp(E2_c.estimate))` (`r print_confint(exp(E2_c.CI))`). This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E2_c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E2_c.estimate))))` effect size.
+The odds ratio associated with this interaction is `r printnum(exp(E2_c.po.estimate))` (`r print_confint(exp(E2_c.po.CI))`). This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E2_c.po.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E2_c.po.estimate))))` effect size.
 
 This model employed random intercepts and by-position slopes for each scenario. Random intercepts were included for each participant, as well as slopes capturing differences in participants' responses to data presented at different positions, different orientations, and the interaction between these.
 
@@ -1124,9 +1141,9 @@ summary_extract(E2_s, "ori1:pos1")
 #add_header_above(kable(random_str(E2_s), "latex"), "E2_s")
 ```
 
-For ratings of the severity of consequences, a likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(E2_s.df)`) = `r printnum(E2_s.LR)`, p `r printp(E2_s.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(E2_s.statistic))`), p `r printp(E2_s.p.value, add_equals = TRUE)`).
+For ratings of the severity of consequences, a likelihood ratio test reveals that a model including the interaction between physical position and axis orientation as a fixed effect explains significantly more variability in ratings than a model without this interaction as a fixed effect ($\chi^2$(`r in_paren(E2_s.df)`) = `r printnum(E2_s.LR)`, p `r printp(E2_s.p, add_equals = TRUE)`). There was a significant interaction between physical position and y-axis orientation (z = `r printnum(abs(E2_s.op.statistic))`), p `r printp(E2_s.op.p.value, add_equals = TRUE)`).
 
-The odds ratio associated with this interaction is `r printnum(exp(E2_s.estimate))` (`r print_confint(exp(E2_s.CI))`). This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E2_s.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E2_s.estimate))))` effect size.
+The odds ratio associated with this interaction is `r printnum(exp(E2_s.op.estimate))` (`r print_confint(exp(E2_s.op.CI))`). This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E2_s.op.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E2_s.op.estimate))))` effect size.
 
 This model employed random intercepts for each scenario. Random intercepts were included for each participant, as well as slopes capturing differences in participants' responses to data presented at different positions, different orientations, and the interaction between these.
 
@@ -1164,18 +1181,6 @@ E2_sl <- clmm(add.terms(formula(E2_s), "literacy"),
 ```
 
 ```{r}
-#| label: E2-lit-summary
-
-# summary output for E2 chance (magnitude) rating model with literacy
-summary_extract(E2_cl, "pos1:ori1")
-
-# summary output for E2 severity rating model with literacy
-summary_extract(E2_sl, "ori1:pos1")
-```
-
-Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E2_cl.statistic))`, p `r printp(E2_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_cl.estimate))`, `r print_confint(rev(1/exp(E2_cl.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E2_sl.statistic))`, p `r printp(E2_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_sl.estimate))`, `r print_confint(rev(1/exp(E2_sl.CI)), conf.int = 0.95)`.
-
-```{r}
 #| label: E2-clint
 #| eval: true
 #| cache: true
@@ -1211,6 +1216,42 @@ emtrends(E2_slint@model, pairwise ~ pos:ori, var = "literacy")
 emmip(E2_slint@model, pos:ori ~ literacy, cov.reduce = range)
 ```
 
+```{r}
+#| label: E2-lit-summary
+
+# summary output for E2 chance (magnitude) rating model with literacy
+summary_extract(E2_cl, "pos1:ori1")
+
+# summary output for E2 severity rating model with literacy
+summary_extract(E2_sl, "ori1:pos1")
+
+summary_extract(E2_clint, "pos1:literacy")
+summary_extract(E2_clint, "ori1:literacy")
+summary_extract(E2_clint, "pos1:ori1:literacy")
+
+summary_extract(E2_slint, "pos1:literacy")
+summary_extract(E2_slint, "ori1:literacy")
+summary_extract(E2_slint, "pos1:ori1:literacy")
+
+emtrends(E2_clint@model, "pos", var = "literacy") %>% 
+  as_tibble() %>% 
+  group_split(pos) %>% map(~ {
+    vals <- as.list(.x)
+    names(vals) <- paste0("E2_clint", 
+                          "_", 
+                          .x$pos, 
+                          "_", 
+                          names(vals))
+    list2env(vals, envir = globalenv())
+})
+
+```
+
+Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E2_cl.po.statistic))`, p `r printp(E2_cl.po.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_cl.po.estimate))`, `r print_confint(rev(1/exp(E2_cl.po.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E2_sl.op.statistic))`, p `r printp(E2_sl.op.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_sl.op.estimate))`, `r print_confint(rev(1/exp(E2_sl.op.CI)), conf.int = 0.95)`.
+
+For magnitude ratings, there was an interaction between data visualisation literacy and physical position: z = `r printnum(abs(E2_clint.pl.statistic))`, p `r printp(E2_clint.pl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.pl.estimate))`, `r print_confint(rev(1/exp(E2_clint.pl.CI)), conf.int = 0.95)`. There was no interaction between data visualisation literacy and axis orientation: z = `r printnum(abs(E2_clint.ol.statistic))`, p `r printp(E2_clint.ol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.ol.estimate))`, `r print_confint(rev(1/exp(E2_clint.ol.CI)), conf.int = 0.95)`. There was also no three-way interaction between data visualisation literacy, physical position, and axis orientation: z = `r printnum(abs(E2_clint.pol.statistic))`, p `r printp(E2_clint.pol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.pol.estimate))`, `r print_confint(rev(1/exp(E2_clint.pol.CI)), conf.int = 0.95)`.
+
+For severity ratings, there was no interaction between data visualisation literacy and physical position (z = `r printnum(abs(E2_slint.pl.statistic))`, p `r printp(E2_slint.pl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.pl.estimate))`, `r print_confint(rev(1/exp(E2_slint.pl.CI)), conf.int = 0.95)`), no interaction between data visualisation literacy and axis orientation (z = `r printnum(abs(E2_slint.ol.statistic))`, p `r printp(E2_slint.ol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.ol.estimate))`, `r print_confint(rev(1/exp(E2_slint.ol.CI)), conf.int = 0.95)`), and no three-way interaction between data visualisation literacy, physical position, and axis orientation (z = `r printnum(abs(E2_slint.pol.statistic))`, p `r printp(E2_slint.pol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.pol.estimate))`, `r print_confint(rev(1/exp(E2_slint.pol.CI)), conf.int = 0.95)`).
 
 #### Discussion
 
@@ -1278,18 +1319,17 @@ Data were returned by 161 participants. Ten participants' submissions were rejec
 ```{r}
 #| label: fig-E3-c
 #| include: true
-#| out-width: "340px"
-#| out-height: "119px"
+#| out-width: "500px"
 #| fig-asp: 0.35
 #| fig-scap: The distribution of Likert scale ratings of data points' magnitudes.
 #| fig-cap: The distribution of Likert scale ratings of data points' magnitudes. The width of each response option represents the proportion of ratings recorded for that option. Note that data points presented at high physical positions (top) elicited a larger proportion of ratings on the left-hand side (representing *smaller* magnitudes), compared to data points at low physical positions (bottom), which elicited a larger proportion of ratings on the right-hand side (representing *larger* magnitudes).
-#| fig-alt: "A horizontal stacked bar chart, showing the responses at each Likert scale category for data points presented at high and low physical positions. The title reads 'Experiment 2 (Inverted Axes): Ratings of Data Points' Magnitudes'. The label 'Very unlikely' appears on the far left, and the label 'Very likely' appears on the far right. For the 'high' condition, there are a greater proportion of responses at the 'Very unlikely' end of the scale. For the 'low' condition, there are a greater proportion of responses at the 'Very likely' end of the scale."
+#| fig-alt: "A horizontal stacked bar chart, showing the responses at each Likert scale category for data points presented at high and low physical positions. The title reads 'Experiment 3 (Inverted Axes): Ratings of Data Points' Magnitudes'. The label 'Very unlikely' appears on the far left, and the label 'Very likely' appears on the far right. For the 'high' condition, there are a greater proportion of responses at the 'Very unlikely' end of the scale. For the 'low' condition, there are a greater proportion of responses at the 'Very likely' end of the scale."
 
 # create likert plot for E3 data - chance (magnitude) ratings
 L2 <- likert_plot(E3_tidy) +
   annotate("segment", x=400, y=3.2, xend=2700, yend=3.2,
-           arrow=arrow(ends = "both", type = "closed", length = unit(10, "pt"))) +
-  labs(title = "Experiment 2 (Inverted Axes):\nRatings of Data Points' Magnitudes")
+           arrow=arrow(ends = "both", type = "closed", length = unit(7, "pt"))) +
+  labs(title = "Experiment 3 (Inverted Axes):\nRatings of Data Points' Magnitudes")
 
 E3_prop <- E3_tidy %>%
   group_by(condition, chance_slider.response) %>%
@@ -1302,7 +1342,7 @@ L2 <- L2 + geom_text(
   data=E3_prop,
   aes(x=freq, label=(perc), group=condition),
   position = position_stack(reverse = TRUE, vjust = 0.5),
-  color="black", size=3.5
+  color="black", size=2.8
 )
 
 L2
@@ -1349,9 +1389,9 @@ add_header_above(kable(random_str(E3_c), "latex"), "E3_c")
 
 @fig-E3-c plots the distribution of participants' ratings of data points' magnitudes, showing that values presented at *low* physical positions elicited a greater proportion of responses at the higher end of the rating scale than values presented at *high* physical positions.
 
-A likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include physical position as a fixed effect ($\chi^2$(`r in_paren(E3_c.df)`) = `r printnum(E3_c.LR)`, p `r printp(E3_c.p, add_equals = TRUE)`). Data points' magnitudes were rated as larger when those data points were presented at *low* physical positions, compared to when the same data points were presented at high physical positions, in contrast to the findings in Experiment 1 (z = `r printnum(abs(E3_c.statistic))`, p `r printp(E3_c.p.value, add_equals = TRUE)`).
+A likelihood ratio test reveals that a model including physical position as a fixed effect explains significantly more variability in ratings than a model which does not include physical position as a fixed effect ($\chi^2$(`r in_paren(E3_c.df)`) = `r printnum(E3_c.LR)`, p `r printp(E3_c.p, add_equals = TRUE)`). Data points' magnitudes were rated as larger when those data points were presented at *low* physical positions, compared to when the same data points were presented at high physical positions, in contrast to the findings in Experiment 1 (z = `r printnum(abs(E3_c.c.statistic))`, p `r printp(E3_c.c.p.value, add_equals = TRUE)`).
 
-The odds ratio for the difference between conditions is `r printnum(1/exp(E3_c.estimate))` (`r print_confint(rev(1/exp(E3_c.CI)), conf.int = 0.95)`). Participants were `r printnum(1/exp(E3_c.estimate))` times more likely to respond with a higher magnitude rating to data points presented at *low* positions than data points presented at high positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(1/exp(E3_c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E3_c.estimate))))` effect size.
+The odds ratio for the difference between conditions is `r printnum(1/exp(E3_c.c.estimate))` (`r print_confint(rev(1/exp(E3_c.c.CI)), conf.int = 0.95)`). Participants were `r printnum(1/exp(E3_c.c.estimate))` times more likely to respond with a higher magnitude rating to data points presented at *low* positions than data points presented at high positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(1/exp(E3_c.c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E3_c.c.estimate))))` effect size.
 
 This model employed random intercepts for each scenario.
 
@@ -1396,9 +1436,9 @@ summary_extract(E3_s, "condition1")
 add_header_above(kable(random_str(E3_s), "latex"), "E3_s")
 ```
 
-For ratings of the severity of consequences, a likelihood ratio test reveals that a model including physical position as a fixed effect explained numerically more variability in ratings than a model which does not include condition as a fixed effect, although this failed to reach significance: ($\chi^2$(`r in_paren(E3_s.df)`) = `r printnum(E3_s.LR)`, p `r printp(E3_s.p, add_equals = TRUE)`). The severity of consequences was rated as numerically greater when data points representing the chance of an event occurring were presented at low physical positions, compared to when the same data points were presented at high physical positions, although this failed to reach significance (z = `r printnum(abs(E3_s.statistic))`, p `r printp(E3_s.p.value, add_equals = TRUE)`).
+For ratings of the severity of consequences, a likelihood ratio test reveals that a model including physical position as a fixed effect explained numerically more variability in ratings than a model which does not include condition as a fixed effect, although this failed to reach significance: ($\chi^2$(`r in_paren(E3_s.df)`) = `r printnum(E3_s.LR)`, p `r printp(E3_s.p, add_equals = TRUE)`). The severity of consequences was rated as numerically greater when data points representing the chance of an event occurring were presented at low physical positions, compared to when the same data points were presented at high physical positions, although this failed to reach significance (z = `r printnum(abs(E3_s.c.statistic))`, p `r printp(E3_s.c.p.value, add_equals = TRUE)`).
 
-The odds ratio for the difference between conditions is `r printnum(1/exp(E3_s.estimate))` (`r print_confint(rev(1/exp(E3_s.CI)), conf.int = 0.95)`). Participants were `r printnum(1/exp(E3_s.estimate))` times more likely to respond with a higher severity rating to data points presented at low positions than data points presented at high positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(1/exp(E3_s.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E3_s.estimate))))` effect size.
+The odds ratio for the difference between conditions is `r printnum(1/exp(E3_s.c.estimate))` (`r print_confint(rev(1/exp(E3_s.c.CI)), conf.int = 0.95)`). Participants were `r printnum(1/exp(E3_s.c.estimate))` times more likely to respond with a higher severity rating to data points presented at low positions than data points presented at high positions. This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(1/exp(E3_s.c.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E3_s.c.estimate))))` effect size.
 
 This model employed random intercepts for each scenario, plus random intercepts and by-position slopes for each participant.
 
@@ -1423,18 +1463,6 @@ E3_cl <- clmm(add.terms(formula(E3_c), "literacy"),
 E3_sl <- clmm(add.terms(formula(E3_s), "literacy"),
               data = E3_tidy)
 ```
-
-```{r}
-#| label: E3-lit-summary
-
-# summary output for E3 chance (magnitude) rating model with literacy
-summary_extract(E3_cl, "condition1")
-
-# summary output for E3 severity rating model with literacy
-summary_extract(E3_sl, "condition1")
-```
-
-Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E3_cl.statistic))`, p `r printp(E3_cl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_cl.estimate))`, `r print_confint(rev(1/exp(E3_cl.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E3_sl.statistic))`, p `r printp(E3_sl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_sl.estimate))`, `r print_confint(rev(1/exp(E3_sl.CI)), conf.int = 0.95)`).
 
 ```{r}
 #| label: E3-clint
@@ -1467,6 +1495,42 @@ emtrends(E3_slint@model, pairwise ~ condition, var = "literacy")
 
 emmip(E3_slint@model, condition ~ literacy, cov.reduce = range)
 ```
+
+```{r}
+#| label: E3-lit-summary
+
+# summary output for E3 chance (magnitude) rating model with literacy
+summary_extract(E3_cl, "condition1")
+
+# summary output for E3 severity rating model with literacy
+summary_extract(E3_sl, "condition1")
+
+# summary output for E3 chance (magnitude) rating model with literacy
+summary_extract(E3_clint, "condition1")
+
+# summary output for E3 severity rating model with literacy
+summary_extract(E3_slint, "condition1")
+
+emtrends(E3_clint@model, "condition", var = "literacy") %>% 
+  as_tibble() %>% 
+  group_split(condition) %>% map(~ {
+    vals <- as.list(.x)
+    names(vals) <- paste0("E3_clint", 
+                          "_", 
+                          .x$condition, 
+                          "_", 
+                          names(vals))
+    list2env(vals, envir = globalenv())
+})
+```
+
+Adjusting for participants' data visualisation literacy scores did not change the pattern of results regarding ratings of the magnitude of data points themselves (z = `r printnum(abs(E3_cl.c.statistic))`, p `r printp(E3_cl.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_cl.c.estimate))`, `r print_confint(rev(1/exp(E3_cl.c.CI)), conf.int = 0.95)`) or the severity of consequences (z = `r printnum(abs(E3_sl.c.statistic))`, p `r printp(E3_sl.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E3_sl.c.estimate))`, `r print_confint(rev(1/exp(E3_sl.c.CI)), conf.int = 0.95)`).
+
+Additional models explored the *interaction between* literacy and physical position. For magnitude ratings, there was a significant interaction: 
+
+For magnitude ratings, there was an interaction between data visualisation literacy and physical position: z = `r printnum(abs(E3_clint.c.statistic))`, p `r printp(E3_clint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E3_clint.c.estimate))`, `r print_confint(exp(E3_clint.c.CI))`. A one unit increase in data visualisation literacy increased magnitude ratings for charts with high physical position by `r printnum(abs(E3_clint_hi_literacy.trend))`), but increased magnitude ratings for charts with low physical position `r printnum(abs(E3_clint_lo_literacy.trend))`.
+
+Severity of consequences (z = `r printnum(abs(E3_slint.c.statistic))`, p `r printp(E3_slint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E3_slint.c.estimate))`, `r print_confint(exp(E3_slint.c.CI))`).
 
 #### Discussion
 
