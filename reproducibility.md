@@ -1,5 +1,7 @@
 # Experimental, Analytical, and Computational Methodology
 
+## Introduction
+
 The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with multiple approaches for generating knowledge (Correll et al., 2022). In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and justification for my choices. In addition, by explicitly discussing these decisions, I recognise that they inevitably influence my findings. It is necessary to acknowledge that this methodology is one of many, each carrying their own implications. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
 
 ## Experimental Methodology
