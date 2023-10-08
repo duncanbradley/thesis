@@ -37,21 +37,21 @@ book:
     Through experimental research, this thesis reveals how the framing of values within axes informs judgements of their absolute magnitudes. 
     The results provide insight into the cognitive processing of magnitude in data visualisations, wherein context shapes viewers’ inferences. 
     This illustrates how inevitable subjectivity in data visualisation design can influence a data visualisation’s appearance and its message.
-    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
+#    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
   chapters:
     - index.qmd
     - literature.qmd
     - reproducibility.md
-    - Chapters/preface1.md
-    - Chapters/position_magnitude/dot-plots-axes.qmd
-    - Chapters/postscript1.md
-    - Chapters/preface2.md
-    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
-    - Chapters/postscript2.md
-    - Chapters/preface3.md
-    - Chapters/axis-extension/axis-extension.qmd
-    - Chapters/postscript3.md
-    - conclusion.md
+#    - Chapters/preface1.md
+#    - Chapters/postscript1.md
+#    - Chapters/position_magnitude/dot-plots-axes.qmd
+#    - Chapters/preface2.md
+#    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+#    - Chapters/postscript2.md
+#    - Chapters/preface3.md
+#    - Chapters/axis-extension/axis-extension.qmd
+#    - Chapters/postscript3.md
+#    - conclusion.md
 #    - references.qmd
 
 thesis:
@@ -72,6 +72,7 @@ reference-section-title: References
 citeproc: true
 
 bibliography: 
+  - references.bib
   - Chapters/position_magnitude/dot-plots-axes.bib
   - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.bib
   - Chapters/axis-extension/axis-extension.bib
@@ -93,7 +94,10 @@ format:
     toc-depth: 3
     include-in-header: 
       text: |
-        \usepackage{tocbibind}
+        \usepackage{enumerate}% http://ctan.org/pkg/enumerate
+    code-block-border-left: 1C1C1C
+    code-block-bg: E6E6E6
+    linestretch: 1.5
   docx:
     output-dir: docx
     toc: true

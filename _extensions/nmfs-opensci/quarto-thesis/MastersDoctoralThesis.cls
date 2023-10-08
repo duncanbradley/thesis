@@ -46,7 +46,7 @@
 \DeclareOption{nolistspacing}{\booltrue{nolistspace}}
 \DeclareOption{liststotoc}{\booltrue{listtoc}}
 \DeclareOption{chapterinoneline}{\booltrue{chapteroneline}}
-\DeclareOption{toctotoc}{\booltrue{toctoc}}
+\DeclareOption{toctotoc}{\boolfalse{toctoc}}
 \DeclareOption{parskip}{\booltrue{parskip}}
 \DeclareOption{headsepline}{\booltrue{headsepline}}
 \DeclareOption{consistentlayout}{\booltrue{consistentlayout}}
@@ -201,8 +201,11 @@
 
 \RequirePackage{booktabs} % Required for better table rules
 
+\RequirePackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
 \RequirePackage{caption} % Required for customising the captions
-\captionsetup{justification=centerlast,font=small,labelfont=sc,margin=50pt}
+\captionsetup{justification=justified,font=small,labelfont=sc,margin=50pt}
 
 %----------------------------------------------------------------------------------------
 %	DEFINE CUSTOM THESIS INFORMATION COMMANDS
@@ -247,8 +250,6 @@
 \usepackage{xcolor} % Required for specifying custom colours
 
 \colorlet{mdtRed}{red!50!black}
-
-
 
 %----------------------------------------------------------------------------------------
 %	PENALTIES
@@ -298,12 +299,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 \NewDocumentCommand{\setblankpagestyle}{ m }{\renewcommand{\blank@p@gestyle}{#1}}
 \NewDocumentCommand{\setchapterpagestyle}{ m }{\renewcommand{\chapter@p@gestyle}{#1}}
 
-\DeclareDocumentCommand\cleardoublepage{}{\clearpage\if@twoside \ifodd\c@page\else
-	\hbox{}
-	\thispagestyle{\blank@p@gestyle}
-	\newpage
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi%
-}
+\DeclareDocumentCommand\cleardoublepage{}{\clearpage}
 
 %----------------------------------------------------------------------------------------
 %	ABBREVIATIONS PAGE DESIGN
@@ -342,55 +338,27 @@ KOMA-script documentation for details.}]{fancyhdr}
 	}%
 	{}%end alt-abstract
 }{%
-	\DeclareDocumentEnvironment{abstract}{ O{\null\vfill} }{
+	\DeclareDocumentEnvironment{abstract}{ O{} }{
 		\checktoopen
 		\tttypeout{\abstractname}
 		#1%added to be able to have abstract more than one page long
 		\thispagestyle{plain}
-		\begin{center}
-			{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-			\bigskip
-			{\huge\textit{\abstractname} \par}
-			\bigskip
-			{\normalsize \facname \par}% Faculty name
-			{\normalsize \deptname \par}% Department name
-			\bigskip
-			{\normalsize \degreename\par}% Degree name
-			\bigskip
-			{\normalsize\bfseries \@title \par}% Thesis title
-			\medskip
-			{\normalsize \byname{} \authorname \par}% Author name
-			\bigskip
-		\end{center}
+		\begin{flushleft}{\huge\abstractname\par}\end{flushleft}
 	}
 	{
-		\vfill\null
+		\vfil\vfil\null
 	}
 }
 
-\DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
+\DeclareDocumentEnvironment{extraAbstract}{ O{} }{
 	\checktoopen
 	\tttypeout{\abstractname}
 	#1%added to be able to have abstract more than one page long
-	\thispagestyle{empty}
-	\begin{center}
-		{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-		\bigskip
-		{\huge\textit{\abstractname} \par}
-		\bigskip
-		{\normalsize \facname \par}% Faculty name
-		{\normalsize \deptname \par}% Department name
-		\bigskip
-		{\normalsize \degreename\par}% Degree name
-		\bigskip
-		{\normalsize\bfseries \@title \par}% Thesis title
-		\medskip
-		{\normalsize \byname{} \authorname \par}% Author name
-		\bigskip
-	\end{center}
+	\thispagestyle{plain}
+	\begin{flushleft}{\huge\abstractname\par}\end{flushleft}
 }
 {
-	\vfill\null
+	\vfil\vfil\null
 }
 
 %----------------------------------------------------------------------------------------
@@ -414,7 +382,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\checktoopen
 		\tttypeout{\acknowledgementname}
 		\thispagestyle{plain}
-		\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
+		\begin{flushleft}{\huge\acknowledgementname\par}\end{flushleft}
 	}
 	{
 		\vfil\vfil\null
@@ -447,7 +415,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 
 \newcommand{\authorshipname}{Declaration}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration} % Declaration of Authorship text for English countries
 \providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
 
 \ifbool{consistentlayout}{
@@ -459,8 +427,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\checktoopen
 		\tttypeout{\authorshipname}
 		\thispagestyle{plain}
-		\null\vfil
-		{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
+		\begin{flushleft}{\huge\authorshipname\par}\end{flushleft}
 	}{}
 }
 

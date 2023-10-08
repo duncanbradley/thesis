@@ -34,14 +34,19 @@ $endif$
 \begingroup
 \hypersetup{linkcolor=$if(toclinkcolor)$$toclinkcolor$$else$black$endif$}
 
+\renewcommand{\contentsname}{Table of Contents}
 \tableofcontents % Prints the main table of contents
 \null\vskip1cm%
 \text{Word Count: }
+\clearpage
+\addcontentsline{toc}{chapter}{\listfigurename}
 
 \listoffigures % Prints the list of figures
+\clearpage
+\addcontentsline{toc}{chapter}{\listtablename}
 
 \listoftables % Prints the list of tables
-
+%\phantom{\cite{?}} % https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page/116014#116014
 \endgroup
 
 %----------------------------------------------------------------------------------------
@@ -60,7 +65,7 @@ $endif$
 %----------------------------------------------------------------------------------------
 $if(abstract)$
 
-\begin{abstract}
+\begin{abstract}[]
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 $abstract$
 \end{abstract}
