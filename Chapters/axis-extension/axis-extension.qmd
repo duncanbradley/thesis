@@ -296,24 +296,64 @@ fixfx <- formula(model) %>%
 # simplify random effects only
 ranfx <- formula(model) %>% 
   getrandom() %>%
-  simplify.formula() %>%
+  simplify.formula()
 
 # combine fixed and random effects
-# convert to a string in order to replace terms
+# convert formula to a string in order to replace terms
 # and add brackets to random effects
 # then convert back to a formula
-merge.formula(fx, rx) %>%
+  merge.formula(fixfx, ranfx) %>%
   format_formula() %>%
   str_replace_all(c("mag_slider.response" = "magnitude_rating", 
                       "con_slider.response" = "confidence_rating",
                       "slider.response" = "magnitude_rating", 
-                      "cond" = "axis_limit", 
                       "axis" = "axis_limit",
+                      "cond" = "axis_limit", 
                     '1' = '(1',
                   '(participant|item_no)' =  '\\1)',
-                  'formula: ' = '')) %>%
-  formula()
+                  'formula: ' = ''))
 }
+
+getrandom <- function(form) {
+    
+    parens <- function(x) {paste0("(",x,")")}
+    onlyBars <- function(form) {
+      reformulate(
+        sapply(
+          findbars(form), # list of character vector for each random effect
+          function(x)  parens(deparse(x))), # put each character vector in brackets
+        response = form[[2]]) 
+    }
+    
+    out <- onlyBars(form)
+    return(out)
+}
+
+merge.formula <- function(form1, form2, ...){
+    # adapted from https://stevencarlislewalker.wordpress.com/2012/08/06/merging-combining-adding-together-two-formula-objects-in-r/
+    
+    # get character strings of the names for the responses 
+    # (i.e. left hand sides, lhs)
+    lhs1 <- deparse(form1[[2]])
+    #print(lhs1)
+    lhs2 <- deparse(form2[[2]])
+    #print(lhs2)
+    if(lhs1 != lhs2) stop('both formulas must have the same response')
+    
+    # get character strings of the right hand sides
+    rhs1 <- strsplit(paste(form1[3]), " \\+ ")[[1]] 
+    rhs2 <- strsplit(paste(form2[3]), " \\+ ")[[1]] 
+    
+    # put the two sides together with the amazing 
+    # reformulate function
+    out <- reformulate(termlabels = c(rhs1, rhs2), 
+                       response = lhs1)
+    
+    # set the environment of the formula (i.e. where should
+    # R look for variables when data aren't specified?)
+    #environment(out) <- parent.frame()
+    return(out)
+  }
 ```
 
 ```{r}
@@ -506,9 +546,16 @@ Linear mixed-effects modelling revealed that participants awarded higher ratings
 ```{r}
 #| include: false
 random_str(e1_mag)
+xx <- paste(print_formula(e1_mag))
 ```
 
-This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item. The model formula was as follows: r print_formula(e1_mag).
+This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item. The model formula was as follows: \``r xx`\`
+
+`` `r xx` ``
+
+`` `r xx` ``
+
+\``r xx`\`
 
 #### Magnitude Ratings and Data Visualisation Literacy
 
@@ -993,7 +1040,7 @@ A mixed effects model revealed a main effect associated with axis limits (F(`r p
 random_str(e2_con)
 ```
 
-This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information. The model formula was as follows: `r print_formula(e2_con)`.
+This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information. The model formula was as follows: `r print(print_formula(e2_con))`.
 
 #### Confidence Ratings and Data Visualisation Literacy
 
