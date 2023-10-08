@@ -199,6 +199,8 @@ Optimally-precise visual cues are not always employed when viewing visualisation
 
 ```{r}
 #| label: fig-noise-example
+#| out-width: "500px"
+#| fig-asp: 0.4
 #| fig-scap: Visualisations used to demonstrate greater perceputal averaging ability for colour encoding (low spatial frequency), than position encoding (high spatial frequency).
 #| fig-cap: Visualisations used to demonstrate greater perceputal averaging ability for colour encoding (low spatial frequency), than position encoding (high spatial frequency). Participants more easily identified the month with the highest average temperature (August), in the colour bar visualisation, than a line chart showing the same data. Adapted from Correll et al. (2012).
 noisedata <- read_csv("noisedata.csv") %>%
@@ -229,7 +231,7 @@ baseplot_noise <- noisedata %>%
     labels = custom_ticks_labels,
     limits = c(1, 276), expand = c(0, 0)) +
   scale_y_continuous(limits = c(0, 100), expand = c(0, 0)) +
-  theme_grey(base_size = 11) +
+  theme_grey(base_size = 7) +
   theme(
     panel.background = element_rect(color = "black", linewidth = 1, fill = NA),
     legend.position = "none",
@@ -263,6 +265,7 @@ Furthermore, the choice of graphical encodings employed in a data visualisation 
 
 ```{r}
 #| label: fig-within-bar
+#| out-width: "500px"
 #| fig-scap: "Examples of data points positioned 'inside' and 'outside' a bar showing an average value, and the equivalent plots with confidence intervals."
 #| fig-cap: "Examples of data points positioned 'inside' and 'outside' a bar showing an average value, and the equivalent plots with confidence intervals. The data point (grey circle) more likely to be considered part of the underlying data in A than B, but is equally likely to be considered part of underlying data in C and D. Adapted from Newman and Scholl (2012) and Pentoney and Berger (2016), from simplified versions of experimental stimuli."
 
@@ -286,9 +289,9 @@ within_bar <- wb %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 4,
+  geom_point(aes(x = "B", y = 60), size = 2,
              colour = "darkgrey") +
-  coord_fixed(ratio = 0.1)
+  coord_fixed(ratio = 0.02)
 
 within_CI <- wb %>%
   ggplot(aes(x = x, y = y)) +
@@ -296,13 +299,13 @@ within_CI <- wb %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 4,
+  geom_point(aes(x = "B", y = 60), size = 2,
              colour = "darkgrey") +
   geom_errorbar(aes(x = "B"), 
                 ymin = 70, ymax = 90,
-                width = 0.5,
-                linewidth = 1) +
-  coord_fixed(ratio = 0.1)
+                width = 0.7,
+                linewidth = 0.6) +
+  coord_fixed(ratio = 0.02)
 
 outside_bar <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -310,9 +313,9 @@ outside_bar <- ob %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 4,
+  geom_point(aes(x = "B", y = 60), size = 2,
              colour = "darkgrey") +
-  coord_fixed(ratio = 0.1)
+  coord_fixed(ratio = 0.02)
 
 outside_CI <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -320,13 +323,13 @@ outside_CI <- ob %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 4,
+  geom_point(aes(x = "B", y = 60), size = 2,
              colour = "darkgrey") +
   geom_errorbar(aes(x = "B"), 
                 ymin = 30, ymax = 50,
-                width = 0.5,
-                linewidth = 1) +
-  coord_fixed(ratio = 0.1)
+                width = 0.7,
+                linewidth = 0.6) +
+  coord_fixed(ratio = 0.02)
 
 within_bar + outside_bar + within_CI + outside_CI +
 plot_layout(nrow = 1,
