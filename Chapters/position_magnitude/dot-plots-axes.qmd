@@ -807,6 +807,30 @@ Additional models explored the *interaction between* literacy and physical posit
 
 For magnitude ratings, there was an interaction between data visualisation literacy and axis limits: (z = `r printnum(abs(E1_clint.c.statistic))`, p `r printp(E1_clint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_clint.c.estimate))`, `r print_confint(exp(E1_clint.c.CI))`). A one unit increase in data visualisation literacy increased magnitude ratings for charts with high physical position by `r printnum(abs(E1_clint_hi_literacy.trend))`), but increased magnitude ratings for charts with low physical position `r printnum(abs(E1_clint_lo_literacy.trend))`.
 
+```{r}
+#| label: fig-E1-lint
+#| fig-cap: Literacy interaction in Experiment 1
+Thresh = E1_c@model$Theta
+Slopes = E1_c@model$coefficients
+
+#cols <- brewer.pal(brewer.pal.info["RdYlGn", "maxcolors"], #"RdYlGn")[1:7]
+
+emmip(E1_clint@model, condition ~ literacy, cov.reduce = range) +
+lims(y = c(min(Thresh)-0.5,
+             max(Thresh)+0.5)) +
+  geom_hline(yintercept = c(unname(Thresh)), colour = "lightgrey") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank(),
+                panel.grid.major = element_blank()) +
+  annotate("text",
+           y = c(min(Thresh),
+                 max(Thresh)), 
+           x = c(10, 10), 
+           label = c("Very\nunlikely", "Very\nlikely"))
+
+```
+
+
 Severity of consequences (z = `r printnum(abs(E1_slint.c.statistic))`, p `r printp(E1_slint.c.p.value, add_equals = TRUE)`, odds ratio = `r printnum(exp(E1_slint.c.estimate))`, `r print_confint(exp(E1_slint.c.CI))`).
 
 #### Discussion
