@@ -314,19 +314,6 @@ summary_extract <- function(model) {
 ```
 
 ```{r}
-#| label: random-str-function
-# this function creates a table which displays the random effects structure (intercepts and slopes) for a given model
-random_str <- function(model) {
-  model <- model@model
-  terms <- model %>% find_random %>% unlist() %>% unname()
-  mylist <- model %>% formula %>% findbars() %>% as.character()
-  slopes <- lapply(mylist, str_extract, "(?<=\\+ )(.*)(?= \\| )") %>% 
-    unlist()
-  tibble(terms, slopes)
-}
-```
-
-```{r}
 #| label: print-es-function
 # for dealing with effect sizes less than .001
 print_es <- function(x) {ifelse(x<.01, "< 0.01", paste("=", printnum(x)))}
@@ -968,27 +955,6 @@ anova_results(test_max_value_int2, full_max_value_int2)
 ```
 
 In the models for participants who satisfied the pre-registered attention check criteria *and* those who did not (N = 165), there were significant effects of maximum value, for both maps with labelled colour legends ($\chi^2$(`r in_paren(test_max_value_pres2.Df)`) = `r printnum(test_max_value_pres2.Chi)`, p `r printp(test_max_value_pres2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_pres2.eta.max_value)`) and also maps with unlabelled colour legends ($\chi^2$(`r in_paren(test_max_value_abs2.Df)`) = `r printnum(test_max_value_abs2.Chi)`, p `r printp(test_max_value_abs2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_abs2.eta.max_value)`). These models employed random intercepts for participants with random slopes for colour legend range, plus random intercepts for items with random slopes for colour legend range. There was no significant interaction between maximum value and numerical label presence ($\chi^2$(`r in_paren(test_max_value_int2.Df)`) = `r printnum(test_max_value_int2.Chi)`, p `r printp(test_max_value_int2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_int2.eta.max_value_label)`). This model employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range. Colour legend range ($\eta_p^2$ `r print_es(full_max_value_int2.eta.range)`) remains a greater influence than maximum value ($\eta_p^2$ `r print_es(full_max_value_int2.eta.max_value)`).
-
-```{r}
-#| label: rfx-structures
-# print table showing model random effects structure (not used in final document)
-add_header_above(kable(random_str(full_main), "latex"), "full_main")
-add_header_above(kable(random_str(full_int), "latex"), "full_int")
-add_header_above(kable(random_str(full_main_lit), "latex"), "full_main_lit")
-add_header_above(kable(random_str(full_int_lit), "latex"), "full_int_lit")
-add_header_above(kable(random_str(full_lint), "latex"), "full_lint")
-add_header_above(kable(random_str(both_full_main), "latex"), "both_full_main")
-add_header_above(kable(random_str(both_full_int), "latex"), "both_full_int")
-add_header_above(kable(random_str(both_full_main_lit), "latex"), "both_full_main_lit")
-add_header_above(kable(random_str(both_full_int_lit), "latex"), "both_full_int_lit")
-add_header_above(kable(random_str(both_full_lint), "latex"), "both_full_lint")
-add_header_above(kable(random_str(full_max_value_pres1), "latex"), "full_max_value_pres1")
-add_header_above(kable(random_str(full_max_value_abs1), "latex"), "full_max_value_abs1")
-add_header_above(kable(random_str(full_max_value_int1), "latex"), "full_max_value_int1")
-add_header_above(kable(random_str(full_max_value_pres2), "latex"), "full_max_value_pres2")
-add_header_above(kable(random_str(full_max_value_abs2), "latex"), "full_max_value_abs2")
-add_header_above(kable(random_str(full_max_value_int2), "latex"), "full_max_value_int2")
-```
 
 ## Discussion
 

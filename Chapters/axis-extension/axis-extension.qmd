@@ -241,20 +241,6 @@ get_contrasts <- function(contrast_df, condition) {
 ```
 
 ```{r}
-#| label: random-str-function
-
-# this function creates a table which displays the random effects structure (intercepts and slopes) for a given model
-random_str <- function(model) {
-  model <- model@model
-  terms <- model %>% find_random %>% unlist() %>% unname()
-  mylist <- model %>% formula %>% findbars() %>% as.character()
-  slopes <- lapply(mylist, str_extract, "(?<=\\+ )(.*)(?= \\| )") %>% 
-    unlist()
-  tibble(terms, slopes)
-}
-```
-
-```{r}
 #| label: get-anomalies-function
 
 # returns the proportion of datasets which needed to re-generated for the highest data point to exceed the highest gridline
@@ -547,19 +533,7 @@ summary_extract(e1_mag)
 
 Linear mixed-effects modelling revealed that participants awarded higher ratings to charts with default axes, compared to charts with extended axes: F(`r printnum(e1_mag_cond_NumDF)`, `r printnum(e1_mag_cond_DenDF)`) = `r printnum(e1_mag_cond_F.value)`, p `r printp(e1_mag_cond_p, add_equals = T)`, partial $\eta^2$ = `r printnum(e1_mag_cond_Eta2_partial)`.
 
-```{r}
-#| include: false
-random_str(e1_mag)
-xx <- paste(print_formula(e1_mag))
-```
-
-This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item. The model formula was as follows: \``r xx`\`
-
-`` `r xx` ``
-
-`` `r xx` ``
-
-\``r xx`\`
+This model employed a maximal random effects structure, capturing the baseline responses (intercepts) and differences between the two axis settings (slopes) separately for each individual participant and each individual item. The model formula was as follows: `` `paste(print_formula(e1_mag))` ``
 
 #### Magnitude Ratings and Data Visualisation Literacy
 
@@ -791,11 +765,6 @@ get_contrasts(e2_mag_emm, condition = "denominator")
 ```
 
 Pairwise comparisons produced using {emmeans} [@lenth_emmeans_2021] revealed that charts with extended and default axes were rated differently when the denominator was present, replicating the effect from Experiment 1 (z = `r printnum(e2_mag_emm_pres_z.ratio)`, p `r printp(e2_mag_emm_pres_p.value, add_equals = TRUE)`), and also when the denominator was absent (z = `r printnum(e2_mag_emm_abs_z.ratio)`, p `r printp(e2_mag_emm_abs_p.value)`). Therefore, the interaction indicates that the magnitude of influence exerted by a bar chart's axis varied according to whether the denominator was present or absent.
-
-```{r}
-#| include: false
-random_str(e2_mag)
-```
 
 This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information. The model formula was as follows: `r print_formula(e2_mag)`.
 
@@ -1038,11 +1007,6 @@ emmip(e2_con@model, denominator ~ axis,
 ```
 
 A mixed effects model revealed a main effect associated with axis limits (F(`r printnum(e2_con_axis_NumDF)`, `r printnum(e2_con_axis_DenDF)`) = `r printnum(e2_con_axis_F.value)`, p `r printp(e2_con_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_axis_Eta2_partial)`), a main effect associated with denominator information (F(`r printnum(e2_con_denominator_NumDF)`, `r printnum(e2_con_denominator_DenDF)`) = `r printnum(e2_con_denominator_F.value)`, p `r printp(e2_con_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_denominator_Eta2_partial)`) and an interaction F(`r printnum(e2_con_denominator_axis_NumDF)`, `r printnum(e2_con_denominator_axis_DenDF)`) = `r printnum(e2_con_denominator_axis_F.value)`, p `r printp(e2_con_denominator_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_con_denominator_axis_Eta2_partial)`. This interaction consisted of a difference between extended and default charts when the denominator was absent from text (z = `r printnum(e2_con_emm_abs_z.ratio)`, p `r printp(e2_con_emm_abs_p.value)`), but no difference between charts when the denominator was present (z = `r printnum(e2_con_emm_pres_z.ratio)`, p `r printp(e2_con_emm_pres_p.value, add_equals = TRUE)`). However, it is clear from @fig-e2-con-int, as well as the partial $\eta^2$ values, that the effect sizes associated with axis limits and the interaction are trivial.
-
-```{r}
-#| include: true
-random_str(e2_con)
-```
 
 This model employed by-participant and by-item random effects. For each participant, there were random intercepts, plus random slopes for axis settings and denominator information. For each item, there were random intercepts, plus random slopes for denominator information. The model formula was as follows: `r print(print_formula(e2_con))`.
 
