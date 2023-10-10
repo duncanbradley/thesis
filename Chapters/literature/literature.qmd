@@ -209,9 +209,8 @@ Statistician Edward Tufte is a source of widely-cited advice on the design of da
 
 ```{r}
 #| label: fig-lie-factor
-#| out-width: "400px"
-#| out-height: "400px"
-#| fig.asp: 1.5
+#| out-width: "500px"
+#| fig-asp: 1
 #| fig-scap: A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times."
 #| fig-cap: "A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times. The final value of 12% is a 15 percentage point decrease from the first value of 27%. However, Tufte's lie-factor of 2.8 indicates that this reduction is perceived as a 42 percentage point decrease."
 df_img <- data.frame(year = c("1964", "1975", "1990"),
@@ -219,6 +218,7 @@ df_img <- data.frame(year = c("1964", "1975", "1990"),
                      image = "images/doctor.png")
 #from https://pixabay.com/vectors/doctor-robe-medicine-medical-6207110/
 #resized to have same dimensions as Los Angeles Times original
+label_size <- 3
 
 ggplot(df_img, aes(x = rev(year2), y = 0, image = image)) +
   geom_hline(yintercept = 0.9) +
@@ -240,9 +240,9 @@ ggplot(df_img, aes(x = rev(year2), y = 0, image = image)) +
         panel.grid.minor.y = element_blank(),
         axis.text = element_blank(),
         axis.ticks = element_blank(),
-        plot.title = element_text(hjust = 0.5, face="bold",size=11),
-        plot.subtitle = element_text(hjust = 0.5, face="bold"),
-        axis.title.x = element_text(size = 6),
+        plot.title = element_text(hjust = 0.5, face="bold", size = 11),
+        plot.subtitle = element_text(hjust = 0.5, face="bold", size = 9.5),
+        axis.title.x = element_text(size = 8),
         aspect.ratio = 1.5,
         plot.margin = margin(0.5, 1, 1, 0.5, "cm"),
         plot.background = element_rect(fill = "white"),
@@ -253,24 +253,24 @@ ggplot(df_img, aes(x = rev(year2), y = 0, image = image)) +
             x = c(0,3.25,4.6),
             y = 0.97,
             #family="Roboto Condensed",
-            size = 2.5) +
+            size = label_size) +
   geom_text(label = c("27%", "16.0%", "12.0%"),
             x = c(0,3.25,4.6),
             y = 0.83,
             #family="Roboto Condensed",
-            size = 2.5,
+            size = label_size,
             fontface = "bold") +
   geom_text(label = c("1: 2,247 Ratio to Population", "1: 3,167", "1: 4,232"),
             x = c(-0.2,3.25,4.6),
             y = c(-1.05, -0.65, -0.5),
             #family="Roboto Condensed",
-            size = 2.5,
+            size = label_size,
             hjust = c(0, 0.5, 0.5)) +
   geom_text(label = c("8,023 Doctors", "6,694", "6,212"),
             x = c(1.1,3.25,4.6),
             y = c(-1.15, -0.75, -0.6),
             #family="Roboto Condensed",
-            size = 2.5,
+            size = label_size,
             fontface= "bold")
 
 ```
