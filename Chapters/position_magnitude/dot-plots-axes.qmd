@@ -862,17 +862,17 @@ This experiment demonstrates that axis limits, which determine the position of p
 
 #### Introduction
 
-Experiment 1 (E1) found that participants associated data points with greater magnitudes when those data points were positioned near the *top* of a chart, compared to when the same data points were positioned near the *bottom* of a chart.
+Experiment 1 found that participants associated data points with greater magnitudes when those data points were positioned near the *top* of a chart, compared to when the same data points were positioned near the *bottom* of a chart.
 
 One possible explanation for this finding is that participants made simple associations between absolute position and magnitude, equating physically higher data points with larger magnitudes and physically lower data points with smaller magnitudes. This is congruent with well-established conceptual metaphors for magnitude, where greater vertical positions denote greater magnitudes [@tversky_cognitive_1997].
 
 An alternative explanation is that participants used the y-axis as a frame of reference for assessing the magnitude of plotted values. For example, when considering data points near the bottom of the axis, participants may have recognised the potential for values larger than those observed, consequently associating plotted values with smaller magnitudes.
 
-E1 does not provide a means of differentiating these competing explanations. Drawing inferences from data points' absolute positions would bias magnitude judgements in the same direction as drawing inferences from their relative positions. A high magnitude is implied by a data point's high physical position *and* its superior position in the context other of presented values. Therefore, further investigation is required in order to distinguish between the two competing explanations.
+Experiment 1 does not provide a means of differentiating these competing explanations. Drawing inferences from data points' absolute positions would bias magnitude judgements in the same direction as drawing inferences from their relative positions. A high magnitude is implied by a data point's high physical position *and* its superior position in the context other of presented values. Therefore, further investigation is required in order to distinguish between the two competing explanations.
 
 Plotting numerical values along the x-axis would not assist in answering this question, since values that are large in the context of the x-axis limits would be positioned on the right-hand side, which is also typically associated with larger magnitudes [@woodin_placing_2018]. However, inverting a vertical axis changes the typical relationship between physical position and numerical value: increasingly *lower* positions represent increasingly *higher* numerical values. This means data points presented near the *bottom* of a chart are numerically *larger* than the accompanying y-axis values. Therefore, inferences invoking relative numerical position would bias magnitude judgements in the opposite direction compared to inferences invoking data points' physical positions. This is illustrated in @fig-rationale.
 
-In E2, we manipulate data points' physical positions by changing axis limits (as in E1), but *also* manipulate axis orientation, by employing conventional and inverted axes (in a 2 x 2 design). This allows us to identify the mechanism responsible for the previously observed bias in magnitude judgements. Use of absolute position would be indicated by higher magnitude ratings for data points at *high* physical positions (regardless of axis orientation). Alternatively, use of relative position would be indicated by higher magnitude ratings for data points at *high* physical positions in conventional charts and *low* physical positions in inverted charts.
+In Experiment 2, we manipulate data points' physical positions by changing axis limits (as in Experiment 1), but *also* manipulate axis orientation, by employing conventional and inverted axes (in a 2 x 2 design). This allows us to identify the mechanism responsible for the previously observed bias in magnitude judgements. Use of absolute position would be indicated by higher magnitude ratings for data points at *high* physical positions (regardless of axis orientation). Alternatively, use of relative position would be indicated by higher magnitude ratings for data points at *high* physical positions in conventional charts and *low* physical positions in inverted charts.
 
 Previous research suggests that charts with inverted axes can be prone to misinterpretation when viewers are not informed about the inversion [@pandey_how_2015; @woodin_conceptual_2022]. Therefore, we provided explicit instruction to ensure participants were aware that inverted charts were presented.
 
@@ -1009,7 +1009,7 @@ include_graphics("images/fig-rationale-1.pdf")
 
 For this experiment, we used a Latin-squared design where participants only viewed one chart per scenario. In response to this, we increased the number of scenarios. This provided some compensation for the reduced experimental power caused by a reduction the number of observations per participant (as well as a reduction in participant numbers).
 
-Two scenarios which were fillers in E1 were used as experimental scenarios[^3] and three additional scenarios were created. One filler scenario was removed due to a concern about its quality (it concerned the risk to others as well as the risk to oneself). This resulted in a total of 24 experimental scenarios, 12 filler scenarios, and 5 attention check questions (41 trials in total).
+Two scenarios which were fillers in Experiment 1 were used as experimental scenarios[^3] and three additional scenarios were created. One filler scenario was removed due to a concern about its quality (it concerned the risk to others as well as the risk to oneself). This resulted in a total of 24 experimental scenarios, 12 filler scenarios, and 5 attention check questions (41 trials in total).
 
 [^3]: For one of these scenarios, the mean of the plotted data was also modified.
 
@@ -1019,7 +1019,7 @@ The experiment used PsychoPy version 2021.2.3. Participants specified the highes
 
 > *You should pay attention to the direction of the arrow on the 'Chance' axis. If the arrow points upwards, the numbers in the graph get bigger as the axis goes up. Alternatively, if the arrow points downwards, the numbers get bigger as the axis goes down.*
 
-Otherwise, the procedure was identical to E1.
+Otherwise, the procedure was identical to Experiment 1.
 
 ##### Design
 
@@ -1027,7 +1027,7 @@ We employed a Latin-squared, within-participants design. Participants encountere
 
 ##### Participants
 
-A viral social media post on 24th July 2021 endorsing the Prolific.co platform attracted many new users from a narrow demographic, skewing studies' participant distributions [@charalambides_we_2021]. Therefore, the experiment was not advertised to users who signed-up to Prolific.co after 24th July 2021. The experiment was also not advertised to those who had participated in E1.
+A viral social media post on 24th July 2021 endorsing the Prolific.co platform attracted many new users from a narrow demographic, skewing studies' participant distributions [@charalambides_we_2021]. Therefore, the experiment was not advertised to users who signed-up to Prolific.co after 24th July 2021. The experiment was also not advertised to those who had participated in Experiment 1.
 
 ```{r}
 #| label: E2_demographics
@@ -1136,7 +1136,7 @@ E2_c_emm <- emmeans(E2_c@model, pairwise ~ pos * ori, adjust = 'sidak')
 get_contrasts(E2_c_emm, condition = "ori")
 ```
 
-Pairwise comparisons (with Sidak adjustment) reveal that the effect of position in charts with conventional y-axis orientations (E1) was replicated (z = `r printnum(E2_c_emm_conventional_z.ratio)`, p `r printp(E2_c_emm_conventional_p.value, add_equals = TRUE)`). Data points' magnitudes were rated as greater when they were presented at high physical positions, compared to when they were presented at low physical positions. There was no significant difference between magnitude ratings for data points plotted at different positions when inverted axes were used (z = `r printnum(E2_c_emm_inverted_z.ratio)`, p `r printp(E2_c_emm_inverted_p.value, add_equals = TRUE)`). Therefore, we observe a different pattern of results when an inverted axis is used, compared to when a conventional axis is used. This suggests that differences in ratings for data points at different absolute positions in physical space are not due to simple associations between vertical position and magnitude.
+Pairwise comparisons (with Sidak adjustment) reveal that the effect of position in charts with conventional y-axis orientations (Experiment 1) was replicated (z = `r printnum(E2_c_emm_conventional_z.ratio)`, p `r printp(E2_c_emm_conventional_p.value, add_equals = TRUE)`). Data points' magnitudes were rated as greater when they were presented at high physical positions, compared to when they were presented at low physical positions. There was no significant difference between magnitude ratings for data points plotted at different positions when inverted axes were used (z = `r printnum(E2_c_emm_inverted_z.ratio)`, p `r printp(E2_c_emm_inverted_p.value, add_equals = TRUE)`). Therefore, we observe a different pattern of results when an inverted axis is used, compared to when a conventional axis is used. This suggests that differences in ratings for data points at different absolute positions in physical space are not due to simple associations between vertical position and magnitude.
 
 ##### Severity Ratings
 
@@ -1187,7 +1187,7 @@ get_contrasts(E2_s_emm, condition = "ori")
 get_contrasts(E2_s_emm, condition = "pos")
 ```
 
-Despite the interaction, the main effect in severity ratings from E1, different responses to data points at different positions in conventional charts, was not replicated (z = `r printnum(E2_s_emm_conventional_z.ratio)`, p `r printp(E2_s_emm_conventional_p.value, add_equals = TRUE)`). There was also no evidence of different responses to data points at different positions in inverted charts (z = `r printnum(E2_s_emm_inverted_z.ratio)`, p `r printp(E2_s_emm_inverted_p.value, add_equals = TRUE)`). This interaction appears to be driven by a weak and likely spurious difference between ratings for data points at high physical positions in inverted and conventional charts (z = `r printnum(E2_s_emm_hi_z.ratio)`, p `r printp(E2_s_emm_hi_p.value, add_equals = TRUE)`).
+Despite the interaction, the main effect in severity ratings from Experiment 1, different responses to data points at different positions in conventional charts, was not replicated (z = `r printnum(E2_s_emm_conventional_z.ratio)`, p `r printp(E2_s_emm_conventional_p.value, add_equals = TRUE)`). There was also no evidence of different responses to data points at different positions in inverted charts (z = `r printnum(E2_s_emm_inverted_z.ratio)`, p `r printp(E2_s_emm_inverted_p.value, add_equals = TRUE)`). This interaction appears to be driven by a weak and likely spurious difference between ratings for data points at high physical positions in inverted and conventional charts (z = `r printnum(E2_s_emm_hi_z.ratio)`, p `r printp(E2_s_emm_hi_p.value, add_equals = TRUE)`).
 
 ##### Data Visualisation Literacy
 
@@ -1286,9 +1286,9 @@ For severity ratings, there was no interaction between data visualisation litera
 
 #### Discussion
 
-In E1, when using conventional charts only, we found that displaying data within different axis limits affected magnitude judgements. However, it was unclear whether judgements were based on data points' absolute physical positions, or their relative positions within axis limits, because both would generate similar interpretations. Therefore, in E2, for half of trials, we reversed the mapping of values in physical space, so these two aspects would imply different magnitudes for a given value. Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Overall, accounting for differences in participants' data visualisation literacy did not alter the pattern of results, but higher data visualisation literacy scores were associated with a diminished effect of physical position, for magnitude ratings.
+In Experiment 1, when using conventional charts only, we found that displaying data within different axis limits affected magnitude judgements. However, it was unclear whether judgements were based on data points' absolute physical positions, or their relative positions within axis limits, because both would generate similar interpretations. Therefore, in Experiment 2, for half of trials, we reversed the mapping of values in physical space, so these two aspects would imply different magnitudes for a given value. Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Overall, accounting for differences in participants' data visualisation literacy did not alter the pattern of results, but higher data visualisation literacy scores were associated with a diminished effect of physical position, for magnitude ratings.
 
-In E2, we replicated the primary finding from E1. In charts with conventional axis orientations, the same data points elicited different magnitude judgements when presented at different positions. These differences were consistent with magnitudes implied by data points' absolute physical positions *and* their relative positions within axis limits. However, in charts with inverted axis orientations, we did not observe the same pattern. Therefore, we can conclude that the interpreting the magnitude of data points presented at distinct physical positions depends on how axes are oriented.
+In Experiment 2, we replicated the primary finding from Experiment 1. In charts with conventional axis orientations, the same data points elicited different magnitude judgements when presented at different positions. These differences were consistent with magnitudes implied by data points' absolute physical positions *and* their relative positions within axis limits. However, in charts with inverted axis orientations, we did not observe the same pattern. Therefore, we can conclude that the interpreting the magnitude of data points presented at distinct physical positions depends on how axes are oriented.
 
 Figure @fig-E2-c suggests that the pattern of results for inverted charts is the reverse of the pattern for conventional charts. However, our analysis indicates that the same data points did not elicit significantly different magnitude judgements when presented at different positions in *inverted* charts. Therefore, we cannot conclude from this analysis that magnitude judgements are driven solely by the relative positions of data points within axis limits. This lack of significant difference is likely due to a lack of experimental power. An additional experiment is required to confirm whether there is a genuine difference.
 
@@ -1296,29 +1296,29 @@ Figure @fig-E2-c suggests that the pattern of results for inverted charts is the
 
 #### Introduction
 
-The interaction in E2 revealed that the influence of position on magnitude judgements depends on how different numerical values are arranged in a chart (axis orientation). The pattern of responses in inverted charts appeared to be the inverse of the pattern for conventional charts. This suggests that participants did not generate inferences about magnitude based on data points' absolute physical positions. However, the absence of a significant difference between ratings for data points at different positions in *inverted* charts prohibits the conclusion that interpretations are influenced by data points' relative positions within axis limits.
+The interaction in Experiment 2 revealed that the influence of position on magnitude judgements depends on how different numerical values are arranged in a chart (axis orientation). The pattern of responses in inverted charts appeared to be the inverse of the pattern for conventional charts. This suggests that participants did not generate inferences about magnitude based on data points' absolute physical positions. However, the absence of a significant difference between ratings for data points at different positions in *inverted* charts prohibits the conclusion that interpretations are influenced by data points' relative positions within axis limits.
 
-It is possible that no significant effect was detected for inverted charts due to insufficient experimental power. Unlike E1, which recruited 150 participants for a single-factor design, E2 recruited 120 participants for a 2x2 Latin-squared design. Despite an increase in the number of experimental scenarios (from 20 to 24), there were still fewer observations for each unique condition (3000 in E1 vs. 720 in E2).
+It is possible that no significant effect was detected for inverted charts due to insufficient experimental power. Unlike Experiment 1, which recruited 150 participants for a single-factor design, Experiment 2 recruited 120 participants for a 2x2 Latin-squared design. Despite an increase in the number of experimental scenarios (from 20 to 24), there were still fewer observations for each unique condition (3000 in Experiment 1 vs. 720 in Experiment 2).
 
-In E3, we increase the experimental power and present inverted charts only, using the same experimental design as E1. This provides a clearer account of how magnitude is interpreted in inverted charts, furthering understanding of the mechanism by which axis limits influence interpretations of magnitude. Inferences based on data points' absolute physical positions would be indicated by higher magnitude ratings for data points at *high* physical positions (mirroring the finding for conventional charts). Alternatively, inferences based on data points' relative positions within axis limits would be indicated by higher magnitude ratings for data points at *low* physical positions (the reverse of the finding for conventional charts).
+In Experiment 3, we increase the experimental power and present inverted charts only, using the same experimental design as Experiment 1. This provides a clearer account of how magnitude is interpreted in inverted charts, furthering understanding of the mechanism by which axis limits influence interpretations of magnitude. Inferences based on data points' absolute physical positions would be indicated by higher magnitude ratings for data points at *high* physical positions (mirroring the finding for conventional charts). Alternatively, inferences based on data points' relative positions within axis limits would be indicated by higher magnitude ratings for data points at *low* physical positions (the reverse of the finding for conventional charts).
 
 #### Method
 
 ##### Materials
 
-Materials were identical to E1, except for the inversion of the y-axis in all charts, including practice trials.
+Materials were identical to Experiment 1, except for the inversion of the y-axis in all charts, including practice trials.
 
 ##### Procedure
 
-The experiment used PsychoPy version 2021.2.3. One slide in the instructions explained to participants how charts with inverted axes function: *"In all graphs in this experiment, the arrow on the 'Chance' axis points downwards, meaning the numbers get bigger as the axis goes down."*. Otherwise, the procedure was identical to E1.
+The experiment used PsychoPy version 2021.2.3. One slide in the instructions explained to participants how charts with inverted axes function: *"In all graphs in this experiment, the arrow on the 'Chance' axis points downwards, meaning the numbers get bigger as the axis goes down."*. Otherwise, the procedure was identical to Experiment 1.
 
 ##### Design
 
-As in E1, we employed a repeated-measures, within-participants design.
+As in Experiment 1, we employed a repeated-measures, within-participants design.
 
 ##### Participants
 
-The experiment was not advertised on Prolific.co to those who had participated in E1 or E2, or those who signed-up to Prolific.co after 24th July 2021 (due to the shift in participant demographics). Otherwise, the inclusion criteria were the same as the previous experiments.
+The experiment was not advertised on Prolific.co to those who had participated in Experiment 1 or Experiment 2, or those who signed-up to Prolific.co after 24th July 2021 (due to the shift in participant demographics). Otherwise, the inclusion criteria were the same as the previous experiments.
 
 ```{r}
 #| label: E3_demographics
@@ -1586,7 +1586,7 @@ For ratings of the severity of consequences, there was no significant interactio
 
 This experiment demonstrates that inferences about data points' magnitudes are influenced by their *relative* positions on a chart's axis, rather than their absolute physical positions. Viewing data in charts with inverted y-axes, participants rated the same values as greater when these values were plotted at *low* positions, compared to high positions. Ratings of the severity of consequences were not significantly affected by the position of data points representing the chance of negative events occurring. Overall, accounting for differences in participants' data visualisation literacy did not alter the pattern of results, but higher data visualisation literacy scores were associated with a diminished effect of physical position, for magnitude ratings.
 
-In the previous experiment (E2), we did not observe a *significant* difference between magnitude ratings for data points at different physical positions in inverted charts. However, the pattern was consistent with the inferences based on data points' relative positions within axis limits. This experiment, with increased experimental power, provides evidence for a statistically significant difference. In light of this new experiment, there is stronger evidence for the claim that axis limits influence interpretations of magnitude by determining data points' relative numerical positions.
+In the previous experiment (Experiment 2), we did not observe a *significant* difference between magnitude ratings for data points at different physical positions in inverted charts. However, the pattern was consistent with the inferences based on data points' relative positions within axis limits. This experiment, with increased experimental power, provides evidence for a statistically significant difference. In light of this new experiment, there is stronger evidence for the claim that axis limits influence interpretations of magnitude by determining data points' relative numerical positions.
 
 ## General Discussion
 
