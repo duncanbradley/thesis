@@ -40,19 +40,19 @@ book:
 #    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
   chapters:
     - index.qmd
-    - literature.qmd
-    - reproducibility.md
-#    - Chapters/preface1.md
-#    - Chapters/postscript1.md
-#    - Chapters/position_magnitude/dot-plots-axes.qmd
-#    - Chapters/preface2.md
-#    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
-#    - Chapters/postscript2.md
-#    - Chapters/preface3.md
-#    - Chapters/axis-extension/axis-extension.qmd
-#    - Chapters/postscript3.md
-#    - conclusion.md
-#    - references.qmd
+    - Chapters/literature/literature.qmd
+    - Chapters/reproducibility.md
+    - Chapters/position_magnitude/preface1.md
+    - Chapters/position_magnitude/dot-plots-axes.qmd
+    - Chapters/position_magnitude/postscript1.md
+    - Chapters/ChoroplethMagnitude/preface2.md
+    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+    - Chapters/ChoroplethMagnitude/postscript2.md
+    - Chapters/axis-extension/preface3.md
+    - Chapters/axis-extension/axis-extension.qmd
+    - Chapters/axis-extension/postscript3.md
+    - Chapters/conclusion.md
+    - references.qmd
 
 thesis:
   #supervisor:
@@ -62,9 +62,9 @@ thesis:
   department: Division of Psychology, Communication & Human Neuroscience
   group: School of Health Sciences
   faculty: Faculty of Biology, Medicine and Health
-  copyright: "Frontmatter/copyright.tex"
-  declaration: "Frontmatter/declaration.tex"
-  acknowledgements: "Frontmatter/acknowledgements.tex"
+  copyright: "Chapters/Frontmatter/copyright.tex"
+  declaration: "Chapters/Frontmatter/declaration.tex"
+  acknowledgements: "Chapters/Frontmatter/acknowledgements.tex"
 
 filters:
   - section-bibliographies

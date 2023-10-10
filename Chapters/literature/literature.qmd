@@ -33,15 +33,15 @@ In 1855, John Snow produced a map showing the spatial distribution of cholera de
 #| label: fig-history
 #| out-width: "500px"
 snow <- ggplot() +
-  background_image(image_read("literature_images/snow.png")) +
+  background_image(image_read("images/snow.png")) +
   coord_fixed(ratio = 1198/1277) +
   labs(caption = "John Snow's Map of Cholera Deaths (1855)")
 nightingale <- ggplot() +
-  background_image(image_read("literature_images/nightingale.png")) + 
+  background_image(image_read("images/nightingale.png")) + 
   coord_fixed(ratio = 875/1600) +
   labs(caption = "Florence Nightingale's Rose Diagram(1857)")
 minard <- ggplot() +
-  background_image(image_read("literature_images/minard.png")) +
+  background_image(image_read("images/minard.png")) +
   coord_fixed(ratio = 762/1599) +
    labs(caption = "Charles Joseph Minard's Map of Napoleon's Russian Campaign")
 
@@ -194,7 +194,7 @@ Statistician Edward Tufte is a source of widely-cited advice on the design of da
 #| fig-cap: "A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times. The final value of 12% is a 15 percentage point decrease from the first value of 27%. However, Tufte's lie-factor of 2.8 indicates that this reduction is perceived as a 42 percentage point decrease."
 df_img <- data.frame(year = c("1964", "1975", "1990"),
                      year2 = c(1.2, 3.25, 4.6),
-                     image = "literature_images/doctor.png")
+                     image = "images/doctor.png")
 #from https://pixabay.com/vectors/doctor-robe-medicine-medical-6207110/
 #resized to have same dimensions as Los Angeles Times original
 
@@ -287,7 +287,7 @@ Optimally-precise visual cues are not always employed when viewing visualisation
 #| fig-asp: 0.4
 #| fig-scap: Visualisations used to demonstrate greater perceputal averaging ability for colour encoding (low spatial frequency), than position encoding (high spatial frequency).
 #| fig-cap: Visualisations used to demonstrate greater perceputal averaging ability for colour encoding (low spatial frequency), than position encoding (high spatial frequency). Participants more easily identified the month with the highest average temperature (August), in the colour bar visualisation, than a line chart showing the same data. Adapted from Correll et al. (2012).
-noisedata <- read_csv("noisedata.csv") %>%
+noisedata <- read_csv("images/noisedata.csv") %>%
   mutate(y = y,
          x = 1:948,
          months = as.ordered(rep(month.name, each = 79))) %>% 
