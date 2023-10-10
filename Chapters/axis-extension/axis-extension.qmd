@@ -304,9 +304,9 @@ ranfx <- formula(model) %>%
 # then convert back to a formula
   merge.formula(fixfx, ranfx) %>%
   format_formula() %>%
-  str_replace_all(c("mag_slider.response" = "magnitude_rating", 
-                      "con_slider.response" = "confidence_rating",
-                      "slider.response" = "magnitude_rating", 
+  str_replace_all(c("mag_slider.response" = "magnitude", 
+                      "con_slider.response" = "confidence",
+                      "slider.response" = "magnitude", 
                       "axis" = "axis_limit",
                       "cond" = "axis_limit", 
                     '1' = '(1',
