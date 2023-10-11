@@ -6,24 +6,24 @@ book:
   author: "Duncan Bradley"
   abstract: |
     Data visualisations are effective communication tools which leverage the power of the human visual and cognitive systems. 
-    However, those viewing visualisations are at the mercy of data visualisation design choices, which can substantially influence interpretations of presented information. 
+    However, data visualisation design choices can substantially influence interpretations of presented information. 
     Interpreting data visualisations does not just involve accurately comprehending values, but often also involves drawing inferences about data and making subjective judgements. 
     Therefore, developing an understanding of cognitive processing of data visualisations is important for guiding the construction of effective and faithful representations of data.
-    
+  
     Data visualisations can convey many different features of a dataset. 
     One such feature is the absolute magnitude of plotted values: how large or small they are. 
     This thesis investigates cognitive mechanisms involved in judging absolute magnitude in data visualisations, revealing the effects of design choices on interpretation. 
-    Three sets of experiments explore participants’ subjective judgements of magnitude in a variety of visualisation formats.
-    
+  
     The first set of experiments in this thesis (three experiments) explores the role of axis limits in informing magnitude judgements. 
     Manipulating axis limits in dot plots causes the same data points to appear near the top or bottom of the visualisation. 
     Participants’ responses revealed an association between higher positions and higher magnitude ratings, indicating a bias in interpretation. 
-    A further experiment employing dot plots with inverted y-axes indicated that impressions of magnitude were driven primarily by the relative positions of data points within axis limits, not their absolute physical positions.
-    
-    The second experiment in this thesis extends inquiry into the role of axis limits to choropleth maps. Manipulating the limits of accompanying colour legends alters the framing of presented data, without changing how plotted values appeared. 
-    Extending the colour legend’s upper limit beyond the maximum value in the dataset resulted in lower magnitude ratings. 
+    Two further experiments employing dot plots with inverted y-axes indicated that impressions of magnitude were driven primarily by the relative positions of data points within axis limits, not their absolute physical positions.
+  
+    The second experiment in this thesis extends inquiry into the role of axis limits to choropleth maps. 
+    Manipulating the limits of accompanying colour legends alters the framing of presented data, without changing how plotted values appeared. 
+    Extending the colour legend’s upper limit beyond the maximum plotted value resulted in lower magnitude ratings. 
     This demonstrates that interpretations of absolute magnitude are informed by surrounding context, not just by the appearance of plotted values.
-    
+
     The final set of experiments in this thesis (two experiments) explores how additional knowledge about plotted data can inform interpretations of magnitude. 
     Denominators provide numerical context relevant to magnitude judgements. 
     Extending a bar chart’s axis beyond plotted data to incorporate a denominator value elicited lower magnitude ratings, compared to bar charts’ default settings. 
@@ -33,26 +33,27 @@ book:
     This work was conducted with a focus on computational reproducibility. 
     In addition to sharing data and analysis code, this involved facilitating the ability to reproduce the computational environment used for analysis. 
     This approach, which increases openness and transparency in research, is also discussed in detail.
-    
+  
     Through experimental research, this thesis reveals how the framing of values within axes informs judgements of their absolute magnitudes. 
     The results provide insight into the cognitive processing of magnitude in data visualisations, wherein context shapes viewers’ inferences. 
     This illustrates how inevitable subjectivity in data visualisation design can influence a data visualisation’s appearance and its message.
-#    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data. 
+    Data visualisation designers should consider the graphical representation of absolute magnitude and, where appropriate, employ axes ranges which faithfully convey this aspect of data.
+  
   chapters:
     - index.qmd
     - Chapters/literature/literature.qmd
-    - Chapters/reproducibility.md
-    - Chapters/position_magnitude/preface1.md
-    - Chapters/position_magnitude/dot-plots-axes.qmd
-    - Chapters/position_magnitude/postscript1.md
-    - Chapters/ChoroplethMagnitude/preface2.md
-    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
-    - Chapters/ChoroplethMagnitude/postscript2.md
-    - Chapters/axis-extension/preface3.md
-    - Chapters/axis-extension/axis-extension.qmd
-    - Chapters/axis-extension/postscript3.md
-    - Chapters/conclusion.md
-    - references.qmd
+#    - Chapters/reproducibility.md
+#    - Chapters/position_magnitude/preface1.md
+#    - Chapters/position_magnitude/dot-plots-axes.qmd
+#    - Chapters/position_magnitude/postscript1.md
+#    - Chapters/ChoroplethMagnitude/preface2.md
+#    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+#    - Chapters/ChoroplethMagnitude/postscript2.md
+#    - Chapters/axis-extension/preface3.md
+#    - Chapters/axis-extension/axis-extension.qmd
+#    - Chapters/axis-extension/postscript3.md
+#    - Chapters/conclusion.md
+#    - references.qmd
 
 thesis:
   #supervisor:
