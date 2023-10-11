@@ -12,7 +12,7 @@ ADD ChoroplethMagnitude.Rproj /home/rstudio/workspace/
 ADD _extensions/ /home/rstudio/workspace/_extensions/
 ADD data/ /home/rstudio/workspace/data/
 ADD examples/ /home/rstudio/workspace/examples/
-ADD ChoroplethMagnitude_cache/pdf/ /home/rstudio/workspace/ChoroplethMagnitude_cache/pdf
+ADD ChoroplethMagnitude_cache/docx/ /home/rstudio/workspace/ChoroplethMagnitude_cache/docx
 
 # install and require {renv}, which will install other required packages
 RUN R -e "install.packages('renv')"
