@@ -1215,8 +1215,8 @@ E2_sl <- clmm(add.terms(formula(E2_s), "literacy"),
 
 ```{r}
 #| label: E2-clint
-#| eval: true
-#| cache: true
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
 
 
 # 
@@ -1233,8 +1233,8 @@ emmip(E2_clint@model, pos:ori ~ literacy, cov.reduce = range)
 
 ```{r}
 #| label: E2-slint
-#| eval: true
-#| cache: true
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
 
 
 # 
@@ -1266,7 +1266,7 @@ summary_extract(E2_slint, "pos1:literacy")
 summary_extract(E2_slint, "ori1:literacy")
 summary_extract(E2_slint, "pos1:ori1:literacy")
 
-emtrends(E2_clint@model, "pos", var = "literacy") %>% 
+emtrends(E2_clint@model, "pos", var = "literacy", infer=T) %>%
   as_tibble() %>% 
   group_split(pos) %>% map(~ {
     vals <- as.list(.x)
@@ -1483,8 +1483,8 @@ E3_sl <- clmm(add.terms(formula(E3_s), "literacy"),
 
 ```{r}
 #| label: E3-clint
-#| eval: true
-#| cache: true
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
 
 E3_clint <- buildclmm(chance_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
@@ -1499,8 +1499,8 @@ emmip(E3_clint@model, condition ~ literacy, cov.reduce = range)
 
 ```{r}
 #| label: E3-slint
-#| eval: true
-#| cache: true
+#| eval: !expr params$eval_models
+#| cache: !expr params$eval_models
 
 E3_slint <- buildclmm(severity_slider.response ~ condition*literacy + 
                     (1 + condition | participant) +
