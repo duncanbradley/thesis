@@ -818,8 +818,8 @@ However, further analysis found that, for magnitude ratings, there was an intera
 ```{r}
 #| label: fig-E1-clint
 #| include: true
-#| fig-scap: The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 1.
-#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 1. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
+#| fig-scap: The interaction between data visualisation literacy and the physical position of data points, for magnitude ratings in Experiment 1.
+#| fig-cap: "The interaction between data visualisation literacy and the physical position of data points, for magnitude ratings in Experiment 1. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
 Thresh = E1_c@model$Theta
@@ -832,7 +832,8 @@ lims(y = c(min(Thresh)-0.7,
   theme_minimal(base_size = 10) +
   theme(panel.grid.minor = element_blank(),
                 panel.grid.major = element_blank(),
-        plot.title = element_text(hjust = 0.5)) +
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
   annotate("text",
            y = c(min(Thresh)-0.7,
                  max(Thresh)+0.7), 
@@ -841,6 +842,7 @@ lims(y = c(min(Thresh)-0.7,
            size = 3,
            colour = "darkgrey") +
   labs(title = "Experiment 1:\nData Visualisation Literacy x Physical Position Interaction",
+       subtitle = "Estimated Marginal Means",
     x = "Data Visualisation Literacy Score",
        y = "Magnitude Rating",
        colour = "Physical Position",
@@ -1560,7 +1562,8 @@ lims(y = c(min(Thresh)-0.7,
   theme_minimal(base_size = 10) +
   theme(panel.grid.minor = element_blank(),
                 panel.grid.major = element_blank(),
-        plot.title = element_text(hjust = 0.5)) +
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
   annotate("text",
            y = c(min(Thresh)-0.7,
                  max(Thresh)+0.7), 
@@ -1569,6 +1572,7 @@ lims(y = c(min(Thresh)-0.7,
            size = 3,
            colour = "darkgrey") +
   labs(title = "Experiment 3:\nData Visualisation Literacy x Physical Position Interaction",
+       subtitle = "Estimated Marginal Means", 
     x = "Data Visualisation Literacy Score",
        y = "Magnitude Rating",
        colour = "Physical Position",
