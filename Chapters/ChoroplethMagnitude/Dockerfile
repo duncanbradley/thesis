@@ -5,7 +5,7 @@ FROM rocker/verse:4.2.1
 # Add files to container
 ADD ChoroplethMagnitude.qmd /home/rstudio/workspace/
 ADD _quarto.yml /home/rstudio/workspace/
-ADD bibliography.bib /home/rstudio/workspace/
+ADD ChoroplethMagnitude.bib /home/rstudio/workspace/
 ADD ChoroplethMagnitude.Rproj /home/rstudio/workspace/
 
 # Add folders and their contents to container
