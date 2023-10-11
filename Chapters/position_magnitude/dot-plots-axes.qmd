@@ -822,8 +822,9 @@ However, further analysis found that, for magnitude ratings, there was an intera
 #| fig-cap: "The interaction between data visualisation literacy and the physical position of data points, for magnitude ratings in Experiment 1. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
-Thresh = E1_c@model$Theta
-Slopes = E1_c@model$coefficients
+Thresh = E1_clint@model$Theta
+Slopes = E1_clint@model$coefficients
+Literacy = E1_tidy$literacy
 
 emmip(E1_clint@model, condition ~ literacy, cov.reduce = range) +
 lims(y = c(min(Thresh)-0.7,
@@ -837,7 +838,7 @@ lims(y = c(min(Thresh)-0.7,
   annotate("text",
            y = c(min(Thresh)-0.7,
                  max(Thresh)+0.7), 
-           x = c(20, 20), 
+           x = max(Literacy)-(max(Literacy)-min(Literacy))/2, 
            label = c("Very unlikely", "Very likely"),
            size = 3,
            colour = "darkgrey") +
@@ -1284,6 +1285,48 @@ Adjusting for participants' data visualisation literacy scores did not change th
 
 For magnitude ratings, there was an interaction between data visualisation literacy and physical position: z = `r printnum(abs(E2_clint.pl.statistic))`, p `r printp(E2_clint.pl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.pl.estimate))` (`r print_confint(rev(1/exp(E2_clint.pl.CI)), conf.int = 0.95)`). This is equivalent to a Cohen's d value of `r printnum(abs(oddsratio_to_d(exp(E2_clint.pl.estimate))))`, a `r paste(interpret_cohens_d(oddsratio_to_d(exp(E2_clint.pl.estimate))))` effect size. The difference between magnitude ratings for data points presented at different positions diminished as data visualisation literacy increased. This is shown in @fig-E2-clint. There was no interaction between data visualisation literacy and axis orientation: z = `r printnum(abs(E2_clint.ol.statistic))`, p `r printp(E2_clint.ol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.ol.estimate))` (`r print_confint(rev(1/exp(E2_clint.ol.CI)), conf.int = 0.95)`. There was also no three-way interaction between data visualisation literacy, physical position, and axis orientation: z = `r printnum(abs(E2_clint.pol.statistic))`, p `r printp(E2_clint.pol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_clint.pol.estimate))` (`r print_confint(rev(1/exp(E2_clint.pol.CI)), conf.int = 0.95)`. This model employed random intercepts for scenarios, with random slopes for position and literacy, plus random intercepts for participants, with random slopes for position, orientation, and the interaction between the position and orientation. The model formula was as follows: `` `r paste(print_formula(E2_clint))` ``.
 
+
+```{r}
+#| label: fig-E2-clint
+#| include: true
+#| fig-scap: The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 2.
+#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 2. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
+my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
+
+Thresh = E2_clint@model$Theta
+Slopes = E2_clint@model$coefficients
+Literacy = E2_tidy$literacy
+
+emmip(E2_clint@model, pos ~ literacy, cov.reduce = range) +
+lims(y = c(min(Thresh)-0.7,
+             max(Thresh)+0.7)) +
+  geom_hline(yintercept = c(unname(Thresh)), colour = "lightgrey") +
+  theme_minimal(base_size = 10) +
+  theme(panel.grid.minor = element_blank(),
+                panel.grid.major = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5)) +
+  annotate("text",
+           y = c(min(Thresh)-0.7,
+                 max(Thresh)+0.7), 
+           x = max(Literacy)-(max(Literacy)-min(Literacy))/2, 
+           label = c("Very unlikely", "Very likely"),
+           size = 3,
+           colour = "darkgrey") +
+  labs(title = "Experiment 2:\nData Visualisation Literacy x Physical Position Interaction",
+       subtitle = "Estimated Marginal Means", 
+    x = "Data Visualisation Literacy Score",
+       y = "Magnitude Rating",
+       colour = "Physical Position",
+    linewidth = NULL) +
+  scale_color_manual(limits = c('hi', 'lo'), 
+                       labels = c('High', 'Low'),
+                   values = my_palette) +
+  theme(axis.text.y = element_blank()) +
+  geom_line(linewidth = 1.5, linetype = "solid")
+
+```
+
 For severity ratings, there was no interaction between data visualisation literacy and physical position (z = `r printnum(abs(E2_slint.pl.statistic))`, p `r printp(E2_slint.pl.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.pl.estimate))`, `r print_confint(rev(1/exp(E2_slint.pl.CI)), conf.int = 0.95)`), no interaction between data visualisation literacy and axis orientation (z = `r printnum(abs(E2_slint.ol.statistic))`, p `r printp(E2_slint.ol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.ol.estimate))`, `r print_confint(rev(1/exp(E2_slint.ol.CI)), conf.int = 0.95)`), and no three-way interaction between data visualisation literacy, physical position, and axis orientation (z = `r printnum(abs(E2_slint.pol.statistic))`, p `r printp(E2_slint.pol.p.value, add_equals = TRUE)`, odds ratio = `r printnum(1/exp(E2_slint.pol.estimate))`, `r print_confint(rev(1/exp(E2_slint.pol.CI)), conf.int = 0.95)`). This model employed random intercepts for scenarios, plus random intercepts for participants, with random slopes for position, orientation, and the interaction between position and orientation. The model formula was as follows: `` `r paste(print_formula(E2_slint))` ``.
 
 #### Discussion
@@ -1552,8 +1595,9 @@ For magnitude ratings, there was an interaction between data visualisation liter
 #| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 3. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
-Thresh = E3_c@model$Theta
-Slopes = E3_c@model$coefficients
+Thresh = E3_clint@model$Theta
+Slopes = E3_clint@model$coefficients
+Literacy = E3_tidy$literacy
 
 emmip(E3_clint@model, condition ~ literacy, cov.reduce = range) +
 lims(y = c(min(Thresh)-0.7,
@@ -1567,7 +1611,7 @@ lims(y = c(min(Thresh)-0.7,
   annotate("text",
            y = c(min(Thresh)-0.7,
                  max(Thresh)+0.7), 
-           x = c(20, 20), 
+           x = max(Literacy)-(max(Literacy)-min(Literacy))/2, 
            label = c("Very unlikely", "Very likely"),
            size = 3,
            colour = "darkgrey") +
