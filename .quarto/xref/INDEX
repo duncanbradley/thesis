@@ -74,5 +74,8 @@
   },
   "Chapters/postscript3.md": {
     "postscript3.html": "dae08bbf"
+  },
+  "Chapters/literature/literature.qmd": {
+    "literature.html": "cb3d067d"
   }
 }

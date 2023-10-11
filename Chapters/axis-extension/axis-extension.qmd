@@ -584,7 +584,7 @@ emtrends(e1_mag_lint@model, "cond", var = "literacy") %>%
 
 Accounting for differences in data visualisation literacy did not change the significant effect of axis limits: F(`r printnum(e1_mag_l_cond_NumDF)`, `r printnum(e1_mag_l_cond_DenDF)`) = `r printnum(e1_mag_l_cond_F.value)`, p `r printp(e1_mag_l_cond_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_l_cond_Eta2_partial)`.
 
-However, there was an interaction between data visualisation literacy and axis limits: F(`r printnum(e1_mag_lint_cond_literacy_NumDF)`, `r printnum(e1_mag_lint_cond_literacy_DenDF)`) = `r printnum(e1_mag_lint_cond_literacy_F.value)`, p `r printp(e1_mag_lint_cond_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_lint_cond_literacy_Eta2_partial)`. A one unit increase in data visualisation literacy reduced magnitude ratings for default charts by `r printnum(abs(e1_mag_lint_default_literacy.trend))`, but reduced magnitude ratings for extended charts by `r printnum(abs(e1_mag_lint_extend_literacy.trend))`.
+However, there was an interaction between data visualisation literacy and axis limits: F(`r printnum(e1_mag_lint_cond_literacy_NumDF)`, `r printnum(e1_mag_lint_cond_literacy_DenDF)`) = `r printnum(e1_mag_lint_cond_literacy_F.value)`, p `r printp(e1_mag_lint_cond_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e1_mag_lint_cond_literacy_Eta2_partial)`. The difference between magnitude ratings for data points presented with different axis limits diminished as data visualisation literacy increased. This is shown in @fig-e1-mag-lint. This model employed .... The model formula was as follows: `` `r paste(print_formula(e1_mag_lint))` ``.
 
 ```{r}
 #| label: fig-e1-mag-lint
@@ -848,7 +848,7 @@ emmip(e2_mag_lint@model, axis:denominator ~ literacy, cov.reduce = range)
 summary_extract(e2_mag_l)
 summary_extract(e2_mag_lint)
 
-emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy")$emtrends %>%
+emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy", infer = T)$emtrends %>%
   as_tibble() %>% 
   mutate(comb = paste0(axis, denominator)) %>%
   group_split(comb) %>% map(~ {
@@ -864,9 +864,12 @@ emtrends(e2_mag_lint@model, pairwise ~ axis:denominator, var = "literacy")$emtre
 
 Accounting for differences in data visualisation literacy did not change the the main effect of axis limits (F(`r printnum(e2_mag_l_axis_NumDF)`, `r printnum(e2_mag_l_axis_DenDF)`) = `r printnum(e2_mag_l_axis_F.value)`, p `r printp(e2_mag_l_axis_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_Eta2_partial)`), the main effect of denominator information (F(`r printnum(e2_mag_l_denominator_NumDF)`, `r printnum(e2_mag_l_denominator_DenDF)`) = `r printnum(e2_mag_l_denominator_F.value)`, p `r printp(e2_mag_l_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_denominator_Eta2_partial)`), or the significant interaction: F(`r printnum(e2_mag_l_axis_denominator_NumDF)`, `r printnum(e2_mag_l_axis_denominator_DenDF)`) = `r printnum(e2_mag_l_axis_denominator_F.value)`, p `r printp(e2_mag_l_axis_denominator_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_l_axis_denominator_Eta2_partial)`.
 
-An exploratory analysis revealed that there was no interaction between data visualisation literacy and axis limits (F(`r printnum(e2_mag_lint_axis_literacy_NumDF)`, `r printnum(e2_mag_lint_axis_literacy_DenDF)`) = `r printnum(e2_mag_lint_axis_literacy_F.value)`, p `r printp(e2_mag_lint_axis_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_axis_literacy_Eta2_partial)`), however there was an interaction between data visualisation literacy and denominator information (F(`r printnum(e2_mag_lint_denominator_literacy_NumDF)`, `r printnum(e2_mag_lint_denominator_literacy_DenDF)`) = `r printnum(e2_mag_lint_denominator_literacy_F.value)`, p `r printp(e2_mag_lint_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_denominator_literacy_Eta2_partial)`).
+However, there was a significant three-way interaction between data visualisation literacy, axis limits, and denominator information: F(`r printnum(e2_mag_lint_axis_denominator_literacy_NumDF)`, `r printnum(e2_mag_lint_axis_denominator_literacy_DenDF)`) = `r printnum(e2_mag_lint_axis_denominator_literacy_F.value)`, p `r printp(e2_mag_lint_axis_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_axis_denominator_literacy_Eta2_partial)`. 
 
-There was also a significant three-way interaction between data visualisation literacy, axis limits, and denominator information: F(`r printnum(e2_mag_lint_axis_denominator_literacy_NumDF)`, `r printnum(e2_mag_lint_axis_denominator_literacy_DenDF)`) = `r printnum(e2_mag_lint_axis_denominator_literacy_F.value)`, p `r printp(e2_mag_lint_axis_denominator_literacy_p, add_equals = T)`, partial $\eta^2$ `r print_es(e2_mag_lint_axis_denominator_literacy_Eta2_partial)`. When denominator information was *present*, a one unit increase in data visualisation literacy *changed* magnitude ratings for default charts by `r printnum(e2_mag_lint_defaultpres_literacy.trend)`, but *changed* magnitude ratings for extended charts by `r printnum(e2_mag_lint_extendpres_literacy.trend)`. When denominator information was *absent*, a one unit increase in data visualisation literacy *changed* magnitude ratings for default charts by `r printnum(e2_mag_lint_defaultabs_literacy.trend)`, but *changed* magnitude ratings for extended charts by `r printnum(e2_mag_lint_extendabs_literacy.trend)`.
+This interaction consisted of a decrease in  between default charts when the denominator was present in text (z = `r printnum(e2_mag_lint_defaultpres_z.ratio)`, p `r printp(e2_mag_lint_defaultpres_p.value)`), but differences at different levels of literacy when ....
+
+This is shown in @fig-e1-mag-lint. This model employed .... The model formula was as follows: `` `r paste(print_formula(e1_mag_lint))` ``.
+
 
 ```{r}
 #| label: fig-e2-mag-lint
