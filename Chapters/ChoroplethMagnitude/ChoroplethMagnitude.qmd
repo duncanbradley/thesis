@@ -604,7 +604,8 @@ Linear mixed-effects models were constructed using lme4 [@bates_fitting_2015, ve
 ```{r}
 #| label: fig-main-effect-chart
 #| include: true
-#| fig.cap: Visual analogue scale responses to the question *"How urgently should pollution levels in these regions be addressed?"*. Distributions for the two conditions are shown using histograms, boxplots, and raw data points representing individual observations. In the 'Extended Range' condition, the colour legend's upper bound was equal to double the maximum plotted value. In the 'Truncated Range' condition, the colour legend's upper bound was equal to the maximum plotted value.
+#| fig-scap: 'Visual analogue scale responses to the question *"How urgently should pollution levels in these regions be addressed?"*'
+#| fig-cap: Visual analogue scale responses to the question *"How urgently should pollution levels in these regions be addressed?"*. Distributions for the two conditions are shown using histograms, boxplots, and raw data points representing individual observations. In the 'Extended Range' condition, the colour legend's upper bound was equal to double the maximum plotted value. In the 'Truncated Range' condition, the colour legend's upper bound was equal to the maximum plotted value.
 #| fig-alt: A graphic showing distributions of responses for 'Extended Range' and 'Truncated Range'. Distributions are shown separately for each condition using histograms, boxplots and circles representing individual data points. On the left side is the label "Not very urgently" and on the right "Very urgently". The top histogram, with the label "Extended Range" resembles a Gaussian curve, with its peak roughly in the middle of the axis. The boxplot and raw data also show observations clustered around the middle of the axis. The bottom histogram, with the label "Truncated Range" peaks just before the right hand side of the axis. The boxplot and raw data also show observations are heavily left-skewed.
 
 passed %>%

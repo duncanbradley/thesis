@@ -199,7 +199,7 @@ Statistician Edward Tufte is a source of widely-cited advice on the design of da
 #| label: fig-lie-factor
 #| out-width: "500px"
 #| fig-asp: 1
-#| fig-scap: A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times."
+#| fig-scap: "A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times."
 #| fig-cap: "A reproduction of a data visualisation used by Tufte (1986) to illustrate the 'lie-factor', originally published in the Los Angeles Times. The final value of 12% is a 15 percentage point decrease from the first value of 27%. However, Tufte's lie-factor of 2.8 indicates that this reduction is perceived as a 42 percentage point decrease."
 df_img <- data.frame(year = c("1964", "1975", "1990"),
                      year2 = c(1.2, 3.25, 4.6),
