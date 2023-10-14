@@ -70,14 +70,12 @@ thesis:
 citeproc: false
 filters:
   - section-bibliographies
-#reference-section-title: References
-
+reference-section-title: References
 bibliography: 
-#  - references.bib
+  - Chapters/references.bib
   - Chapters/position_magnitude/dot-plots-axes.bib
   - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.bib
   - Chapters/axis-extension/axis-extension.bib
-  - Chapters/references.bib
 csl: "elife.csl"
 citation_package: biblatex
 
