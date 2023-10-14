@@ -35,45 +35,33 @@ In 1855, John Snow produced a map showing the spatial distribution of cholera de
 #| label: fig-snow
 #| out-width: "500px"
 #| fig-cap: "John Snow's Map of Cholera Deaths (1855)"
-snow <- ggplot() +
-  background_image(image_read("images/snow.png")) +
-  coord_fixed(ratio = 1198/1277)
-
-snow 
+knitr::include_graphics("images/snow.png")
 ```
 
 ```{r}
 #| label: fig-nightingale
 #| out-width: "500px"
 #| fig-cap: "Florence Nightingale's Rose Diagram (1857)"
-
-nightingale <- ggplot() +
-  background_image(image_read("images/nightingale.png")) + 
-  coord_fixed(ratio = 875/1600)
-
-minard <- ggplot() +
-  background_image(image_read("images/minard.png")) +
-  coord_fixed(ratio = 762/1599) +
-   labs(caption = "Charles Joseph Minard's Map of Napoleon's Russian Campaign")
-
-nightingale
+knitr::include_graphics("images/nightingale.png")
 ```
 
 ```{r}
 #| label: fig-minard
 #| out-width: "500px"
 #| fig-cap: "Charles Joseph Minard's Map of Napoleon's Russian Campaign (1861)"
-
-minard <- ggplot() +
-  background_image(image_read("images/minard.png")) +
-  coord_fixed(ratio = 762/1599) 
-
-minard
+knitr::include_graphics("images/minard.png")
 ```
 
 Although their visualisations may appear to reveal major findings for the first time, none of Snow, Nightingale, or Minard used these visualisations to perform their initial analysis. Instead, these visualisations were used for the purposes of persuasion and storytelling (Kosara and Mackinlay, 2013). This is a testament to the effective use of data visualisations as rhetorical devices and instruments for storytelling, rather than their use as analytical tools. Furthermore, historically significant data visualisations have not always achieved the recognition and response they sought at the time. W.E.B. Du Bois' data visualisation exhibit on the oppression and development of Black Americans won prizes and medals at the 1900 Paris Exposition (Du Bois, 1900), but was generally overlooked by the mainstream American press (Forrest, 2018).
 
-It is necessary to acknowledge that the history of data visualisation is rather sparse, and to recognise *contemporary* work in this discipline (Kosara, 2016). Recent innovations in software have generated visualisations with interactive or dynamic elements (Friendly, 2006), but straightforward static visualisations have not disappeared. Indeed, one particularly successful case is the powerfully simple 'warming stripes' visualisation (Hawkins, 2018). This design uses coloured stripes to display average global temperature from 1850 to the present, highlighting the rapid increase in recent years using increasingly darker reds. By eschewing date labels, text, and a colour legend, only the fundamental message remains. Accordingly, this visualisation has been reproduced in various unlikely settings for a data visualisation (e.g., music festivals, clothing; Kinitish, 2019), earning a reputation as a recognisable symbol of the climate emergency.
+It is necessary to acknowledge that the history of data visualisation is rather sparse, and to recognise *contemporary* work in this discipline (Kosara, 2016). Recent innovations in software have generated visualisations with interactive or dynamic elements (Friendly, 2006), but straightforward static visualisations have not disappeared. Indeed, one particularly successful case is the powerfully simple 'warming stripes' visualisation (@fig-warming-stripes, Hawkins, 2018). This design uses coloured stripes to display average global temperature from 1850 to the present, highlighting the rapid increase in recent years using increasingly darker reds. By eschewing date labels, text, and a colour legend, only the fundamental message remains. Accordingly, this visualisation has been reproduced in various unlikely settings for a data visualisation (e.g., music festivals, clothing; Kinitish, 2019), earning a reputation as a recognisable symbol of the climate emergency.
+
+```{r}
+#| label: fig-warming-stripes
+#| out-width: "500px"
+#| fig-cap: "Warming Stripes by Ed Hawkins, showing average global temperature data from 1850 to 2018."
+knitr::include_graphics("images/warming-stripes.png")
+```
 
 When considering famous data visualisations, both historical and contemporary, it is important to avoid making unfounded conclusions about how particular design choices may have contributed to their success. The effectiveness of these designs is undeniable, on account of their documented influence. However, whilst these examples illustrate that visualisations *can* be extremely effective, case studies alone do not provide insight into *why* they are effective. The history of data visualisation reveals the power of visualisations in communication, rather than the principles of good design, and speculation about potential positive attributes is not a reliable source of knowledge. This illustrates the importance of studying data visualisations from a scientific perspective.
 
