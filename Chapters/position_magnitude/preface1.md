@@ -1,6 +1,6 @@
-# Preface to Chapter 3 {.unnumbered}
+# Preface to Chapter 4 {.unnumbered}
 
-This thesis presents a series of empirical studies which investigate the cognitive processing of the absolute magnitude of values presented in data visualisations. Conceptions of absolute magnitude refer to how large or small numerical values are. The first set of experiments in this thesis provides the foundation for this research project. 
+This thesis presents a series of empirical experiments which investigate the cognitive processing of the absolute magnitude of values presented in data visualisations. Conceptions of absolute magnitude refer to how large or small numerical values are. The first set of experiments in this thesis provides the foundation for this research project. 
 
 Prior research has reported that values presented at higher positions were judged as higher in magnitude than values presented at lower positions (Sandman et al., 1994). The first set of experiments in this thesis also explores the role of *physical position* in informing magnitude judgements. I attempt to replicate Sandman et al.’s (1994) general finding, then expand upon these results to examine the underlying cognitive mechanism. 
 
