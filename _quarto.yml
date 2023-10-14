@@ -67,16 +67,17 @@ thesis:
   declaration: "Chapters/Frontmatter/declaration.tex"
   acknowledgements: "Chapters/Frontmatter/acknowledgements.tex"
 
+citeproc: false
 filters:
   - section-bibliographies
-reference-section-title: References
-citeproc: true
+#reference-section-title: References
 
 bibliography: 
-  - references.bib
+#  - references.bib
   - Chapters/position_magnitude/dot-plots-axes.bib
   - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.bib
   - Chapters/axis-extension/axis-extension.bib
+  - Chapters/references.bib
 csl: "elife.csl"
 citation_package: biblatex
 
