@@ -1,9 +1,18 @@
+---
+bibliography: dot-plots-axes.bib
+---
+
 # Preface to Chapter 4 {.unnumbered}
 
 This thesis presents a series of empirical experiments which investigate the cognitive processing of the absolute magnitude of values presented in data visualisations. Conceptions of absolute magnitude refer to how large or small numerical values are. The first set of experiments in this thesis provides the foundation for this research project. 
 
-Prior research has reported that values presented at higher positions were judged as higher in magnitude than values presented at lower positions (Sandman et al., 1994). The first set of experiments in this thesis also explores the role of *physical position* in informing magnitude judgements. I attempt to replicate Sandman et al.’s (1994) general finding, then expand upon these results to examine the underlying cognitive mechanism. 
+Prior research has reported that values presented at higher positions were judged as higher in magnitude than values presented at lower positions [@sandman_high_1994]. The first set of experiments in this thesis also explores the role of *physical position* in informing magnitude judgements. I attempt to replicate Sandman et al.’s [-@sandman_high_1994] general finding, then expand upon these results to examine the underlying cognitive mechanism. 
 
 In these experiments, participants observed a series of simple dot plot visualisations of fictitious data, with numerical values encoded through their position on the vertical axis. Systematically manipulating the axis limits surrounding plotted values causes the same values to appear at high or low positions. Therefore, participants’ ratings of the magnitude of plotted values reveals the effect of this design choice on interpretations. The simplicity of the stimuli provides high experimental control, but the use of meaningful scenarios concerning risk-related events increases ecological validity. 
 
 In order to gain further insight into how absolute magnitude is processed, these experiments also examine whether the *physical* positions or *relative* positions of plotted values contribute to magnitude judgements. This distinction concerns whether interpretations are influenced primarly by the association between high physical positions and high values, or the numerical context within which values are plotted. Dot plots with *inverted* axes are presented to test these two competing explanations.  
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
