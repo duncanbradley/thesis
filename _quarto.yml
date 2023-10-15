@@ -98,6 +98,7 @@ format:
     code-block-border-left: 1C1C1C
     code-block-bg: E6E6E6
     linestretch: 1.5
+    link-citations: true
   docx:
     output-dir: docx
     toc: true
