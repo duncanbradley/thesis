@@ -53,7 +53,7 @@ book:
     - Chapters/axis-extension/axis-extension.qmd
     - Chapters/axis-extension/postscript3.md
     - Chapters/conclusion.md
-#    - references.qmd
+    - references.qmd
 
 thesis:
   #supervisor:
@@ -88,8 +88,9 @@ citation_package: biblatex
 
 format:
   quarto-thesis-pdf:
+    link-citations: true
+    linkcolor: black
     urlcolor: blue
-    linkcolor: blue
     toclinkcolor: black
     toc-depth: 3
     include-in-header: 
@@ -98,7 +99,6 @@ format:
     code-block-border-left: 1C1C1C
     code-block-bg: E6E6E6
     linestretch: 1.5
-    link-citations: true
   docx:
     output-dir: docx
     toc: true
