@@ -368,13 +368,9 @@ ob <- tibble(x = c("A", "B", "C"), y = c(0, 40, 0))
 
 cartesian_theme <- function() {
   theme_void() +
-  theme(axis.line.x = element_line(colour = 'black', 
-                                            linewidth = 1, 
-                                            linetype='solid'),
-                 axis.line.y = element_line(colour = 'black', 
-                                            linewidth = 1, 
-                                            linetype='solid'),
-        plot.margin = margin(1,1,1,1, "cm")) 
+  theme(axis.line.x = element_line(colour = 'black',linewidth = 1, linetype='solid'),
+        axis.line.y = element_line(colour = 'black', linewidth = 1, linetype='solid'),
+        plot.margin = margin(0.1,0.1,0.1,0.1, "cm")) 
   }
 
 within_bar <- wb %>%
@@ -383,9 +379,9 @@ within_bar <- wb %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 2,
+  geom_point(aes(x = "B", y = 60), size = 4,
              colour = "darkgrey") +
-  coord_fixed(ratio = 0.02)
+  coord_fixed(ratio = 0.07)
 
 within_CI <- wb %>%
   ggplot(aes(x = x, y = y)) +
@@ -393,13 +389,13 @@ within_CI <- wb %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 2,
+  geom_point(aes(x = "B", y = 60), size = 4,
              colour = "darkgrey") +
   geom_errorbar(aes(x = "B"), 
                 ymin = 70, ymax = 90,
                 width = 0.7,
                 linewidth = 0.6) +
-  coord_fixed(ratio = 0.02)
+  coord_fixed(ratio = 0.07)
 
 outside_bar <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -407,9 +403,9 @@ outside_bar <- ob %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 2,
+  geom_point(aes(x = "B", y = 60), size = 4,
              colour = "darkgrey") +
-  coord_fixed(ratio = 0.02)
+  coord_fixed(ratio = 0.07)
 
 outside_CI <- ob %>%
   ggplot(aes(x = x, y = y)) +
@@ -417,13 +413,13 @@ outside_CI <- ob %>%
   cartesian_theme() +
   scale_y_continuous(
     limits = c(0, 100), expand = c(0, 0)) +
-  geom_point(aes(x = "B", y = 60), size = 2,
+  geom_point(aes(x = "B", y = 60), size = 4,
              colour = "darkgrey") +
   geom_errorbar(aes(x = "B"), 
                 ymin = 30, ymax = 50,
                 width = 0.7,
                 linewidth = 0.6) +
-  coord_fixed(ratio = 0.02)
+  coord_fixed(ratio = 0.07)
 
 within_bar + outside_bar + within_CI + outside_CI +
 plot_layout(nrow = 1,

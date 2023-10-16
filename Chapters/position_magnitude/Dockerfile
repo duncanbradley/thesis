@@ -8,7 +8,6 @@ ADD _quarto.yml /home/rstudio/workspace/
 ADD dot-plots-axes.bib /home/rstudio/workspace/
 
 # Add folders and their contents to container
-ADD _extensions/ /home/rstudio/workspace/_extensions/
 ADD data/ /home/rstudio/workspace/data/
 ADD images/ /home/rstudio/workspace/images/
 ADD dot-plots-axes_cache/pdf/ /home/rstudio/workspace/dot-plots-axes_cache/pdf

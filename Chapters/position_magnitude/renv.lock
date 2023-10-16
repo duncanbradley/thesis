@@ -1295,11 +1295,9 @@
     },
     "papaja": {
       "Package": "papaja",
-      "Version": "0.1.1",
-      "Source": "URL",
+      "Version": "0.1.2",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "url",
-      "RemoteUrl": "https://cran.r-project.org/src/contrib/papaja_0.1.1.tar.gz",
       "Requirements": [
         "R",
         "bookdown",
@@ -1314,7 +1312,7 @@
         "yaml",
         "zip"
       ],
-      "Hash": "f999f2be7fcc920b1c7a9188e56b2b59"
+      "Hash": "648cd4753136d623e948fdcb124c9313"
     },
     "parameters": {
       "Package": "parameters",
