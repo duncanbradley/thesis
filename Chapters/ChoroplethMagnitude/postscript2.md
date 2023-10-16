@@ -6,7 +6,7 @@ The second experiment in this thesis was designed to examine whether colour lege
 
 ## Rationale for Experimental Design
 
-Unlike the previous set of experiments, generating stimuli for this experiment involved identifying topics which could plausibly be associated with geographic regions. The type of data presented was also a relevant consideration in order to broaden the scope of my investigation. The previous set of experiments on dot plots presented relative frequencies, and displaying absolute frequencies is not appropriate in choropleth maps [@dent_cartography_2009]. Therefore, to manage these constraints, reduce complexity, and expand inquiry to a different type of data, all choropleth maps in this experiment displayed pollution measurement data. 
+Unlike the previous set of experiments, generating stimuli for this experiment involved identifying topics which could plausibly be associated with geographic regions. The type of data presented was also a relevant consideration in order to broaden the scope of my investigation. The previous set of experiments on dot plots presented relative frequencies, and displaying absolute frequencies is not appropriate in choropleth maps (Dent et al., 2009). Therefore, to manage these constraints, reduce complexity, and expand inquiry to a different type of data, all choropleth maps in this experiment displayed pollution measurement data. 
 
 Using fictitious standardised units avoided several factors interfering with magnitude judgements: participants’ prior knowledge, explanation of pollution measurements, and difficulty comprehending scientific units. The use of single topic and the reduced ecological validity ultimately afforded greater experimental control.
 
@@ -16,10 +16,22 @@ This experiment explored interpretations of magnitude using rating scales, rathe
 
 This work demonstrated that colour legends’ limits contribute to interpretations of absolute magnitude in choropleth maps. The corresponding location of plotted data points within the accompanying colour legend influenced magnitude judgements, despite consistency in the colours used to convey plotted values. Magnitude ratings were higher when data points were located closer to the upper limit of the colour legend. This suggests that the colour legend was used as a frame of reference when interpreting how high or low plotted values were. This investigation also revealed that magnitude judgements were not influenced by the numerical values of plotted data points. It is likely that the use of fictitious standardised units prevented participants from drawing on contextual knowledge when assessing magnitude. 
 
-Choropleth maps are usually designed in order to display spatial variability in a dataset: relative magnitude. Indeed, prior work has explored in depth how designs may promote optimal discrimination between plotted values [@jenks_error_1971; @brychtova_discriminating_2015; @dent_cartography_2009]. However, this typical application does not require that choropleth maps are only used for that purpose. This experiment illustrates that choropleth maps can also be legitimately employed to convey absolute magnitude. Thus, alternative approaches to data visualisation design which break with convention can still be valid.
+Choropleth maps are usually designed in order to display spatial variability in a dataset: relative magnitude. Indeed, prior work has explored in depth how designs may promote optimal discrimination between plotted values (Brychtova and Coltekin, 2015; Dent et al., 2009; Jenks and Caspall, 1971). However, this typical application does not require that choropleth maps are only used for that purpose. This experiment illustrates that choropleth maps can also be legitimately employed to convey absolute magnitude. Thus, alternative approaches to data visualisation design which break with convention can still be valid.
 
-This experiment also accords with the observation that interpretations of values in choropleth maps can depend on inferences about the minimum and maximum values in a colour legend [@schloss_mapping_2019]. @schloss_mapping_2019 found that a map’s background colour influenced judgements about whether plotted values were large or small (quantity), whereas this experiment found that legends’ limits influenced judgements about *how* large or small plotted values were (subjective magnitude).
+This experiment also accords with the observation that interpretations of values in choropleth maps can depend on inferences about the minimum and maximum values in a colour legend (Schloss et al., 2019). Schloss et al. (2019) found that a map’s background colour influenced judgements about whether plotted values were large or small (quantity), whereas this experiment found that legends’ limits influenced judgements about *how* large or small plotted values were (subjective magnitude).
 
 ## Relationship to the Findings in Chapter 4
 
 The first set of experiments in this thesis demonstrated that axis limits affect interpretation of magnitude in dot plots. This second experiment demonstrates that these findings generalise to a different type of data visualisation: choropleth maps. These results build upon the observations from the first set of experiments by demonstrating that the numerical context accompanying data points influences interpretations even when the physical characteristics of the plotted values do not change. This also accords with the finding from the first set of experiments that judgements were primarily informed by the relative numerical positions of plotted values, as opposed to their absolute physical positions. Other contributions include demonstrating that this bias occurs when manipulating only one axis limit and when using a horizontal (rather than vertical) colour legend.
+
+## References
+
+Brychtova A, Coltekin A. 2015. Discriminating classes of sequential and qualitative colour schemes. *International Journal of Cartography* **1**:62–78. doi:[10.1080/23729333.2015.1055643](https://doi.org/10.1080/23729333.2015.1055643)
+
+Dent BD, Torguson J, Hodler TW. 2009. Cartography: Thematic Map Design, 6th ed. ed. New York: McGraw-Hill Higher Education. 
+
+Jenks GF, Caspall FC. 1971. Error On Choroplethic Maps: Definition, Measurement, Reduction. *Annals of the Association of American Geographers* **61**:217–244. doi:[10.1111/j.1467-8306.1971.tb00779.x](https://doi.org/10.1111/j.1467-8306.1971.tb00779.x )
+
+Schloss KB, Gramazio CC, Silverman AT, Parker ML, Wang AS. 2019. Mapping Color to Meaning in Colormap Data Visualizations. *IEEE Transactions on Visualization and Computer Graphics* **25**:810–819. doi:[10.1109/TVCG.2018.2865147](https://doi.org/10.1109/TVCG.2018.2865147)
+
+
