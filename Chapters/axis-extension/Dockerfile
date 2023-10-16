@@ -3,14 +3,14 @@
 FROM rocker/verse:4.2.1
 
 # Add files to container
-ADD axis-extension.qmd /home/rstudio/workspace/
-ADD _quarto.yml /home/rstudio/workspace/
-ADD axis-extension.bib /home/rstudio/workspace/
+ADD axis-extension.qmd /home/rstudio/
+ADD _quarto.yml /home/rstudio/
+ADD axis-extension.bib /home/rstudio/
 
 # Add folders and their contents to container
-ADD data/ /home/rstudio/workspace/data/
-ADD images/ /home/rstudio/workspace/images/
-ADD axis-extension_cache/html/ /home/rstudio/workspace/axis-extension_cache/html
+ADD data/ /home/rstudio/data/
+ADD images/ /home/rstudio/images/
+ADD axis-extension_cache/html/ /home/rstudio/axis-extension_cache/html
 
 # install and require {renv}, which will install other required packages
 RUN R -e "install.packages('renv')"
