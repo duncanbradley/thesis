@@ -33,6 +33,8 @@ library(magick)
 library(ggridges)
 library(report)
 library(MuMIn)
+library(markdown)
+library(shiny)
 set.seed(45789)
 ```
 
