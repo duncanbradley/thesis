@@ -18,6 +18,7 @@ bibliography: axis-extension.bib
 
 ```{r}
 #| label: setup
+library(quarto)
 library(tidyverse)
 library(lme4)
 library(lmerTest)

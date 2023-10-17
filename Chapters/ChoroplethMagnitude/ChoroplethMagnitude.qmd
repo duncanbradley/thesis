@@ -42,6 +42,8 @@ library(effectsize)
 library(qwraps2)
 library(report)
 library(MuMIn)
+library(shiny)
+library(markdown)
 ```
 
 ```{r}

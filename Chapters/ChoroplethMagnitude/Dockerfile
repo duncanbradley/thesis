@@ -24,4 +24,4 @@ COPY renv.lock renv.lock
 # Restore (install) required packages from renv.lock (which captures specific package versions)
 # Specified packages do not include tidyverse packages because these are included in rocker/verse
 # options(warn = 2) turns warnings into errors
-RUN Rscript -e 'options(warn = 2); renv::restore(packages = c("ggridges", "buildmer", "broom.mixed", "lme4", "insight", "papaja", "magick", "patchwork", "ggpubr", "kableExtra", "emmeans", "knitr", "effectsize", "qwraps2", "shiny", "markdown"))'
+RUN Rscript -e 'options(warn = 2); renv::restore(packages = c("ggridges", "buildmer", "broom.mixed", "lme4", "insight", "papaja", "magick", "patchwork", "ggpubr", "kableExtra", "emmeans", "knitr", "effectsize", "qwraps2", "report", "MuMIn", "shiny", "markdown"))'

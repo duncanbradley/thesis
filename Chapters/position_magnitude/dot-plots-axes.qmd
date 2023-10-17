@@ -43,6 +43,7 @@ library(qwraps2)
 library(emmeans)
 library(MuMIn)
 library(report)
+library(markdown)
 set.seed(45789) # seed for random number generation
 ```
 
