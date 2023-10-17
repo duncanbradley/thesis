@@ -364,7 +364,6 @@ print_es <- function(x) {ifelse(x<.01, "< 0.01", paste("=", printnum(x)))}
 set.seed(45789)
 ```
 
-## Placeholder
 ## Abstract
 
   Data visualisation software provides the ability to create highly customisable choropleth maps. This presents an abundance of design choices. The colour legend, one particular aspect of choropleth map design, has the potential to effectively convey data points' absolute magnitudes (how large or small they are). Colour legends present the mapping between a specific range of colours and a specific range of numerical values. In this experiment, we demonstrate that manipulating this range affects interpretations of the plotted values' absolute magnitudes. Participants (N = 100) judged the urgency of addressing pollution levels as greater when the colour legend's upper bound was equal to the maximum plotted value, compared to when it was significantly larger than the maximum plotted value. This provides insight into the cognitive processing of plotted data in choropleth maps that are designed to promote inferences about overall magnitude.

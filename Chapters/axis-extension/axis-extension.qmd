@@ -17,8 +17,7 @@ bibliography: axis-extension.bib
 ---
 
 ```{r}
-#| label: setup
-library(quarto)
+#| label: libraries
 library(tidyverse)
 library(lme4)
 library(lmerTest)
@@ -363,8 +362,6 @@ gender_e2 <- e2 %>%
   pivot_wider(names_from = gender, values_from = freq)
 ```
 
-## Placeholder
-
 ## Abstract
 
 Consider a statistic corresponding to the number of public transport users in a particular town. Gauging whether this number is large or small requires awareness of the total population (the denominator). In data visualisations, an axis extended beyond plotted values can act as a graphical cue to a denominator value, but default axis upper limits (e.g., in ggplot2) are typically based on the highest plotted value. In two experiments (combined *N* = 350), we explore the influence of default and extended axes on interpretations of the magnitude in bar charts. We also investigate the influence of accompanying denominator information on participants' assessments. We observe that values plotted using default axes were rated as higher, compared to values plotted using extended axes. The absence of denominator information amplifies the effect of axis limits on judgements. This demonstrates that axes which incorporate denominator values influence interpretations of presented data. Whereas prior work has often focused on judgements of the *differences between values*, this work contributes to an understanding of how the magnitudes of *the values themselves* are interpreted by viewers. We also discuss implications for effective design, which involve considering both axis limits and accompanying contextual information.
@@ -418,7 +415,7 @@ For charts with extended axes, the denominator value was used as the y-axis uppe
 #| include: true
 #| out-width: "500px"
 #| fig-scap: Example charts for Experiment 1.
-#| fig-cap: "Example charts for Experiment 1. The same data appears in both charts. Accompanying text explained what the values represented: _'The graph shows, for each manufacturing method, how many of the items were free from defects'_. The chart with the default axes (left) employs an upper limit determined by ggplot2. The chart with the extended axes (right) employs an upper limit equal to the dataset's denominator value."
+#| fig-cap: "Example charts for Experiment 1. The same data appears in both charts. Accompanying text explained what the values represented: 'The graph shows, for each manufacturing method, how many of the items were free from defects'. The chart with the default axes (left) employs an upper limit determined by ggplot2. The chart with the extended axes (right) employs an upper limit equal to the dataset's denominator value."
 img1 <- image_read("images/E14trunc.png")
 img2 <- image_read("images/E14full.png")
 image_append(c(img1, img2))
