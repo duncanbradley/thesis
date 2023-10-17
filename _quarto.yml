@@ -42,8 +42,8 @@ book:
   chapters:
     - index.qmd
     - Chapters/literature/literature.qmd
-#    - Chapters/reproducibility.md
-#    - Chapters/position_magnitude/preface1.md
+    - Chapters/reproducibility.md
+    - Chapters/position_magnitude/preface1.md
 #    - Chapters/position_magnitude/dot-plots-axes.qmd
 #    - Chapters/position_magnitude/postscript1.md
 #    - Chapters/ChoroplethMagnitude/preface2.md
@@ -95,8 +95,8 @@ format:
     include-in-header: 
       text: |
         \usepackage{enumerate}% http://ctan.org/pkg/enumerate
-    code-block-border-left: 1C1C1C
-    code-block-bg: E6E6E6
+    code-block-border-left: false
+    code-block-bg: "E6E6E6"
     linestretch: 1.5
   docx:
     output-dir: docx

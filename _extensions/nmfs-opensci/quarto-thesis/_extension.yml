@@ -29,3 +29,5 @@ contributes:
       linkcolor: blue
       urlcolor: red
       toclinkcolor: black
+      code-block-border-left: false
+      code-block-bg: "E6E6E6"
