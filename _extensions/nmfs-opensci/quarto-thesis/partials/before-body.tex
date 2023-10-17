@@ -39,14 +39,15 @@ $endif$
 \null\vskip1cm%
 \text{Word Count: }
 \clearpage
-\addcontentsline{toc}{chapter}{\listfigurename}
+
 
 \listoffigures % Prints the list of figures
+\addcontentsline{toc}{chapter}{\listfigurename}
 \clearpage
-\addcontentsline{toc}{chapter}{\listtablename}
 
 \listoftables % Prints the list of tables
-%\phantom{\cite{?}} % https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page/116014#116014
+\addcontentsline{toc}{chapter}{\listtablename}
+\phantom{\cite{?}} % https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page/116014#116014
 \endgroup
 
 %----------------------------------------------------------------------------------------
