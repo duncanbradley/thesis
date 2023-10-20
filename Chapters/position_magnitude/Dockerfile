@@ -3,14 +3,14 @@
 FROM rocker/verse:4.2.1
 
 # Add files to container
-ADD dot-plots-axes.qmd /home/rstudio/workspace/
-ADD _quarto.yml /home/rstudio/workspace/
-ADD dot-plots-axes.bib /home/rstudio/workspace/
+ADD dot-plots-axes.qmd /home/rstudio/
+ADD _quarto.yml /home/rstudio/
+ADD dot-plots-axes.bib /home/rstudio/
 
 # Add folders and their contents to container
-ADD data/ /home/rstudio/workspace/data/
-ADD images/ /home/rstudio/workspace/images/
-ADD dot-plots-axes_cache/pdf/ /home/rstudio/workspace/dot-plots-axes_cache/pdf
+ADD data/ /home/rstudio/data/
+ADD images/ /home/rstudio/images/
+ADD dot-plots-axes_cache/pdf/ /home/rstudio/dot-plots-axes_cache/pdf
 
 # install and require {renv}, which will install other required packages
 RUN R -e "install.packages('renv')"
