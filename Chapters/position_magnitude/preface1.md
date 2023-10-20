@@ -6,7 +6,7 @@ Prior research has reported that values presented at higher positions were judge
 
 In these experiments, participants observed a series of simple dot plot visualisations of fictitious data, with numerical values encoded through position on a vertical axis. Systematically manipulating the axis limits surrounding plotted values causes *the same values* to appear at high or low positions. Therefore, participants’ ratings of the magnitude of plotted values can reveal the effect of this design choice on interpretations. The simplicity of the stimuli provides high experimental control, but the use of meaningful scenarios concerning risk-related events increases ecological validity. 
 
-In order to gain further insight into how absolute magnitude is processed, these experiments also examine whether the *physical* positions of plotted values or their *relative* positions within axis limits contribute to magnitude judgements. This distinction concerns whether interpretations are influenced primarly by the association between high physical positions and high values, or the numerical context within which values are plotted. Dot plots with *inverted* axes are presented to test these two competing explanations.
+In order to gain further insight into how absolute magnitude is processed, these experiments also examine whether the *physical* positions of plotted values or their *relative* positions within axis limits contribute to magnitude judgements. This distinction concerns whether interpretations are influenced primarily by the association between high physical positions and high values, or the numerical context within which values are plotted. Dot plots with *inverted* axes are presented to test these two competing explanations.
 
 ## References
 
