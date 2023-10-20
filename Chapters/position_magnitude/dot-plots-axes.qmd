@@ -471,7 +471,7 @@ Experiment 2 introduced another factor in addition to the manipulation of y-axis
 
 Experiment 3 manipulated y-axis limits in inverted charts only, providing clarity on how magnitude is interpreted in these charts. Importantly, the use of inverted charts should not be considered an endorsement (see issues above). However, they serve to distinguish between two possible explanations, since they reverse the typical associations between physical position and magnitude.
 
-Ethical approval was granted by The University of Manchester's Division of Neuroscience & Experimental Psychology Ethics Committee (Experiment 1: Ref 2021-11115-18258; Experiment 2: Ref 2021-11115-20464; Experiment 3: Ref. 2021-11115-20745). Data, analysis code, experimental scripts, materials and a link to run the experiments are available at https://osf.io/3epm2/. We also provide all necessary resources for building a Docker container, within which the computational environment used for analysis is recreated, meaning a fully-reproducible version of this paper can be generated.
+Ethical approval was granted by The University of Manchester's Division of Neuroscience & Experimental Psychology Ethics Committee (Experiment 1: Ref 2021-11115-18258; Experiment 2: Ref 2021-11115-20464; Experiment 3: Ref. 2021-11115-20745). Data, analysis code, experimental scripts, materials and a link to run the experiments are available at <https://osf.io/9v5ps/>. We also provide all necessary resources for building a Docker container, within which the computational environment used for analysis is recreated, meaning a fully-reproducible version of this paper can be generated.
 
 ### Experiment 1
 
@@ -1296,7 +1296,7 @@ For magnitude ratings, there was an interaction between data visualisation liter
 #| label: fig-E2-clint
 #| include: true
 #| fig-scap: The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 2.
-#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 2. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
+#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 2. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model. Note that this interaction is associated with a very small effect size."
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
 Thresh = E2_clint@model$Theta
@@ -1600,7 +1600,7 @@ For magnitude ratings, there was an interaction between data visualisation liter
 #| label: fig-E3-clint
 #| include: true
 #| fig-scap: The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 3.
-#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 3. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model."
+#| fig-cap: "The interaction between data visualisation literacy and physical position, for magnitude ratings in Experiment 3. On the y-axis, the grey horizontal lines depict the thresholds between the seven response categories for magnitude ratings, from 'Very unlikely' to 'Very likely'. The data displayed are based on the estimated marginal means from the interaction model. Note that this interaction is associated with a very small effect size."
 my_palette <- unname(palette.colors(palette = "Okabe-Ito")[2:3])
 
 Thresh = E3_clint@model$Theta
