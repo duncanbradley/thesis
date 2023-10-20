@@ -1,4 +1,4 @@
-# Preface to Chapter 5
+# Preface to Chapter 5 {.unnumbered}
 
 The overall objective of this thesis is to explore the role of axis limits in the cognitive processing of absolute magnitude in data visualisations. My aim is to address a general cognitive mechanism, therefore experiments should not be limited to one type of data or visualisation format. Rigorous evidence requires examination of different stimuli. Therefore, the second investigation in this thesis explores interpretations of magnitude in choropleth maps.
 

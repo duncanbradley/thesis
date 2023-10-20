@@ -1,4 +1,4 @@
-# Preface to Chapter 5 {.unnumbered}
+# Preface to Chapter 6 {.unnumbered}
 
 The empirical research conducted in this thesis thus far has demonstrated that interpretations of magnitude are influenced by the context in which plotted values are presented. However, this thesis has not yet explored denominator values, which are another source of context related to magnitude judgements. Specifically, knowledge of a denominator is relevant for assessing absolute frequencies. For example, when evaluating a business expense, awareness of the total available budget can provide perspective on the magnitude of the amount spent. Using axis limits as graphical cues to denominator values is yet another example of how context may be communicated through data visualisation design. Therefore, the third and final investigation in this thesis explores how this design choice informs interpretations of magnitude in bar charts.
 
