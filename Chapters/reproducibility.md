@@ -125,7 +125,7 @@ First, I specify the Rocker image upon which the rest of the container will be b
 `FROM rocker/verse:4.2.1`
 
 
-Next, I add files to the image, including Quarto dynamic document itself, and the project file, and the bibliography associated with this chapter. These are mounted at the ‘rstudio’ directory.
+Next, I add files to the image, including Quarto dynamic document itself, the project file, and the bibliography associated with this chapter. These are mounted at the ‘rstudio’ directory.
 
 `ADD axis-extension.qmd /home/rstudio/`
 
