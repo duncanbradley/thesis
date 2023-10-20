@@ -44,15 +44,15 @@ book:
     - Chapters/literature/literature.qmd
     - Chapters/reproducibility.md
     - Chapters/position_magnitude/preface1.md
-#    - Chapters/position_magnitude/dot-plots-axes.qmd
-#    - Chapters/position_magnitude/postscript1.md
-#    - Chapters/ChoroplethMagnitude/preface2.md
-#    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
-#    - Chapters/ChoroplethMagnitude/postscript2.md
-#    - Chapters/axis-extension/preface3.md
-#    - Chapters/axis-extension/axis-extension.qmd
-#    - Chapters/axis-extension/postscript3.md
-#    - Chapters/conclusion.md
+    - Chapters/position_magnitude/dot-plots-axes.qmd
+    - Chapters/position_magnitude/postscript1.md
+    - Chapters/ChoroplethMagnitude/preface2.md
+    - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.qmd
+    - Chapters/ChoroplethMagnitude/postscript2.md
+    - Chapters/axis-extension/preface3.md
+    - Chapters/axis-extension/axis-extension.qmd
+    - Chapters/axis-extension/postscript3.md
+    - Chapters/conclusion.md
 
 thesis:
   #supervisor:
@@ -65,6 +65,7 @@ thesis:
   copyright: "Chapters/Frontmatter/copyright.tex"
   declaration: "Chapters/Frontmatter/declaration.tex"
   acknowledgements: "Chapters/Frontmatter/acknowledgements.tex"
+  abbreviations: "Chapters/Frontmatter/abbreviations.tex"
 
 citeproc: false
 filters:
