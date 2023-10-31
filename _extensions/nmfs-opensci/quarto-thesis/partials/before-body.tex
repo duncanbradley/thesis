@@ -38,17 +38,17 @@ $endif$
 \tableofcontents % Prints the main table of contents
 \null\vskip1cm%
 \text{Word Count: 46,537}
-\clearpage
 
-
-\listoffigures % Prints the list of figures
-\addcontentsline{toc}{chapter}{\listfigurename}
 \phantom{\cite{?}} % https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page/116014#116014
-\clearpage
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures % Prints the list of figures
 
 \listoftables % Prints the list of tables
 \addcontentsline{toc}{chapter}{\listtablename}
-\phantom{\cite{?}} % https://tex.stackexchange.com/questions/115921/wrong-numeration-in-toc-longer-then-one-page/116014#116014
+
 \endgroup
 
 %----------------------------------------------------------------------------------------
@@ -134,6 +134,24 @@ $endif$
 \end{acknowledgements}
 
 $endif$
+
+%----------------------------------------------------------------------------------------
+%	RATIONALE PAGE
+%----------------------------------------------------------------------------------------
+$if(thesis.rationale)$
+\begin{rationale}
+\addchaptertocentry{\rationalename} % Add the rationale to the table of contents
+$if(thesis.rationale.text)$
+$thesis.rationale.text$
+$else$
+\input{"$thesis.rationale$"}
+$endif$
+
+\end{rationale}
+
+%\cleardoublepage
+$endif$
+
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
