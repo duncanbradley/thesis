@@ -411,6 +411,34 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 %----------------------------------------------------------------------------------------
+%	RATIONALE PAGE DESIGN
+%----------------------------------------------------------------------------------------
+
+\usepackage{xcolor}
+\colorlet{mdtRed}{red!50!black}
+\newcommand{\rationalename}{Rationale for Journal Format}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish} {\rationalename}{Rationale for Journal Format} % Rationale text for English countries
+\providecaptionname{german,ngerman,austrian,naustrian}{\rationalename}{Danksagung} % Rationale text for Germanic countries
+
+\ifbool{consistentlayout}{
+	\DeclareDocumentEnvironment{rationale}{}{%
+		\tttypeout{\rationalename}
+		\addchap*{\rationalename}
+	}
+}
+{
+	\DeclareDocumentEnvironment{rationale}{}{%
+		\checktoopen
+		\tttypeout{\rationalename}
+		\thispagestyle{plain}
+		\begin{flushleft}{\huge\rationalename\par}\end{flushleft}
+	}
+	{
+		\vfil\vfil\null
+	}
+}
+
+%----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
