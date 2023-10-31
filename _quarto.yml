@@ -66,6 +66,7 @@ thesis:
   declaration: "Chapters/Frontmatter/declaration.tex"
   acknowledgements: "Chapters/Frontmatter/acknowledgements.tex"
   abbreviations: "Chapters/Frontmatter/abbreviations.tex"
+  rationale: "Chapters/Frontmatter/rationale.tex"
 
 citeproc: false
 filters:
