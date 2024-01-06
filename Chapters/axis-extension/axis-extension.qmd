@@ -996,7 +996,7 @@ e2 %>%
        subtitle =  "Density Plots, Boxplots, and Raw Data",
        y = NULL,
        x = NULL) + 
-  scale_x_continuous(labels = c('Very\nconfident', 'Not very\nconfident'),
+  scale_x_continuous(labels = c('Not very\nconfident', 'Very\nconfident'),
                      breaks = c(1,2),
                      minor_breaks = c()) + 
   facet_wrap(vars(denominator), ncol = 1, labeller = labeller(denominator = denom_labs)) +
