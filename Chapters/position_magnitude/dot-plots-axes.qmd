@@ -1631,7 +1631,7 @@ lims(y = c(min(Thresh)-0.7,
     linewidth = NULL) +
   scale_color_manual(limits = c('lo', 'hi'), 
                        labels = c('Low', 'High'),
-                   values = my_palette) +
+                   values = rev(my_palette)) +
   theme(axis.text.y = element_blank()) +
   geom_line(linewidth = 1.5, linetype = "solid")
 ```
