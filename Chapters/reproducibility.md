@@ -106,6 +106,8 @@ Virtual machines perform a similar function to containers. However a notable dif
 
 Despite the myriad recommendations for best practice, a principle often endorsed in the literature on reproducibility concerns the merits of small efforts. Taking some steps to increase reproducibility can still enhance a project’s quality relative to overlooking this aspect altogether [@piccolo_tools_2016]. Withholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’. Analysis code does not need to be perfect in order to be useful to others [@klein_practical_2018], and it is not possible to benefit from external inquiry if the code is not shared [@barnes_publish_2010]. @barnes_publish_2010 argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers are encouraged to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata [@white_nine_2013] and containerisation [@nust_ten_2020].
 
+## Software Sustainability and Longevity
+
 ## The Approach to Reproducibility in This Thesis
 
 The following describes the different aspects of reproducibility present in the subsequent empirical experiments in this thesis. Whilst this work does not follow a pre-defined workflow, the approach closely resembles workflows described in published work [e.g., @van_lissa_worcs_2020; @peikert_reproducible_2021].
