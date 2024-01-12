@@ -52,6 +52,8 @@ Recommendations for improving scientific research focus variously on different a
 
 The empirical work presented in this thesis has been conducted with a focus on ensuring reproducibility. The remaining contents of this chapter will review published work on best practices for sharing code, data, and computational environments, and outline the approach to reproducibility employed in this thesis.
 
+**Reproducibiliy is philosophically and practically relevant to this thesis because it is integral to my approach to conducting research. Like study design and analytical methods, reproducibility contributes to rigour in research. Adherence to the principles of reproducibilty facilitates the communication/longevity/utility/re-use of this work. It informed decisions about... Furthermore, it serves as an example of how other research in this field may be conducted and presented in a reproducible manner.**
+
 ## Sharing Code and Data
 
 There are many convincing arguments for openly sharing code and data. Scientific approaches benefit from the capacity to thoroughly assess the credibility of published work [@klein_practical_2018] and can independently authenticate other researchers’ conclusions [@blischak_creating_2019]. Thus, supporting third parties in reproducing research can increase perceptions of its robustness and reliability [@sandve_ten_2013]. This can also facilitate identification of errors in analysis [@klein_practical_2018]. In addition to these motivating factors, authors may even appreciate the advantages of reproducible practices more than their audience [@piccolo_tools_2016]. For example, these practices can save time and effort [@sandve_ten_2013], and permanently sharing resources provides insurance against the loss of those resources [@klein_practical_2018].
@@ -105,6 +107,8 @@ Virtual machines perform a similar function to containers. However a notable dif
 ## Pragmatism Over Perfectionism
 
 Despite the myriad recommendations for best practice, a principle often endorsed in the literature on reproducibility concerns the merits of small efforts. Taking some steps to increase reproducibility can still enhance a project’s quality relative to overlooking this aspect altogether [@piccolo_tools_2016]. Withholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’. Analysis code does not need to be perfect in order to be useful to others [@klein_practical_2018], and it is not possible to benefit from external inquiry if the code is not shared [@barnes_publish_2010]. @barnes_publish_2010 argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers are encouraged to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata [@white_nine_2013] and containerisation [@nust_ten_2020].
+
+## Software Sustainability and Longevity
 
 ## The Approach to Reproducibility in This Thesis
 

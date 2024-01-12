@@ -473,6 +473,8 @@ Experiment 3 manipulated y-axis limits in inverted charts only, providing clarit
 
 Ethical approval was granted by The University of Manchester's Division of Neuroscience & Experimental Psychology Ethics Committee (Experiment 1: Ref 2021-11115-18258; Experiment 2: Ref 2021-11115-20464; Experiment 3: Ref. 2021-11115-20745). Data, analysis code, experimental scripts, materials and a link to run the experiments are available at <https://osf.io/9v5ps/>. We also provide all necessary resources for building a Docker container, within which the computational environment used for analysis is recreated, meaning a fully-reproducible version of this paper can be generated.
 
+**These experiments were pre-registered at osf.io. There are no diversions from pre-registered experimental designs, exclusion criteria, or sample size. However, for the purposes of clarity and simplicity, the reported analyses differ from the pre-registered analysis plan.**
+
 ### Experiment 1
 
 #### Method
