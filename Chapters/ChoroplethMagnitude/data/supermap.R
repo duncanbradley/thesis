@@ -8,6 +8,26 @@ reds_200b <- ggplot() + background_image(image_read("supermap_stimuli/E1_extend_
 reds_200c <- ggplot() + background_image(image_read("supermap_stimuli/E1_trunc_blank.png"))
 reds_200d <- ggplot() + background_image(image_read("supermap_stimuli/E1_trunc_label.png"))
 
+reds_200a <- reds_200a + labs(subtitle = "Labels Absent", 
+                              title = "Extended") +
+  theme(plot.title = element_text(hjust=1, size = 30),
+        plot.subtitle = element_text(hjust=0.5, size = 20))
+
+reds_200b <- reds_200b + labs(subtitle = "Labels Present", 
+                              title = "Range") +
+  theme(plot.title = element_text(size = 30),
+        plot.subtitle = element_text(hjust=0.5, size = 20))
+
+reds_200c <- reds_200c + labs(subtitle = "Labels Absent", 
+                              title = "Truncated") +
+  theme(plot.title = element_text(hjust=1, size = 30),
+        plot.subtitle = element_text(hjust=0.5, size = 20))
+
+reds_200d <- reds_200d + labs(subtitle = "Labels Present", 
+                              title = "Range") +
+  theme(plot.title = element_text(size = 30),
+        plot.subtitle = element_text(hjust=0.5, size = 20))
+
 grey_300a <- ggplot() + background_image(image_read("supermap_stimuli/E8_extend_blank.png"))
 grey_300b <- ggplot() + background_image(image_read("supermap_stimuli/E8_extend_label.png"))
 grey_300c <- ggplot() + background_image(image_read("supermap_stimuli/E8_trunc_blank.png"))
@@ -42,7 +62,8 @@ supermap <-
   (oran_900a|oran_900b|oran_900c|oran_900d)
   
 ggsave(filename = paste0("supermap.png"), # save inside the 'instructions' folder
-       width = 40, # width value
+       width = 41, # width value
        height = 60, # height value
        units = "cm", # units for width and height
        dpi = 600)
+
