@@ -38,32 +38,44 @@ purp_400b <- ggplot() + background_image(image_read("supermap_stimuli/E15_extend
 purp_400c <- ggplot() + background_image(image_read("supermap_stimuli/E15_trunc_blank.png"))
 purp_400d <- ggplot() + background_image(image_read("supermap_stimuli/E15_trunc_label.png"))
 
-blue_700a <- ggplot() + background_image(image_read("supermap_stimuli/E34_extend_blank.png"))
-blue_700b <- ggplot() + background_image(image_read("supermap_stimuli/E34_extend_label.png"))
-blue_700c <- ggplot() + background_image(image_read("supermap_stimuli/E34_trunc_blank.png"))
-blue_700d <- ggplot() + background_image(image_read("supermap_stimuli/E34_trunc_label.png"))
+blue_500a <- ggplot() + background_image(image_read("supermap_stimuli/E22_extend_blank.png"))
+blue_500b <- ggplot() + background_image(image_read("supermap_stimuli/E22_extend_label.png"))
+blue_500c <- ggplot() + background_image(image_read("supermap_stimuli/E22_trunc_blank.png"))
+blue_500d <- ggplot() + background_image(image_read("supermap_stimuli/E22_trunc_label.png"))
+  
+gree_600a <- ggplot() + background_image(image_read("supermap_stimuli/E29_extend_blank.png"))
+gree_600b <- ggplot() + background_image(image_read("supermap_stimuli/E29_extend_label.png"))
+gree_600c <- ggplot() + background_image(image_read("supermap_stimuli/E29_trunc_blank.png"))
+gree_600d <- ggplot() + background_image(image_read("supermap_stimuli/E29_trunc_label.png"))
+  
+oran_700a <- ggplot() + background_image(image_read("supermap_stimuli/E36_extend_blank.png"))
+oran_700b <- ggplot() + background_image(image_read("supermap_stimuli/E36_extend_label.png"))
+oran_700c <- ggplot() + background_image(image_read("supermap_stimuli/E36_trunc_blank.png"))
+oran_700d <- ggplot() + background_image(image_read("supermap_stimuli/E36_trunc_label.png"))
 
-gree_800a <- ggplot() + background_image(image_read("supermap_stimuli/E41_extend_blank.png"))
-gree_800b <- ggplot() + background_image(image_read("supermap_stimuli/E41_extend_label.png"))
-gree_800c <- ggplot() + background_image(image_read("supermap_stimuli/E41_trunc_blank.png"))
-gree_800d <- ggplot() + background_image(image_read("supermap_stimuli/E41_trunc_label.png"))
+reds_800a <- ggplot() + background_image(image_read("supermap_stimuli/E37_extend_blank.png"))
+reds_800b <- ggplot() + background_image(image_read("supermap_stimuli/E37_extend_label.png"))
+reds_800c <- ggplot() + background_image(image_read("supermap_stimuli/E37_trunc_blank.png"))
+reds_800d <- ggplot() + background_image(image_read("supermap_stimuli/E37_trunc_label.png"))
 
-oran_900a <- ggplot() + background_image(image_read("supermap_stimuli/E48_extend_blank.png"))
-oran_900b <- ggplot() + background_image(image_read("supermap_stimuli/E48_extend_label.png"))
-oran_900c <- ggplot() + background_image(image_read("supermap_stimuli/E48_trunc_blank.png"))
-oran_900d <- ggplot() + background_image(image_read("supermap_stimuli/E48_trunc_label.png"))
+grey_900a <- ggplot() + background_image(image_read("supermap_stimuli/E44_extend_blank.png"))
+grey_900b <- ggplot() + background_image(image_read("supermap_stimuli/E44_extend_label.png"))
+grey_900c <- ggplot() + background_image(image_read("supermap_stimuli/E44_trunc_blank.png"))
+grey_900d <- ggplot() + background_image(image_read("supermap_stimuli/E44_trunc_label.png"))
 
 supermap <- 
   (reds_200a|reds_200b|reds_200c|reds_200d) / 
   (grey_300a|grey_300b|grey_300c|grey_300d) / 
   (purp_400a|purp_400b|purp_400c|purp_400d) / 
-  (blue_700a|blue_700b|blue_700c|blue_700d) / 
-  (gree_800a|gree_800b|gree_800c|gree_800d) / 
-  (oran_900a|oran_900b|oran_900c|oran_900d)
+  (blue_500a|blue_500b|blue_500c|blue_500d) / 
+  (gree_600a|gree_600b|gree_600c|gree_600d) / 
+  (oran_700a|oran_700b|oran_700c|oran_700d) /
+  (reds_800a|reds_800b|reds_800c|reds_800d) / 
+  (grey_900a|grey_900b|grey_900c|grey_900d)
   
 ggsave(filename = paste0("supermap.png"), # save inside the 'instructions' folder
-       width = 41, # width value
-       height = 60, # height value
+       width = 40, # width value
+       height = 80, # height value
        units = "cm", # units for width and height
        dpi = 600)
 
