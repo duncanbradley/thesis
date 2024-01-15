@@ -642,6 +642,8 @@ This experiment explored the consequences of including a graphical cue to a deno
 
 In both conditions, there was a large proportion of magnitude ratings near the lower end of the rating scale. This indicates some attention to denominator information in the absence of a graphical cue. However, an increased presence of extreme high magnitude ratings in the condition with default axes suggests that the appearance of tall bars carried an implication of large values. These extreme ratings may indicate a failure to account for denominator information in the absence of a graphical cue. We investigate the role of denominator information further in Experiment 2.
 
+**Manipulating the upper axis limit altered the length of the bars, such that an extended axis generated shorter bars, compared to the truncated axis. For the purposes of this investigation, this should not be considered a confounding variable. Firstly, controlling for this aspect whilst manipulating the upper axis limit would entail modifying the height** **of the overall chart, which could also be considered a confound.** **Second, maintaining a consistent bar height across conditions would preclude examination of the effects of default upper limits.**
+
 ## Experiment 2
 
 ### Introduction
