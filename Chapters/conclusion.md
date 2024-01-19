@@ -26,6 +26,12 @@ Overall, this work contributes to a large body of cognitive biases which affect 
 
 Overall, this work provides consistent evidence for the influence of *framing effects* on magnitude judgements in data visualisations. **In general terms, these effects occur when mental representation of information is affected by aspects of its *presentation*, beyond the gain/loss framing in which they were originally described [@tversky_framing_1981; @kahneman_reference_1992].** This work provides evidence that axes influence interpretations by situating data points between reference points, thus carrying connotations about values’ magnitudes. This accords with other research demonstrating that subjective judgements of the same numerical value can be biased by its ranking within a set [@brown_does_2008]. Furthermore, according to models of graph comprehension, visual features are encoded prior to comprehension of precise numerical values [@pinker_theory_1990, @carpenter_model_1998]. The first impressions elicited by a data visualisation may prejudice overall interpretations [@pandey_how_2015; @yang_truncating_2021]. This explains how graphical cues to magnitude can inform judgements in spite of the availability of other relevant information (e.g., topic knowledge).
 
+| Experiment  | Findings  |
+|————|————|
+| Chapter 4  | Found that…   |
+| Chapter 5   |  Found that…  |
+| Chapter 6 | Found that…   |
+
 ## Data Visualisation Literacy
 
 The experiments in this thesis provide some evidence that the observed biases are greater for individuals with lower data visualisation literacy levels. Data visualisation literacy had a very small effect on the influence of the axis manipulation in dot plots (Chapter 4), but no effect on the influence of the colour legend manipulation in choropleth maps (Chapter 5). In Chapter 6, the effect of axis limits on the interpretation of bar charts decreased as data visualisation literacy increased, but data visualisation literacy had a smaller effect on the interaction between axis limits and accompanying information. In none of the experiments did accounting for data visualisation literacy change the pattern of results. This indicates that variation in responses cannot be exclusively attributed to data visualisation literacy levels, suggesting that the observed biases are present across individuals, albeit to different degrees.
