@@ -52,7 +52,7 @@ Recommendations for improving scientific research focus variously on different a
 
 The empirical work presented in this thesis has been conducted with a focus on ensuring reproducibility. The remaining contents of this chapter will review published work on best practices for sharing code, data, and computational environments, and outline the approach to reproducibility employed in this thesis.
 
-**Reproducibiliy is philosophically and practically relevant to this thesis because it is integral to my approach to conducting research. Like study design and analytical methods, reproducibility contributes to rigour in research. Adherence to the principles of reproducibilty facilitates the communication/longevity/utility/re-use of this work. It informed decisions about... Furthermore, it serves as an example of how other research in this field may be conducted and presented in a reproducible manner.**
+**Reproducibiliy is philosophically and practically relevant to this thesis because it is integral to my approach to conducting research. Like study design and analytical methods, reproducibility contributes to rigour in research. Adherence to the principles of reproducibilty facilitates the communication/longevity/utility/re-use of this work. It informed decisions about how to generate the stimuli and how to analyse the data, which both clearly influence the findings of the research. Thus, it can be said that it affected my conclusions. Furthermore, it serves as an example of how other research in this field may be conducted and presented in a reproducible manner.**
 
 ## Sharing Code and Data
 
