@@ -112,7 +112,27 @@ Despite the myriad recommendations for best practice, a principle often endorsed
 
 ## Openness in Research
 
-**It's not just about transparency - accessibility/reusability is important too. Reproducibility makes a positive contribution in this respect.**
+**This chapter is consistent with the argument asserted in the Royal Society report which makes it clear that openness is not sufficient to maximise the utility of research. For this reason, I focus on a wider set of considerations than just public deposition of data. **
+
+**This report takes a broad view of openness, concerned with making it possible to easily comprehend and scrutinise scientific data, not just for scientists but laypeople too. Intelligent openness for the general public is relevant where there is significant public interest in the research, for example for health and the environment. Also concerned with other aspects not central to this work on reproducibility, such as open access and methods of communication. Making data available in at an accessible location is the first step towards improving science through openness. Transparency is a necessary condition, but solely publishing data is insufficient. There are benefits to considering other aspects of openness - accessibility/reusability is important too. Reproducibility makes a positive contribution in this respect. Considering transparency limits the utility of such endeavours. The notion of ‘intelligent openness’ encapsulates the additional considerations that will truly make a difference in enhancing the value of efforts towards open research. **
+
+**There are four facets of ‘intelligent openness’. **
+
+**Accessible: Discoverable **
+
+**Assessable: Third parties must be able to evaluate and appraise the results, to understand the quality of the evidence.**
+
+**Intelligible: Data should make the results of research comprehensible, ideally tailored to different audiences.**
+
+**Usable: Benefits from metadata. Third parties are able to take advantage of data for the same or different purposes. **
+
+**There are many similarities to the FAIR principles.**
+
+**There is a disconnect between the conclusions presented in a publication and the underlying data. Readers should be able to easily access this data through a link in a journal article. They go further in suggesting that the various components should be packaged within a single resource, allowing the reader to see the links between data and conclusions, and perhaps explore the data whilst reading. Dynamic documents provide the ability to consistently connect these aspects of research, and enhance comprehensibility in an interactive environment. They are not equivalent to executable papers, which are presented in a more user-friendly manner (since they require less technological proficiency). However, dynamic documents allow the connection between results and underlying analysis to be observed without any loss of fidelity. **
+
+**Acknowledges that there are various resources that contribute to a research project (e.g. software, experimental protocols and stimuli). **
+
+**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity.**
 
 ## The Approach to Reproducibility in This Thesis
 
