@@ -26,11 +26,15 @@ Overall, this work contributes to a large body of cognitive biases which affect 
 
 Overall, this work provides consistent evidence for the influence of *framing effects* on magnitude judgements in data visualisations. **In general terms, these effects occur when mental representation of information is affected by aspects of its *presentation*, beyond the gain/loss framing in which they were originally described [@tversky_framing_1981; @kahneman_reference_1992].** This work provides evidence that axes influence interpretations by situating data points between reference points, thus carrying connotations about values’ magnitudes. This accords with other research demonstrating that subjective judgements of the same numerical value can be biased by its ranking within a set [@brown_does_2008]. Furthermore, according to models of graph comprehension, visual features are encoded prior to comprehension of precise numerical values [@pinker_theory_1990, @carpenter_model_1998]. The first impressions elicited by a data visualisation may prejudice overall interpretations [@pandey_how_2015; @yang_truncating_2021]. This explains how graphical cues to magnitude can inform judgements in spite of the availability of other relevant information (e.g., topic knowledge).
 
-| Experiment  | Findings  |
-|————|————|
-| Chapter 4  | Found that…   |
-| Chapter 5   |  Found that…  |
-| Chapter 6 | Found that…   |
+
+| Investigation  | Description | Findings | Effect Size |
+|————|————|————|————|
+| Sandman et al. (1994)|————|————|————|
+| Freeman et al. (2020)|————|————|————|
+| Chapter 4  | Found that…   |————|————|
+| Chapter 5   |  Found that…  |————|————|
+| Chapter 6 | Found that…   |————|————|
+
 
 ## Data Visualisation Literacy
 
