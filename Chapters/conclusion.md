@@ -28,7 +28,7 @@ Overall, this work provides consistent evidence for the influence of *framing ef
 
 
 | Investigation  | Description | Findings | Effect Size |
-|————|————|————|————|
+| --- | --- | --- | --- |
 | Sandman et al. (1994)|————|————|————|
 | Freeman et al. (2020)|————|————|————|
 | Chapter 4  | Found that…   |————|————|
