@@ -60,21 +60,42 @@ There are many convincing arguments for openly sharing code and data. Scientific
 
 A textual description of analysis in a manuscript typically presents an somewhat incomplete and imprecise account of the analytical process [@piccolo_tools_2016]. Sharing code helps detail the precise journey from the original dataset to inferential statistics [@klein_practical_2018], providing a comprehensive account of this process. In the past, the possibility of issues or inconsistencies arising from computer code was overlooked [@plesser_reproducibility_2018]. However, it is now widely recognised that a computational analysis pipeline can present opportunities for error. Making code openly available permits *independent* reproduction of all computational processes [@stodden_enhancing_2016]. This, in turn, can engender trust, promote collaboration, and facilitate new applications [@jimenez_four_2017]. Each stage of processing should be included [@sandve_ten_2013] and any files produced using the analytical pipeline should be expendable, since reproducing them using the code supplied should be trivial [@marwick_packaging_2018]. For full transparency, data should be supplied in a raw, unprocessed form [@white_nine_2013]. Keeping raw data separate from other files ensures that the original file is not altered and the stages of processing are clear [@marwick_packaging_2018]. Other resources, such as stimuli and experiment scripts should also be shared alongside data and code [@klein_practical_2018].
 
-The FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020], and share similarities with Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. 
+The FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020], and share similarities with Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. **Likewise, the authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but solely publishing data is insufficient. The notion of ‘intelligent openness’ encapsulates additional aspects that can maximise the utility of research.**
 
 When sharing resources, a researcher’s choices can assist or inhibit re-use [@chen_open_2019]. For example, using non-proprietary file types ensures that third parties can readily access resources [@white_nine_2013]. Rather than personal or institutional websites, independent providers (e.g., Open Science Framework) are recommended for depositing these resources [@chen_open_2019; @klein_practical_2018]. Effective documentation is also valuable. A ‘codebook’ or ‘data dictionary’ can be used to explain the contents of a data file [@klein_practical_2018], inline comments can be used to explain code [@rule_ten_2019], and a README file can be used to cover elementary information such as setup instructions [@lee_ten_2018]. Documentation can also provide details on data collection and known issues in resources [@white_nine_2013]. Finally, licences contribute to a research project’s longevity, and provide a clear statement for third parties, ensuring that their use of resources is appropriate [@jimenez_four_2017]. Where possible, lenient licences should be employed to avoid unnecessary restrictions [@white_nine_2013].
-
-### **Open Source and Closed Source Software**
-
-**Free and Open Source Software has many benefits for reproducibility. There is a spectrum on which software products can be situated, in terms of how much they support reproducibility, and not all Open Source *or* Closed Source products should be considered alike. McLoone (2019) explains why he considers the Open Source model unsuitable for products written in the Wolfram language, such as Mathematica. However, these justifications do not suggest that there are no benefits to transparency in software.**
-
-**Being transparent does not necessarily involve opening up development opportunities to the public. Can be exposed to scrutiny without adopting an Open Source business model. It's important to distinguish between decisions about who can contribute to the code, how the code is funded, and whether the code is openly available. However, users with access can inspect the source code, which makes an essential contribution. McLoone (2019) expresses concerns that openness does not deliver the practical benefits it is purported to - only a small minority of users will actually look at this. This is proprietary software, and whilst there are free versions available, this can make it harder for anyone to scrutinise or build upon others' analysis code, compared to open-source software.**
 
 ### The Importance of Public Sharing
 
 It is fallacious to assert that if authors consistently shared data and code *on request*, freely available access would be unnecessary. To begin with, research papers outlive their authors, and requests obviously cannot be fulfilled by an author after they die [@klein_practical_2018]. Empirical research further demonstrates why it is valuable to share resources *publicly.* In a study of 204 papers from a journal which *required* authors to provide data and code on request, only 44% delivered on this promise [@stodden_empirical_2018]. Where research code is not publicly available, various issues preclude procurement. These include local storage failures, restrictive institutional licences, concern about potential use, and concern about labour involved in providing support [@collberg_repeatability_2016]. Provision of data and code on request simply cannot be guaranteed, motivating calls for public sharing. However, in the field of data visualisation research, public sharing has historically been uncommon. Of papers submitted to the VIS 2017 conference, 15% shared materials openly and 6% shared data openly [@haroz_open_2018]. Greater transparency could help to increase the credibility of data visualisation research and also potentially facilitate identification and rectification of issues in published work [@kosara_skipping_2018].
 
 Researchers’ working practices and technological solutions both contribute to reproducibility. Whilst it has been suggested that behaviour and technology play *equal* roles [@sandve_ten_2013], others argue that innovations have been so effective that researchers’ engagement with these tools is now the primary driver of reproducible practices [@gruning_practical_2018]. Researchers report that several factors impede or deter their sharing of research data, including lack of expertise, lack of precedent, and lack of time [@houtkoop_data_2018].
+
+**Publicly sharing data and code can be beneficial, but considering several other factors can further enhance the contribution of a scientific research output.**
+
+*This report takes a broad view of openness, concerned with making it possible to easily comprehend and scrutinise scientific data, not just for scientists but laypeople too. The general public is relevant where there is significant public interest in the research, for example for health and the environment. Also concerned with other aspects not central to this work on reproducibility, such as open access and methods of communication.*
+
+**Reproducibility makes a positive contribution in this respect.**
+**Making data available in at an accessible location is the first step.**
+**Wider set of considerations than just public deposition of data.**
+**Considering only transparency limits the utility of such endeavours.**
+
+**There are four facets of ‘intelligent openness’. **
+
+**Accessible: Discoverable **
+
+**Assessable: Third parties must be able to evaluate and appraise the results, to understand the quality of the evidence.**
+
+**Intelligible: Data should make the results of research comprehensible, ideally tailored to different audiences.**
+
+**Usable: Benefits from metadata. Third parties are able to take advantage of data for the same or different purposes. **
+
+**There are many similarities to the FAIR principles.**
+
+**There is a disconnect between the conclusions presented in a publication and the underlying data. Readers should be able to easily access this data through a link in a journal article. They go further in suggesting that the various components should be packaged within a single resource, allowing the reader to see the links between data and conclusions, and perhaps explore the data whilst reading. Dynamic documents provide the ability to consistently connect these aspects of research, and enhance comprehensibility in an interactive environment. They are not equivalent to executable papers, which are presented in a more user-friendly manner (since they require less technological proficiency). However, dynamic documents allow the connection between results and underlying analysis to be observed without any loss of fidelity. **
+
+**Acknowledges that there are various resources that contribute to a research project (e.g. software, experimental protocols and stimuli). **
+
+**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity.**
 
 ## Effective Programming Practices
 
@@ -116,29 +137,11 @@ Despite the myriad recommendations for best practice, a principle often endorsed
 
 ## **Software Sustainability and Longevity**
 
-## Openness in Research
+### **Open Source and Closed Source Software**
 
-**This chapter is consistent with the argument asserted in the Royal Society report which makes it clear that openness is not sufficient to maximise the utility of research. For this reason, I focus on a wider set of considerations than just public deposition of data. **
+**Free and Open Source Software has many benefits for reproducibility. There is a spectrum on which software products can be situated, in terms of how much they support reproducibility, and not all Open Source *or* Closed Source products should be considered alike. McLoone (2019) explains why he considers the Open Source model unsuitable for products written in the Wolfram language, such as Mathematica. However, these justifications do not suggest that there are no benefits to transparency in software.**
 
-**This report takes a broad view of openness, concerned with making it possible to easily comprehend and scrutinise scientific data, not just for scientists but laypeople too. Intelligent openness for the general public is relevant where there is significant public interest in the research, for example for health and the environment. Also concerned with other aspects not central to this work on reproducibility, such as open access and methods of communication. Making data available in at an accessible location is the first step towards improving science through openness. Transparency is a necessary condition, but solely publishing data is insufficient. There are benefits to considering other aspects of openness - accessibility/reusability is important too. Reproducibility makes a positive contribution in this respect. Considering transparency limits the utility of such endeavours. The notion of ‘intelligent openness’ encapsulates the additional considerations that will truly make a difference in enhancing the value of efforts towards open research. **
-
-**There are four facets of ‘intelligent openness’. **
-
-**Accessible: Discoverable **
-
-**Assessable: Third parties must be able to evaluate and appraise the results, to understand the quality of the evidence.**
-
-**Intelligible: Data should make the results of research comprehensible, ideally tailored to different audiences.**
-
-**Usable: Benefits from metadata. Third parties are able to take advantage of data for the same or different purposes. **
-
-**There are many similarities to the FAIR principles.**
-
-**There is a disconnect between the conclusions presented in a publication and the underlying data. Readers should be able to easily access this data through a link in a journal article. They go further in suggesting that the various components should be packaged within a single resource, allowing the reader to see the links between data and conclusions, and perhaps explore the data whilst reading. Dynamic documents provide the ability to consistently connect these aspects of research, and enhance comprehensibility in an interactive environment. They are not equivalent to executable papers, which are presented in a more user-friendly manner (since they require less technological proficiency). However, dynamic documents allow the connection between results and underlying analysis to be observed without any loss of fidelity. **
-
-**Acknowledges that there are various resources that contribute to a research project (e.g. software, experimental protocols and stimuli). **
-
-**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity.**
+**Being transparent does not necessarily involve opening up development opportunities to the public. Can be exposed to scrutiny without adopting an Open Source business model. It’s important to distinguish between decisions about who can contribute to the code, how the code is funded, and whether the code is openly available. However, users with access can inspect the source code, which makes an essential contribution. McLoone (2019) expresses concerns that openness does not deliver the practical benefits it is purported to - only a small minority of users will actually look at this. This is proprietary software, and whilst there are free versions available, this can make it harder for anyone to scrutinise or build upon others’ analysis code, compared to open-source software.**
 
 ## The Approach to Reproducibility in This Thesis
 
