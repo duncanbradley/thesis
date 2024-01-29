@@ -60,8 +60,6 @@ There are many convincing arguments for openly sharing code and data. Scientific
 
 A textual description of analysis in a manuscript typically presents an somewhat incomplete and imprecise account of the analytical process [@piccolo_tools_2016]. Sharing code helps detail the precise journey from the original dataset to inferential statistics [@klein_practical_2018], providing a comprehensive account of this process. In the past, the possibility of issues or inconsistencies arising from computer code was overlooked [@plesser_reproducibility_2018]. However, it is now widely recognised that a computational analysis pipeline can present opportunities for error. Making code openly available permits *independent* reproduction of all computational processes [@stodden_enhancing_2016]. This, in turn, can engender trust, promote collaboration, and facilitate new applications [@jimenez_four_2017]. Each stage of processing should be included [@sandve_ten_2013] and any files produced using the analytical pipeline should be expendable, since reproducing them using the code supplied should be trivial [@marwick_packaging_2018]. For full transparency, data should be supplied in a raw, unprocessed form [@white_nine_2013]. Keeping raw data separate from other files ensures that the original file is not altered and the stages of processing are clear [@marwick_packaging_2018]. Other resources, such as stimuli and experiment scripts should also be shared alongside data and code [@klein_practical_2018].
 
-The FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020], and share similarities with Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. **Likewise, the authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but solely publishing data is insufficient. The notion of ‘intelligent openness’ encapsulates additional aspects that can maximise the utility of research.**
-
 When sharing resources, a researcher’s choices can assist or inhibit re-use [@chen_open_2019]. For example, using non-proprietary file types ensures that third parties can readily access resources [@white_nine_2013]. Rather than personal or institutional websites, independent providers (e.g., Open Science Framework) are recommended for depositing these resources [@chen_open_2019; @klein_practical_2018]. Effective documentation is also valuable. A ‘codebook’ or ‘data dictionary’ can be used to explain the contents of a data file [@klein_practical_2018], inline comments can be used to explain code [@rule_ten_2019], and a README file can be used to cover elementary information such as setup instructions [@lee_ten_2018]. Documentation can also provide details on data collection and known issues in resources [@white_nine_2013]. Finally, licences contribute to a research project’s longevity, and provide a clear statement for third parties, ensuring that their use of resources is appropriate [@jimenez_four_2017]. Where possible, lenient licences should be employed to avoid unnecessary restrictions [@white_nine_2013].
 
 ### The Importance of Public Sharing
@@ -70,32 +68,7 @@ It is fallacious to assert that if authors consistently shared data and code *on
 
 Researchers’ working practices and technological solutions both contribute to reproducibility. Whilst it has been suggested that behaviour and technology play *equal* roles [@sandve_ten_2013], others argue that innovations have been so effective that researchers’ engagement with these tools is now the primary driver of reproducible practices [@gruning_practical_2018]. Researchers report that several factors impede or deter their sharing of research data, including lack of expertise, lack of precedent, and lack of time [@houtkoop_data_2018].
 
-**Publicly sharing data and code can be beneficial, but considering several other factors can further enhance the contribution of a scientific research output.**
-
-*This report takes a broad view of openness, concerned with making it possible to easily comprehend and scrutinise scientific data, not just for scientists but laypeople too. The general public is relevant where there is significant public interest in the research, for example for health and the environment. Also concerned with other aspects not central to this work on reproducibility, such as open access and methods of communication.*
-
-**Reproducibility makes a positive contribution in this respect.**
-**Making data available in at an accessible location is the first step.**
-**Wider set of considerations than just public deposition of data.**
-**Considering only transparency limits the utility of such endeavours.**
-
-**There are four facets of ‘intelligent openness’. **
-
-**Accessible: Discoverable **
-
-**Assessable: Third parties must be able to evaluate and appraise the results, to understand the quality of the evidence.**
-
-**Intelligible: Data should make the results of research comprehensible, ideally tailored to different audiences.**
-
-**Usable: Benefits from metadata. Third parties are able to take advantage of data for the same or different purposes. **
-
-**There are many similarities to the FAIR principles.**
-
-**There is a disconnect between the conclusions presented in a publication and the underlying data. Readers should be able to easily access this data through a link in a journal article. They go further in suggesting that the various components should be packaged within a single resource, allowing the reader to see the links between data and conclusions, and perhaps explore the data whilst reading. Dynamic documents provide the ability to consistently connect these aspects of research, and enhance comprehensibility in an interactive environment. They are not equivalent to executable papers, which are presented in a more user-friendly manner (since they require less technological proficiency). However, dynamic documents allow the connection between results and underlying analysis to be observed without any loss of fidelity. **
-
-**Acknowledges that there are various resources that contribute to a research project (e.g. software, experimental protocols and stimuli). **
-
-**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity.**
+**The authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but argue that solely publishing data is insufficient. ‘Intelligent Openness’ encapsulates additional aspects that can maximise the utility of research. Research outputs should be Accessible (can be easily discovered), Intelligible (can help make research findings comprehensible), Assessable (can be evaluated and appraised by third parties), and Usable (can be employed for different purposes by third parties). Therefore, there are a wider set of considerations that just public sharing. Likewise,** the FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020], and share similarities with Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017].
 
 ## Effective Programming Practices
 
@@ -108,6 +81,15 @@ Several other coding behaviours can facilitate reproducibility. For example, *ab
 ### Literate Programming and Dynamic Documents
 
 Knuth’s [-@knuth_literate_1984] novel perspective on comprehensibility in computer programming has been influential in the literature on computational reproducibility. Knuth’s premise is that a programming script should not be regarded primarily as a set of instructions for a computer to follow, but as a tool to assist humans in understanding those instructions. This approach, known as ‘literate programming’, involves pairing code with corresponding text, such that reporting and documentation are closely linked to underlying code [@sandve_ten_2013; @piccolo_tools_2016]. Dynamic documents allow authors to mix code and narrative within a single file, with the results updated whenever the document is rendered. Producing (and re-producing) an entire manuscript using a dynamic document offers opportunities to easily observe the implementation of code used for each aspect of analysis [@peikert_reproducible_2021]. In addition to descriptive and inferential statistics, data visualisations may also be rendered dynamically [@fitzjohn_reproducible_2014]. This efficient format enhances transparency [@holmes_reproducible_2021], supports interactivity [@rule_ten_2019] and avoids errors which can occur when manually collating results [@peikert_reproducible_2021]. Including computationally-expensive code (e.g., complex statistical models) within a dynamic document can be problematic since this code is executed every time the document is rendered [@fitzjohn_reproducible_2014]. However, capacity for model caching provides a convenient antidote. This facilitates access to results by storing the output from models, which is then only updated when relevant data and code are updated.
+
+**Reproducibility makes a positive contribution in this respect.**
+**Making data available in at an accessible location is the first step.**
+**Wider set of considerations than just public deposition of data.**
+**Considering only transparency limits the utility of such endeavours.**
+
+**This is consistent with the recommendations of the Royal Society report, which argues for greater consideration of usability, beyond the public deposition of data...**
+
+**There is a disconnect between the conclusions presented in a publication and the underlying data. Readers should be able to easily access this data through a link in a journal article. They go further in suggesting that the various components should be packaged within a single resource, allowing the reader to see the links between data and conclusions, and perhaps explore the data whilst reading. Dynamic documents provide the ability to consistently connect these aspects of research, and enhance comprehensibility in an interactive environment. They are not equivalent to executable papers, which are presented in a more user-friendly manner (since they require less technological proficiency). However, dynamic documents allow the connection between results and underlying analysis to be observed without any loss of fidelity.**
 
 ## Computational Environments
 
@@ -136,6 +118,8 @@ Virtual machines perform a similar function to containers. However a notable dif
 Despite the myriad recommendations for best practice, a principle often endorsed in the literature on reproducibility concerns the merits of small efforts. Taking some steps to increase reproducibility can still enhance a project’s quality relative to overlooking this aspect altogether [@piccolo_tools_2016]. Withholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’. Analysis code does not need to be perfect in order to be useful to others [@klein_practical_2018], and it is not possible to benefit from external inquiry if the code is not shared [@barnes_publish_2010]. @barnes_publish_2010 argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers are encouraged to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata [@white_nine_2013] and containerisation [@nust_ten_2020].
 
 ## **Software Sustainability and Longevity**
+
+**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity (Royal Society)**
 
 ### **Open Source and Closed Source Software**
 
