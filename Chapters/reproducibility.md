@@ -68,6 +68,14 @@ Researchers’ working practices and technological solutions both contribute to 
 
 **The authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but argue that solely publishing data is insufficient. ‘Intelligent Openness’ encapsulates additional aspects that can maximise the utility of research. Research outputs should be Accessible (can be easily discovered), Intelligible (can help make research findings comprehensible), Assessable (can be evaluated and appraised by third parties), and Usable (can be employed for different purposes by third parties). Therefore, there are a wider set of considerations that just public sharing. Pratical measures which increase reproducibility contribute to this goal. Likewise,** the FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020]. **There are also similarities with** Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. **The availablity of the underlying code in Open Source software is a major advantage for reproducible research because it provides transparency about computational processes. Other software products, such as Wolfram Mathematica, do not adopt a typical Open Source business model (e.g., only employees can modify the code), but still support reproducibility by offering the ability to inspect source code (McLoone, 2019; McLoone, 2021).**
 
+Another important consideration is software sustainability and long-term availability. Do tools with a commercial basis make this difficult? More restrictive licensing makes Intelligent Openness difficult. 
+
+Software such as R and Docker, which are used in this thesis, are Open Source, and therefore
+
+**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity (Royal Society)**
+
+In terms of hosting, The Center for Open Science’s preservation fund can sustain hosting for 50+ years, in the event that the centre runs out of existing funding, and ceases to operate. OSF is open source.
+
 ## Effective Programming Practices
 
 Conducting analysis using a programmatical approach has three main benefits over manual processing: increased reproducibility, increased efficiency, and reduced error [@sandve_ten_2013]. Writing functions in a modular style can avoid redundant repetition, promote comprehension, and support reuse of code [@wilson_good_2017]. Similar recommendations include splitting code into appropriate chunks which each achieve a clearly-defined goal [@rule_ten_2019]. These techniques share many similarities with the Unix philosophy, an approach to computer programming which emphasises simplicity, modularity, and reusability [@gancarz_linux_2003].
@@ -105,10 +113,6 @@ Virtual machines perform a similar function to containers. However a notable dif
 ## Pragmatism Over Perfectionism
 
 Despite the myriad recommendations for best practice, a principle often endorsed in the literature on reproducibility concerns the merits of small efforts. Taking some steps to increase reproducibility can still enhance a project’s quality relative to overlooking this aspect altogether [@piccolo_tools_2016]. Withholding resources in pursuit of continuous refinement risks never sharing them at all. This fallacy is captured by the maxim ‘the best is the enemy of the good’. Analysis code does not need to be perfect in order to be useful to others [@klein_practical_2018], and it is not possible to benefit from external inquiry if the code is not shared [@barnes_publish_2010]. @barnes_publish_2010 argues that perceived limitations simply reflect that the code works only for the specific scenario at hand; inessential improvements are by definition not required for basic functioning. Researchers are encouraged to accept these limitations and share their code anyway. In addition to code, this notion has also been applied to metadata [@white_nine_2013] and containerisation [@nust_ten_2020].
-
-## **Software Sustainability and Longevity**
-
-**Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity (Royal Society)**
 
 ## The Approach to Reproducibility in This Thesis
 
