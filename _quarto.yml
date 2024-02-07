@@ -94,6 +94,7 @@ format:
     urlcolor: blue
     toclinkcolor: black
     toc-depth: 3
+    number-depth: 2
     include-in-header: 
       text: |
         \usepackage{enumerate}% http://ctan.org/pkg/enumerate
@@ -104,12 +105,14 @@ format:
     output-dir: docx
     toc: true
     toc-depth: 3
+    number-depth: 2
     always_allow_html: true
   html:
     output-dir: html
     theme: [cosmo, assets/theme.scss]
     toc: true
     toc-depth: 3
+    number-depth: 2
 
 # use for pdf only
 #mainfont: Poppins
