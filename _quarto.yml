@@ -77,7 +77,7 @@ bibliography:
   - Chapters/position_magnitude/dot-plots-axes.bib
   - Chapters/ChoroplethMagnitude/ChoroplethMagnitude.bib
   - Chapters/axis-extension/axis-extension.bib
-csl: "elife.csl"
+csl: "apa.csl"
 citation_package: biblatex
 
 #format:
