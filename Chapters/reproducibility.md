@@ -66,33 +66,22 @@ It is fallacious to assert that if authors consistently shared data and code *on
 
 Researchers’ working practices and technological solutions both contribute to reproducibility. Whilst it has been suggested that behaviour and technology play *equal* roles [@sandve_ten_2013], others argue that innovations have been so effective that researchers’ engagement with these tools is now the primary driver of reproducible practices [@gruning_practical_2018]. Researchers report that several factors impede or deter their sharing of research data, including lack of expertise, lack of precedent, and lack of time [@houtkoop_data_2018].
 
-**The authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but argue that solely publishing data is insufficient. ‘Intelligent Openness’ encapsulates additional aspects that can maximise the utility of research. Research outputs should be Accessible (can be easily discovered), Intelligible (can help make research findings comprehensible), Assessable (can be evaluated and appraised by third parties), and Usable (can be employed for different purposes by third parties). Therefore, there are a wider set of considerations that just public sharing. Pratical measures which increase reproducibility contribute to this goal. Likewise,** the FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020]. **There are also similarities with** Open Source Software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. **The availablity of the underlying code in Open Source software is a major advantage for reproducible research because it provides transparency about computational processes. Other software products, such as Wolfram Mathematica, do not adopt a typical Open Source business model (e.g., only employees can modify the code), but still support reproducibility by offering the ability to inspect source code (McLoone, 2019; McLoone, 2021).**
+**The authors of a Royal Society report on this topic suggest that transparency is a necessary condition for improving science through openness, but argue that solely publishing data is insufficient. ‘Intelligent Openness’ encapsulates additional aspects that can maximise the utility of research. Research outputs should be Accessible (can be easily discovered), Intelligible (can help make research findings comprehensible), Assessable (can be evaluated and appraised by third parties), and Usable (can be employed for different purposes by third parties). Therefore, there are a wider set of considerations that just public sharing. Pratical measures which increase reproducibility contribute to this goal. Likewise,** the FAIR principles [@wilkinson_fair_2016] propose that data (and metadata) should be Findable (easily discovered), Accessible (easily obtained), Interoperable (easily integrated with other tools), and Reusable (easily employed beyond their original use). The FAIR principles are also relevant for other computational tools, such as analysis scripts [@lamprecht_towards_2020]. **There are also similarities with** open-source software, which does not place limits on who may examine, adapt and extend the underlying code [@jimenez_four_2017]. **The availablity of source code in open-source software is a major advantage for reproducible research because it provides transparency about underlying computational processes. Other proprietary software products, such as Wolfram Mathematica, do not adopt a typical open-source business model (only employees can modify the code), but still support reproducibility by offering the ability to inspect source code (~McLoone, 2019; McLoone, 2021~).**
 
-Another important consideration is software sustainability and long-term availability. Do tools with a commercial basis make this difficult? More restrictive licensing makes Intelligent Openness difficult. 
+**Another important consideration is software sustainability and long-term availability. Like some proprietary software, some open-source software continues to be used decades after its inception (Fortunato and Galassi, 2021). The open-source R language, used prominently for the research in this thesis, was first introduced in 1993.**
 
-Software such as R and Docker, which are used in this thesis, are Open Source, and therefore
+Sometimes open source is commercial (Docker), sometimes non-commercial. 
 
+**Regardless, permissive licensing for open-source software grants users modification and redistribution rights, unlike proprietary software, where its proprietors retain control over its content and availability (Fortunato and Galassi, 2021). Therefore, open-source models facilitate the ability to access to previous versions of software, which is important for reproducibility. On the other hand, the sustainability of proprietary software is threatened if the company distributing the software ceases to operate (Lundell et al., 2011). **
+
+—————————————————————————————————————————————
+
+~Tools for long-term hosting~
+GitHub itself is not FOSS - but that’s not really central to the research - I don’t mention github. There’s a danger of relying on infrastructure that is not FOSS. (Fortunato and Galassi, 2021) 
+In terms of hosting, The Center for Open Science’s preservation fund can sustain hosting for 50+ years, in the event that the centre runs out of existing funding, and ceases to operate. OSF is open-source.
 **Considering the longevity of data repositories is an important aspect of data management. DOIs provide permanent links to resources, promoting longevity (Royal Society)**
 
-In terms of hosting, The Center for Open Science’s preservation fund can sustain hosting for 50+ years, in the event that the centre runs out of existing funding, and ceases to operate. OSF is open source.
-
-Watson et al. (2008) - companies developing open source software operate in a way that impoves their chances of longevity. 
-
-Nyman et al. (2012) - OSS offers sustainable solutions because users are less likely to be affected by commercial decisions which are restrictive. 
-Akhlaghi et al. (2021) - Containerisation software relyies on good archiving of previous software and access to versions. Users of proprietary software are at the mercy of the licence owner/distributor, whose decisions govern their access (i.e., there is a ‘single-point-of-failure’)
-
-Fortunato and Galassi (2021) - FOSS and commercial are not opposites - It’s about whether there is a restrictive license preventing users modifying and redistributing - proprietary means that the proprietors  
-Open source software can still be distributed for commerical gain. 
-
-Infrastructure for reproducible research must continue to advance and evolve. For longevity, maintence of data and code may be required (Peng and Hicks, 2021).
-
-Just as some proprietary software has survived and thrived for decades, so has some Open Source software (Fortunato and Galassi, 2021). 
-
-GitHub itself is not FOSS - but that’s not really central to the research - I don’t mention github. There’s a danger of relying on infrastructure that is not FOSS. (Fortunato and Galassi, 2021) 
-
-Lundell et al. (2011) - users of proprietary software are likely to face issues if their company distributing the software ceases to operate - this is a threat to the sustainability of software systems.  
-
-Likewise, the longevity of commerical software is also threatened by decisions not to distribute a particular version of software.
+Infrastructure for reproducible research must continue to advance and evolve. (Peng and Hicks, 2021). Containerisation software relyies on good archiving of previous software and access to versions (Akhlaghi et al., 2021)
 
 ## Effective Programming Practices
 
@@ -188,7 +177,7 @@ Finally, I run a line of R code which installs the specific version of each pack
 
 ### Experiment Resources
 
-In experimental psychology, sharing stimuli and experiment scripts is another important aspect of transparent research practice [@klein_practical_2018]. All data visualisations shown to participants, along with all code used to generate those visualisations, has been made available. Experiments were programmed using PsychoPy, which developed as a tool for conducting open and reproducible research [@peirce_psychopy2_2019]. The underlying technology is open source, the experiment scripts use non-proprietary file formats, and the ability to specify particular software versions avoids new releases breaking older code. Its integration with GitLab version control software means that each experiment is packaged in a public online repository. An entire project’s resources can be downloaded to a local machine, and an interactive version of the experiment can be run online. 
+In experimental psychology, sharing stimuli and experiment scripts is another important aspect of transparent research practice [@klein_practical_2018]. All data visualisations shown to participants, along with all code used to generate those visualisations, has been made available. Experiments were programmed using PsychoPy, which developed as a tool for conducting open and reproducible research [@peirce_psychopy2_2019]. The underlying technology is open-source, the experiment scripts use non-proprietary file formats, and the ability to specify particular software versions avoids new releases breaking older code. Its integration with GitLab version control software means that each experiment is packaged in a public online repository. An entire project’s resources can be downloaded to a local machine, and an interactive version of the experiment can be run online. 
 
 ## Conclusion
 
