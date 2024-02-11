@@ -76,6 +76,24 @@ Software such as R and Docker, which are used in this thesis, are Open Source, a
 
 In terms of hosting, The Center for Open Science’s preservation fund can sustain hosting for 50+ years, in the event that the centre runs out of existing funding, and ceases to operate. OSF is open source.
 
+Watson et al. (2008) - companies developing open source software operate in a way that impoves their chances of longevity. 
+
+Nyman et al. (2012) - OSS offers sustainable solutions because users are less likely to be affected by commercial decisions which are restrictive. 
+Akhlaghi et al. (2021) - Containerisation software relyies on good archiving of previous software and access to versions. Users of proprietary software are at the mercy of the licence owner/distributor, whose decisions govern their access (i.e., there is a ‘single-point-of-failure’)
+
+Fortunato and Galassi (2021) - FOSS and commercial are not opposites - It’s about whether there is a restrictive license preventing users modifying and redistributing - proprietary means that the proprietors  
+Open source software can still be distributed for commerical gain. 
+
+Infrastructure for reproducible research must continue to advance and evolve. For longevity, maintence of data and code may be required (Peng and Hicks, 2021).
+
+Just as some proprietary software has survived and thrived for decades, so has some Open Source software (Fortunato and Galassi, 2021). 
+
+GitHub itself is not FOSS - but that’s not really central to the research - I don’t mention github. There’s a danger of relying on infrastructure that is not FOSS. (Fortunato and Galassi, 2021) 
+
+Lundell et al. (2011) - users of proprietary software are likely to face issues if their company distributing the software ceases to operate - this is a threat to the sustainability of software systems.  
+
+Likewise, the longevity of commerical software is also threatened by decisions not to distribute a particular version of software.
+
 ## Effective Programming Practices
 
 Conducting analysis using a programmatical approach has three main benefits over manual processing: increased reproducibility, increased efficiency, and reduced error [@sandve_ten_2013]. Writing functions in a modular style can avoid redundant repetition, promote comprehension, and support reuse of code [@wilson_good_2017]. Similar recommendations include splitting code into appropriate chunks which each achieve a clearly-defined goal [@rule_ten_2019]. These techniques share many similarities with the Unix philosophy, an approach to computer programming which emphasises simplicity, modularity, and reusability [@gancarz_linux_2003].
