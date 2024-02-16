@@ -31,6 +31,11 @@ Overall, this work provides consistent evidence for the influence of *framing ef
 | --- | --- | --- | --- |
 | Sandman et al. (1994)|————|————|————|
 | Freeman et al. (2020)|————|————|————|
+| Taylor and Anderson (1986)|————|————|————|
+| Okan et al. (2012) |————|————|————|
+| Stone et al. (2017) |————|————|————|
+| Okan et al. (2020) |————|————|————|
+| Okan et al. (2018) |————|————|————|
 | Chapter 4  | Found that…   |————|————|
 | Chapter 5   |  Found that…  |————|————|
 | Chapter 6 | Found that…   |————|————|
