@@ -26,19 +26,26 @@ Overall, this work contributes to a large body of cognitive biases which affect 
 
 Overall, this work provides consistent evidence for the influence of *framing effects* on magnitude judgements in data visualisations. **In general terms, these effects occur when mental representation of information is affected by aspects of its *presentation* [see @verma_designing_2023; @hullman_visualization_2011], beyond the gain-loss framing in which they were originally described [@tversky_framing_1981; @kahneman_reference_1992].** This work provides evidence that axes influence interpretations by situating data points between reference points, thus carrying connotations about values’ magnitudes. This accords with other research demonstrating that subjective judgements of the same numerical value can be biased by its ranking within a set [@brown_does_2008]. Furthermore, according to models of graph comprehension, visual features are encoded prior to comprehension of precise numerical values [@pinker_theory_1990, @carpenter_model_1998]. The first impressions elicited by a data visualisation may prejudice overall interpretations [@pandey_how_2015; @yang_truncating_2021]. This explains how graphical cues to magnitude can inform judgements in spite of the availability of other relevant information (e.g., topic knowledge).
 
+Crossref table heading
+Studies manipulating chart design 
 
-| Investigation  | Description | Findings | Effect Size |
-| --- | --- | --- | --- |
-| Sandman et al. (1994)|————|————|————|
-| Freeman et al. (2020)|————|————|————|
-| Taylor and Anderson (1986)|————|————|————|
-| Okan et al. (2012) |————|————|————|
-| Stone et al. (2017) |————|————|————|
-| Okan et al. (2020) |————|————|————|
-| Okan et al. (2018) |————|————|————|
-| Chapter 4  | Found that…   |————|————|
-| Chapter 5   |  Found that…  |————|————|
-| Chapter 6 | Found that…   |————|————|
+| Investigation | Description | Effect Size |
+| --- | --- | --- |
+| Taylor and Anderson (1986)| Manipulating upper axis limit in line chart [$0-5 Million], [$0-25 Million]. Company performance rated as ‘far less’ favourable in 2nd example | Data not provided |
+| Sandman et al. (1994) | Risk ladder | Study 1: 11.46(3.46) vs. 12.95 (3.42); Study 2 11.58 (3.71) vs. 14.28 (3.43) |
+| Stone et al. (2017) | Stacked bars vs. blank space, same axis range. Check the perceived likelihood measures | F(1, 288) = 11.70, p = 0.001, d=0.31 (reported in Okan et al., 2020) |
+| Okan et al. (2018) | Bar charts - risk perceptions were higher in the foreground-only conditions than in the foreground+background conditions  - but combines measures of absolute and relative magnitude | F(1, 1108) = 55.53, p < 0.001, ηp2 = 0.05 [^1] |
+| Okan et al. (2020) | Icon arrays - numerator only vs. numerator plus denominator | F(1, 1,800) = 206.63, p < 0.001, ηp2 = 0.10. |
+| Freeman et al. (2021) - Experiment 3.1 | Risk ladder - Compares linear and logarithmic scales | p = 0.30 - means and SDs provided |
+| Chapter 4 | Dot plots | d = (Experiment 1) d = 0.66 (medium effect) (Experiment 2 - Interaction between position and axis orientation) d = (Experiment 3)  
+|
+| Chapter 5 | Choropleth maps - extended vs. truncated colour legend range | ——— |
+| Chapter 6 | Bar charts | d = (Experiment 1) d = (Experiment 2, interaction between axis limits and denominator information: partial 𝜂2 = 0.21 (a large effect size). |
+
+Table caption and footnotes
+
+[^1]: Reported as ηp2 = 0.05
+Footnotes for original figures
 
 
 ## Data Visualisation Literacy
