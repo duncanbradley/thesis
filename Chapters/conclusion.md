@@ -29,24 +29,21 @@ Overall, this work provides consistent evidence for the influence of *framing ef
 Crossref table heading
 Studies manipulating chart design 
 
-| Investigation | Description | Effect Size |
+| Investigation | Experimental manipulation | Effect Size |
 | --- | --- | --- |
-| Taylor and Anderson (1986)| Manipulating upper axis limit in line chart [$0-5 Million], [$0-25 Million]. Company performance rated as ‘far less’ favourable in 2nd example | Data not provided |
-| Sandman et al. (1994) | Risk ladder | Study 1: 11.46(3.46) vs. 12.95 (3.42); Study 2 11.58 (3.71) vs. 14.28 (3.43) |
-| Stone et al. (2017) | Stacked bars vs. blank space, same axis range. Check the perceived likelihood measures | F(1, 288) = 11.70, p = 0.001, d=0.31 (reported in Okan et al., 2020) |
-| Okan et al. (2018) | Bar charts - risk perceptions were higher in the foreground-only conditions than in the foreground+background conditions  - but combines measures of absolute and relative magnitude | F(1, 1108) = 55.53, p < 0.001, ηp2 = 0.05 [^1] |
-| Okan et al. (2020) | Icon arrays - numerator only vs. numerator plus denominator | F(1, 1,800) = 206.63, p < 0.001, ηp2 = 0.10. |
-| Freeman et al. (2021) - Experiment 3.1 | Risk ladder - Compares linear and logarithmic scales | p = 0.30 - means and SDs provided |
-| Chapter 4 | Dot plots | d = (Experiment 1) d = 0.66 (medium effect) (Experiment 2 - Interaction between position and axis orientation) d = (Experiment 3)  
-|
-| Chapter 5 | Choropleth maps - extended vs. truncated colour legend range | ——— |
-| Chapter 6 | Bar charts | d = (Experiment 1) d = (Experiment 2, interaction between axis limits and denominator information: partial 𝜂2 = 0.21 (a large effect size). |
+| @taylor_misleading_1986 | Upper axis limit in line chart | Data not provided |
+| @sandman_high_1994 | Range of risk ladder | Study 1: 11.46(3.46) vs. 12.95 (3.42); Study 2 11.58 (3.71) vs. 14.28 (3.43) |
+| @stone_designing_2017 | Presence of stacked bars in bar chart (with identical axis limits) | Cohen’s d = 0.31[^1] (small effect)- ~Check the perceived likelihood measures~ |
+| @okan_designing_2018 | Upper axis limit in bar chart | ηp2 = 0.05 (small effect). Note: response measure combines judgements of absolute and relative magnitude |
+| @okan_probability_2020 | Presence of denominator information in icon array | ηp2 = 0.10 (medium effect) |
+| @freeman_communicating_2021 | Linear versus logarithmic scales in risk ladder (Experiment 3.1) | (Mlin = 38.89, s.d. = 20.36, Mlog = 40.45, s.d. = 21.27; p = 0.30) - estimated 455 participants per group |
+| Chapter 4 | Axis limits in dot plots | Experiment 1 - conventional orientation: Cohen’s d = 0.26 (small effect); Experiment 2 - interaction between axis limits and axis orientation: Cohen’s d = 0.66 (medium effect, ); Experiment 3 - inverted orientation: Cohen’s d = 0.18 (very small effect) |
+| Chapter 5 | Upper colour legend limit in choropleth maps | ηp2 = 0.90 (large effect) |
+| Chapter 6 | Upper axis limit in bar charts | Experiment 1 - denominator information supplied: ηp2 = 0.23 (large effect); Experiment 2 - interaction between axis limits and denominator information: ηp2 = 0.21 (large effect) |
 
 Table caption and footnotes
 
-[^1]: Reported as ηp2 = 0.05
-Footnotes for original figures
-
+[^1]: Effect size reported in @okan_probability_2020
 
 ## Data Visualisation Literacy
 
