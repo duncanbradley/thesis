@@ -451,14 +451,70 @@ In each trial, we independently manipulated two aspects of the choropleth map. W
 ```{r}
 #| label: fig-example-stimuli
 #| include: true
-#| fig-height: 5
-#| fig-scap: "Example stimuli: six choropleth maps showing fictitious pollution data."
-#| fig-cap: "Example stimuli: six choropleth maps showing fictitious pollution data. Four colour legends are displayed below each map, but only one colour legend accompanied the map in each trial. Colour legends with extended ranges have a maximum value equal to double the maximum plotted value (top row: 400; bottom row: 1800). Colour legends with truncated ranges have a maximum value equal to the maximum plotted value in the map (top row: 200; bottom row: 900). During the experiment, all six colour scales were used in conjunction with all maximum values."
-#| fig-alt: "A 3x2 grid of choropleth map visualisations, in six different colours. Each has four colour legends below. The colour legends below the maps in the left column terminate with the same shade of colour as the darkest geographical region. The colour legends below the maps in the right column terminate with a much darker shade of colour. Each colour legend is shown with and without numerical labels."
-img1 <- ggplot() + background_image(image_read("examples/supermap_top.png")) + coord_fixed(ratio = 1041/2787)
-img2 <- ggplot() + background_image(image_read("examples/supermap_bottom.png")) + coord_fixed(ratio = 1041/2787)
+#| fig-height: 6.5
+#| fig-width: 4
+#| out-width: 450px
+#| fig-scap: "Example stimuli: choropleth maps showing fictitious pollution data."
+#| fig-cap: "Example stimuli: choropleth maps showing fictitious pollution data. Within each row, the map is identical. The columns show the different experimental conditions: the four types of legend accompanying each map. In the top three rows, the maximum plotted value in each map is 200, so the highest value in the truncated legend is 200 and the highest value in the extended legend is 400 (double the maximum plotted value). In the bottom three rows, the maximum plotted value in each map is 900, so the highest value in the truncated legend is 900 and the highest value in the extended legend is 1800 (double the maximum plotted value). During the experiment, all six colour palettes were used in conjunction with all maximum plotted values."
+#| fig-alt: "A 4x6 grid of choropleth map visualisations, in six different colours, each with an accompanying legend. The colour legends below the maps in the left columns terminate with the same shade of colour as the darkest geographical region. The colour legends below the maps in the right columns terminate with a much darker shade of colour. Each colour legend is shown with and without numerical labels."
+reds_200a <- ggplot() + background_image(image_read("data/supermap_stimuli/E1_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+reds_200b <- ggplot() + background_image(image_read("data/supermap_stimuli/E1_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+reds_200c <- ggplot() + background_image(image_read("data/supermap_stimuli/E1_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+reds_200d <- ggplot() + background_image(image_read("data/supermap_stimuli/E1_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
 
-img1 / img2 + plot_layout()
+reds_200a <- reds_200a + labs(subtitle = "Labels Absent", 
+                              title = "Extended") +
+  theme(plot.title = element_text(hjust=1, size = 8),
+        plot.subtitle = element_text(hjust=0.5, size = 6))
+
+reds_200b <- reds_200b + labs(subtitle = "Labels Present", 
+                              title = " Range") +
+  theme(plot.title = element_text(size = 8),
+        plot.subtitle = element_text(hjust=0.5, size = 6))
+
+reds_200c <- reds_200c + labs(subtitle = "Labels Absent", 
+                              title = "Truncated") +
+  theme(plot.title = element_text(hjust=1, size = 8),
+        plot.subtitle = element_text(hjust=0.5, size = 6))
+
+reds_200d <- reds_200d + labs(subtitle = "Labels Present", 
+                              title = " Range") +
+  theme(plot.title = element_text(size = 8),
+        plot.subtitle = element_text(hjust=0.5, size = 6))
+
+grey_200a <- ggplot() + background_image(image_read("data/supermap_stimuli/E2_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+grey_200b <- ggplot() + background_image(image_read("data/supermap_stimuli/E2_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+grey_200c <- ggplot() + background_image(image_read("data/supermap_stimuli/E2_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+grey_200d <- ggplot() + background_image(image_read("data/supermap_stimuli/E2_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+
+purp_200a <- ggplot() + background_image(image_read("data/supermap_stimuli/E3_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+purp_200b <- ggplot() + background_image(image_read("data/supermap_stimuli/E3_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+purp_200c <- ggplot() + background_image(image_read("data/supermap_stimuli/E3_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+purp_200d <- ggplot() + background_image(image_read("data/supermap_stimuli/E3_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+
+blue_900a <- ggplot() + background_image(image_read("data/supermap_stimuli/E46_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+blue_900b <- ggplot() + background_image(image_read("data/supermap_stimuli/E46_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+blue_900c <- ggplot() + background_image(image_read("data/supermap_stimuli/E46_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+blue_900d <- ggplot() + background_image(image_read("data/supermap_stimuli/E46_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+  
+gree_900a <- ggplot() + background_image(image_read("data/supermap_stimuli/E47_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+gree_900b <- ggplot() + background_image(image_read("data/supermap_stimuli/E47_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+gree_900c <- ggplot() + background_image(image_read("data/supermap_stimuli/E47_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+gree_900d <- ggplot() + background_image(image_read("data/supermap_stimuli/E47_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+  
+oran_900a <- ggplot() + background_image(image_read("data/supermap_stimuli/E48_extend_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+oran_900b <- ggplot() + background_image(image_read("data/supermap_stimuli/E48_extend_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+oran_900c <- ggplot() + background_image(image_read("data/supermap_stimuli/E48_trunc_blank.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+oran_900d <- ggplot() + background_image(image_read("data/supermap_stimuli/E48_trunc_label.png")) + coord_fixed(ratio = 1) + theme(plot.margin = unit(c(0,0,0,0), "cm"))
+
+supermap <- 
+  (reds_200c|reds_200d|reds_200a|reds_200b) / 
+  (grey_200c|grey_200d|grey_200a|grey_200b) / 
+  (purp_200c|purp_200d|purp_200a|purp_200b) / 
+  (blue_900c|blue_900d|blue_900a|blue_900b) / 
+  (gree_900c|gree_900d|gree_900a|gree_900b) / 
+  (oran_900c|oran_900d|oran_900a|oran_900b)
+supermap
 ```
 
 ### Participants
@@ -528,7 +584,7 @@ kable(demo_table, "html", # change to "latex" for pdf
 
 ### Procedure
 
-The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 2022.1.4] and hosted on pavlovia.org. A link to an interactive version of this experiment is available in this project's online repository: <https://osf.io/5fg8k/>. Participants were instructed to use laptop or desktop computers, rather than another type of device, and were told that the experiment was about using information to make decisions. Participants were informed that in each map, each region's colour reflected its pollution level, and that data on different types of pollution were shown throughout the experiment, with pollution levels presented using standardised units. We did not calibrate or measure colour display on participants' own screens, but using a within-participants design prevents **these differences from influencing our analysis**. Each participant was exposed to **all** experimental conditions under the same display conditions. **Therefore, an individual participant's responses to each condition can be compared to each other without display conditions acting as a confounding variable.**
+The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 2022.1.4] and hosted on pavlovia.org. A link to an interactive version of this experiment is available in this project's online repository: <https://osf.io/5fg8k/>. Participants were instructed to use laptop or desktop computers, rather than another type of device, and were told that the experiment was about using information to make decisions. Participants were informed that in each map, each region's colour reflected its pollution level, and that data on different types of pollution were shown throughout the experiment, with pollution levels presented using standardised units. We did not calibrate or measure colour display on participants' own screens, **meaning the stimuli would not appear identical for different participants. However,** using a within-participants design prevents **these differences from impairing our analysis**. Each participant was exposed to **all** experimental conditions under the same display conditions. **Therefore, an individual participant's responses to each condition can be compared to each other without display conditions acting as a confounding variable.**
 
 ```{r}
 #| label: fig-example-trial
