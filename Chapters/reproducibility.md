@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with multiple approaches for generating knowledge [@correll_are_2022]. In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and a justification for my choices. It is also necessary to acknowledge that this methodology is one of many possible methodologies, and each carries its own implications. By explicitly discussing my decisions, I recognise that they inevitably influence my findings. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
+The knowledge generated in a research project is necessarily shaped by the methods of inquiry. A recent survey of visualisation researchers revealed variation in conceptions of how progress is made in the field, with multiple approaches for generating knowledge [@correll_position_2022]. In this chapter, I discuss the epistemological approach which underlies this thesis. This provides a backdrop to the subsequent empirical work and a justification for my choices. It is also necessary to acknowledge that this methodology is one of many possible methodologies, and each carries its own implications. By explicitly discussing my decisions, I recognise that they inevitably influence my findings. This reflects the fact that an epistemological approach imposes a particular perspective, unavoidably generating a somewhat narrow view on the topic of interest.
 
 ## Experimental Methodology
 
@@ -126,12 +126,12 @@ Capturing software dependencies requires reproduction of the computational envir
 
 The following is the code from a Dockerfile used to reproducible the computational environment for the analysis conducted in Chapter 6:
 
-First, I specify the Rocker image upon which the rest of the container will be built. This image includes R (version 4.2.1), plus the RStudio Integrated Development Environment, the Quarto publishing software, and the Tidyverse packages associated with this version of R.
+First, **the code specifies** the Rocker image upon which the rest of the container will be built. This image includes R (version 4.2.1), plus the RStudio Integrated Development Environment, the Quarto publishing software, and the Tidyverse packages associated with this version of R.
 
 `FROM rocker/verse:4.2.1`
 
 
-Next, I add files to the image, including Quarto dynamic document itself, the project file, and the bibliography associated with this chapter. These are mounted at the ‘rstudio’ directory.
+Next, files **are added** to the image, including Quarto dynamic document itself, the project file, and the bibliography associated with this chapter. These are mounted at the ‘rstudio’ directory.
 
 `ADD axis-extension.qmd /home/rstudio/`
 
@@ -140,7 +140,7 @@ Next, I add files to the image, including Quarto dynamic document itself, the pr
 `ADD axis-extension.bib /home/rstudio/`
 
 
-Next, I add the contents of folders to the image. The first line adds the data files, the second line adds images displayed in the chapter, and the third line adds the cache containing the analysis models.
+Next, the contents of folders **are added** to the image. The first line adds the data files, the second line adds images displayed in the chapter, and the third line adds the cache containing the analysis models.
 
 `ADD data/ /home/rstudio/data/`
 
@@ -149,19 +149,19 @@ Next, I add the contents of folders to the image. The first line adds the data f
 `ADD axis-extension_cache/html/ /home/rstudio/axis-extension_cache/html`
 
 
-Next, I run two lines of R code to install and load the *renv* package. This package is a package manager which captures the versions of all other packages used in a project, and their dependencies, in a *renv.lock* file. 
+Next, the *renv* package **is loaded and installed**. This package is a package manager which captures the versions of all other packages used in a project, and their dependencies, in a *renv.lock* file. 
 
 `RUN R -e “install.packages(‘renv’)”`
 
 `RUN R -e “require(renv)”`
 
 
-Next, I make the *renv.lock* file available to Docker, so that it can access the specific package and dependency versions used for the original analysis.
+Next, the *renv.lock* file **is made** available to Docker, so that it can access the specific package and dependency versions used for the original analysis.
 
 `COPY renv.lock renv.lock`
 
 
-Finally, I run a line of R code which installs the specific version of each package as specified in the *renv.lock* file. 
+Finally, the specific version of each package **is installed** as specified in the *renv.lock* file. 
 
 `RUN Rscript -e ‘options(warn = 2); renv::restore(packages = c(“ggridges”, “buildmer”, “broom.mixed”, “lme4”, “insight”, “papaja”, “magick”, “patchwork”, “ggpubr”, “kableExtra”, “emmeans”, “knitr”, “effectsize”, “qwraps2”, “report”, “MuMIn”, “shiny”, “markdown”))’`
 
