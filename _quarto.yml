@@ -52,7 +52,7 @@ book:
     - Chapters/axis-extension/preface3.md
     - Chapters/axis-extension/axis-extension.qmd
     - Chapters/axis-extension/postscript3.md
-    - Chapters/conclusion.md
+    - Chapters/conclusion.qmd
 
 thesis:
   #supervisor:
