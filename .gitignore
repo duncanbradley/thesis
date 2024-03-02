@@ -3,8 +3,6 @@
 .DS_Store
 .Rproj.user
 pdf/
-/Chapters/position_magnitude/dot-plot-axes-files/
-/Chapters/ChoroplethMagnitude/ChoroplethMagnitude_files/
-/Chapters/axis-extension/axis-extension_files/
-
-/.quarto/
+Chapters/position_magnitude/dot-plot-axes-files/
+Chapters/ChoroplethMagnitude/ChoroplethMagnitude_files/
+Chapters/axis-extension/axis-extension_files/
