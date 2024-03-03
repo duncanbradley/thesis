@@ -858,7 +858,7 @@ For ratings of the severity of consequences, there was no significant interactio
 
 #### Discussion
 
-This experiment demonstrates that axis limits, which determine the position of plotted values, influence inferences about the magnitude of data points. Participants rated *the same values* as greater when these values were plotted at high positions, compared to low positions. Higher data visualisation literacy levels were associated with a reduced effect, but accounting for data visualisation literacy did not eliminate this effect.
+This experiment demonstrates that axis limits, which determine the position of plotted values, influence inferences about the magnitude of data points. Participants rated *the same values* as greater when these values were plotted at high positions, compared to low positions. Higher data visualisation literacy levels were associated with a reduced effect, but accounting for data visualisation **literacy** did not eliminate this effect.
 
 Even though the charts only displayed data on the chance of negative outcomes occurring, ratings of severity of consequences were also greater when data points were presented at high positions. The effect on severity ratings was not associated with differences in data visualisation literacy.
 
