@@ -26,6 +26,6 @@ This set of experiments on bar charts, and the second experiment in this thesis 
 
 ## References
 
-Garcia-Retamero R, Galesic M. 2010. Who profits from visual aids: Overcoming challenges in people’s understanding of risks. *Social Science & Medicine* **70**:1019–1025. doi:[10.1016/j.socscimed.2009.11.031](https://doi.org/10.1016/j.socscimed.2009.11.031)
+Garcia-Retamero, R., & Galesic, M. (2010). Who profits from visual aids: Overcoming challenges in people’s understanding of risks. *Social Science & Medicine*, *70*(7), 1019– 1025. [https://doi.org/10.1016/j.socscimed.2009.11.031](https://doi.org/10.1016/j.socscimed.2009.11.031)
 
-Okan Y, Stone ER, Bruine De Bruin W. 2018. Designing Graphs that Promote Both Risk Understanding and Behavior Change *Risk Analysis* **38**:929–946. doi:[10.1111/risa.12895](https://doi.org/10.1111/risa.12895) 
+Okan, Y., Stone, E. R., & Bruine De Bruin, W. (2018). Designing Graphs that Promote Both Risk Understanding and Behavior Change. *Risk Analysis*, *38*(5), 929–946. [https://doi.org/10.1111/risa.12895](https://doi.org/10.1111/risa.12895 )

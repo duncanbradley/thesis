@@ -10,4 +10,4 @@ In order to gain further insight into how absolute magnitude is processed, these
 
 ## References
 
-Sandman PM, Weinstein ND, Miller P. 1994. High Risk or Low: How Location on a ”Risk Ladder” Affects Perceived Risk. *Risk Analysis* **14**:35–45. doi:[10.1111/j.1539-6924.1994.tb00026.x](https://doi.org/10.1111/j.1539-6924.1994.tb00026.x)
+Sandman, P. M., Weinstein, N. D., & Miller, P. (1994). High Risk or Low: How Location on a ”Risk Ladder” Affects Perceived Risk. *Risk Analysis*, *14*(1), 35–45. [https://doi.org/10.1111/j.1539-6924.1994.tb00026.x](https://doi.org/10.1111/j.1539-6924.1994.tb00026.x)

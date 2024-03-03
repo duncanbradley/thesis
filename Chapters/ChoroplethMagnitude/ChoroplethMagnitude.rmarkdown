@@ -359,6 +359,8 @@ print_es <- function(x) {ifelse(x<.01, "< 0.01", paste("=", printnum(x)))}
 set.seed(45789)
 ```
 
+
+
 ## Abstract
 
 Data visualisation software provides the ability to create highly customisable choropleth maps. This presents an abundance of design choices. The colour legend, one particular aspect of choropleth map design, has the potential to effectively convey data points' absolute magnitudes (how large or small they are). Colour legends present the mapping between a specific range of colours and a specific range of numerical values. In this experiment, we demonstrate that manipulating this range affects interpretations of the plotted values' absolute magnitudes. Participants (N = 100) judged the urgency of addressing pollution levels as greater when the colour legend's upper bound was equal to the maximum plotted value, compared to when it was significantly larger than the maximum plotted value. This provides insight into the cognitive processing of plotted data in choropleth maps that are designed to promote inferences about overall magnitude.
@@ -371,6 +373,8 @@ Numerical values in choropleth maps are often encoded using the entire range of 
 
 Indeed, choropleth maps displaying overall magnitudes have been used in practice. @fig-DFP-example depicts data concerning public support for a federal ban on abortion in the U.S. The accompanying colour legend presents the entire range of possible values: from 0% to 100% support. Since plotted values do not exceed 30%, their magnitudes appear small, in context. In addition, whereas a typical colour scale would amplify differences between regions, this design presents variability between states as low. This lends credibility to the notion that, for this aspect of a divisive issue, public support is consistently low across the U.S.
 
+
+
 ```{r}
 #| label: fig-DFP-example
 #| include: true
@@ -379,6 +383,8 @@ Indeed, choropleth maps displaying overall magnitudes have been used in practice
 #| fig-alt: A choropleth map of the U.S. with the title 'There is not a single state where support for a federal ban on abortion has more than 30 percent support among the public'. The colour legend employs a diverging blue-red colour palette, with white in the centre, showing the full range of possible values. Each state is coloured one of several shades of light blue. The 30 percent point is marked with a dotted line and labelled to indicate that no state exceeds this level of support.
 knitr::include_graphics("examples/dfp.png")
 ```
+
+
 
 The map may appear homogeneous, but choropleth maps present opportunities for conveying information *beyond* relative geographical differences, just as line charts may show stagnant wages. By presenting a wider numerical context, the accompanying legend imbues the map with meaning, illustrating low variability and small magnitudes. The simplicity of this message does not preclude its visualisation; as well as illuminating complex patterns, data visualisations are also designed to improve retention and engagement [@bertini_why_2020], and support cognition [@hegarty_cognitive_2011].
 
@@ -447,6 +453,8 @@ We predicted that urgency ratings would be higher for truncated legends, compare
 ### Design
 
 In each trial, we independently manipulated two aspects of the choropleth map. When the colour legend had a *truncated range*, its upper bound was equal to the maximum value displayed in the map. When the colour legend had an *extended range*, its upper bound was equal to double the maximum value (and the maximum value displayed in the map appeared at the legend's halfway point). Numerical labels on the colour legend were either *present* or *absent*. This resulted in four unique combinations of conditions. We employed a Latin-squared design, ensuring that each participant was exposed to each combination of conditions throughout the experiment, but only saw one combination for each given map. There were a total of 54 trials (48 experimental trials, six attention check trials).
+
+
 
 ```{r}
 #| label: fig-example-stimuli
@@ -517,11 +525,15 @@ supermap <-
 supermap
 ```
 
+
+
 ### Participants
 
 We recruited participants using prolific.co. The experiment was advertised to users with English language fluency, normal or corrected-to-normal vision, and no experience of colour deficiency, who had previously participated in more than 100 studies on Prolific. Participants were paid £3.50. Ethical approval was granted by The University of Manchester's Division of Neuroscience and Experimental Psychology Ethics Committee (Ref. 2022-11115-23778).
 
 In our pre-registration, we planned to exclude participants who failed more than one attention check question, in order to exclude those who were not sufficiently engaged in the task. However, when many more participants than expected failed more than one attention check question, this criteria was deemed too stringent and we instead awarded payment to all participants who returned data, regardless of their responses to attention check questions. Consequently, due to practical constraints, we were unable to obtain a sample which met both our originally-specified sample size (N = 160) and our pre-registered inclusion criteria. Therefore, we terminated data collection once the sample of those who satisfied the attention check criteria was balanced across all four Latin-squaring lists (N = 100; 25 participants per list). We used this sample for our main analysis. As a compromise for the reduction in experimental power, we also demonstrate below that the pattern of effects is largely the same when analysing the entire dataset (those who satisfied attention check criteria *and* those who did not; N = 165). In the Discussion, we discuss a possible reason for the higher-than-expected rate of incorrect responses to attention check questions. Demographic information is shown in @tbl-demographics.
+
+
 
 ```{r}
 #| label: prepare-demographics
@@ -582,9 +594,13 @@ kable(demo_table, "html", # change to "latex" for pdf
   add_header_above(header = c(" " = 1, "Gender" = 3, "Age" = 2, "Graph Literacy" = 2, "Education" = 1))
 ```
 
+
+
 ### Procedure
 
 The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 2022.1.4] and hosted on pavlovia.org. A link to an interactive version of this experiment is available in this project's online repository: <https://osf.io/5fg8k/>. Participants were instructed to use laptop or desktop computers, rather than another type of device, and were told that the experiment was about using information to make decisions. Participants were informed that in each map, each region's colour reflected its pollution level, and that data on different types of pollution were shown throughout the experiment, with pollution levels presented using standardised units. We did not calibrate or measure colour display on participants' own screens, **meaning the stimuli would not appear identical for different participants. However,** using a within-participants design prevents **these differences from impairing our analysis**. Each participant was exposed to **all** experimental conditions under the same display conditions. **Therefore, an individual participant's responses to each condition can be compared to each other without display conditions acting as a confounding variable.**
+
+
 
 ```{r}
 #| label: fig-example-trial
@@ -594,6 +610,8 @@ The experiment was programmed using PsychoPy [@peirce_psychopy2_2019, version 20
 #| fig-cap: An example of a single experiment trial, showing a choropleth map with a truncated colour legend, plus a response marker on the visual analogue scale.
 knitr::include_graphics("examples/example-trial.png")
 ```
+
+
 
 In every experimental trial, the text above the map read '*This map shows the levels of a certain type of pollution, in four regions*'. Participants were advised to read the question, which was presented below the map: '*How urgently should pollution levels in these regions be addressed?*' This question was used in all experimental trials, where the left anchor on the visual analogue response scale was labelled '*Not very urgently*' and the right anchor was labelled '*Very urgently*'. The instructions stated that higher pollution levels need to be addressed more urgently than lower pollution levels. Participants were permitted to move the response scale marker as many times as they wished before continuing to the next trial. An example trial is shown in @fig-example-trial.
 
@@ -610,6 +628,8 @@ Each visualisation contained a unique combination of four neighbouring Chinese p
 The maximum value in the plotted data ranged from 200 to 900 (in multiples of 100), and the values for the other three provinces were between 10 and 30 units below this maximum value. Six Matplotlib colour scales ('Reds', 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges') were each used once per maximum value. These scales exhibited monotonic and approximately linear variation in lightness (*L*\*). Monochromatic sequential scales were used for simplicity, avoiding additional differences between conditions, such as the relative amounts of different hues (multi-hue scales) or midpoints' positions (diverging scales). @tbl-colours shows the start and end colours in CIEL\*a\*b\* space, using CIE standard illuminant D65.
 
 For each item, a 'mappable' object defined the mapping between numerical values and colours for both truncated and extended colour legends. The lightest colour in the scale was mapped to zero and the darkest colour to double the maximum value. This range was employed in the extended colour legend. The truncated colour legend, on the other hand, terminated at the maximum value in the data, so the range was halved **and therefore overall contrast was lower** (but the mapping between numerical values and colours was retained). No classification was employed in the legends, for maximum consistency across conditions. Where numerical labels were present, an identical number of labels (between six and ten) appeared on both versions of a colour legend. Tick marks were absent from all colour legends.
+
+
 
 ```{r}
 #| label: prepare-colours
@@ -643,6 +663,8 @@ kable(Lab, digits = 2,
   add_header_above(header = c(" " = 2, "Start Colour" = 3, "End Colour" = 3))
 ```
 
+
+
 ## Analysis
 
 ### Analysis Methods
@@ -656,6 +678,8 @@ Linear mixed-effects models were constructed using lme4 [@bates_fitting_2015, ve
 #### Colour Legend Ranges and Numerical Labels
 
 @fig-main-effect-chart shows the distribution of responses for colour legends with truncated and extended ranges.
+
+
 
 ```{r}
 #| label: fig-main-effect-chart
@@ -748,11 +772,15 @@ anova_results(test_label, full_main)
 anova_results(test_int, full_int)
 ```
 
+
+
 Linear mixed-effects modelling revealed that urgency was rated as significantly higher when the colour legend had a truncated range (its upper bound was equal to the maximum value in the dataset) compared to when the colour legend had an extended range (its upper bound was equal to double the maximum value): $\chi^2$(`r in_paren(test_range.Df)`) = `r printnum(test_range.Chi)`, p `r printp(test_range.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main.eta.range)` (a `r paste(interpret_eta_squared(full_main.eta.range))` effect size). Ratings were not significantly different when numerical labels were present, compared to when they were absent: $\chi^2$(`r in_paren(test_label.Df)`) = `r printnum(test_label.Chi)`, p `r printp(test_label.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main.eta.label)` (a `r paste(interpret_eta_squared(full_main.eta.label))` effect size). This model employed random intercepts for participants with random slopes for colour legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items. The model formula was as follows: `` `r paste(print_formula(full_main))` ``
 
 There was no interaction between colour legend range and numerical labels: $\chi^2$(`r in_paren(test_int.Df)`) = `r printnum(test_int.Chi)`, p `r printp(test_int.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_int.eta.range_label)` (a `r paste(interpret_eta_squared(full_int.eta.range_label))` effect size). This model employed the same random effects structure as above. The model formula was as follows: `` `r paste(print_formula(full_int))` ``
 
 #### Data Visualisation Literacy
+
+
 
 ```{r}
 #| label: part1-lit
@@ -784,11 +812,15 @@ anova_results(test_label_lit, full_main_lit)
 anova_results(test_int_lit, full_int_lit)
 ```
 
+
+
 ##### Covariate
 
 Adding participants' data visualisation literacy as an additional fixed effect did not remove the significant effect of colour legend range: $\chi^2$(`r in_paren(test_range_lit.Df)`) = `r printnum(test_range_lit.Chi)`, p `r printp(test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.range)` (a `r paste(interpret_eta_squared(full_main_lit.eta.range))` effect size). The numerical label manipulation remained non-significant when accounting for literacy: $\chi^2$(`r in_paren(test_label_lit.Df)`) = `r printnum(test_label_lit.Chi)`, p `r printp(test_label_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_main_lit.eta.label)` (a `r paste(interpret_eta_squared(full_main_lit.eta.label))` effect size). This model employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(full_main_lit))` ``.
 
 The interaction remained non-significant when accounting for literacy ($\chi^2$(`r in_paren(test_int_lit.Df)`) = `r printnum(test_int_lit.Chi)`, p `r printp(test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_int_lit.eta.range_label)`, a `r paste(interpret_eta_squared(full_int_lit.eta.range_label))` effect size). This model employed the same random effects structure as above. The model formula was as follows: `` `r paste(print_formula(full_int_lit))` ``.
+
+
 
 ```{r}
 #| label: part1-lint
@@ -805,6 +837,8 @@ full_lint <- buildmer(slider.response ~ range * label * literacy +
 summary_extract(full_lint)
 ```
 
+
+
 ##### Interaction
 
 In an exploratory analysis, we examined whether data visualisation literacy *interacts with* the experimental manipulations. This analysis reveals that there was no interaction between data visualisation literacy and colour legend range (F(`r printnum(full_lint_range_literacy_NumDF)`, `r printnum(full_lint_range_literacy_DenDF)`) = `r printnum(full_lint_range_literacy_F.value)`, p `r printp(full_lint_range_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(full_lint_range_literacy_Eta2_partial)`, a `r paste(interpret_eta_squared(full_lint_range_literacy_Eta2_partial))` effect size) and no interaction between data visualisation literacy and the presence of numerical labels (F(`r printnum(full_lint_label_literacy_NumDF)`, `r printnum(full_lint_label_literacy_DenDF)`) = `r printnum(full_lint_label_literacy_F.value)`, p `r printp(full_lint_label_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(full_lint_label_literacy_Eta2_partial)`, a `r paste(interpret_eta_squared(full_lint_range_literacy_Eta2_partial))` effect size). There was also no three-way-interaction between data visualisation literacy, colour legend range, and the presence of numerical labels: F(`r printnum(full_lint_range_label_literacy_NumDF)`, `r printnum(full_lint_range_label_literacy_DenDF)`) = `r printnum(full_lint_range_label_literacy_F.value)`, p `r printp(full_lint_range_label_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(full_lint_range_label_literacy_Eta2_partial)` (a `r paste(interpret_eta_squared(full_lint_range_label_literacy_Eta2_partial))` effect size). These results indicate that the effect of the experimental manipulations did not differ as a function of participants' data visualisation literacy levels. This model employed random intercepts for participants with random slopes for colour legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(full_lint))` ``
@@ -814,6 +848,8 @@ In an exploratory analysis, we examined whether data visualisation literacy *int
 #### Colour Legend Ranges and Numerical Labels
 
 The above analysis was conducted using data from the 100 participants who satisfied the pre-registered attention check criteria. However, smaller samples are associated with lower statistical power. Below, we conduct the same analysis on the full sample of 165 participants (those who satisfied the pre-registered attention check criteria and those who did not).
+
+
 
 ```{r}
 #| label: part2
@@ -847,7 +883,11 @@ anova_results(both_test_label, both_full_main)
 anova_results(both_test_int, both_full_int)
 ```
 
+
+
 Urgency was rated as significantly higher when a truncated colour legend range was used, compared to when an extended colour legend range was used: $\chi^2$(`r in_paren(both_test_range.Df)`) = `r printnum(both_test_range.Chi)`, p `r printp(both_test_range.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main.eta.range)` (a `r paste(interpret_eta_squared(both_full_main.eta.range))` effect size). Ratings were not significantly different when numerical labels were present, compared to when they were absent: $\chi^2$(`r in_paren(both_test_label.Df)`) = `r printnum(both_test_label.Chi)`, p `r printp(both_test_label.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main.eta.label)` (a `r paste(interpret_eta_squared(both_full_main.eta.label))` effect size). These models employed random intercepts for participants with random slopes for colour legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(both_full_main))` ``.
+
+
 
 ```{r}
 #| label: part2-contrasts
@@ -876,9 +916,13 @@ cont_extend.d <- z_to_d(contrasts_extend$z.ratio,
                         paired = FALSE, ci = 0.95, alternative = "two.sided")$d
 ```
 
+
+
 There was a significant interaction between colour legend range and numerical label presence: $\chi^2$(`r in_paren(both_test_int.Df)`) = `r printnum(both_test_int.Chi)`, p `r printp(both_test_int.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_int.eta.range_label)` (a `r paste(interpret_eta_squared(both_full_int.eta.range_label))` effect size). This model employed the same random effects structure as above. The model formula was as follows: `` `r paste(print_formula(full_lint))` ``.
 
 We conducted pairwise comparisons with Sidak adjustment using the emmeans package [version 1.8.2, @lenth_emmeans_2021]. For choropleth maps with extended colour legend ranges, there was no difference between ratings for labelled and unlabelled colour legends: z = `r printnum(abs(cont_extend.z))`, p `r printp(cont_extend.p, add_equals = TRUE)`, Cohen's *d* = `r printnum(abs(cont_extend.d))` (a `r paste(interpret_cohens_d(cont_extend.d))` effect size). For choropleth maps with truncated colour legend ranges, higher ratings were awarded when numerical labels were absent, compared to when they were present: z = `r printnum(abs(cont_trunc.z))`, p `r printp(cont_trunc.p, add_equals = TRUE)`, Cohen's *d* = `r printnum(abs(cont_trunc.d))` (a `r paste(interpret_cohens_d(cont_trunc.d))` effect size). @fig-interaction-chart displays the means and 95% confidence intervals for each combination of conditions, for both samples of participants: those who satisfied the pre-registered attention check criteria, and the full sample.
+
+
 
 ```{r}
 #| label: fig-interaction-chart
@@ -954,7 +998,11 @@ pp / bp  +
                   subtitle = "Shown separately for participants who satisfied pre-registered attention check criteria,\nand all participants.")
 ```
 
+
+
 #### Data Visualisation Literacy
+
+
 
 ```{r}
 #| label: part2-lit
@@ -986,11 +1034,15 @@ anova_results(both_test_label_lit, both_full_main_lit)
 anova_results(both_test_int_lit, both_full_int_lit)
 ```
 
+
+
 ##### Covariate
 
 The same pattern of results was observed when accounting for differences in data visualisation literacy. There was a significant effect of colour legend range ($\chi^2$(`r in_paren(both_test_range_lit.Df)`) = `r printnum(both_test_range_lit.Chi)`, p `r printp(both_test_range_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main_lit.eta.range)`, a `r paste(interpret_eta_squared(both_full_main_lit.eta.range))` effect size) and no effect of numerical label presence ($\chi^2$(`r in_paren(both_test_label_lit.Df)`) = `r printnum(both_test_label_lit.Chi)`, p `r printp(both_test_label_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_main_lit.eta.label)`, a `r paste(interpret_eta_squared(both_full_main_lit.eta.label))` effect size). This model employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(both_full_main_lit))` ``.
 
 The interaction between colour legend range and numerical label presence remained when accounting for differences in data visualisation literacy: $\chi^2$(`r in_paren(both_test_int_lit.Df)`) = `r printnum(both_test_int_lit.Chi)`, p `r printp(both_test_int_lit.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(both_full_int_lit.eta.range_label)` (a `r paste(interpret_eta_squared(both_full_int_lit.eta.range_label))` effect size). This model employed the same random effects structure as above. The model formula was as follows: `` `r paste(print_formula(both_full_int_lit))` ``.
+
+
 
 ```{r}
 #| label: part2-lint
@@ -1007,6 +1059,8 @@ both_full_lint <- buildmer(slider.response ~ range * label * literacy +
 summary_extract(both_full_lint)
 ```
 
+
+
 ##### Interaction
 
 An exploratory analysis reveals that there was no interaction between data visualisation literacy and colour legend range: F(`r printnum(both_full_lint_range_literacy_NumDF)`, `r printnum(both_full_lint_range_literacy_DenDF)`) = `r printnum(both_full_lint_range_literacy_F.value)`, p `r printp(both_full_lint_range_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(both_full_lint_range_literacy_Eta2_partial)`, (a `r paste(interpret_eta_squared(both_full_lint_range_literacy_Eta2_partial))` effect size). There was no interaction between data visualisation literacy and the presence of numerical labels: F(`r printnum(both_full_lint_label_literacy_NumDF)`, `r printnum(both_full_lint_label_literacy_DenDF)`) = `r printnum(both_full_lint_label_literacy_F.value)`, p `r printp(both_full_lint_label_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(both_full_lint_label_literacy_Eta2_partial)`, (a `r paste(interpret_eta_squared(both_full_lint_label_literacy_Eta2_partial))` effect size). There was also no three-way-interaction between data visualisation literacy, colour legend range, and the presence of numerical labels: F(`r printnum(both_full_lint_range_label_literacy_NumDF)`, `r printnum(both_full_lint_range_label_literacy_DenDF)`) = `r printnum(both_full_lint_range_label_literacy_F.value)`, p `r printp(both_full_lint_range_label_literacy_p, add_equals = T)`, $\eta_p^2$ `r print_es(both_full_lint_range_label_literacy_Eta2_partial)`, (a `r paste(interpret_eta_squared(both_full_lint_range_label_literacy_Eta2_partial))` effect size). These results indicate that the effect of the experimental manipulations did not differ as a function of participants' data visualisation literacy levels. This model employed random intercepts for participants with random slopes for colour legend range, numerical label presence, and the interaction between these terms, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(both_full_lint))` ``.
@@ -1014,6 +1068,8 @@ An exploratory analysis reveals that there was no interaction between data visua
 ### Further Exploratory Analysis: The Role of Numerical Labels
 
 Our pre-registered analysis did not detect an effect of the presence of numerical values on urgency ratings. However, a more fine-grained analysis can explore the role of numerical labels with greater sensitivity. This exploratory analysis examines whether urgency ratings are influenced by the actual numerical values displayed. We systematically varied the maximum value displayed in each map, which ranged from 200 to 900. Other plotted values were defined in relation to this value: between 10 and 30 units less than the maximum value. Modelling the effect of different maximum values on ratings will reveal whether judgements were informed by the numerical values displayed.
+
+
 
 ```{r}
 #| label: exploratory-part1
@@ -1042,6 +1098,8 @@ anova_results(test_max_value_abs1, full_max_value_abs1)
 anova_results(test_max_value_int1, full_max_value_int1)
 ```
 
+
+
 When considering only maps with numerical labels present, ratings increased as a function of maximum value ($\chi^2$(`r in_paren(test_max_value_pres1.Df)`) = `r printnum(test_max_value_pres1.Chi)`, p `r printp(test_max_value_pres1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_pres1.eta.max_value)`, a `r paste(interpret_eta_squared(full_max_value_pres1.eta.max_value))` effect size)). This model employed random intercepts for participants with random slopes for colour legend range, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(full_max_value_pres1))` ``.
 
 However, ratings also increased as a function of maximum value even when numerical labels were absent ($\chi^2$(`r in_paren(test_max_value_abs1.Df)`) = `r printnum(test_max_value_abs1.Chi)`, p `r printp(test_max_value_abs1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_abs1.eta.max_value)`, a `r paste(interpret_eta_squared(full_max_value_abs1.eta.max_value))` effect size). This model employed random intercepts for participants with random slopes for colour legend range, plus random intercepts for items. The model formula was as follows: `` `r paste(print_formula(full_max_value_abs1))` ``.
@@ -1049,6 +1107,8 @@ However, ratings also increased as a function of maximum value even when numeric
 There was no significant interaction between maximum value and numerical label presence ($\chi^2$(`r in_paren(test_max_value_int1.Df)`) = `r printnum(test_max_value_int1.Chi)`, p `r printp(test_max_value_int1.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_int1.eta.max_value_label)`, a `r paste(interpret_eta_squared(full_max_value_int1.eta.max_value_label))` effect size). This model employed random intercepts for participants with random slopes for colour legend range and numerical label presence, plus random intercepts for items with random slopes for colour legend range. The model formula was as follows: `` `r paste(print_formula(full_max_value_int1))` ``.
 
 This suggests that the numerical labels themselves were not responsible for the effect of maximum value. Instead, this effect may have been driven by the **amount of contrast within** the choropleth map. The colour for the maximum value was identical in each map with the same colour palette, but the three *accompanying* values in each map were always between 10 and 30 units less than the maximum value. Consequently, these values were represented by darker colours when the maximum value was higher, thus conveying greater overall magnitude. Colour legend range ($\eta_p^2$ `r print_es(full_max_value_int1.eta.range)`) remains a greater influence than maximum value ($\eta_p^2$ `r print_es(full_max_value_int1.eta.max_value)`).
+
+
 
 ```{r}
 #| label: exploratory-part2
@@ -1076,6 +1136,8 @@ anova_results(test_max_value_pres2, full_max_value_pres2)
 anova_results(test_max_value_abs2, full_max_value_abs2)
 anova_results(test_max_value_int2, full_max_value_int2)
 ```
+
+
 
 In the models for participants who satisfied the pre-registered attention check criteria *and* those who did not (N = 165), there were significant effects of maximum value, for both maps with labelled colour legends ($\chi^2$(`r in_paren(test_max_value_pres2.Df)`) = `r printnum(test_max_value_pres2.Chi)`, p `r printp(test_max_value_pres2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_pres2.eta.max_value)`, a `r paste(interpret_eta_squared(full_max_value_pres2.eta.max_value))` effect size) and also maps with unlabelled colour legends ($\chi^2$(`r in_paren(test_max_value_abs2.Df)`) = `r printnum(test_max_value_abs2.Chi)`, p `r printp(test_max_value_abs2.p, add_equals = TRUE)`, $\eta_p^2$ `r print_es(full_max_value_abs2.eta.max_value)`, a `r paste(interpret_eta_squared(full_max_value_abs2.eta.max_value))` effect size). These models employed random intercepts for participants with random slopes for colour legend range, plus random intercepts for items with random slopes for colour legend range. The formula for both models was as follows: `` `r paste(print_formula(full_max_value_pres2))` ``.
 
@@ -1130,3 +1192,4 @@ The present experiment contributes to our understanding of cognitive mechanisms 
 ## Conclusion
 
 Understanding the consequences of design choices is crucial for understanding how to present data effectively. In choropleth maps, the upper bound of the accompanying colour legend influenceshow large or small plotted values appear to viewers. **Greater contrast between plotted data and the colour legend's** upper bound **decreases** impressions of absolute magnitude. This finding provides insight into the processing of choropleth maps designed to convey overall magnitude, and promotes use of a suitable range of values on a colour legend.
+

@@ -8,4 +8,4 @@ A colour legend often accompanies choropleth maps, displaying the mapping betwee
 
 The content of this chapter is adapted from:
 
-Bradley D, Zhang B, Jay C, Stewart AJ. 2023. Choropleth maps can convey absolute magnitude through the range of the accompanying colour legend. *Behaviour & Information Technology* 1–17. doi:[10.1080/0144929X.2023.2260889](https://doi.org/10.1080/0144929X.2023.2260889)
+Bradley, D., Zhang, B., Jay, C., & Stewart A. J. (2023). Choropleth maps can convey absolute magnitude through the range of the accompanying colour legend. *Behaviour & Information Technology*, 1–17. [https://doi.org/10.1080/0144929X.2023.2260889](https://doi.org/10.1080/0144929X.2023.2260889)

@@ -26,12 +26,11 @@ The first set of experiments in this thesis demonstrated that axis limits affect
 
 ## References
 
-Brychtova A, Coltekin A. 2015. Discriminating classes of sequential and qualitative colour schemes. *International Journal of Cartography* **1**:62–78. doi:[10.1080/23729333.2015.1055643](https://doi.org/10.1080/23729333.2015.1055643)
+Brychtova, A., & Coltekin, A. (2015). Discriminating classes of sequential and qualitative colour schemes. *International Journal of Cartography*, *1*(1), 62–78. [https://doi.org/10.1080/23729333.2015.1055643](https://doi.org/10.1080/23729333.2015.1055643)
 
-Dent BD, Torguson J, Hodler TW. 2009. Cartography: Thematic Map Design, 6th ed. ed. New York: McGraw-Hill Higher Education. 
+Dent, B. D., Torguson, J., & Hodler, T. W. (2009). *Cartography: Thematic Map Design* (6th ed.). McGraw-Hill Higher Education. 
 
-Jenks GF, Caspall FC. 1971. Error On Choroplethic Maps: Definition, Measurement, Reduction. *Annals of the Association of American Geographers* **61**:217–244. doi:[10.1111/j.1467-8306.1971.tb00779.x](https://doi.org/10.1111/j.1467-8306.1971.tb00779.x )
+Jenks, G. F., & Caspall, F. C. (1971). Error On Choroplethic Maps: Definition, Measurement, Reduction. *Annals of the Association of American Geographers*, *61*(2), 217–244. [https://doi.org/10.1111/j.1467-8306.1971.tb00779.x](https://doi.org/10.1111/j.1467-8306.1971.tb00779.x)
 
-Schloss KB, Gramazio CC, Silverman AT, Parker ML, Wang AS. 2019. Mapping Color to Meaning in Colormap Data Visualizations. *IEEE Transactions on Visualization and Computer Graphics* **25**:810–819. doi:[10.1109/TVCG.2018.2865147](https://doi.org/10.1109/TVCG.2018.2865147)
-
+Schloss, K. B., Gramazio, C. C., Silverman, A. T., Parker, M. L., & Wang, A. S. (2019). Mapping Color to Meaning in Colormap Data Visualizations. *IEEE Transactions on Visualization and Computer Graphics*, *25*(1), 810–819. [https://doi.org/10.1109/TVCG.2018.2865147](https://doi.org/10.1109/TVCG.2018.2865147)
 
