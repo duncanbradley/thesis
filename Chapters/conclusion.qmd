@@ -47,11 +47,11 @@ This work provides consistent evidence for the influence of *framing effects* on
 | --- | --- | --- |
 | @taylor_misleading_1986 | Upper axis limit in line chart | Data not provided |
 | @sandman_high_1994 | Range of risk ladder | Study 1: Cohen's d = `r round(abs(m2d(m1 = 11.46, s1 =3.46, m2=12.95, s2=3.42)), digits = 2)` (`r interpret_cohens_d(m2d(m1 = 11.46, s1 =3.46, m2=12.95, s2=3.42))` effect) |
-| | | Study 2: Cohen's d = `r round(abs(m2d(m1 = 11.58, s1 =3.71, m2=14.28, s2=3.43)), digits = 2)` (`r interpret_cohens_d(m2d(m1 = 11.58, s1 =3.71, m2=14.28, s2=3.43))` effect)[^1] |
-| @stone_designing_2017 | Presence of stacked bars in bar chart (with identical axis limits) | Cohen’s d = 0.31[^2] (`r interpret_cohens_d(0.31)` effect) |
-| @okan_designing_2018 | Upper axis limit in bar chart | $\eta^2$ = 0.05 (`r interpret_eta_squared(0.05)` effect)[^3] |
+| | | Study 2: Cohen's d = `r round(abs(m2d(m1 = 11.58, s1 =3.71, m2=14.28, s2=3.43)), digits = 2)` (`r interpret_cohens_d(m2d(m1 = 11.58, s1 =3.71, m2=14.28, s2=3.43))` effect)^[**Estimated using reported sample means and standard deviations, under assumption of balanced samples: exact sample size per condition not specified.**] |
+| @stone_designing_2017 | Presence of stacked bars in bar chart (with identical axis limits) | Cohen’s d = 0.31^[**Effect size reported in @okan_probability_2020**] (`r interpret_cohens_d(0.31)` effect) |
+| @okan_designing_2018 | Upper axis limit in bar chart | $\eta^2$ = 0.05 (`r interpret_eta_squared(0.05)` effect)^[**Composite perceived likelihood measure includes judgements of *relative* differences in addition to judgements of absolute magnitude.**] |
 | @okan_probability_2020 | Presence of denominator information in icon array | $\eta^2$ = 0.10 (`r interpret_eta_squared(0.10)` effect) |
-| @freeman_communicating_2021 | Linear versus logarithmic scales in risk ladder (Experiment 3.1) | Cohen's d = `r round(abs(m2d(m1 = 38.89, s1 =20.36, m2=40.45, s2=21.27)), digits = 2)` (`r interpret_cohens_d(m2d(m1 = 38.89, s1 =20.36, m2=40.45, s2=21.27))` effect)|
+| @freeman_communicating_2021 | Linear versus logarithmic scales in risk ladder (Experiment 3.1) | Cohen's d = `r round(abs(m2d(m1 = 38.89, s1 =20.36, m2=40.45, s2=21.27)), digits = 2)` (`r interpret_cohens_d(m2d(m1 = 38.89, s1 =20.36, m2=40.45, s2=21.27))` effect)^[**Estimated using reported sample means and standard deviations, under assumption of balanced samples: exact sample size per condition not specified.**] |
 | Chapter 4 | Axis limits in dot plots | Experiment 1 - conventional orientation: Cohen’s d = 0.26 (`r interpret_cohens_d(0.26)` effect)
 | | | Experiment 2 - interaction between axis limits and axis orientation: Cohen’s d = 0.66 (`r interpret_cohens_d(0.66)` effect);
 | | | Experiment 3 - inverted orientation: Cohen’s d = 0.18 (`r interpret_cohens_d(0.18)` effect) |
@@ -60,10 +60,6 @@ This work provides consistent evidence for the influence of *framing effects* on
 | | | Experiment 2 - interaction between axis limits and denominator information: $\eta^2$ = 0.21 (`r interpret_eta_squared(0.21)` effect) |
 
 : **Summary of prior and present research on interpretation of absolute magnitude in data visualisations.** {#tbl-summary}
-
-[^1]: **Estimated using reported sample means and standard deviations, under assumption of balanced samples: exact sample size per condition not specified.**
-[^2]: **Effect size reported in @okan_probability_2020**
-[^3]: **Composite perceived likelihood measure includes judgements of *relative* differences in addition to judgements of absolute magnitude.**
 
 ## Data Visualisation Literacy
 

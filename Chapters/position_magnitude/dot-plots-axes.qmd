@@ -557,11 +557,7 @@ literacy_E1 <- distinct(E1_tidy, participant, .keep_all = TRUE) %>% summarise(me
 time_E1 <- distinct(E1_tidy, participant, .keep_all = TRUE) %>% filter(time_taken < 300 & !is.na(time_taken)) %>% summarise(mean = mean(time_taken), sd = sd(time_taken))
 ```
 
-Data were returned by 160 participants. Ten participants' submissions were rejected because they answered more than two of 10 attention check questions incorrectly. This left a total of 150 participants whose submissions were used for analysis (`r printnum(gender_E1$M, digits = 0)`% male, `r printnum(gender_E1$F, digits = 0)`% female, `r printnum(gender_E1$NB, digits = 0)`% non-binary). Mean age was `r printnum(age_E1$mean)` (*SD* = `r printnum(age_E1$sd)`)[^1]. The mean data visualisation literacy score was `r printnum(literacy_E1$mean)` (*SD* = `r printnum(literacy_E1$sd)`), out of a maximum of 30. Participants whose submissions were approved were paid £3.55. Average completion time was `r printnum(time_E1$mean, digits = 0)` minutes.[^2]
-
-[^1]: Age data were unavailable for one participant.
-
-[^2]: Timing data were unavailable for two participants.
+Data were returned by 160 participants. Ten participants' submissions were rejected because they answered more than two of 10 attention check questions incorrectly. This left a total of 150 participants whose submissions were used for analysis (`r printnum(gender_E1$M, digits = 0)`% male, `r printnum(gender_E1$F, digits = 0)`% female, `r printnum(gender_E1$NB, digits = 0)`% non-binary). Mean age was `r printnum(age_E1$mean)` (*SD* = `r printnum(age_E1$sd)`)^[Age data were unavailable for one participant.]. The mean data visualisation literacy score was `r printnum(literacy_E1$mean)` (*SD* = `r printnum(literacy_E1$sd)`), out of a maximum of 30. Participants whose submissions were approved were paid £3.55. Average completion time was `r printnum(time_E1$mean, digits = 0)` minutes.^[Timing data were unavailable for two participants.]
 
 ##### Analysis Technique
 
@@ -1017,9 +1013,7 @@ Previous research suggests that charts with inverted axes can be prone to misint
 
 For this experiment, we used a Latin-squared design where participants only viewed one chart per scenario. In response to this, we increased the number of scenarios. This provided some compensation for the reduced experimental power caused by a reduction in the number of observations per participant (as well as a reduction in participant numbers).
 
-Two scenarios which were fillers in Experiment 1 were used as experimental scenarios[^3] and three additional scenarios were created. One filler scenario was removed due to a concern about its quality (it concerned the risk to others as well as the risk to oneself). This resulted in a total of 24 experimental scenarios, 12 filler scenarios, and 5 attention check questions (41 trials in total).
-
-[^3]: For one of these scenarios, the mean of the plotted data was also modified.
+Two scenarios which were fillers in Experiment 1 were used as experimental scenarios^[For one of these scenarios, the mean of the plotted data was also modified.] and three additional scenarios were created. One filler scenario was removed due to a concern about its quality (it concerned the risk to others as well as the risk to oneself). This resulted in a total of 24 experimental scenarios, 12 filler scenarios, and 5 attention check questions (41 trials in total).
 
 ##### Procedure
 
@@ -1394,9 +1388,7 @@ literacy_E3 <- distinct(E3_tidy, participant, .keep_all = TRUE) %>% summarise(me
 time_E3 <- distinct(E3_tidy, participant, .keep_all = TRUE) %>% summarise(mean = mean(time_taken), sd = sd(time_taken))
 ```
 
-Data were returned by 161 participants. Ten participants' submissions were rejected because they answered more than two of 10 attention check questions incorrectly. One additional participant was excluded from the final dataset because they exceeded the maximum completion time (87 minutes). This left a total of 150 participants whose submissions were used for analysis: (`r printnum(gender_E3$M, digits = 0)`% male, `r printnum(gender_E3$F, digits = 0)`% female). Mean age was `r printnum(age_E3$mean)` (*SD* = `r printnum(age_E3$sd)`)[^4]. `r printnum(edu_E3$n, digits = 0)`% had completed at least secondary education. The mean data visualisation literacy score was `r printnum(literacy_E3$mean)` (*SD* = `r printnum(literacy_E3$sd)`). Participants whose submissions were approved were paid £3.45, and average completion time was `r printnum(time_E3$mean, digits = 0)` minutes.
-
-[^4]: Age data were unavailable for two participants.
+Data were returned by 161 participants. Ten participants' submissions were rejected because they answered more than two of 10 attention check questions incorrectly. One additional participant was excluded from the final dataset because they exceeded the maximum completion time (87 minutes). This left a total of 150 participants whose submissions were used for analysis: (`r printnum(gender_E3$M, digits = 0)`% male, `r printnum(gender_E3$F, digits = 0)`% female). Mean age was `r printnum(age_E3$mean)` (*SD* = `r printnum(age_E3$sd)`)^[Age data were unavailable for two participants.]. `r printnum(edu_E3$n, digits = 0)`% had completed at least secondary education. The mean data visualisation literacy score was `r printnum(literacy_E3$mean)` (*SD* = `r printnum(literacy_E3$sd)`). Participants whose submissions were approved were paid £3.45, and average completion time was `r printnum(time_E3$mean, digits = 0)` minutes.
 
 #### Results
 
