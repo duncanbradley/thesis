@@ -98,6 +98,7 @@ format:
     include-in-header: 
       text: |
         \usepackage{enumerate}% http://ctan.org/pkg/enumerate
+        \usepackage{hyperref}
     code-block-border-left: false
     code-block-bg: "E6E6E6"
     linestretch: 1.5
